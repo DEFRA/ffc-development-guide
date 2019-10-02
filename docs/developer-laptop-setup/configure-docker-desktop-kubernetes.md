@@ -1,4 +1,4 @@
-# Overview
+# Configure Docker Desktop and Kubernetes
 Kubernetes (commonly stylized as k8s) is an open-source container-orchestration system for automating application deployment, scaling, and management.
 
 FFC's microservice ecosystem will be orchestrated within Kubernetes clusters.
@@ -19,12 +19,10 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
 ```
 
 ### Copy Kubernetes configuration from Windows
-
 ```
 mkdir ~/.kube \
 && cp /c/Users/[USERNAME]/.kube/config ~/.kube
 ```
 
 ### Use Docker Desktop context in WSL
-
 `kubectl config use-context docker-desktop`
