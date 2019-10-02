@@ -1,4 +1,4 @@
-# Overview
+# Install Git on WSL
 Git should be installed in WSL to allow Git commands to be run from the WSL terminal.  For example, when developing services in VS Code.
 
 # Installation
