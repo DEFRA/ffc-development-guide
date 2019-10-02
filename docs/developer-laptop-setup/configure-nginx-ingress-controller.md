@@ -1,4 +1,4 @@
-# Overview
+# Configure NGINX Ingress Controller
 The Ingress controller is an application that runs in a Kubernetes cluster and configures an HTTP load balancer according to Ingress resources. In the case of NGINX, the Ingress controller is deployed in a pod along with the load balancer.
 
 # Installation
