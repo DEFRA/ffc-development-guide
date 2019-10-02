@@ -1,4 +1,4 @@
-# Overview
+# Install Kubernetes dashboard
 The Kubernetes dashboard is a web-based Kubernetes user interface.
 
 # Installation
