@@ -1,4 +1,4 @@
-# Setup Developer Laptop
+# Setup developer laptop
 Developers are free to use any Defra approved device and their own choice of operating system and code editor/IDE.  However this document will assume use of a Windows 10 device with Windows Subsystem for Linux (WSL) and Visual Studio Code as a code editor.
 
 # Configuration steps
