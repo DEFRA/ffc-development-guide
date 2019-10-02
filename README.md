@@ -1,5 +1,4 @@
-# Future Farming and Countryside Programme
-# Development Guide
+# Future Farming and Countryside Programme Development Guide
 This is a respository for all core development documentation relating to the Future Farming and Countryside Programme (FFC).
 
 This repository includes development standards, patterns and guides to be used by all FFC developers.
