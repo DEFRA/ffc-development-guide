@@ -5,7 +5,7 @@ Visual Studio Code is a source code editor developed by Microsoft for Windows, L
 Install on Windows via download from https://code.visualstudio.com/download
 
 ## Install StandardJS
-Defra's digital standards for JavaScript state that StandardJS coding standards should be used.  Visual Studio has an extension to validate syntax for StandardJS.
+In line with Defra's digital standards for JavaScript, StandardJS coding standards should be used.  Visual Studio has an extension to validate syntax for StandardJS.
 1. Install StandardJS extension
 1. Disable VS Code JavaScript Validation by adding `"javascript.validate.enable": false` to settings.json
 1. Install StandardJS locally or globally
@@ -27,10 +27,11 @@ If you prefer your code to autosave, add the following to settings.json.
   "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe"
   ```
 3. Add or update the Windows environment variable WSLGIT_USE_INTERACTIVE_SHELL to false or 0
-1. Install the WSL workspace folder extension for VS Code
 
 ## Debug configuration
-Example configurations for Node.
+The simplest way to debug code within WSL is to use the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) VS Code extension.
+
+Alternatively, you can use the [WSL workspace folder](https://marketplace.visualstudio.com/items?itemName=lfurzewaddock.vscode-wsl-workspacefolder) and update your debug configuration to use the WSL folder.  Examples below.
 
 ### Basic
 ```
