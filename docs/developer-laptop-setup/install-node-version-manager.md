@@ -1,5 +1,5 @@
-# Overview
-Node Version Manager allows a developer to switch between Node versions.
+# Install Node Version Manager
+Node Version Manager allows a developer to easily switch between Node versions.
 
 # Installation
 ## Install NVM
