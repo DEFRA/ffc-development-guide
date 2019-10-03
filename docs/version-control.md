@@ -39,7 +39,3 @@ Release should be packaged in a repository using the version number of the appli
 
 ## Creating a new version
 The judgement call as to whether a change is a MAJOR, MINOR or PATCH can only be assessed by a person.  Therefore there needs to be a flag added to the application to indicate which type of release a change is.
-
-The build pipeline will automatically calculate and update the version within both package.json and chart.yaml if part of a merge to master based on this flag value.
-
-This calculated value will be used elsewhere within the pipeline to tag the image and release.
