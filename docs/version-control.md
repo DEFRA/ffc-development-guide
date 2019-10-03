@@ -11,7 +11,7 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
-Full details can be found at [semver.org](semver.org).
+Full details can be found at [semver.org](https://semver.org).
 
 ## Application version
 For a Node.js microservice, the version should be updated in the `package.json` file's `version` property.
