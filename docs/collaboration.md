@@ -50,6 +50,7 @@ All channels are within the `defra-digital.slack.com` workspace.
 `#ffc-programme-del` - Programme team channel  
 `#ffc-platform` - Platform Services team channel
 `#elms` - ELM team channel
+`#elm-delivery` - ELM team channel  
 `#ffc-technical` - FFC channel for technical discussions
 
 ### Channels outside of FFC
