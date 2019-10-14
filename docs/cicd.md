@@ -44,3 +44,13 @@ The following assumes you have an existing repository containing a Jenkinsfile.
 - Set the `Script Path` to where the Jenkinsfile can be found in the repo
 - save the project
 - select `Build Now`
+
+### Troubleshooting
+
+#### Jenkins pipeline not permitted to run in process scripts
+If an exception of type `Jenkins CI Pipeline Scripts not permitted to use method groovy.lang.GroovyObject` is thrown, then complete the following steps.
+
+- select `Manage Jenkins` from the main menu
+- select `In-process Script Approval`
+- select `Approve` for Groovy
+
