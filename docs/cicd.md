@@ -1,17 +1,46 @@
 # CI/CD pipelines
 The capabilities of FFC are underpinned by DevOps CI/CD pipelines providing cloud agnostic tooling with build and release automation  through Jenkins.
 
-# Standards
-Pipelines should be scripted within a Jenkinsfile and source controlled with the service it relates to.  The Groovy syntax should be used.
+## Standards
+- Pipelines should be scripted within a Jenkinsfile and source controlled with the service it relates to
+- The Groovy syntax should be used
+- Build steps should be containerised where possible to reduce the plugin and Jenkins configuration dependencies
 
-# Using Jenkins locally
-## Installation
-Jenkins can be installed locally by following this [official guide](https://jenkins.io/doc/book/installing/).  The recommended method is to use the Blue Ocean Docker image.
+## Using Jenkins locally
+### Installation
+It is recommended that Jenkins is run locally within the Blue Ocean Docker image.
 
-## Run build from local repository
-Open Jenkins
-Create new freestyle project
-Select repo
-Use file syntax
-Use URL for remote
+The below command will pull the image and run the container.
 
+```
+docker run \
+  -u root \
+  --rm \
+  -d \
+  -p 8080:8080 \
+  -p 50000:50000 \
+  -v jenkins-data:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v <PATH_TO_LOCAL_GIT_REPOS>:repos:ro \
+  jenkinsci/blueocean
+```
+
+`-v <PATH_TO_LOCAL_GIT_REPOS>:repos:ro`  
+
+The above line should be amended to specify the file path of your local git repositories.  This will allow you to run builds from your local repository.
+
+An example could be ` -v /c/users/ddts_220606/source/repos:\repos:ro`  
+
+This [official guide](https://jenkins.io/doc/book/installing/) includes instructions for how to setup access credentials to the Jenkins container.
+
+### Run build from local repository
+The following assumes you have an existing repository containing a Jenkinsfile.  
+
+- select `New Item` from the main menu
+- enter a project name and select `Pipeline`
+- within the `Pipeline` section, select `Pipeline script from SCM` as the `Definition`
+- enter `Git` as the `SCM`
+- enter the local repository path into the `Repository URL` using the mount configured above, for example `file:////repos/repo1`
+- Set the `Script Path` to where the Jenkinsfile can be found in the repo
+- save the project
+- select `Build Now`
