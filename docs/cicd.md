@@ -47,7 +47,6 @@ The following assumes you have an existing repository containing a Jenkinsfile.
 
 ### Troubleshooting
 
-#### Jenkins pipeline not permitted to run in process scripts
 If an exception of type `Jenkins CI Pipeline Scripts not permitted to use method groovy.lang.GroovyObject` is thrown, then complete the following steps.
 
 - select `Manage Jenkins` from the main menu
