@@ -7,3 +7,11 @@ Pipelines should be scripted within a Jenkinsfile and source controlled with the
 # Using Jenkins locally
 ## Installation
 Jenkins can be installed locally by following this [official guide](https://jenkins.io/doc/book/installing/).  The recommended method is to use the Blue Ocean Docker image.
+
+## Run build from local repository
+Open Jenkins
+Create new freestyle project
+Select repo
+Use file syntax
+Use URL for remote
+
