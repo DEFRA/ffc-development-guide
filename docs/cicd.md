@@ -21,7 +21,7 @@ docker run \
   -p 50000:50000 \
   -v jenkins-data:/var/jenkins_home \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -v <PATH_TO_LOCAL_GIT_REPOS>:repos:ro \
+  -v <PATH_TO_LOCAL_GIT_REPOS>:/repos:ro \
   jenkinsci/blueocean
 ```
 
