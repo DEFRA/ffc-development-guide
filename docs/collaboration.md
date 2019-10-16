@@ -23,8 +23,6 @@ Jira is used to manage and progress the backlog of each delivery team.
 
 Access is authorised by an Atlassian account which must be created using your corporate email.
 
-Issues should include a full description of their purpose and testable acceptance criteria before they are worked on.  
-
 Discussions around specific issues can be added to the comments of the issue.  
 
 [Programme team Jira](https://eaflood.atlassian.net/secure/RapidBoard.jspa?projectKey=FPD&rapidView=533&view=planning)  

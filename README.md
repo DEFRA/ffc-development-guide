@@ -7,6 +7,7 @@ This repository includes development standards, patterns and guides to be used b
 - [Documentation Standards](docs/documentation-standards.md)
 - [Technology stack](docs/technology-stack.md)
 - [Collaboration](docs/collaboration.md)
+- [Backlog management](docs/backlog-management.md)
 - [Setting up a development laptop](docs/developer-laptop-setup/index.md)
 - [Version control](docs/version-control.md)
 - [CI/CD pipelines](docs/cicd.md)
