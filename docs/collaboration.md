@@ -13,7 +13,7 @@ Google drive is used by some FFC teams as an unofficial document repository.  It
 
 Access is authorised via a Google account which must be created using your corporate email.
 
-Sharepoint should be preffered to Google Drive.
+Sharepoint should be preferred to Google Drive.
 
 [Progamme team Google Drive](https://drive.google.com/drive/folders/0AAmQ4TlCw4vzUk9PVA)  
 [ELM team Google Drive](https://drive.google.com/drive/folders/0AIJpwGmbYIzKUk9PVA)
@@ -48,8 +48,8 @@ Access is authorised by a Slack account which must be created using your corpora
 All channels are within the `defra-digital.slack.com` workspace.
 
 `#ffc-programme-del` - Programme team channel  
-`#ffc-platform` - Platform Services team channel
-`#elms` - ELM team channel
+`#ffc-platform` - Platform Services team channel  
+`#elms` - ELM team channel  
 `#elm-delivery` - ELM team channel  
 `#ffc-technical` - FFC channel for technical discussions
 

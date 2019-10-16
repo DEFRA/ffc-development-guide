@@ -6,7 +6,8 @@ These choice have been used as a baseline to help decide which technologies to b
 FFC Test Lead has been involved in these discussions.
 
 ## Microservice Development
-- Node.js with Hapi.js
+- Node.js
+- Hapi.js
 
 ## Databases
 ### Relational
@@ -16,11 +17,10 @@ FFC Test Lead has been involved in these discussions.
 All NoSQL databases will use the Mongo driver as this is the only driver compatible with PaaS services in both Azure and AWS
 
 - CosmosDB for NoSQL databases host in Azure
-- TBC for NoSQL databases hosted in AWS
+- MongoDB for NoSQL databases hosted in AWS
 
 ## Infrastructure Building 
 - Terraform
-- ARM templates 
 
 ## Source Code Repository 
 - GitHub (public)
@@ -30,10 +30,10 @@ All NoSQL databases will use the Mongo driver as this is the only driver compati
 - Node Package Manager (NPM)
 
 ## CI/CD Pipelines 
-- Jenkins
+- Jenkins (Groovy syntax)
 
 ## Repository Manager 
-- JFrog Artifactory
+- JFrog Artifactory (TBC)
 
 ## Container Orchestration
 - Docker
@@ -44,9 +44,26 @@ All NoSQL databases will use the Mongo driver as this is the only driver compati
 - SonarQube
 
 ## Testing
-- Selenium - functional tests
-- Cucumber - automated test specification
-- JMeter - performance test
-- Snyk – vulnerability tests
-- Jest – unit tests
-- Pa11y – accessibility tests
+### Unit
+- Jest
+
+### Functional
+- Cypress
+
+### Compatibility
+- Selenium
+- BrowserStack
+
+### Performance
+- JMeter
+
+### Security
+- Snyk
+- OWASP Zap
+
+### Acceptance
+- Cypress
+- Cucumber
+
+### Accessibility
+- Pa11y
