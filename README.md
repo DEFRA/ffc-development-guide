@@ -8,9 +8,9 @@ This repository includes development standards, patterns and guides to be used b
 - [Technology stack](docs/technology-stack.md)
 - [Collaboration](docs/collaboration.md)
 - [Setting up a development laptop](docs/developer-laptop-setup/index.md)
-- [Version control](docs/version-control.md)
+- [Source code and branching strategy](docs/source-code.md)
 - [CI/CD pipelines](docs/cicd.md)
+- [Version control](docs/version-control.md)
 - [Test strategy](docs/test-strategy.md)
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/index.md)
-- [Source code](docs/source-code.md)
 
