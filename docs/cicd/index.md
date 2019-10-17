@@ -11,4 +11,4 @@ The below diagrams show the current design for a CI/CD pipeline that embraces a 
 ![CI/CD pipeline](/docs/images/cicd.png)
 
 ## Pull Request pipeline
-
+The PR pipeline 

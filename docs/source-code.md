@@ -51,3 +51,8 @@ This allows for a more rapid CI/CD approach, but needs to be well supported with
 #### Notes
 - feature flags and branching by abstraction can support long running changes
 - pair programming can reduce risk through real time code review
+
+## Creating branches
+New branches should be created from master to develop features and fix bugs.
+
+
