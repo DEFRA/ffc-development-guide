@@ -12,5 +12,5 @@ This repository includes development standards, patterns and guides to be used b
 - [CI/CD pipelines](docs/cicd.md)
 - [Test strategy](docs/test-strategy.md)
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/index.md)
-- [Branching strategy](docs/branching-strategy.md)
+- [Source code](docs/source-code.md)
 
