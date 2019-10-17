@@ -1,5 +1,5 @@
-# CI/CD pipelines
-The capabilities of FFC are underpinned by DevOps CI/CD pipelines providing cloud agnostic tooling with build and release automation  through Jenkins.
+# Jenkins
+Jenkins is used for all CI/CD pipelines across all FFC teams.
 
 ## Standards
 - Pipelines should be scripted within a Jenkinsfile and source controlled with the service it relates to

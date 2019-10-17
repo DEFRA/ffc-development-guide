@@ -9,7 +9,7 @@ This repository includes development standards, patterns and guides to be used b
 - [Collaboration](docs/collaboration.md)
 - [Setting up a development laptop](docs/developer-laptop-setup/index.md)
 - [Source code and branching strategy](docs/source-code.md)
-- [CI/CD pipelines](docs/cicd.md)
+- [CI/CD pipelines](docs/cicd/index.md)
 - [Version control](docs/version-control.md)
 - [Test strategy](docs/test-strategy.md)
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/index.md)
