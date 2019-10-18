@@ -7,11 +7,11 @@ In addition to specific FFC standards, teams should also follow Defra's wider so
 
 ## Documentation
 - [Documentation standards](docs/documentation-standards.md)
-- [Code review standards](docs/code-review.md)
 - [Technology stack](docs/technology-stack.md)
 - [Collaboration](docs/collaboration.md)
 - [Setting up a development laptop](docs/developer-laptop-setup/index.md)
 - [Source code and branching strategy](docs/source-code.md)
+- [Code review standards](docs/code-review.md)
 - [CI/CD pipelines](docs/cicd/index.md)
 - [Version control](docs/version-control.md)
 - [Test strategy](docs/test-strategy.md)
