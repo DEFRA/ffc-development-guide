@@ -60,3 +60,10 @@ When following feature branch development, pull requests should be used to colla
 Pull requests should be created in line with [Defra's standards](https://github.com/DEFRA/software-development-standards/blob/master/processes/pull_requests.md) and reviewed in the spirit of [FFC's code review standards](/docs/code-review.md).
 
 Pull requests should trigger a build and a PR deployment to support the view.
+
+### Completing Pull Request
+In order to complete a pull request, all of the following conditions must be met:
+- at least one approver
+- PR build must complete successfully
+
+On completion of a pull request a squash merge should be performed and the feature/bug branch should be deleted.
