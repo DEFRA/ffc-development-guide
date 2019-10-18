@@ -8,8 +8,6 @@ Jenkins is used for all CI/CD pipelines across all FFC teams.
 - reusable steps should be encapsulated in a shared script and source controlled in a repository
 - secret values and sensitive configuration should not be included in a Jenkinsfile, instead use either a parementer or reference to a Jenkins credential
 
-
-
 ## Using Jenkins locally
 ### Installation
 It is recommended that Jenkins is run locally within the Blue Ocean Docker image.  The Blue Ocean image is recommended by Jenkins as it comes with Blue Ocean already configured.  Blue Ocean provides a more user friendly experience which may suit developers new to Jenkins.
