@@ -13,6 +13,8 @@ With feature branch development, all feature development should take place in a 
 
 This allows multiple developers to work on a feature whilst protecting the master branch. 
 
+New branches should be created from master for both feature development and bug fixes.
+
 ![Feature branch development](/docs/images/feature-branch-development.png)
 
 #### Pros
@@ -52,7 +54,7 @@ This allows for a more rapid CI/CD approach, but needs to be well supported with
 - feature flags and branching by abstraction can support long running changes
 - pair programming can reduce risk through real time code review
 
-## Creating branches
-New branches should be created from master to develop features and fix bugs.
+## Pull Requests
+When following feature branch development, pull requests should be used to collaborate and ensure code quality.
 
-
+Pull requests should be created in line with [Defra's standards](https://github.com/DEFRA/software-development-standards/blob/master/processes/pull_requests.md) and reviewed in the spirit of [FFC's code review standards](/docs/code-review.md).
