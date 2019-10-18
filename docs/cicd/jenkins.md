@@ -2,9 +2,13 @@
 Jenkins is used for all CI/CD pipelines across all FFC teams.
 
 ## Standards
-- Pipelines should be scripted within a Jenkinsfile and source controlled with the service it relates to
-- The Groovy syntax should be used
-- Build steps should be containerised where possible to reduce the plugin and Jenkins configuration dependencies
+- pipelines should be scripted within a Jenkinsfile and source controlled with the service it relates to
+- Groovy syntax should be used
+- build steps should be containerised where possible to reduce the plugin and Jenkins configuration dependencies
+- reusable steps should be encapsulated in a shared script and source controlled in a repository
+- secret values and sensitive configuration should not be included in a Jenkinsfile, instead use either a parementer or reference to a Jenkins credential
+
+
 
 ## Using Jenkins locally
 ### Installation
