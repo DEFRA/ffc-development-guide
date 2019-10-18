@@ -4,7 +4,8 @@ This is a respository for all core development documentation relating to the Fut
 This repository includes development standards, patterns and guides to be used by all FFC developers.
 
 ## Documentation
-- [Documentation Standards](docs/documentation-standards.md)
+- [Documentation standards](docs/documentation-standards.md)
+- [Code review standards](docs/code-review.md)
 - [Technology stack](docs/technology-stack.md)
 - [Collaboration](docs/collaboration.md)
 - [Setting up a development laptop](docs/developer-laptop-setup/index.md)
@@ -12,4 +13,3 @@ This repository includes development standards, patterns and guides to be used b
 - [CI/CD pipelines](docs/cicd.md)
 - [Test stratgey](docs/test-strategy.md)
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/index.md)
-
