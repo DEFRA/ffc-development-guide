@@ -28,7 +28,7 @@ Do ask open-ended questions and keep an open mind about alternative solutions an
 
 Code reviews should focus on what is being changed and whether the change is appropriate.
 
-Expanding the scope of a pull request at the review stage is not acceptable. It is generally more valuable to swiftly conclude a piece of work that the team has prioritised than to opportunistically seek addition changes, such as refactoring related code. That said, it can be useful to comment on refactoring opportunities without blocking the pull request. It may be that the author has some spare time they can use to make those changes, or can incorporate them with their next piece of work.
+Expanding the scope of a pull request at the review stage is not acceptable. It is generally more valuable to swiftly conclude a piece of work that the team has prioritised than to opportunistically seek additional changes, such as refactoring related code. That said, it can be useful to comment on refactoring opportunities without blocking the pull request. It may be that the author has some spare time they can use to make those changes, or can incorporate them with their next piece of work.
 
 Examples of things to look for and comment on in a code review:
 
