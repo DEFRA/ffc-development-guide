@@ -8,7 +8,7 @@ Jenkins is used for all CI/CD pipelines across all FFC teams.
 
 ## Using Jenkins locally
 ### Installation
-It is recommended that Jenkins is run locally within the Blue Ocean Docker image.  The Blue Ocean image is recommended by Jenkins as it comes with Blue Ocean already configured.  Blue Ocean provides a more user friendly experience.
+It is recommended that Jenkins is run locally within the Blue Ocean Docker image.  The Blue Ocean image is recommended by Jenkins as it comes with Blue Ocean already configured.  Blue Ocean provides a more user friendly experience which may suit developers new to Jenkins.
 
 The below command will pull the image and run the container.
 
