@@ -39,7 +39,9 @@ Are the changes focussed on a specific issue, referenced in the pull request des
 Is all new code extensible and easy for other developers to understand? Does it follow common design patterns? Look for unnecessary complexity and remember that this is subjective so take care not to be overly critical or opinionated when commenting on maintainability. Try to make specific suggestions for improvement, rather than simply stating a problem, but use open-ended language to encourage discussion.
 
 ### Duplication
-Is there duplication within new code or between new and existing code? Could an existing abstraction be reused or should a new abstraction be created? Consider using non-blocking comments when proposing abstractions so they can be addressed separately as technical debt, rather than extending the scope of the pull request.
+Is there duplication within new code or between new and existing code? Could an existing abstraction be reused or should a new abstraction be created? When proposing an abstraction, consider using a non-blocking comment to open a dialogue about what the abstraction should be and whether it needs addressing now or as a separate piece of work.
+
+Identifying useful abstractions at the review stage may indicate that there wasn't enough collaboration before coding began. See this as a trigger to review the team's ways of working, rather than blocking a pull request unnecessarily.
 
 ### Reusability
 Have any new abstractions been introduced? Are they sufficiently reusable? If other parts of the system could be updated to use the new abstractions, consider suggesting this in a non-blocking comment so it can be discussed and added to the product backlog as technical debt.
