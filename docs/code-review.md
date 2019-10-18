@@ -79,7 +79,11 @@ You should approve a pull request when you have confirmed that:
 
 Occasionally, it may be prudent to accept a pull request which does not meet all of the above requirements, such as to resolve an urgent issue with the live product. Such cases must always be agreed between the product owner, author(s) and reviewer(s).
 
-If comments or questions on a pull request have been addressed elsewhere (e.g. face-to-face or on Slack), ensure that the outcome is recorded in comment replies so that it is visible to anyone looking back at the pull request in future for information. Use the Resolve button to make it clear which comments have been addressed and which still need attention. A pull request should only be approved after all comments have been resolved.
+If comments or questions on a pull request have been addressed elsewhere (e.g. face-to-face or on Slack), ensure that the outcome is recorded in comment replies so that it is visible to anyone looking back at the pull request in future for information.
+
+Use the Resolve button to make it clear which of your concerns have been addressed and which still need attention. A pull request should only be approved after all reviewers have explicitly indicated that each of their comments have been resolved. If several reviewers have replied to a comment thread, it may appropriate for any of them to resolve that conversation on behalf of the group.
+
+Sometimes, a reviewer may become unavailable after commenting on a pull request. When that happens, a second reviewer may accept the pull request without resolving the first reviewer's comments, as long as the author and second reviewer agree that they believe all legitimate concerns have been addressed. Before accepting the pull request, the second reviewer should reply to each unresolved comment to indicate that they believe it has been addressed.
 
 ### When to request changes
 You should request changes to a pull request if any of the following are true:
