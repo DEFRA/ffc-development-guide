@@ -44,7 +44,7 @@ Is there duplication within new code or between new and existing code? Could an 
 Identifying useful abstractions at the review stage may indicate that there wasn't enough collaboration before coding began. See this as a trigger to review the team's ways of working, rather than blocking a pull request unnecessarily.
 
 ### Reusability
-Have any new abstractions been introduced? Are they sufficiently reusable? If other parts of the system could be updated to use the new abstractions, consider suggesting this in a non-blocking comment so it can be discussed and added to the product backlog as technical debt.
+Have any new abstractions been introduced? Are they sufficiently reusable? If other parts of the system could be updated to use the new abstractions, consider suggesting this in a non-blocking comment so it can be discussed and either addressed in the same pull request or added to the product backlog as technical debt.
 
 ### Impact on other parts of the system
 Will the changes have knock-on effects or otherwise necessitate changes to other parts of the system?
