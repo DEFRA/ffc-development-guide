@@ -6,7 +6,8 @@ This repository includes development standards, patterns and guides to be used b
 In addition to specific FFC standards, teams should also follow Defra's wider software development standards which can be found [here](https://github.com/DEFRA/software-development-standards/).
 
 ## Documentation
-- [Documentation Standards](docs/documentation-standards.md)
+- [Documentation standards](docs/documentation-standards.md)
+- [Code review standards](docs/code-review.md)
 - [Technology stack](docs/technology-stack.md)
 - [Collaboration](docs/collaboration.md)
 - [Setting up a development laptop](docs/developer-laptop-setup/index.md)
@@ -15,4 +16,3 @@ In addition to specific FFC standards, teams should also follow Defra's wider so
 - [Version control](docs/version-control.md)
 - [Test strategy](docs/test-strategy.md)
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/index.md)
-
