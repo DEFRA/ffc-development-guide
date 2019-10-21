@@ -6,7 +6,7 @@ Jenkins is used for all CI/CD pipelines across all FFC teams.
 - Groovy syntax should be used
 - build steps should be containerised where possible to reduce the plugin and Jenkins configuration dependencies
 - reusable steps should be encapsulated in a shared script and source controlled in a repository
-- secret values and sensitive configuration should not be included in a Jenkinsfile, instead use either a parementer or reference to a Jenkins credential
+- secret values and sensitive configuration should not be included in a Jenkinsfile, instead use either a paremeter or reference to a Jenkins credential
 
 ## Using Jenkins locally
 ### Installation
