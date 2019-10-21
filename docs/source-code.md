@@ -43,7 +43,7 @@ This allows for a more rapid CI/CD approach, but needs to be well supported with
 - no long running feature branches
 - changes can be implemented quickly
 - less admin from branch creation and pull requests
-- less merge conflicts
+- potentially fewer merge conflicts
 
 #### Cons
 - depends on developers running builds locally
