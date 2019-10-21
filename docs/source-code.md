@@ -65,4 +65,4 @@ In order to complete a pull request, all of the following conditions must be met
 - at least one approver
 - PR build must complete successfully
 
-On completion of a pull request a squash merge should be performed and the feature/bug branch should be deleted.
+On completion of a pull request a squash merge should be performed and the feature/bug branch should be deleted.  The commit message should be amended to give a concise description of the changes, rather than the default list of individual accounts.
