@@ -26,7 +26,7 @@ New branches should be created from master for both feature development and bug 
 
 #### Cons
 - feature branches can be long lived
-- prone to merge conflicts
+- prone to larger merge conflicts
 
 #### Notes
 - well refined user stories can reduce feature branch scope
@@ -43,7 +43,6 @@ This allows for a more rapid CI/CD approach, but needs to be well supported with
 - no long running feature branches
 - changes can be implemented quickly
 - less admin from branch creation and pull requests
-- potentially fewer merge conflicts
 
 #### Cons
 - depends on developers running builds locally
