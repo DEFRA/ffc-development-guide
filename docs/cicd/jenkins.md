@@ -1,14 +1,16 @@
-# CI/CD pipelines
-The capabilities of FFC are underpinned by DevOps CI/CD pipelines providing cloud agnostic tooling with build and release automation  through Jenkins.
+# Jenkins
+Jenkins is used for all CI/CD pipelines across all FFC teams.
 
 ## Standards
-- Pipelines should be scripted within a Jenkinsfile and source controlled with the service it relates to
-- The Groovy syntax should be used
-- Build steps should be containerised where possible to reduce the plugin and Jenkins configuration dependencies
+- pipelines should be scripted within a Jenkinsfile and source controlled within the related service
+- Groovy syntax should be used
+- build steps should be containerised where possible to reduce the plugin and Jenkins configuration dependencies
+- reusable steps should be encapsulated in a shared script and source controlled in a repository
+- secret values and sensitive configuration should not be included in a Jenkinsfile, instead use either a paremeter or reference to a Jenkins credential
 
 ## Using Jenkins locally
 ### Installation
-It is recommended that Jenkins is run locally within the Blue Ocean Docker image.  The Blue Ocean image is recommended by Jenkins as it comes with Blue Ocean already configured.  Blue Ocean provides a more user friendly experience.
+It is recommended that Jenkins is run locally within the Blue Ocean Docker image.  The Blue Ocean image is recommended by Jenkins as it comes with Blue Ocean already configured.  Blue Ocean provides a more user friendly experience which may suit developers new to Jenkins.
 
 The below command will pull the image and run the container.
 
