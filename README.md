@@ -3,14 +3,17 @@ This is a respository for all core development documentation relating to the Fut
 
 This repository includes development standards, patterns and guides to be used by all FFC developers.
 
+In addition to specific FFC standards, teams should also follow Defra's wider software development standards which can be found [here](https://github.com/DEFRA/software-development-standards/).
+
 ## Documentation
-- [Documentation Standards](docs/documentation-standards.md)
+- [Documentation standards](docs/documentation-standards.md)
 - [Technology stack](docs/technology-stack.md)
 - [Collaboration](docs/collaboration.md)
 - [Backlog management](docs/backlog-management.md)
 - [Setting up a development laptop](docs/developer-laptop-setup/index.md)
+- [Source code and branching strategy](docs/source-code.md)
+- [Code review standards](docs/code-review.md)
+- [CI/CD pipelines](docs/cicd/index.md)
 - [Version control](docs/version-control.md)
-- [CI/CD pipelines](docs/cicd.md)
 - [Test strategy](docs/test-strategy.md)
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/index.md)
-
