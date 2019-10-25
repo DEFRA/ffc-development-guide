@@ -49,7 +49,7 @@ Issues that have been completed by the team and are ready for review.  The revie
 
 It is the responsibility of the person who worked on the task to find a reviewer.  The issue should be reassigned to the reviewer who becomes the new owner.
 
-Teams should not pick up new issues if there are outstanding issues to review.
+Teams should not pick up new issues if there are outstanding issues to review to prevent a bottleneck.
 
 ### Done
 Issues that have been delivered and successfully reviewed.
