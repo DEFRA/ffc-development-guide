@@ -1,6 +1,6 @@
 # Docker Compose
 
-Docker compose is used for local development and in the [CI/CD pipeline](../cicd/index.md) to build docker containers and run tests.
+Docker compose is used for local development and in the [CI/CD pipeline](../cicd/index.md) to build docker containers and up tests.
 
 ## Use override files to reduce duplication
 
@@ -8,17 +8,17 @@ Additional settings can be applied to a docker compose file by using override fi
 
 Override files can be applied by listing the files after the `docker-compose` command with the `-f` parameter, i.e.
 
-`docker-compose run -f docker-compose.yaml -f docker-compose.override.yaml`
+`docker-compose up -f docker-compose.yaml -f docker-compose.override.yaml`
 
 Note that the above is equivalent to running the command:
 
-`docker-compose run`
+`docker-compose up`
 
-as calling `docker-compose` without specifying any files will run `docker-compose` with any available `docker-compose.yaml` and `docker-compose.override.yaml` files in the executing directory. 
+as calling `docker-compose` without specifying any files will up `docker-compose` with any available `docker-compose.yaml` and `docker-compose.override.yaml` files in the executing directory. 
 
 Note however that:
 
-`docker-compose run -f docker-compose.yaml`
+`docker-compose up -f docker-compose.yaml`
 
 will **not** apply the docker `docker-compose.override.yaml` file, only the file specified.
 
@@ -48,13 +48,13 @@ volumes:
 version: '3.4'
 services:
   ffc-demo-service:
-    command: npm run test
+    command: npm up test
     container_name: ffc-demo-service-test
 ```
 
-The tests can be run by providing the `docker-compose.test.yaml` file with a `-f` parameter:
+The tests can be up by providing the `docker-compose.test.yaml` file with a `-f` parameter:
 
-`docker-compose run -f docker-compose.yaml -f docker-compose.test.yaml`
+`docker-compose up -f docker-compose.yaml -f docker-compose.test.yaml`
 
 Further documentation on docker-compose can be found at https://docs.docker.com/compose/reference/overview/#specifying-multiple-compose-files.
 
@@ -68,13 +68,13 @@ This can be achieved with the `-p` switch when calling docker compose on the com
 
 `docker-compose -p ffc-demo-service up -f docker-compose.yaml`
 
-and to run the tests
+and to up the tests
 
-`docker-compose -p ffc-demo-service-test run -f docker-compose.yaml -f docker-compose.test.yaml`
+`docker-compose -p ffc-demo-service-test up -f docker-compose.yaml -f docker-compose.test.yaml`
 
 ## Avoid conflicts with unique container names
 
-The docker container name should be unique in override files if they may be run simultaneously. 
+The docker container name should be unique in override files if they may be up simultaneously. 
 
 If the `docker-compose.yaml` and the `docker-compose.test.yaml` had the same name conflicts will occur if tearing down and rebuilding the container happens while both containers are in use.
 
@@ -90,7 +90,7 @@ For example the following compose files can be started via:
 
 and tested with
 
-`docker-compose -p ffc-demo-service-test-$PR_NUMBER-$BUILD_NUMBER run -f docker-compose.yaml -f docker-compose.test.yaml`
+`docker-compose -p ffc-demo-service-test-$PR_NUMBER-$BUILD_NUMBER up -f docker-compose.yaml -f docker-compose.test.yaml`
 
 using `PR_NUMBER` and `BUILD_NUMBER` environment variables to isolate build tasks.
 
@@ -113,6 +113,6 @@ volumes:
 version: '3.4'
 services:
   ffc-demo-service:
-    command: npm run test
+    command: npm up test
     container_name: ffc-demo-service-test-${PR_NUMBER}-${BUILD_NUMBER}
 ```
