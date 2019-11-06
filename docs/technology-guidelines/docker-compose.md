@@ -6,6 +6,22 @@ Docker compose is used for local development and in the [CI/CD pipeline](../cicd
 
 Additional settings can be applied to a docker compose file by using override files.
 
+Override files can be applied by listing the files after the `docker-compose` command with the `-f` parameter, i.e.
+
+`docker-compose run -f docker-compose.yaml -f docker-compose.override.yaml`
+
+Note that the above is equivalent to running the command:
+
+`docker-compose run`
+
+as calling `docker-compose` without specifying any files will run `docker-compose` with any available `docker-compose.yaml` and `docker-compose.override.yaml` files in the executing directory. 
+
+Note however that:
+
+`docker-compose run -f docker-compose.yaml`
+
+will **not** apply the docker `docker-compose.override.yaml` file, only the file specified.
+
 One use case is for testing - common settings can be put into the base `docker-compose.yaml` file, while changes to the command and container names can be placed in override files.
 
 The below example demonstrates changing the command and container name for testing:
@@ -36,9 +52,11 @@ services:
     container_name: ffc-demo-service-test
 ```
 
-The tests can be run by providing the override file with a `-f` parameter:
+The tests can be run by providing the `docker-compose.test.yaml` file with a `-f` parameter:
 
 `docker-compose run -f docker-compose.yaml -f docker-compose.test.yaml`
+
+Further documentation on docker-compose can be found at https://docs.docker.com/compose/reference/overview/#specifying-multiple-compose-files.
 
 ## Use projects to provide unique volumes and networks
 
