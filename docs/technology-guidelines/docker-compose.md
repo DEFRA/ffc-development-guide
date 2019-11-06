@@ -14,7 +14,7 @@ Note that the above is equivalent to running the command:
 
 `docker-compose up`
 
-as calling `docker-compose` without specifying any files will up `docker-compose` with any available `docker-compose.yaml` and `docker-compose.override.yaml` files in the executing directory. 
+as calling `docker-compose` without specifying any files will run `docker-compose` with any available `docker-compose.yaml` and `docker-compose.override.yaml` files in the executing directory. 
 
 Note however that:
 
@@ -48,11 +48,11 @@ volumes:
 version: '3.4'
 services:
   ffc-demo-service:
-    command: npm up test
+    command: npm run test
     container_name: ffc-demo-service-test
 ```
 
-The tests can be up by providing the `docker-compose.test.yaml` file with a `-f` parameter:
+The tests can be run by providing the `docker-compose.test.yaml` file with a `-f` parameter:
 
 `docker-compose up -f docker-compose.yaml -f docker-compose.test.yaml`
 
@@ -68,13 +68,13 @@ This can be achieved with the `-p` switch when calling docker compose on the com
 
 `docker-compose -p ffc-demo-service up -f docker-compose.yaml`
 
-and to up the tests
+and to run the tests
 
 `docker-compose -p ffc-demo-service-test up -f docker-compose.yaml -f docker-compose.test.yaml`
 
 ## Avoid conflicts with unique container names
 
-The docker container name should be unique in override files if they may be up simultaneously. 
+The docker container name should be unique in override files if they may be run simultaneously. 
 
 If the `docker-compose.yaml` and the `docker-compose.test.yaml` had the same name conflicts will occur if tearing down and rebuilding the container happens while both containers are in use.
 
@@ -113,6 +113,6 @@ volumes:
 version: '3.4'
 services:
   ffc-demo-service:
-    command: npm up test
+    command: npm run test
     container_name: ffc-demo-service-test-${PR_NUMBER}-${BUILD_NUMBER}
 ```
