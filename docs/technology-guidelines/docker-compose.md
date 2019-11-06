@@ -68,13 +68,13 @@ When running on a build server a combination of the `-p` switch and environment 
 
 For example the following compose files can be started via:
 
-`docker-compose -p ffc-demo-service-$PR_NO-$BUILD_NUMBER up -f docker-compose.yaml`
+`docker-compose -p ffc-demo-service-$PR_NUMBER-$BUILD_NUMBER up -f docker-compose.yaml`
 
 and tested with
 
-`docker-compose -p ffc-demo-service-test-$PR_NO-$BUILD_NUMBER run -f docker-compose.yaml -f docker-compose.test.yaml`
+`docker-compose -p ffc-demo-service-test-$PR_NUMBER-$BUILD_NUMBER run -f docker-compose.yaml -f docker-compose.test.yaml`
 
-using `PR` and `BUILD_NUMBER` environment variables to isolate buiild tasks.
+using `PR_NUMBER` and `BUILD_NUMBER` environment variables to isolate build tasks.
 
 `docker-compose.yaml`
 
@@ -84,10 +84,7 @@ services:
   ffc-demo-service:
     build: .
     image: ffc-demo-service
-    container_name: ffc-demo-service-${PR_NO}-${BUILD_NUMBER}
-    environment:
-      DEMO_API: http://demo-api
-
+    container_name: ffc-demo-service-${PR_NUMBER}-${BUILD_NUMBER}
 volumes:
   node_modules: {}
 
@@ -99,5 +96,5 @@ version: '3.4'
 services:
   ffc-demo-service:
     command: npm run test
-    container_name: ffc-demo-service-test-${PR_NO}-${BUILD_NUMBER}
+    container_name: ffc-demo-service-test-${PR_NUMBER}-${BUILD_NUMBER}
 ```
