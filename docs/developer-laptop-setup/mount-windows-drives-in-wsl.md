@@ -11,5 +11,7 @@ The problem with this is some service such as Docker Compose volumes need the bi
     ```
     [automount]
     root = /
+    options = "metadata"
     ```
+    The options property allows WSL to change Windows file permissions
 1. Reboot machine for changes to take effect.
