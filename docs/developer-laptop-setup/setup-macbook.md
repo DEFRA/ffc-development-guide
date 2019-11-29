@@ -9,6 +9,7 @@ $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bas
 $ . ~/.bash_profile
 ```
 (see https://github.com/nvm-sh/nvm#installation-and-update for full instructions, including zsh variant)
+
 3. Install node 10:
 ```
 $ nvm install 10.0
