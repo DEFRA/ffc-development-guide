@@ -10,10 +10,12 @@ Further information can be found within the [AWS documentation](https://docs.aws
 To check you are using your correct AWS account run the `aws iam get-user` command.
 
 ## Interact with EKS cluster
-All of the subsequent processes require this first step to be completed as a prerequisite.
+All of the subsequent processes require this first step to be completed as a prerequisite.  
+
+Kubeconfig files are used to authorise and interact with a cluster.  These files are source controlled in a private GitLab repo with the same name as the cluster.
 
 - connect to FFC AWS VPN using 2FA
-- clone private repo containing kubeconfig file for relevant cluster
+- clone private GitLab repo containing kubeconfig file for relevant cluster
 - set KUBECONFIG environment variable with  
   `export KUBECONFIG=/REPO_PATH/CONFIG_FILE_NAME`
 
