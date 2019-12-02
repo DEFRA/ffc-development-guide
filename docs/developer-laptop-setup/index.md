@@ -12,3 +12,4 @@ Developers are free to use any Defra approved device and their own choice of ope
 - [ ] [Install Kubernetes dashboard](install-kubernetes-dashboard.md)
 - [ ] [Install Helm on WSL](installing-helm.md)
 - [ ] [Install Nginx Ingress on Kubernetes](configure-nginx-ingress-controller.md)
+- [ ] [Install AWS CLI](install-aws.md)
