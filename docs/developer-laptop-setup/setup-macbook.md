@@ -20,4 +20,5 @@ nvm use 10.0
 6. Enable Kubernetes in Docker desktop: open preferences, select Kubernetes, check the 'enable Kubernetes' checkbox and click 'Apply'. Allow it to install the Kubernetes cluster.
 7. Install Helm using [standard instructions](installing-helm.md)
 8. Install Nginx Ingress Controller using [standard instructions](configure-nginx-ingress-controller.md)
+9. Install AWS CLI using [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv1.html)
 
