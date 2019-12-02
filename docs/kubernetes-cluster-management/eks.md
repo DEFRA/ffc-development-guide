@@ -10,7 +10,7 @@ Further information can be found within the [AWS documentation](https://docs.aws
 To check you are using your correct AWS account run the `aws iam get-user` command.
 
 ## Interact with EKS cluster
-All of the below process require this first step to be complete as a prerequisite.
+All of the subsequent processes require this first step to be completed as a prerequisite.
 
 - connect to FFC AWS VPN using 2FA
 - clone private repo containing kubeconfig file for relevant cluster
