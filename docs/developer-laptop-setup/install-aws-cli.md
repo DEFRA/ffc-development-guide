@@ -1,6 +1,6 @@
 # Install AWS CLI
 
-AWS CLI is a Python package
+AWS CLI is an open source tool (distrubuted as a Python package) which enables you to interact with AWS services from the command line. 
 
 ## Prerequisites
 
