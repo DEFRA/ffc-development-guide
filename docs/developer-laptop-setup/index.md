@@ -13,12 +13,15 @@
 - [ ] [Docker for Mac](setup-macbook.md)
 
 ### General
+- [ ] [Install kubectl](install-kubectl.md)
 - [ ] [Install Node Version Manager](install-node-version-manager.md)
 - [ ] [Install VS Code](install-vs-code.md) (optional)
 - [ ] [Install Kubernetes dashboard](install-kubernetes-dashboard.md)
 - [ ] [Install Helm](installing-helm.md)
 - [ ] [Install Nginx Ingress on Kubernetes](configure-nginx-ingress-controller.md)
 - [ ] [Install AWS CLI](install-aws-cli.md)
+- [ ] [Install OpenVPN](install-open-vpn.md)
+
 
 ## Notes
 
