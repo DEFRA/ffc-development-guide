@@ -2,7 +2,7 @@
 Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control and GitHub, syntax highlighting, intelligent code completion, snippets, and code refactoring.
 
 # Installation
-Install on Windows via download from https://code.visualstudio.com/download
+Install OS specific version via download from https://code.visualstudio.com/download
 
 ## Install StandardJS
 In line with Defra's digital standards for JavaScript, StandardJS coding standards should be used.  Visual Studio has an extension to validate syntax for StandardJS.
@@ -19,7 +19,13 @@ If you prefer your code to autosave, add the following to settings.json.
 "files.autoSave": "afterDelay"
 "files.autoSaveDelay": 600
 ```
-## Configure terminal to use WSL
+
+## MacOS Specific Config
+TBC
+
+## WSL Specific Config
+
+### Configure terminal to use WSL
 1. Download wslgit.exe from https://github.com/andy-5/wslgit
 1. Update settings.json with:
   ```
@@ -28,12 +34,12 @@ If you prefer your code to autosave, add the following to settings.json.
   ```
 3. Add or update the Windows environment variable WSLGIT_USE_INTERACTIVE_SHELL to false or 0
 
-## Debug configuration
+### Debug configuration
 The simplest way to debug code within WSL is to use the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) VS Code extension.
 
 Alternatively, you can use the [WSL workspace folder](https://marketplace.visualstudio.com/items?itemName=lfurzewaddock.vscode-wsl-workspacefolder) and update your debug configuration to use the WSL folder.  Examples below.
 
-### Basic
+#### Basic
 ```
 {
   "type": "node",
@@ -45,7 +51,7 @@ Alternatively, you can use the [WSL workspace folder](https://marketplace.visual
   "program": "${workspaceFolder}\\index.js"
 }
 ```
-### App and test
+#### App and test
 ```
 {
   "type": "node",
@@ -78,7 +84,7 @@ Alternatively, you can use the [WSL workspace folder](https://marketplace.visual
 - The env section is used to pass environment variables to the debugger
 - `"internalConsoleOptions": "openOnSessionStart"` allows F5 to start debugger.
 
-## Example settings.json
+#### Example settings.json
 ```
 {
     "git.path": "C:\\WINDOWS\\System32\\wslgit.exe",
@@ -97,5 +103,3 @@ Alternatively, you can use the [WSL workspace folder](https://marketplace.visual
     "javascript.format.enable": false
 }
 ```
-
-
