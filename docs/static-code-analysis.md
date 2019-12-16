@@ -26,6 +26,8 @@ SonarQube has the concept of a `Project` which is used to monitor and report cod
 
 The name of the project should match the name of the repository.
 
+Projects can either be created first in SonarQube or if a pipeline references a project name that doesn't exist, SonarQube will automatically create it.
+
 ## Quality Gates
 A Quality Gate can be configured in SonarQube to determine a set of coding standards that must be adhered to in order for a pipeline to succeed.  Failure to meet the critiera of a Quality Gate will cause the build to fail.
 
