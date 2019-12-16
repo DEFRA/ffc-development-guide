@@ -16,6 +16,7 @@
 - [ ] [Install kubectl](install-kubectl.md)
 - [ ] [Install Node Version Manager](install-node-version-manager.md)
 - [ ] [Install VS Code](install-vs-code.md) (optional)
+- [ ] [Install SonarLint extension](install-sonarlint.md)
 - [ ] [Install Kubernetes dashboard](install-kubernetes-dashboard.md)
 - [ ] [Install Helm](installing-helm.md)
 - [ ] [Install Nginx Ingress on Kubernetes](configure-nginx-ingress-controller.md)
