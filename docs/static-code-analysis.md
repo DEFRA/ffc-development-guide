@@ -34,7 +34,7 @@ A Quality Gate can be configured in SonarQube to determine a set of coding stand
 A project can be configured to require one, many or no Quality Gates.  If no Quality Gates are selected, code quality is still analysed and reported upon, but builds are not blocked.
 
 ## CI/CD integration
-The [ffc-jenkins-pipeline-library](https://github.com/DEFRA/ffc-jenkins-pipeline-library) repo (version > 0.0.6) has functions that can be used to trigger and wait for code analysis.
+The [ffc-jenkins-pipeline-library](https://github.com/DEFRA/ffc-jenkins-pipeline-library) repo (version >= 0.0.6) has functions that can be used to trigger and wait for code analysis.
 
 Details of how to use these can be found in the [README](https://github.com/DEFRA/ffc-jenkins-pipeline-library).
 
