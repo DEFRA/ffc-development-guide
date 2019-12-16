@@ -22,7 +22,7 @@ In order to report analysis result back to Jenkins, a webhook must be added to t
 The URL must be in the format, `https://<jenkinsinstance>/sonarqube-webhook/`.  Note the final `/` is mandatory.
 
 ## Projects
-SonarQube has the concept of a `Project` which is used to monitor and report code analysis.  A project should have a one to one relationship with a repo.  Multiple repos should not share a single project.
+SonarQube has the concept of a `Project` which is used to monitor and report code analysis.  A project should have a one to one relationship with a repository.  Multiple repositories should not share a single project.
 
 The name of the project should match the name of the repository.
 
@@ -34,7 +34,7 @@ A Quality Gate can be configured in SonarQube to determine a set of coding stand
 A project can be configured to require one, many or no Quality Gates.  If no Quality Gates are selected, code quality is still analysed and reported upon, but builds are not blocked.
 
 ## CI/CD integration
-The [ffc-jenkins-pipeline-library](https://github.com/DEFRA/ffc-jenkins-pipeline-library) repo (version >= 0.0.6) has functions that can be used to trigger and wait for code analysis.
+The [ffc-jenkins-pipeline-library](https://github.com/DEFRA/ffc-jenkins-pipeline-library) repository (version >= 0.0.6) has functions that can be used to trigger and wait for code analysis.
 
 Details of how to use these can be found in the [README](https://github.com/DEFRA/ffc-jenkins-pipeline-library).
 
