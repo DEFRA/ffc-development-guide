@@ -20,6 +20,7 @@ In addition to specific FFC standards, teams should also follow Defra's wider so
 - [Version control](docs/version-control.md)
 - [Test strategy](docs/test-strategy.md)
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/index.md)
+- [Static code analysis](docs/static-code-analysis.md)
 
 ## License
 
