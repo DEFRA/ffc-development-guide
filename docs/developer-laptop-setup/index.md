@@ -20,7 +20,7 @@
 - [ ] [Install Kubernetes dashboard](install-kubernetes-dashboard.md)
 - [ ] [Install Helm](installing-helm.md)
 - [ ] [Install Nginx Ingress on Kubernetes](configure-nginx-ingress-controller.md)
-- [ ] [Install OpenVPN](install-open-vpn.md)
+- [ ] [Install OpenVPN](install-openvpn.md)
 - [ ] [Install AWS CLI](install-aws-cli.md)
 
 ## Notes
