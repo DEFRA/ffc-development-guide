@@ -45,6 +45,10 @@ mkdir ~/.kube \
 ## MacOS Specific config
 TBC
 
+## EKS Configuration
+
+Cluster specfic EKS `kubctl` configuration files can be downloaded [from](http://gitlab.ffc.aws-int.defra.cloud/kubernetes) this private GitLab repo.
+
 ## Notes
 
 * When connecting to an AWS cluster the kubectl config makes use of the AWS command line tool, so you need to be authenticated as your Defra AWS user as well as connected to the VPN. This is because the cluster config uses the get-token feature of the AWS command.
