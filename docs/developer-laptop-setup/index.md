@@ -13,6 +13,8 @@
 - [ ] [Docker for Mac](setup-macbook.md)
 
 ### General
+- [ ] [Install AWS CLI](install-aws-cli.md)
+- [ ] [Install AWS IAM Authenticator](install-aws-iam-authenticator.md)
 - [ ] [Install kubectl](install-kubectl.md)
 - [ ] [Install Node Version Manager](install-node-version-manager.md)
 - [ ] [Install VS Code](install-vs-code.md) (optional)
@@ -21,7 +23,7 @@
 - [ ] [Install Helm](installing-helm.md)
 - [ ] [Install Nginx Ingress on Kubernetes](configure-nginx-ingress-controller.md)
 - [ ] [Install OpenVPN](install-openvpn.md)
-- [ ] [Install AWS CLI](install-aws-cli.md)
+
 
 ## Notes
 

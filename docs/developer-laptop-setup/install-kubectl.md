@@ -1,5 +1,11 @@
 # Install kubectl
 
+## Prerequisites
+
+* [AWS IAM Authenticator](install-aws-aim-authenticator.md)
+
+## Installation
+
 * https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 Note: For WSL use the 'Install on Linux' instructions
