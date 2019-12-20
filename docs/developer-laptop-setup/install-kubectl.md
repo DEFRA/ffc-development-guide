@@ -47,7 +47,7 @@ TBC
 
 ## EKS Configuration
 
-Cluster specfic EKS `kubctl` configuration files can be downloaded [from](http://gitlab.ffc.aws-int.defra.cloud/kubernetes) this private GitLab repo.
+Cluster specfic EKS `kubectl` configuration files can be downloaded [from](http://gitlab.ffc.aws-int.defra.cloud/kubernetes) this private GitLab repo.
 
 ## Notes
 
