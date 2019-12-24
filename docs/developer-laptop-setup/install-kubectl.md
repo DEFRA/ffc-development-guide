@@ -1,5 +1,11 @@
 # Install kubectl
 
+## Prerequisites
+
+* [AWS IAM Authenticator](install-aws-aim-authenticator.md)
+
+## Installation
+
 * https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 Note: For WSL use the 'Install on Linux' instructions
@@ -38,6 +44,10 @@ mkdir ~/.kube \
 
 ## MacOS Specific config
 TBC
+
+## EKS Configuration
+
+Cluster specfic EKS `kubectl` configuration files can be downloaded [from](http://gitlab.ffc.aws-int.defra.cloud/kubernetes) this private GitLab repo.
 
 ## Notes
 
