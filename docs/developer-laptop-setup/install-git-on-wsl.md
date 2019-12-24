@@ -17,4 +17,4 @@ git config --global credential.helper "/c/Program\ Files/Git/mingw64/libexec/git
 ## Configure Windows Git line endings
 If Git is also installed on Windows and you wish to use both, it is recommended to change your Git configuration running the below command in the Command Prompt.  This will ensure that LF line endings are not changed to CRLF when cloning a repository and CRLF files are not changed to LF.
 
-`git config --global core.autocrlf=input`
+`git config --global core.autocrlf input`
