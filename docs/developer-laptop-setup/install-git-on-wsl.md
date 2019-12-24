@@ -4,8 +4,10 @@ Git should be installed in WSL to allow Git commands to be run from the WSL term
 # Installation
 Run the following terminal commands.
 
-`sudo apt-get update`
-`sudo apt install git-all`
+```
+sudo apt-get update
+sudo apt install git-all
+```
 
 ## Use Windows Credential Manager in WSL
 Git credentials configured in Windows can be used by WSL by running the below terminal command.  This means credential management does not need to be duplicated in WSL.
