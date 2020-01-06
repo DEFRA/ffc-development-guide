@@ -12,6 +12,21 @@ In line with Defra's digital standards for JavaScript, StandardJS coding standar
   `npm install standard`
 1. Set auto fix on save by adding `"standard.autoFixOnSave": true` to settings.json
 
+## Install .Net Core SDK
+Follow Microsoft's setup guide according to your distro.  
+
+https://docs.microsoft.com/en-gb/dotnet/core/install/linux-package-manager-ubuntu-1804
+
+## Install C# Extension
+Add C# extension to enable .Net Core development.
+
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
+
+## Install .Net Core Tools
+Follow Microsoft's setup guide.
+
+https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
+
 ## Configure autosave
 If you prefer your code to autosave, add the following to settings.json.
 
@@ -19,6 +34,20 @@ If you prefer your code to autosave, add the following to settings.json.
 "files.autoSave": "afterDelay"
 "files.autoSaveDelay": 600
 ```
+
+## Indentation
+VS Code supports multiple indentation settings for each language by upating the `settings.json` file.  
+
+The below example sets a default indentation to two spaces, but uses four spaces for C# files as per Microsoft standards.
+
+```
+"editor.tabSize": 2,
+"[csharp]":{
+    "editor.tabSize": 4,
+  },
+```
+
+**Note** JS standard will automatically correct JavaScript files to two space indentation.
 
 ## MacOS Specific Config
 TBC
@@ -91,6 +120,9 @@ Alternatively, you can use the [WSL workspace folder](https://marketplace.visual
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
     "javascript.validate.enable": false,
     "editor.tabSize": 2,
+    "[csharp]":{
+      "editor.tabSize": 4,
+    },
     "standard.autoFixOnSave": true,
     "files.insertFinalNewline": true,
     "files.autoSave": "afterDelay",
