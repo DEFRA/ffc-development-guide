@@ -12,15 +12,15 @@ In line with Defra's digital standards for JavaScript, StandardJS coding standar
   `npm install standard`
 1. Set auto fix on save by adding `"standard.autoFixOnSave": true` to settings.json
 
-## Install C# Extension
-Add C# extension to enable .Net Core development.
-
-https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
-
 ## Install .Net Core SDK
 Follow Microsoft's setup guide according to your distro.  
 
 https://docs.microsoft.com/en-gb/dotnet/core/install/linux-package-manager-ubuntu-1804
+
+## Install C# Extension
+Add C# extension to enable .Net Core development.
+
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
 
 ## Install .Net Core Tools
 Follow Microsoft's setup guide.
