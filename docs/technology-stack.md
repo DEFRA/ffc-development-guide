@@ -17,7 +17,7 @@ FFC Test Lead has been involved in these discussions.
 All NoSQL databases will use the Mongo driver as this is the only driver compatible with PaaS services in both Azure and AWS
 
 - CosmosDB for NoSQL databases host in Azure
-- MongoDB for NoSQL databases hosted in AWS
+- DocumentDB (with MongoDB compatibility) for NoSQL databases hosted in AWS
 
 ## Infrastructure Building 
 - Terraform
