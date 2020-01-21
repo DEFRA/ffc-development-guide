@@ -54,7 +54,7 @@ This allows for a more rapid CI/CD approach, but needs to be well supported with
 - pair programming can reduce risk through real time code review
 
 ## Branch naming convention
-Branches should be named in the format `<project code>-<ticket id>-<description>` in lower case. 
+Branches should be named in the format `<project code>-<ticket id>-<description of change>` in lower case. 
 
 For example, `psd-452-add-dockerfile`.
 
