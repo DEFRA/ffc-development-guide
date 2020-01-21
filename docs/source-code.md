@@ -53,6 +53,11 @@ This allows for a more rapid CI/CD approach, but needs to be well supported with
 - feature flags and branching by abstraction can support long running changes
 - pair programming can reduce risk through real time code review
 
+## Branch naming convention
+Branches should be named in the format `<project code>-<ticket id>-<description>` in lower case. 
+
+For example, `psd-452-add-dockerfile`.
+
 ## Pull Requests
 When following feature branch development, pull requests should be used to collaborate and ensure code quality.
 
