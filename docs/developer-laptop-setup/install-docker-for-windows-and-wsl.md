@@ -50,7 +50,7 @@ sudo usermod -aG docker $USER
 ```
 
 2. Close and reopen terminal
-1. Connect WSL Docker to Windows Docker
+1. Connect WSL Docker to Windows Docker  
   `echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc`
 
 ## Install Docker Compose

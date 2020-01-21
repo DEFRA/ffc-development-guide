@@ -4,7 +4,7 @@ The Windows Subsystem for Linux (WSL) lets developers run a GNU/Linux environmen
 [Documentation](https://docs.microsoft.com/en-us/windows/wsl/about)
 
 # Installation
-Follow the below Microsoft guide to install the distro of your choice.
+Follow the below Microsoft guide to install the distro of your choice.  The Ubuntu disto is recommended.  
 
 [Installation Guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
