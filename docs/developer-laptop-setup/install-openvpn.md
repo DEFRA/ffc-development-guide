@@ -4,4 +4,4 @@ Access to some resources is restricted (AWS, GitLab, Jenkins, etc) by IP whiteli
 
 ## Install and Configuration
 
-TBC
+Cloud Sevice Centre (CSC) will provide full installation instructions.

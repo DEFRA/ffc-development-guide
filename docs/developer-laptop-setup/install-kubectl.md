@@ -38,12 +38,9 @@ complete -o default -F __start_kubectl k
 
 ### Copy Kubernetes configuration from Windows
 ```
-mkdir ~/.kube \
-&& cp /c/Users/[USERNAME]/.kube/config ~/.kube
+mkdir ~/.kube
+cp /c/Users/[USERNAME]/.kube/config ~/.kube
 ```
-
-## MacOS Specific config
-TBC
 
 ## EKS Configuration
 

@@ -12,20 +12,10 @@ In line with Defra's digital standards for JavaScript, StandardJS coding standar
   `npm install standard`
 1. Set auto fix on save by adding `"standard.autoFixOnSave": true` to settings.json
 
-## Install .Net Core SDK
-Follow Microsoft's setup guide according to your distro.  
-
-https://docs.microsoft.com/en-gb/dotnet/core/install/linux-package-manager-ubuntu-1804
-
 ## Install C# Extension
 Add C# extension to enable .Net Core development.
 
 https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
-
-## Install .Net Core Tools
-Follow Microsoft's setup guide.
-
-https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
 
 ## Configure autosave
 If you prefer your code to autosave, add the following to settings.json.
@@ -48,9 +38,6 @@ The below example sets a default indentation to two spaces, but uses four spaces
 ```
 
 **Note** JS standard will automatically correct JavaScript files to two space indentation.
-
-## MacOS Specific Config
-TBC
 
 ## WSL Specific Config
 
@@ -135,3 +122,44 @@ Alternatively, you can use the [WSL workspace folder](https://marketplace.visual
     "javascript.format.enable": false
 }
 ```
+
+### Debugging .Net Core in a container
+To debug .Net Core in a container you will need to install a remote debugger into the container.  The below shows a Dockerfile layer that will install the **vsdbg** remote debugger.
+
+```
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends unzip \
+  && curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
+```
+
+To attach the remote debugger to a process the below example debug configuration can be used.
+
+```
+{
+      "name": ".NET Core Docker Attach",
+      "type": "coreclr",
+      "request": "attach",
+      "processId": "${command:pickRemoteProcess}",
+      "pipeTransport": {
+        "pipeProgram": "docker",
+        "pipeArgs": [
+          "exec",
+          "-i",
+          "YOUR_CONTAINER_NAME_HERE"
+        ],
+        "debuggerPath": "/vsdbg/vsdbg",
+        "pipeCwd": "${workspaceRoot}",
+        "quoteArgs": false
+      },
+      "sourceFileMap": {
+        "/YOUR_CONTAINER_DIRECTORY": "${workspaceFolder}/YOUR_LOCAL_DIRECTORY"
+      }
+```
+
+When this debug session is used the `${command:pickRemoteProcess}` setting will open a dialog box prompting selection of a process running within the container.  Select the process attached to the relevant .dll.
+
+**Note** if your Windows user name has a space, the `${command:pickRemoteProcess}` command will not work and return a file not found error.  To correct this run the following command in the command prompt to list all processes running in the container.  Then replace `${command:pickRemoteProcess}` with the equivalent process Id.
+
+`docker exec -i YOUR_CONTAINER_NAME sh -s < "C:\Users\USER_NAME_WITH_SPACE\.vscode\extensions\ms-vscode.csharp-1.21.3\scripts\remoteProcessPickerScript"`
+
+Ensuring the version number is correct.
