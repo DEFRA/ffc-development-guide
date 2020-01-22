@@ -63,7 +63,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-
 `sudo chmod +x /usr/local/bin/docker-compose`  
 `docker-compose --version`
 
-## Setup Shared Drives
+## Setup shared drives
 To allow Docker to access Windows drives for creating Docker Compose volumes, the drive needs to be shared.
 
 1. In Docker for Windows Settings menu select Shared Drives
@@ -71,3 +71,14 @@ To allow Docker to access Windows drives for creating Docker Compose volumes, th
 3. Click apply and enter your Windows password to confirm
 4. If you get an error stating the firewall is blocking the configuration change then run the following Powershell command as Administrator
    `Set-NetConnectionProfile -interfacealias "vEthernet (DockerNAT)" -NetworkCategory Private`
+
+## Configure Windows firewall
+Antivirus software can block Docker traffic between Windows and WSL and cause issues with use of Docker volumes.  This can result in the need to constantly reconfigure the shared drive settings in Docker Desktop.
+
+To prevent this issue, add the following IP addresses used by Docker as trusted devices.  
+
+```
+10.0.75.0
+10.0.75.1
+10.0.75.2
+```
