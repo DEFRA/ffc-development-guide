@@ -8,7 +8,9 @@ High priority: (1000) These should be reserved primarily for customer facing pod
 
 Default priority: (600) This will be the default option so a pod only needs to specify a priority class if default is not the correct priority level.
 
-Low priority: (200) These pods will be the first to be shut down if a higher priority pod is required.
+Low priority: (200) These pods will be the first to be shut down if a higher priority pod is required.  
+
+The `priorityClass` definitions that relate to these levels can be viewed in the [ffc-kubernetes-configuration](https://github.com/DEFRA/ffc-kubernetes-configuration/tree/master/priority-classes) repository.
 
 # Further reading
 More information is available in [Confluence](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/)
