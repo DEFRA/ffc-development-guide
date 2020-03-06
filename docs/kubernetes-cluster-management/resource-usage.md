@@ -2,7 +2,7 @@
 Predictable demands are important to help Kubernetes find the right place for a pod within a cluster.  When it comes to resources such as a CPU and memory, understanding the resource needs of a pod will help Kubernetes allocate the pod to the most appropriate node and generally improve the stability of the cluster.
 
 # FFC resource usage standards
-- all pods should declare both a `reqeuest` and `limit` value for CPU and memory
+- all pods should declare both a `request` and `limit` value for CPU and memory
 - production clusters should not contain any `best-effort` pods
 - pods with consistent usage patterns should be run as`guaranteed` pods (ie equal `request` and `limit values`)
 - pods with spiky usage patterns can be run as `burstable` but effort should be taken to understand why performance is not consistent and whether the service is doing too much
