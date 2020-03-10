@@ -3,3 +3,4 @@
 - [ ] [Readiness and Liveness probes](probes.md)
 - [ ] [Prioritising pods](priority.md)
 - [ ] [Kubernetes Labeling](label.md)
+- [ ] [pod resource usage](resource-usage.md.md)
