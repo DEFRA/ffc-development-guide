@@ -11,6 +11,7 @@ Each Helm chart templated resource should have the below labels.  Example placeh
 ```
 metadata:
   labels:
+    app: {{ quote .Values.name }}
     app.kubernetes.io/name: {{ quote .Values.name }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/version: {{ quote .Values.labels.version }}
@@ -22,9 +23,10 @@ metadata:
 ```
 
 # Selectors
-Services selectors should be matched by name and instance.
+Services selectors should be matched by app, name and instance.
 ```
 selector:
+  app: {{ quote .Values.name }}
   app.kubernetes.io/name: {{ quote .Values.name }}
   app.kubernetes.io/instance: {{ .Release.Name }}
 ```
