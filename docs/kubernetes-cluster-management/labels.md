@@ -11,7 +11,7 @@ Each Helm chart templated resource should have the below labels.  Example placeh
 ```
 metadata:
   labels:
-    app: {{ quote .Values.name }}
+    app: {{ quote .Values.namespace }}
     app.kubernetes.io/name: {{ quote .Values.name }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/version: {{ quote .Values.labels.version }}
