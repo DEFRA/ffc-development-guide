@@ -2,4 +2,5 @@
 - [ ] [Elastic Kubernetes Service (EKS)](eks.md)
 - [ ] [Readiness and Liveness probes](probes.md)
 - [ ] [Pod priority](priority.md)
-- [ ] [pod resource usage](resource-usage.md.md)
+- [ ] [Pod resources](resource-usage.md.md)
+- [ ] [Labels](labels.md)
