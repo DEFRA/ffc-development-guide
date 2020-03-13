@@ -7,4 +7,11 @@ Version
 ## Description 
   ### Major
   list of bullet major changes
-   
+
+  ### Minor
+  list of bullet minor changes
+
+  ### Patch
+  list of bullet patch changes
+
+  Each of the above will be optional and dependant on the changes that have been made.
