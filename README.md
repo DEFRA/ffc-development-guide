@@ -21,6 +21,7 @@ In addition to specific FFC standards, teams should also follow Defra's wider so
 - [Test strategy](docs/test-strategy.md)
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/index.md)
 - [Static code analysis](docs/static-code-analysis.md)
+- [Github release notes standard](github-release-notes.md)
 
 ## License
 
