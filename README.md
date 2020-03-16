@@ -10,16 +10,16 @@ In addition to specific FFC standards, teams should also follow Defra's wider so
 
 - [Documentation standards](docs/documentation-standards.md)
 - [Technology stack](docs/technology-stack.md)
-- [Technology guidelines](docs/technology-guidelines/index.md)
+- [Technology guidelines](docs/technology-guidelines/README.md)
 - [Collaboration](docs/collaboration.md)
 - [Backlog management](docs/backlog-management.md)
-- [Setting up a development laptop](docs/developer-laptop-setup/index.md)
+- [Setting up a development laptop](docs/developer-laptop-setup/README.md)
 - [Source code and branching strategy](docs/source-code.md)
 - [Code review standards](docs/code-review.md)
-- [CI/CD pipelines](docs/cicd/index.md)
+- [CI/CD pipelines](docs/cicd/README.md)
 - [Version control](docs/version-control.md)
 - [Test strategy](docs/test-strategy.md)
-- [Kubernetes cluster management](docs/kubernetes-cluster-management/index.md)
+- [Kubernetes cluster management](docs/kubernetes-cluster-management/README.md)
 - [Static code analysis](docs/static-code-analysis.md)
 
 ## License
