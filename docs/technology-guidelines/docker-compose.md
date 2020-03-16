@@ -1,6 +1,6 @@
 # Docker Compose
 
-Docker compose is used for local development and in the [CI/CD pipeline](../cicd/index.md) to build docker containers and up tests.
+Docker compose is used for local development and in the [CI/CD pipeline](../cicd/README.md) to build docker containers and up tests.
 
 ## Use override files to reduce duplication
 
