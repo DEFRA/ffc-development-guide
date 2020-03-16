@@ -23,12 +23,11 @@ metadata:
 ```
 
 # Selectors
-Services selectors should be matched by app, name and instance.
+Services selectors should be matched by app and name.  Selectors should be consistent otherwise updates to Helm charts will be rejected.
 ```
 selector:
   app: {{ quote .Values.name }}
   app.kubernetes.io/name: {{ quote .Values.name }}
-  app.kubernetes.io/instance: {{ .Release.Name }}
 ```
  
 # Further reading
