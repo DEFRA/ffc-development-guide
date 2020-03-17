@@ -44,7 +44,7 @@ cp /c/Users/[USERNAME]/.kube/config ~/.kube
 
 ## EKS Configuration
 
-Cluster specfic EKS `kubectl` configuration files can be downloaded [from](http://gitlab.ffc.aws-int.defra.cloud/kubernetes) this private GitLab repo.
+Cluster specfic EKS `kubectl` configuration files can be downloaded [from](https://gitlab-dev.aws-int.defra.cloud/ffc/kubernetes) this private GitLab repo.
 
 ## Notes
 
