@@ -17,4 +17,6 @@ semver Version (eg 1.0.0)
   ### Patch
   list of bullet patch changes
 
-  Each of the above will be optional and dependant on the changes that have been made.
+Each of the above will be optional and dependant on the changes that have been made.
+
+For complex changes include code snippits in the relevent description heading.
