@@ -1,13 +1,12 @@
 # Overview
-These standards are in place to make release notes standard across the programme so that changes can be easily identified including new features and breaking changes.
+We want GitHub to be consistant. These standards are for when we manunally create a github release.
 
-MAJOR version when you make incompatible API changes,
-MINOR version when you add functionality in a backwards compatible manner, and
-PATCH version when you make backwards compatible bug fixes.
+For the Description section use the [Semantic versioning](version-control.md) standards as a guide.
 
 # Github Release Note Standards
 ## Title
-Version
+semver Version (eg 1.0.0)
+
 ## Description 
   ### Major
   list of bullet major changes
