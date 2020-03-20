@@ -20,6 +20,7 @@ This guide will be targeted towards those setups.  All terminal commands should 
 - [ ] [Setup MacBook](setup-macbook.md)
 
 ### General
+- [ ] [Install OpenVPN](install-openvpn.md)
 - [ ] [Install AWS CLI](install-aws-cli.md)
 - [ ] [Install AWS IAM Authenticator](install-aws-iam-authenticator.md)
 - [ ] [Install kubectl](install-kubectl.md)
@@ -30,4 +31,3 @@ This guide will be targeted towards those setups.  All terminal commands should 
 - [ ] [Install Kubernetes dashboard](install-kubernetes-dashboard.md)
 - [ ] [Install Helm](installing-helm.md)
 - [ ] [Install Nginx Ingress on Kubernetes](configure-nginx-ingress-controller.md)
-- [ ] [Install OpenVPN](install-openvpn.md)
