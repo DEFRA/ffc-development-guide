@@ -11,20 +11,30 @@ Can be downloaded from https://www.oracle.com/technetwork/java/javase/downloads/
 
 ### Installation steps
 1. install SonarLint extension
-2. add SonarQube server connection to `settings.json` to enable connected mode
+2. add SonarQube and SonarCould server connections to VSCode's `settings.json` to enable connected mode
    ```
    {
-    "sonarlint.connectedMode.servers": [
-        { "serverId": "mySonarQube", "serverUrl": "https://sonarqube.mycompany.com", "token": "<generated from SonarQube account/security page>" },
-        { "serverId": "sonarcloud", "serverUrl": "https://sonarcloud.io", "organizationKey": "myOrgOnSonarCloud", "token": "<generated from https://sonarcloud.io/account/security/>" }
+    "sonarlint.connectedMode.connections.sonarqube": [
+        { 
+            "connectionId": "defraSonarQube",
+            "serverUrl": "https://sonarqube.aws-int.defra.cloud/", 
+            "token": "<key obtained from https://sonarqube.aws-int.defra.cloud/sonar/account/security/" 
+        }
+    ],
+    "sonarlint.connectedMode.connections.sonarcloud": [
+        { 
+            "connectionId": "SonarCloud",
+            "organizationKey": "defra", 
+            "token": "<key obtained from https://sonarcloud.io/account/security/>" 
+        }
     ]
-   }
+}
    ```
 3. add SonarQube project to `settings.json`
    ```
    {
     "sonarlint.connectedMode.project": {
-        "serverId": "mySonarQube",
+        "serverId": "defraSonarQube",
         "projectKey": "the-project-key-on-sonarqube"
     }
    }
