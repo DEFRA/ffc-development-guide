@@ -1,24 +1,24 @@
 # Overview
 
-Kubernetes has two types of probes, readiness probes and liveness probes.  
+Kubernetes has two types of probes, readiness probes and liveness probes.
 
-Kubernetes uses readiness probes to know when a container is ready to start accepting traffic.  
+Kubernetes uses readiness probes to know when a container is ready to start accepting traffic.
 
-Kubernetes uses liveness probes to know when to restart a container.  
+Kubernetes uses liveness probes to know when to restart a container.
 
 # Configuring probes
 
 Probes can be configured in the Helm chart on either a Pod or Deployment yaml file under the container node.
 
 ```
-readinessProbe:         
+readinessProbe:
   path: /healthy
   port: 3000
   initialDelaySeconds: 10
   periodSeconds: 10
   failureThreshold: 3
- 
-livenessProbe:         
+
+livenessProbe:
   path: /healthz
   port: 3000
   initialDelaySeconds: 10
@@ -26,9 +26,9 @@ livenessProbe:
   failureThreshold: 3
 ```
 
-The above is an example of simple Http readiness and liveness probes.  
+The above is an example of simple Http readiness and liveness probes.
 
-Kubernetes will periodically call the /healthy and /healthz routes. 
+Kubernetes will periodically call the /healthy and /healthz routes.
 
 If it receives a status code other than 200 for the readiness probe it will stop routing traffic to that pod.
 
