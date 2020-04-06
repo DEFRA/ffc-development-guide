@@ -66,7 +66,7 @@ Following merge to the master branch, the build pipeline should run automaticall
 - report build status
 
 ## Release pipeline
-The release pipeline is used to deploy a service to production.  
+The release pipeline is used to deploy a service to production.
 
 Depending on the service, the trigger for a release pipeline could be:
 - automatically triggered by a completed build
