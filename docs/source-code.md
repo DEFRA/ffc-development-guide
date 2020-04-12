@@ -1,7 +1,44 @@
 # Source code
 The default position for FFC is that code should be open source and hosted within GitHub.  
 
-If there is a need for a private repository, for example when source controlling infrastructure as code, that should be controlled within FFC's hosted GitLab.  
+If there is a need for a private repository, for example when source controlling infrastructure as code, that should be controlled within Defra's hosted GitLab instance or AzureDevOps Repos.  
+
+## Creating repositories
+### Naming repositories
+Repositories should follow the below naming convention.  
+
+`ffc-<workstream>-<service>`
+
+For example, `ffc-elm-apply`.  
+
+Following this naming convention helps understand ownership of repositories and is also essential for teams to be able to use the [FFC Jenkins library](https://github.com/DEFRA/ffc-jenkins-pipeline-library) which is reliant on convention.
+
+### Managing access
+The [FFC GitHub team](https://github.com/orgs/DEFRA/teams/ffc) should be added with `Admin` access to all repositories hosted on GitHub.  For GitLab and AzureDevOps repositories, the equivalent FFC should be used.
+
+As per [Defra policy](https://github.com/DEFRA/dst-guides/tree/master/github), contractors should be added as contributors and should not be part of the FFC Team in GitHub.
+
+### Branch policies
+Master branches should be protected by a branch policy where merges requires a Pull Request approved by at least one other person.  
+
+Stale reviews should be automatically dismissed.  
+
+### Licence
+The Open Government Licence (OGL) Version 3 should be added to the repository.  
+
+```
+The Open Government Licence (OGL) Version 3
+
+Copyright (c) 2020 Defra
+
+This source code is licensed under the Open Government Licence v3.0. To view this
+licence, visit www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+or write to the Information Policy Team, The National Archives, Kew, Richmond,
+Surrey, TW9 4DU.
+```
+
+### Readme
+A `README.md` should be added to initialise the repository.  As work begins on the repository, the README should adhere to [FFC documentation standards](documentation-standards.md). 
 
 ## Branching strategies
 FFC aims to be a true DevOps programme with capability to deliver value often and rapidly.
