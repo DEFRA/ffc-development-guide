@@ -19,11 +19,11 @@ The [FFC GitHub team](https://github.com/orgs/DEFRA/teams/ffc) should be added w
 As per [Defra policy](https://github.com/DEFRA/dst-guides/tree/master/github), contractors should be added as contributors and should not be part of the FFC Team in GitHub.
 
 ### Branch policies
-Master branches should be protected by a branch policy where merges requires a Pull Request approved by at least one other person.  
+Master branches should be protected by a branch policy where merges requires a Pull Request approved by at least one other person.
 
-Stale reviews should be automatically dismissed. 
+Stale reviews should be automatically dismissed.
 
-Repositories should only allow Squash merging.  
+Repositories should only allow Squash merging.
 
 ### Licence
 The Open Government Licence (OGL) Version 3 should be added to the repository.  
@@ -74,7 +74,7 @@ New branches should be created from master for both feature development and bug 
 ### Trunk based development
 With trunk based development, developers commit code directly to the master branch.
 
-This allows for a more rapid CI/CD approach, but needs to be well supported with robust working practices.  
+This allows for a more rapid CI/CD approach, but needs to be well supported with robust working practices.
 
 ![Trunk based development](/docs/images/trunk-based-development.png)
 
@@ -93,7 +93,7 @@ This allows for a more rapid CI/CD approach, but needs to be well supported with
 - pair programming can reduce risk through real time code review
 
 ## Branch naming convention
-Branches should be named in the format `<project code>-<ticket id>-<description of change>` in lower case. 
+Branches should be named in the format `<project code>-<ticket id>-<description of change>` in lower case.
 
 For example, `psd-452-add-dockerfile`.
 
