@@ -21,7 +21,9 @@ As per [Defra policy](https://github.com/DEFRA/dst-guides/tree/master/github), c
 ### Branch policies
 Master branches should be protected by a branch policy where merges requires a Pull Request approved by at least one other person.  
 
-Stale reviews should be automatically dismissed.  
+Stale reviews should be automatically dismissed. 
+
+Repositories should only allow Squash merging.  
 
 ### Licence
 The Open Government Licence (OGL) Version 3 should be added to the repository.  
