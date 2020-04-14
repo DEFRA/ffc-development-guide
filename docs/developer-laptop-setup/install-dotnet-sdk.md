@@ -1,17 +1,23 @@
 # Install .Net Core SDK
 The .Net Core SDK is a set of libraries and tools that allow developers to create .Net Core applications and libraries.
 
-## Installation
-Follow Microsoft's setup guide according to your distro.  
+## Choose version (or use recommended)
+Select the version required then either a package manager or binary for your OS.
 
-https://docs.microsoft.com/en-gb/dotnet/core/install/linux-package-manager-ubuntu-1804
+https://dotnet.microsoft.com/download/dotnet-core/
+
+NB. On MacOS, creation of symbolic links is missing from the installer after installation.
+To create them manually run
+
+`ln -s /usr/local/share/dotnet/dotnet /usr/local/bin/`
+
+### Verify installation
+Check your installation was successful with 
+
+`dotnet --version`
 
 ## Install .Net Core tools
-Follow Microsoft's setup guide.
-
-https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
-
-## Install Entity Framework tools
-Entity Framework tools allow the creation and application of code first migrations.  
+As per [Microsoft's setup guide]
+(https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet) the Entity Framework tools allow the creation and application of code first migrations can be installed with the command
 
 `dotnet tool install --global dotnet-ef`
