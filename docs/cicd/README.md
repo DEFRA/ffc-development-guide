@@ -19,7 +19,6 @@ Following creation of and on update to a Pull request, the PR pipeline should ru
 - build the service
 - run unit tests
 - run containerised integration tests
-- run code quality tests
 - tag container image
 - push image to container registry
 - deploy to non-production PR environment
@@ -29,7 +28,6 @@ Following creation of and on update to a Pull request, the PR pipeline should ru
 - build the service
 - run unit tests
 - run containerised integration tests
-- run code quality tests
 - tag container image
 - push image to container registry
 - deploy to non-production PR environment
@@ -49,7 +47,6 @@ Following merge to the master branch, the build pipeline should run automaticall
 - delete PR image
 - run unit tests
 - run containerised integration tests
-- run code quality tests
 - run acceptance tests
 - run security tests
 - run performance tests
