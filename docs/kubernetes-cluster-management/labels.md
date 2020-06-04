@@ -3,10 +3,10 @@ Labels are intended to be used to specify identifying attributes of objects that
 
 In order to take full advantage of using labels, they should be applied on every resource object within a Helm chart. i.e. all deployments, services, ingresses etc.
 
-**Note**  Deployments should have two sets of labels, one for the actual deployment and another for the pod template the deployment manages.
+**Note** Deployments should have two sets of labels, one for the actual deployment and another for the pod template the deployment manages.
 
 # Labels
-Each Helm chart templated resource should have the below labels.  Example placeholders are provided for values.
+Each Helm chart templated resource should have the below labels. Example placeholders are provided for values.
 
 ```
 metadata:
@@ -23,7 +23,7 @@ metadata:
 ```
 
 # Selectors
-Services selectors should be matched by app and name.  Selectors should be consistent otherwise updates to Helm charts will be rejected.
+Services selectors should be matched by app and name. Selectors should be consistent otherwise updates to Helm charts will be rejected.
 ```
 selector:
   app: {{ quote .Values.name }}

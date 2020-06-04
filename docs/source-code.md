@@ -1,20 +1,20 @@
 # Source code
-The default position for FFC is that code should be open source and hosted within GitHub.  
+The default position for FFC is that code should be open source and hosted within GitHub.
 
-If there is a need for a private repository, for example when source controlling infrastructure as code, that should be controlled within Defra's hosted GitLab instance or AzureDevOps Repos.  
+If there is a need for a private repository, for example when source controlling infrastructure as code, that should be controlled within Defra's hosted GitLab instance or AzureDevOps Repos.
 
 ## Creating repositories
 ### Naming repositories
-Repositories should follow the below naming convention.  
+Repositories should follow the below naming convention.
 
 `ffc-<workstream>-<service>`
 
-For example, `ffc-elm-apply`.  
+For example, `ffc-elm-apply`.
 
 Following this naming convention helps understand ownership of repositories and is also essential for teams to be able to use the [FFC Jenkins library](https://github.com/DEFRA/ffc-jenkins-pipeline-library) which is reliant on convention.
 
 ### Managing access
-The [FFC GitHub team](https://github.com/orgs/DEFRA/teams/ffc) should be added with `Admin` access to all repositories hosted on GitHub.  For GitLab and AzureDevOps repositories, the equivalent FFC should be used.
+The [FFC GitHub team](https://github.com/orgs/DEFRA/teams/ffc) should be added with `Admin` access to all repositories hosted on GitHub. For GitLab and AzureDevOps repositories, the equivalent FFC should be used.
 
 As per [Defra policy](https://github.com/DEFRA/dst-guides/tree/master/github), contractors should be added as contributors and should not be part of the FFC Team in GitHub.
 
@@ -26,7 +26,7 @@ Stale reviews should be automatically dismissed.
 Repositories should only allow Squash merging.
 
 ### Licence
-The Open Government Licence (OGL) Version 3 should be added to the repository.  
+The Open Government Licence (OGL) Version 3 should be added to the repository.
 
 ```
 The Open Government Licence (OGL) Version 3
@@ -40,28 +40,28 @@ Surrey, TW9 4DU.
 ```
 
 ### Readme
-A `README.md` should be added to initialise the repository.  As work begins on the repository, the README should adhere to [FFC documentation standards](documentation-standards.md). 
+A `README.md` should be added to initialise the repository. As work begins on the repository, the README should adhere to [FFC documentation standards](documentation-standards.md).
 
 ## Branching strategies
 FFC aims to be a true DevOps programme with capability to deliver value often and rapidly.
 
-To support this, there are two branching strategy options, `Feature branch development` and `Trunk based development`.  Feature branch development should be preferred as it has significantly lower risk and promotes more collaboration.  However, there may be some scenarios where a trunk based development approach can deliver more value.
+To support this, there are two branching strategy options, `Feature branch development` and `Trunk based development`. Feature branch development should be preferred as it has significantly lower risk and promotes more collaboration. However, there may be some scenarios where a trunk based development approach can deliver more value.
 
 ### Feature branch development
-With feature branch development, all feature development should take place in a dedicated branch instead of the master branch. 
+With feature branch development, all feature development should take place in a dedicated branch instead of the master branch.
 
-This allows multiple developers to work on a feature whilst protecting the master branch. 
+This allows multiple developers to work on a feature whilst protecting the master branch.
 
 New branches should be created from master for both feature development and bug fixes.
 
 ![Feature branch development](/docs/images/feature-branch-development.png)
 
 #### Pros
-- more control over Master​
-- increased opportunity for collaboration through pull requests​
-- broken builds can automatically be kept out of Master​
-- supports remote working and a experience variation​
-- features can be tested in isolated PR environment before approval​
+- more control over Master
+- increased opportunity for collaboration through pull requests
+- broken builds can automatically be kept out of Master
+- supports remote working and a experience variation
+- features can be tested in isolated PR environment before approval
 
 #### Cons
 - feature branches can be long lived
@@ -109,4 +109,4 @@ In order to complete a pull request, all of the following conditions must be met
 - at least one approver
 - PR build must complete successfully
 
-On completion of a pull request a squash merge should be performed and the feature/bug branch should be deleted.  The commit message should be amended to give a concise description of the changes, rather than the default list of individual commits.
+On completion of a pull request a squash merge should be performed and the feature/bug branch should be deleted. The commit message should be amended to give a concise description of the changes, rather than the default list of individual commits.

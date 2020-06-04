@@ -5,7 +5,7 @@ Visual Studio Code is a source code editor developed by Microsoft for Windows, L
 Install OS specific version via download from https://code.visualstudio.com/download
 
 ## Install StandardJS
-In line with Defra's digital standards for JavaScript, StandardJS coding standards should be used.  Visual Studio has an extension to validate syntax for StandardJS.
+In line with Defra's digital standards for JavaScript, StandardJS coding standards should be used. Visual Studio has an extension to validate syntax for StandardJS.
 1. Install StandardJS extension
 1. Disable VS Code JavaScript Validation by adding `"javascript.validate.enable": false` to settings.json
 1. Install StandardJS locally or globally
@@ -26,7 +26,7 @@ If you prefer your code to autosave, add the following to settings.json.
 ```
 
 ## Indentation
-VS Code supports multiple indentation settings for each language by upating the `settings.json` file.  
+VS Code supports multiple indentation settings for each language by updating the `settings.json` file.
 
 The below example sets a default indentation to two spaces, but uses four spaces for C# files as per Microsoft standards.
 
@@ -53,7 +53,7 @@ The below example sets a default indentation to two spaces, but uses four spaces
 ### Debug configuration
 The simplest way to debug code within WSL is to use the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) VS Code extension.
 
-Alternatively, you can use the [WSL workspace folder](https://marketplace.visualstudio.com/items?itemName=lfurzewaddock.vscode-wsl-workspacefolder) and update your debug configuration to use the WSL folder.  Examples below.
+Alternatively, you can use the [WSL workspace folder](https://marketplace.visualstudio.com/items?itemName=lfurzewaddock.vscode-wsl-workspacefolder) and update your debug configuration to use the WSL folder. Examples below.
 
 #### Basic
 ```
@@ -124,7 +124,7 @@ Alternatively, you can use the [WSL workspace folder](https://marketplace.visual
 ```
 
 ### Debugging .Net Core in a container
-To debug .Net Core in a container you will need to install a remote debugger into the container.  The below shows a Dockerfile layer that will install the **vsdbg** remote debugger.
+To debug .Net Core in a container you will need to install a remote debugger into the container. The below shows a Dockerfile layer that will install the **vsdbg** remote debugger.
 
 ```
 RUN apt-get update \
@@ -156,9 +156,9 @@ To attach the remote debugger to a process the below example debug configuration
       }
 ```
 
-When this debug session is used the `${command:pickRemoteProcess}` setting will open a dialog box prompting selection of a process running within the container.  Select the process attached to the relevant .dll.
+When this debug session is used the `${command:pickRemoteProcess}` setting will open a dialog box prompting selection of a process running within the container. Select the process attached to the relevant .dll.
 
-**Note** if your Windows user name has a space, the `${command:pickRemoteProcess}` command will not work and return a file not found error.  To correct this run the following command in the command prompt to list all processes running in the container.  Then replace `${command:pickRemoteProcess}` with the equivalent process Id.
+**Note** if your Windows user name has a space, the `${command:pickRemoteProcess}` command will not work and return a file not found error. To correct this run the following command in the command prompt to list all processes running in the container. Then replace `${command:pickRemoteProcess}` with the equivalent process Id.
 
 `docker exec -i YOUR_CONTAINER_NAME sh -s < "C:\Users\USER_NAME_WITH_SPACE\.vscode\extensions\ms-vscode.csharp-1.21.3\scripts\remoteProcessPickerScript"`
 

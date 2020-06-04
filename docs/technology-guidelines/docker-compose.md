@@ -14,7 +14,7 @@ Note that the above is equivalent to running the command:
 
 `docker-compose up`
 
-as calling `docker-compose` without specifying any files will run `docker-compose` with any available `docker-compose.yaml` and `docker-compose.override.yaml` files in the executing directory. 
+as calling `docker-compose` without specifying any files will run `docker-compose` with any available `docker-compose.yaml` and `docker-compose.override.yaml` files in the executing directory.
 
 Note however that:
 
@@ -74,7 +74,7 @@ and to run the tests
 
 ## Avoid conflicts with unique container names
 
-The docker container name should be unique in override files if they may be run simultaneously. 
+The docker container name should be unique in override files if they may be run simultaneously.
 
 If the `docker-compose.yaml` and the `docker-compose.test.yaml` had the same name conflicts will occur if tearing down and rebuilding the container happens while both containers are in use.
 

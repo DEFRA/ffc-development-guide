@@ -1,15 +1,15 @@
 # Install Docker for Windows and WSL
 Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package.
 
-FFC will primarily be developing a containerised microservice ecosystem. 
+FFC will primarily be developing a containerised microservice ecosystem.
 
 # Installation
-Docker currently does not work within WSL.  To work with Docker within WSL, Docker must be installed in both Windows and WSL then WSL must connect to the Windows Docker Daemon.
+Docker currently does not work within WSL. To work with Docker within WSL, Docker must be installed in both Windows and WSL then WSL must connect to the Windows Docker Daemon.
 
 ## Windows
 1. Download Docker Desktop from https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
 1. Installation will prompt for use of Hyper-V which is required.
-1. Once installed open Settings and enable "Expose Daemon on tcp://localhost:2375 without TLS".  This will allow Docker installed on WSL to communicate with Daemon.
+1. Once installed open Settings and enable "Expose Daemon on tcp://localhost:2375 without TLS". This will allow Docker installed on WSL to communicate with Daemon.
 
 ## WSL
 1. Run the following terminal commands
@@ -50,7 +50,7 @@ sudo usermod -aG docker $USER
 ```
 
 2. Close and reopen terminal
-1. Connect WSL Docker to Windows Docker  
+1. Connect WSL Docker to Windows Docker
   `echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc`
 
 ## Install Docker Compose
@@ -60,7 +60,7 @@ To install Run below terminal commands.
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
-`sudo chmod +x /usr/local/bin/docker-compose`  
+`sudo chmod +x /usr/local/bin/docker-compose`
 `docker-compose --version`
 
 ## Setup shared drives
@@ -69,13 +69,13 @@ To allow Docker to access Windows drives for creating Docker Compose volumes, th
 1. In Docker for Windows Settings menu select Shared Drives
 2. Select which Windows drives you'd like to share
 3. Click apply and enter your Windows password to confirm
-4. If you get an error stating the firewall is blocking the configuration change then run the following Powershell command as Administrator
+4. If you get an error stating the firewall is blocking the configuration change then run the following PowerShell command as Administrator
    `Set-NetConnectionProfile -interfacealias "vEthernet (DockerNAT)" -NetworkCategory Private`
 
 ## Configure Windows firewall
-Antivirus software can block Docker traffic between Windows and WSL and cause issues with use of Docker volumes.  This can result in the need to constantly reconfigure the shared drive settings in Docker Desktop.
+Antivirus software can block Docker traffic between Windows and WSL and cause issues with use of Docker volumes. This can result in the need to constantly reconfigure the shared drive settings in Docker Desktop.
 
-To prevent this issue, add the following IP addresses used by Docker as trusted devices.  
+To prevent this issue, add the following IP addresses used by Docker as trusted devices.
 
 ```
 10.0.75.0

@@ -2,11 +2,11 @@
 The Kubernetes dashboard is a web-based Kubernetes user interface.
 
 # Installation
-Install the dashboard to a Kubernetes cluster using the `kubectl apply` command specified in the **Deploying the dashboard UI** section in the below link.  
+Install the dashboard to a Kubernetes cluster using the `kubectl apply` command specified in the **Deploying the dashboard UI** section in the below link.
 
 https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
-Example:  
+Example:
 `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml`
 
 ### Create default user and access token

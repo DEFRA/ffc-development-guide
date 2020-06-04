@@ -5,9 +5,9 @@ Node Version Manager allows a developer to easily switch between Node versions.
 ## Install NVM
 Run the below terminal commands.
 
-```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash```  
+```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash```
 
-`nvm install 13.0`  
+`nvm install 13.0`
 `nvm use 13.0`
 
 ## Install NPM

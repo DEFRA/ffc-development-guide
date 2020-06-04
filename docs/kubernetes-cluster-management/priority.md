@@ -15,5 +15,5 @@ The `priorityClass` definitions that relate to these levels can be viewed in the
 # Further reading
 More information is available in [Confluence](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/)
 
-# Resoure limits
+# Resource limits
 The [resource limit](resource-usage.md) of a pod will also impact pod priority for those pods with the same priority level.
