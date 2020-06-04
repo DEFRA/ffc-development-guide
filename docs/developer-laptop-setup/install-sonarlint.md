@@ -5,7 +5,7 @@ It can be configured to run in "connected mode" which allows rules configured in
 
 ## Installation (VS Code)
 ### Dependencies
-- Java Runtime 8 or 11.  
+- Java Runtime 8 or 11.
 
 Can be downloaded from https://www.oracle.com/technetwork/java/javase/downloads/index.html.
 
@@ -15,17 +15,17 @@ Can be downloaded from https://www.oracle.com/technetwork/java/javase/downloads/
    ```
    {
     "sonarlint.connectedMode.connections.sonarqube": [
-        { 
+        {
             "connectionId": "defraSonarQube",
-            "serverUrl": "https://sonarqube.aws-int.defra.cloud/", 
-            "token": "<key obtained from https://sonarqube.aws-int.defra.cloud/sonar/account/security/" 
+            "serverUrl": "https://sonarqube.aws-int.defra.cloud/",
+            "token": "<key obtained from https://sonarqube.aws-int.defra.cloud/sonar/account/security/"
         }
     ],
     "sonarlint.connectedMode.connections.sonarcloud": [
-        { 
+        {
             "connectionId": "SonarCloud",
-            "organizationKey": "defra", 
-            "token": "<key obtained from https://sonarcloud.io/account/security/>" 
+            "organizationKey": "defra",
+            "token": "<key obtained from https://sonarcloud.io/account/security/>"
         }
     ]
 }

@@ -33,7 +33,7 @@ Expanding the scope of a pull request at the review stage is not acceptable. It 
 Examples of things to look for and comment on in a code review:
 
 ### What has changed
-Are the changes focussed on a specific issue, referenced in the pull request description? If the changes go beyond the intended scope, should they be broken up to make the code review more managable? If the code review is still a managable size, consider making a non-blocking comment to remind the author that they could control the scope of future pull requests more carefully.
+Are the changes focussed on a specific issue, referenced in the pull request description? If the changes go beyond the intended scope, should they be broken up to make the code review more manageable? If the code review is still a manageable size, consider making a non-blocking comment to remind the author that they could control the scope of future pull requests more carefully.
 
 ### Maintainability
 Is all new code extensible and easy for other developers to understand? Does it follow common design patterns? Look for unnecessary complexity and remember that this is subjective so take care not to be overly critical or opinionated when commenting on maintainability. Try to make specific suggestions for improvement, rather than simply stating a problem, but use open-ended language to encourage discussion.

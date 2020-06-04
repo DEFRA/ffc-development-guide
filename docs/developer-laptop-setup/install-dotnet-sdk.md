@@ -12,7 +12,7 @@ To create them manually run
 `ln -s /usr/local/share/dotnet/dotnet /usr/local/bin/`
 
 ### Verify installation
-Check your installation was successful with 
+Check your installation was successful with
 
 `dotnet --version`
 

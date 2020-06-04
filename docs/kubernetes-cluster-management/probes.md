@@ -34,7 +34,7 @@ If it receives a status code other than 200 for the readiness probe it will stop
 
 If it receives a status code other than 200 for the liveness probe it will assume the pod is unresponsive and restart it.
 
-**Note** that a liveness probe works in conjunction with the restartPolicy value.  In order to restart the restartPolicy must be set to Always or OnFailure.
+**Note** that a liveness probe works in conjunction with the restartPolicy value. In order to restart the restartPolicy must be set to Always or OnFailure.
 
 ## Values
 
@@ -42,9 +42,9 @@ If it receives a status code other than 200 for the liveness probe it will assum
 
 **port**: the port on which the service is exposing
 
-**initialDelaySeconds**: how long before the first probe should be sent.  This should be safely longer than it takes the pod to start up, otherwise the pod could be stuck in a reboot loop
+**initialDelaySeconds**: how long before the first probe should be sent. This should be safely longer than it takes the pod to start up, otherwise the pod could be stuck in a reboot loop
 
-**periodSeconds**: how often the liveness probe should check the pod is responsive.  Recommendation is between 10 and 20 seconds
+**periodSeconds**: how often the liveness probe should check the pod is responsive. Recommendation is between 10 and 20 seconds
 
 **failureThreshod**: how many probe failures before the pod is automatically restarted
 

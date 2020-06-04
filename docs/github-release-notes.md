@@ -1,13 +1,13 @@
 # Overview
-We want GitHub to be consistant. These standards are for when we manunally create a github release.
+We want GitHub to be consistent. These standards are for when we manually create a GitHub release.
 
 For the Description section use the [Semantic versioning](version-control.md) standards as a guide.
 
-# Github Release Note Standards
+# GitHub Release Note Standards
 ## Title
-semver Version (eg 1.0.0)
+semver Version (e.g. 1.0.0)
 
-## Description 
+## Description
   ### Major
   list of bullet major changes
 
@@ -19,4 +19,4 @@ semver Version (eg 1.0.0)
 
 Each of the above will be optional and dependant on the changes that have been made.
 
-For complex changes include code snippets in the relevent description heading.
+For complex changes include code snippets in the relevant description heading.

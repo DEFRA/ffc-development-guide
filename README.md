@@ -1,6 +1,6 @@
 # Future Farming and Countryside Programme Development Guide
 
-This is a respository for all core development documentation relating to the Future Farming and Countryside Programme (FFC).
+This is a repository for all core development documentation relating to the Future Farming and Countryside Programme (FFC).
 
 This repository includes development standards, patterns and guides to be used by all FFC developers.
 
@@ -21,7 +21,7 @@ In addition to specific FFC standards, teams should also follow Defra's wider so
 - [Test strategy](docs/test-strategy.md)
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/README.md)
 - [Static code analysis](docs/static-code-analysis.md)
-- [Github release notes](docs/github-release-notes.md)
+- [GitHub release notes](docs/github-release-notes.md)
 
 ## License
 

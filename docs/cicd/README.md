@@ -13,7 +13,7 @@ The below diagrams show the current design for a CI/CD pipeline that embraces a 
 Each pipeline specified could be made up of multiple Jenkinsfiles.
 
 ## Pull Request pipelines
-Following creation of and on update to a Pull request, the PR pipeline should run automatically.  There will actually be two PR pipelines, the first will run on every push to remote, whilst the second will run prior to any merge to master.  A tag will be added to the branch to allow Jenkins to understand which pipeline to run.
+Following creation of and on update to a Pull request, the PR pipeline should run automatically. There will actually be two PR pipelines, the first will run on every push to remote, whilst the second will run prior to any merge to master. A tag will be added to the branch to allow Jenkins to understand which pipeline to run.
 
 ### Pipeline steps (1)
 - build the service
@@ -38,7 +38,7 @@ Following creation of and on update to a Pull request, the PR pipeline should ru
 A failed PR build must prevent the PR from completing.
 
 ## Build pipeline
-Following merge to the master branch, the build pipeline should run automatically.  The purpose of this pipeline is to provide assurance that the service is production ready.
+Following merge to the master branch, the build pipeline should run automatically. The purpose of this pipeline is to provide assurance that the service is production ready.
 
 ### Pipeline steps
 - build the service

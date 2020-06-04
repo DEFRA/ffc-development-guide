@@ -6,11 +6,11 @@ Jenkins is used for all CI/CD pipelines across all FFC teams.
 - Groovy syntax should be used
 - build steps should be containerised where possible to reduce the plugin and Jenkins configuration dependencies
 - reusable steps should be encapsulated in a shared script and source controlled in a repository
-- secret values and sensitive configuration should not be included in a Jenkinsfile, instead use either a paremeter or reference to a Jenkins credential
+- secret values and sensitive configuration should not be included in a Jenkinsfile, instead use either a parameter or reference to a Jenkins credential
 
 ## Using Jenkins locally
 ### Installation
-It is recommended that Jenkins is run locally within the Blue Ocean Docker image.  The Blue Ocean image is recommended by Jenkins as it comes with Blue Ocean already configured.  Blue Ocean provides a more user friendly experience which may suit developers new to Jenkins.
+It is recommended that Jenkins is run locally within the Blue Ocean Docker image. The Blue Ocean image is recommended by Jenkins as it comes with Blue Ocean already configured. Blue Ocean provides a more user friendly experience which may suit developers new to Jenkins.
 
 The below command will pull the image and run the container.
 
@@ -27,16 +27,16 @@ docker run \
   jenkinsci/blueocean
 ```
 
-`-v <PATH_TO_LOCAL_GIT_REPOS>:repos:ro`  
+`-v <PATH_TO_LOCAL_GIT_REPOS>:repos:ro`
 
-The above line should be amended to specify the file path of your local git repositories.  This will allow you to run builds from your local repository.
+The above line should be amended to specify the file path of your local git repositories. This will allow you to run builds from your local repository.
 
-An example could be ` -v /c/users/ddts_220606/source/repos:\repos:ro`  
+An example could be ` -v /c/users/ddts_220606/source/repos:\repos:ro`
 
 This [official guide](https://jenkins.io/doc/book/installing/) includes instructions for how to setup access credentials to the Jenkins container.
 
 ### Run build from local repository
-The following assumes you have an existing repository containing a Jenkinsfile.  
+The following assumes you have an existing repository containing a Jenkinsfile.
 
 - select `New Item` from the main menu
 - enter a project name and select `Pipeline`
@@ -54,4 +54,3 @@ If an exception of type `Jenkins CI Pipeline Scripts not permitted to use method
 - select `Manage Jenkins` from the main menu
 - select `In-process Script Approval`
 - select `Approve` for Groovy
-

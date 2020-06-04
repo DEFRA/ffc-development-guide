@@ -1,11 +1,11 @@
 # Setup developer laptop
-Developers are free to use any Defra approved device and their own choice of operating system and code editor/IDE.  
+Developers are free to use any Defra approved device and their own choice of operating system and code editor/IDE.
 
-The most common environments are Windows 10 with Windows Subsystem for Linux (WSL) Ubuntu distro and MacOS. 
+The most common environments are Windows 10 with Windows Subsystem for Linux (WSL) Ubuntu distro and macOS.
 
-Visual Studio Code is the preferred code editor.  
+Visual Studio Code is the preferred code editor.
 
-This guide will be targeted towards those setups.  All terminal commands should be run in WSL unless specified.  
+This guide will be targeted towards those setups. All terminal commands should be run in WSL unless specified.
 
 ## Configuration steps
 

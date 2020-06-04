@@ -38,4 +38,4 @@ Helm charts for PR deployments should not be pushed to a Helm repository.
 Release should be packaged in a repository using the version number of the application.
 
 ## Creating a new version
-The judgement call as to whether a change is a MAJOR, MINOR or PATCH can only be assessed by a person.  Therefore there needs to be a flag added to the application to indicate which type of release a change is.
+The judgement call as to whether a change is a MAJOR, MINOR or PATCH can only be assessed by a person. Therefore there needs to be a flag added to the application to indicate which type of release a change is.
