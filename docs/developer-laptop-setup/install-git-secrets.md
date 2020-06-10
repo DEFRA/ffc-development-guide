@@ -13,7 +13,7 @@ for your OS.
 
 Add AWS patterns to the global git config:
 ```
-git secrets --register-aws -global
+git secrets --register-aws --global
 ```
 
 Install git-secrets into the required repositories:
