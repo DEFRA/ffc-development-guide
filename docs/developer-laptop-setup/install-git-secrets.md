@@ -23,7 +23,7 @@ git secrets --install
 ```
 
 [Advanced configuration](https://github.com/awslabs/git-secrets/blob/master/README.rst#advanced-configuration)
-is available.
+is available if you want to add hooks to all repositories you initialise or clone in the future.
 
 ### Notes
 
