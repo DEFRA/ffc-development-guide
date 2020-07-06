@@ -1,7 +1,7 @@
 # Install SonarLint
 [SonarLint](https://www.sonarlint.org/) is an IDE extension that identifies code quality issues as you code.
 
-It can be configured to run in `connected mode` which allows rules configured in a SonarCloud/SonarQube instance to be applied to a local workspace, flagging up issues as the developer codes.
+It can be configured to run in `connected mode` which allows rules configured in a SonarCloud/SonarQube instance to be applied to a local workspace, flagging up issues as the developer writes code.
 
 This guide will demonstrate how to install the SonarLint extension in VS Code.  For other IDEs, refer to the [SonarLint documentation](https://www.sonarlint.org/).
 
