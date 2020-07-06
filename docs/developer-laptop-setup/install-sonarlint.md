@@ -5,7 +5,7 @@ It can be configured to run in "connected mode" which allows rules configured in
 
 ## Installation (VS Code)
 ### Dependencies
-- Java Runtime 8 or 11.
+- Java Runtime 11.
 
 Can be downloaded from https://www.oracle.com/technetwork/java/javase/downloads/index.html.
 
