@@ -25,7 +25,7 @@ commit the updated `.secrets.baseline` file:
 detect-secrets scan --update .secrets.baseline
 ```
 
-### Excludes
+### Excluding files and directories
 
 The `pre-commit` configuration file detailed in the [guide for creating FFC git repositories](source-code.md)
 contains a regex for exluding files from the `detect-secrets` scan. This can be updated to exlude additional

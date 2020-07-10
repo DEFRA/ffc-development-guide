@@ -30,7 +30,9 @@ pip install detect-secrets
 
 ## Configuration
 
-A `pre-commit` configuration file should exist in every FFC git repository that contains the necessary information to run `detect-secrets`. Your system will need to be configured to set up the git hooks for both currently cloned, and future cloned, FFC repositories.
+A `pre-commit` configuration file should exist in every FFC git repository that contains the necessary information to run `detect-secrets`. See the [guide for creating FFC git repositories](../source-code.md).
+
+Your system will need to be configured to set up the git hooks for both currently cloned, and future cloned, FFC repositories.
 
 ### Currently cloned FFC git repositories
 
@@ -49,8 +51,7 @@ git config --global init.templateDir ~/.git-template
 pre-commit init-templatedir ~/.git-template
 ```
 
-
-### Notes
+### Using with other git hooks managers
 
 `pre-commit` installs a single git hook to `.git/hooks/pre-commit`
 
@@ -66,3 +67,8 @@ this document. However, husky provides
 [options](https://www.npmjs.com/package/husky#multiple-commands) and
 [this](https://stackoverflow.com/a/26624598) Stack Overflow post discusses
 another.
+
+## Usage
+
+Refer to the [secrets management guide](../secrets-management.md) for details on dealing
+with `detect-secrets` false positives and excludes.
