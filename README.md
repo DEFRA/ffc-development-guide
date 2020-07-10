@@ -22,6 +22,7 @@ In addition to specific FFC standards, teams should also follow Defra's wider so
 - [Kubernetes cluster management](docs/kubernetes-cluster-management/README.md)
 - [Static code analysis](docs/static-code-analysis.md)
 - [GitHub release notes](docs/github-release-notes.md)
+- [Secrets management](docs/secrets-management.md)
 
 ## License
 

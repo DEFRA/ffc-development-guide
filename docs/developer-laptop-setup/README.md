@@ -20,7 +20,7 @@ This guide will be targeted towards those setups. All terminal commands should b
 - [ ] [Setup MacBook](setup-macbook.md)
 
 ### General
-- [ ] [Install git-secrets](install-git-secrets.md)
+- [ ] [Install detect-secrets](install-detect-secrets.md)
 - [ ] [Install OpenVPN](install-openvpn.md)
 - [ ] [Install AWS CLI](install-aws-cli.md)
 - [ ] [Install AWS IAM Authenticator](install-aws-iam-authenticator.md)
