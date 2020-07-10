@@ -54,8 +54,7 @@ pre-commit init-templatedir ~/.git-template
 
 `pre-commit` installs a single git hook to `.git/hooks/pre-commit`
 
-By default git only allows a single script to be run for each hook as explained
-[here](https://github.com/awslabs/git-secrets/blob/master/README.rst#options-for---install).
+By default git only allows a single script to be run for each hook.
 
 If a repository is using a git hooks manager such as
 [husky](https://www.npmjs.com/package/husky), additional configuration will be
