@@ -16,9 +16,9 @@ work with the client-side `detect-secrets` tool.
 the developer from committing their changes. We have two strategies for dealing with false positives.
 
 1. For one-time false positives, they can be overridden by commiting with the `--no-verify` flag. This will commit the
-change, but any future commits to the file containing the false positive will result in it being detected again.
+change, but any future commits with changes to the file containing the false positive will result in it being detected again.
 
-2. The false positive can be permanently ignored by adding them to the secrets baseline. Run the following command and
+2. False positives can be permanently ignored by adding them to the secrets baseline. Run the following command and
 commit the updated `.secrets.baseline` file:
 
 ```
@@ -28,5 +28,5 @@ detect-secrets scan --update .secrets.baseline
 ### Excluding files and directories
 
 The `pre-commit` configuration file detailed in the [guide for creating FFC git repositories](source-code.md)
-contains a regex for exluding files from the `detect-secrets` scan. This can be updated to exlude additional
+contains a regex for exlcuding files from the `detect-secrets` scan. This can be updated to exlcude additional
 files or directories. Update with caution.
