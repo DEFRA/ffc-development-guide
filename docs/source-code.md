@@ -25,6 +25,30 @@ Stale reviews should be automatically dismissed.
 
 Repositories should only allow Squash merging.
 
+### Secret detection
+
+All developers are required to [install detect-secrets](developer-laptop-setup/install-detect-secrets.md)
+when working on open-source FFC git repositories in github.
+
+When setting up a new FFC git repository, it needs to be configured to work with the client-side `detect-secrets` tool:
+
+1. Add the configuration file called `.pre-commit-config.yaml` in the repository root directory with the following contents (to exlude additional files/paths from secret detection update the `exclude:` regex):
+
+```
+- repo: git@github.com:Yelp/detect-secrets
+  rev: v0.13.1
+  hooks:
+  - id: detect-secrets
+    args: ['--baseline', '.secrets.baseline']
+    exclude: ^package-lock.json|^.secrets.baseline
+```
+
+2. Create and add the baseline file:
+
+```
+detect-secrets scan > .secrets.baseline
+```
+
 ### Licence
 The Open Government Licence (OGL) Version 3 should be added to the repository.
 
