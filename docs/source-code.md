@@ -40,13 +40,13 @@ When setting up a new FFC git repository, it needs to be configured to work with
   hooks:
   - id: detect-secrets
     args: ['--baseline', '.secrets.baseline']
-    exclude: ^package-lock.json|^.secrets.baseline
+    exclude: package-lock.json
 ```
 
 2. Create and add the baseline file:
 
 ```
-detect-secrets scan --exclude-files "^package-lock.json|^.secrets.baseline" > .secrets.baseline
+detect-secrets scan --exclude-files package-lock.json > .secrets.baseline
 ```
 
 ### Licence
