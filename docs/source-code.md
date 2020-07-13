@@ -46,7 +46,7 @@ When setting up a new FFC git repository, it needs to be configured to work with
 2. Create and add the baseline file:
 
 ```
-detect-secrets scan > .secrets.baseline
+detect-secrets scan --exclude-files "^package-lock.json|^.secrets.baseline" > .secrets.baseline
 ```
 
 ### Licence

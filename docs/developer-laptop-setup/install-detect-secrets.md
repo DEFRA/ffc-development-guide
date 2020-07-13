@@ -36,7 +36,7 @@ Your system will need to be configured to set up the git hooks for both currentl
 
 ### Currently cloned FFC git repositories
 
-Set up the `pre-commit` git hook to run `detect-secrets` by run the following command **in every FFC repository you have cloned on your system**:
+Set up the `pre-commit` git hook to run `detect-secrets` by running the following command **in every FFC repository you have cloned on your system**:
 
 ```
 pre-commit install
