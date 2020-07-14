@@ -42,7 +42,7 @@ When setting up a new FFC git repository, it needs to be configured to work with
     args: ['--baseline', '.secrets.baseline']
 ```
 
-2. Create and add the baseline file. To exclude files from the `detect-secrets` scan, run with `--exclude-files <regex>`. For example:
+2. Create and add the baseline file. To exclude files from the `detect-secrets` scan, run with `--exclude-files <regex>`. Examples:
 
 ```
 detect-secrets scan > .secrets.baseline
