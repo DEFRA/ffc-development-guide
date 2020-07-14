@@ -32,7 +32,7 @@ when working on open-source FFC git repositories in github.
 
 When setting up a new FFC git repository, it needs to be configured to work with the client-side `detect-secrets` tool:
 
-1. Add the configuration file called `.pre-commit-config.yaml` to the repository root directory with the following contents (to exclude additional files/paths from secret detection update the `exclude:` regex):
+1. Add the configuration file called `.pre-commit-config.yaml` to the repository root directory with the following contents:
 
 ```
 - repo: git@github.com:Yelp/detect-secrets
@@ -40,10 +40,13 @@ When setting up a new FFC git repository, it needs to be configured to work with
   hooks:
   - id: detect-secrets
     args: ['--baseline', '.secrets.baseline']
-    exclude: package-lock.json
 ```
 
-2. Create and add the baseline file:
+2. Create and add the baseline file. To exclude files from the `detect-secrets` scan, run with `--exclude-files <regex>`. For example:
+
+```
+detect-secrets scan > .secrets.baseline
+```
 
 ```
 detect-secrets scan --exclude-files package-lock.json > .secrets.baseline
