@@ -35,7 +35,8 @@ When setting up a new FFC git repository, it needs to be configured to work with
 1. Add the configuration file called `.pre-commit-config.yaml` to the repository root directory with the following contents:
 
 ```
-- repo: git@github.com:Yelp/detect-secrets
+repos:
+- repo: https://github.com/Yelp/detect-secrets
   rev: v0.13.1
   hooks:
   - id: detect-secrets
