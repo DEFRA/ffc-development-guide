@@ -16,7 +16,7 @@ sudo apt-get install openjdk-11-jre
 
 ## SonarLint Installation (VS Code)
 1. install [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension
-   
+
 2. set location of JRE in VS Code settings.  The below example is the install location of the above command
    ```
    "sonarlint.ls.javaHome": "/usr/lib/jvm/java-11-openjdk-amd64"
@@ -26,9 +26,9 @@ sudo apt-get install openjdk-11-jre
 This will give you Sonar code analysis using default quality gates for languages supported by SonarLint.  If you wish to use `connected mode` to sync your local workspace with a SonarCloud project, follow the below steps.
 
 1. within the SonarCloud UI, navigate to your account's [security settings](https://sonarcloud.io/account/security/)
-   
+
 2. enter a token name and generate a token, noting the token value securely
-   
+
 3. within VS Code, add a SonarCloud server connection to `settings.json` to enable `connected mode`
    ```
    "sonarlint.connectedMode.connections.sonarcloud": [{
@@ -48,3 +48,17 @@ This will give you Sonar code analysis using default quality gates for languages
 5. update project bindings by selecting `Update all project bindings to SonarQube/SonarCloud` from the VS Code `Command Palette`.  (`ctrl + shift + p` to open)
 
 Rules, quality gates, exclusions etc set in the SonarCloud project will now be applied to local workspace.
+
+## Configure Sonar for C#
+
+The SonarLint extension for VS Code does not currently support C#, but we can still get Sonar linting rules set up in VS Code by adding the Sonar analyser to Omnisharp.
+
+1. Add the Sonar Analyzer NuGet package if not alreay present in the `csproj` file:
+
+```
+dotnet add <PROJECT_NAME> package SonarAnalyzer.CSharp
+```
+
+2. Enable analysers in VS Code: Search for Omnisharp in settings and select `Enable Roslyn Analysers`. [Alternative configuration is available](https://www.strathweb.com/2019/04/roslyn-analyzers-in-code-fixes-in-omnisharp-and-vs-code/) outside of VS Code.
+
+When VS Code analyses C# code, it will now check against the standard set of Sonar rules for C#. The Sonar rule IDs are prefixed with `S` when displayed in VS Code. For more details on the rules you can consult the [Sonar rules documentation](https://rules.sonarsource.com/csharp).
