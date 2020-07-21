@@ -56,7 +56,7 @@ The SonarLint extension for VS Code does not currently support C#, but we can st
 1. Add the Sonar Analyzer NuGet package if not alreay present in the `csproj` file:
 
 ```
-dotnet add FFCDemoPaymentService package SonarAnalyzer.CSharp
+dotnet add <PROJECT_NAME> package SonarAnalyzer.CSharp
 ```
 
 2. Enable analysers in VS Code: Search for Omnisharp in settings and select `Enable Roslyn Analysers`. [Alternative configuration is available](https://www.strathweb.com/2019/04/roslyn-analyzers-in-code-fixes-in-omnisharp-and-vs-code/) outside of VS Code.
