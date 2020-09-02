@@ -1,7 +1,4 @@
-# Future Farming and Countryside Programme Software Documentation Strategy
-
-## Overview
-This document details how software should be documented within the Future Farming and Countryside Programme (FFC).
+# Documentation
 
 FFC products are delivered following an agile methodology based on evidenced user needs. Documentation is expected to follow this mantra and be iterated with the code as the product evolves.
 
@@ -55,40 +52,12 @@ We should aim to write readable code that requires minimal comments as per Defra
 
 Well named and considered unit tests can also act as effective documentation.
 
-## User Stories
-User stories should be captured and tracked in an appropriate tool such as Jira or Azure DevOps.
+## Issues
+Work items are captured in the form Jira issues.
 
-User stories should have testable acceptance criteria and be supported by evidenced user needs.
+There is no need to duplicate issues in additional documentation.
 
-There is no need to duplicate user stories in additional documentation.
-
-User stories should be referenced in associated Pull Requests.
+Issues should be referenced in associated Pull Requests.
 
 ## Sensitive Documentation
-Sensitive documentation should be stored within a private repository within Azure DevOps.
-
-## Developer Guide
-The aim of the Developer Guide is to allow a new developer to FFC to understand the software landscape of FFC and how they can work within it. It should include the following:
-
-- Technologies and languages used
-- Setting up a development laptop
-- Digital standards
-- Delivery standards
-- Backlog location
-- Estimation Strategy
-- Docker standards
-- Developing locally with Docker and Kubernetes
-- Kubernetes cluster management
-- Pull Request workflow
-- High level architecture
-- Source code catalogue, location and naming convention
-- Pipeline location, requirements and naming convention
-- Cloud environment overview and access procedure
-- Slack and other channels
-- Organisation Chart
-- Developer and Test Community of Practice details
-- Complexity worth documenting
-- Developer checklist for common changes
-- Documentation standards
-
-Several of these items may include links to other documentation so there is a single source of the truth.
+Sensitive documentation should be stored within a private repository within Azure DevOps or Confluence depending on the audience.
