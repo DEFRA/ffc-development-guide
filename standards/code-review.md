@@ -1,11 +1,9 @@
 # Code review
-
 When code reviews are conducted to a high standard, they provide a valuable learning opportunity for the author, reviewer and any observers of the review process. FFC projects implement strict controls such that all changes must be made in feature branches and merged via pull request (PR). In order to merge a PR, it must first be approved by at least one reviewer.
 
 When reviewing a pull request on any FFC project, the following guidance should be followed.
 
 ## Tone of code review comments
-
 The tone of communications is extremely important in fostering an inclusive, collaborative atmosphere within teams.
 
 Remember that your colleagues put a lot of effort into their work and may feel offended by harsh criticism, particularly if you make assumptions or imply a lack of thought. Approach code reviews with kindness and empathy, assuming the best intentions and applauding good solutions as well as making suggestions for improvement.
@@ -25,7 +23,6 @@ Don't make strong, opinionated statements or dictate specific changes.
 Do ask open-ended questions and keep an open mind about alternative solutions and reasoning that you may not have thought of.
 
 ## Scope of a code review
-
 Code reviews should focus on what is being changed and whether the change is appropriate.
 
 Expanding the scope of a pull request at the review stage is not acceptable. It is generally more valuable to swiftly conclude a piece of work that the team has prioritised than to opportunistically seek additional changes, such as refactoring related code. That said, it can be useful to comment on refactoring opportunities without blocking the pull request. It may be that the author has some spare time they can use to make those changes, or can incorporate them with their next piece of work.
@@ -56,7 +53,6 @@ Is all new code covered by detailed unit tests? Have any edge cases been missed?
 Have integration tests been added to cover all changes to functionality?
 
 ## Suggesting improvements
-
 When concluding a review, there are three options:
 
 1. Comment
