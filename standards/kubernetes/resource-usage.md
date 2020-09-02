@@ -1,4 +1,4 @@
-# Overview
+# Resource usage
 Predictable demands are important to help Kubernetes find the right place for a pod within a cluster. When it comes to resources such as a CPU and memory, understanding the resource needs of a pod will help Kubernetes allocate the pod to the most appropriate node and generally improve the stability of the cluster.
 
 # FFC resource usage standards

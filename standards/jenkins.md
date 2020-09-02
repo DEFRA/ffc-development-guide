@@ -1,56 +1,17 @@
 # Jenkins
-Jenkins is used for all CI/CD pipelines across all FFC teams.
+Jenkins is used for CI pipelines across all FFC teams.
 
-## Standards
-- pipelines should be scripted within a Jenkinsfile and source controlled within the related service
-- Groovy syntax should be used
-- build steps should be containerised where possible to reduce the plugin and Jenkins configuration dependencies
-- reusable steps should be encapsulated in a shared script and source controlled in a repository
-- secret values and sensitive configuration should not be included in a Jenkinsfile, instead use either a parameter or reference to a Jenkins credential
+Where possible, build steps are containerised to reduce plugin and Jenkins configuration dependencies.
 
-## Using Jenkins locally
-### Installation
-It is recommended that Jenkins is run locally within the Blue Ocean Docker image. The Blue Ocean image is recommended by Jenkins as it comes with Blue Ocean already configured. Blue Ocean provides a more user friendly experience which may suit developers new to Jenkins.
+## Shared library
+Node.js and .NET Core microservices use the [FFC Jenkins shared library](https://github.com/DEFRA/ffc-jenkins-pipeline-library) for managing builds.  This significantly reduces the effort needed to build and deploy services in line with other FFC standards.
 
-The below command will pull the image and run the container.
+## Jenkinsfiles
+Jenkinsfiles use the Groovy syntax, adhering to the official [Apache Groovy style guide](https://groovy-lang.org/style-guide.html)
 
-```
-docker run \
-  -u root \
-  --rm \
-  -d \
-  -p 8080:8080 \
-  -p 50000:50000 \
-  -v jenkins-data:/var/jenkins_home \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v <PATH_TO_LOCAL_GIT_REPOS>:/repos:ro \
-  jenkinsci/blueocean
-```
+Microservice Jenkinsfiles are source controlled in the same repository as the microservice itself.
 
-`-v <PATH_TO_LOCAL_GIT_REPOS>:repos:ro`
+Secret values and sensitive configuration are not included in Jenkinsfiles, instead use either a parameter or environment variable.
 
-The above line should be amended to specify the file path of your local git repositories. This will allow you to run builds from your local repository.
-
-An example could be ` -v /c/users/ddts_220606/source/repos:\repos:ro`
-
-This [official guide](https://jenkins.io/doc/book/installing/) includes instructions for how to setup access credentials to the Jenkins container.
-
-### Run build from local repository
-The following assumes you have an existing repository containing a Jenkinsfile.
-
-- select `New Item` from the main menu
-- enter a project name and select `Pipeline`
-- within the `Pipeline` section, select `Pipeline script from SCM` as the `Definition`
-- enter `Git` as the `SCM`
-- enter the local repository path into the `Repository URL` using the mount configured above, for example `file:////repos/repo1`
-- Set the `Script Path` to where the Jenkinsfile can be found in the repo
-- save the project
-- select `Build Now`
-
-### Troubleshooting
-
-If an exception of type `Jenkins CI Pipeline Scripts not permitted to use method groovy.lang.GroovyObject` is thrown, then complete the following steps.
-
-- select `Manage Jenkins` from the main menu
-- select `In-process Script Approval`
-- select `Approve` for Groovy
+## Credentials
+Jenkins credentials should only be used for Jenkins pipeline specific activities.  They should not hold credentials relating to microservice configuration or deployment.  These credentials should be sourced from Azure Key Vault or for files, a private Azure DevOps repository.
