@@ -7,7 +7,7 @@ These guides help provide additional context to support our standards.
 - [Debug .NET Core in a container](debug-dotnet-container.md)
 - [Developer laptop setup](developer-laptop-setup/README.md)
 - [Jenkins](jenkins.md)
-- Kubernetes
+- [Kubernetes](kubernetes/README.md)
   - [Configure NGINX Ingress Controller](kubernetes/configure-nginx-ingress-controller.md)
   - [Install Kubernetes Dashboard](kubernetes/install-kubernetes-dashboard.md)
   - [Interact with cluster](kubernetes/interaction.md)

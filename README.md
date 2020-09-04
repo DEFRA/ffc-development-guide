@@ -16,7 +16,7 @@ Developers should fully familiarise themselves with these [core standards](https
   - [Code Reviews](standards/code-review.md)
   - [Documentation](standards/documentation.md)
   - [Jenkins](standards/jenkins.md)
-  - Kubernetes
+  - [Kubernetes](standards/kubernetes/README.md)
     - [Helm charts](standards/kubernetes/helm-charts.md)
     - [Labels](standards/kubernetes/labels.md)
     - [Pod priority](standards/kubernetes/priority.md)
@@ -34,7 +34,7 @@ Developers should fully familiarise themselves with these [core standards](https
    - [Debug .NET Core in a container](guides/debug-dotnet-container.md)
   - [Developer laptop setup](guides/developer-laptop-setup/README.md)
   - [Jenkins](guides/jenkins.md)
-  - Kubernetes
+  - [Kubernetes](guides/kubernetes/README.md)
     - [Configure NGINX Ingress Controller](kubernetes/configure-nginx-ingress-controller.md)
     - [Install Kubernetes Dashboard](kubernetes/install-kubernetes-dashboard.md)
     - [Interact with cluster](guides/kubernetes/interaction.md)

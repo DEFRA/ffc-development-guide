@@ -6,7 +6,7 @@ These standards must be adhered to by all FFC developers.
 - [Code Reviews](code-review.md)
 - [Documentation](documentation.md)
 - [Jenkins](jenkins.md)
-- Kubernetes
+- [Kubernetes](kubernetes/README.md)
   - [Helm charts](kubernetes/helm-charts.md)
   - [Labels](kubernetes/labels.md)
   - [Pod priority](kubernetes/priority.md)
