@@ -13,13 +13,13 @@ This guide will be targeted towards those setups. For Windows 10, all mention of
 - [ ] [Mount Windows drives in WSL](mount-windows-drives-in-wsl.md)
 - [ ] [Install Docker Desktop](install-docker-desktop.md)
 - [ ] [Configure Docker Desktop Kubernetes](configure-docker-desktop-kubernetes.md)
-- [ ] [Install Docker Compose](install-docker-compose.md)
 - [ ] [Install Git on WSL](install-git-on-wsl.md)
 
 ### MacOS
 - [ ] [Setup MacBook](setup-macbook.md)
 
 ### General
+- [ ] [Install Docker Compose](install-docker-compose.md)
 - [ ] [Install detect-secrets](install-detect-secrets.md)
 - [ ] [Install OpenVPN](install-openvpn.md)
 - [ ] [Install AWS CLI](install-aws-cli.md)
