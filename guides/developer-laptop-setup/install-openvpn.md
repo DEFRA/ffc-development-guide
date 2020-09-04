@@ -1,7 +1,8 @@
 # Install OpenVPN
+Access to some cloud resources is restricted to VPN access only. 
 
-Access to some resources is restricted (AWS, GitLab, Jenkins, etc) by IP allow-list for security reasons and so access needs to be via a VPN.
+## Install client
+Install the client following the [OpenVPN documentation](https://openvpn.net/community-downloads/)
 
-## Install and Configuration
-
-Cloud Service Centre (CSC) will provide full installation instructions.
+## Configure client
+Cloud Service Centre (CSC) will provide full client configuration instructions when setting up access for a developer.
