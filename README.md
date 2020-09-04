@@ -31,12 +31,14 @@ Developers should fully familiarise themselves with these [core standards](https
 - [Guides](guides/README.md)
   - [Backlog management](guides/backlog-management.md)
   - [Collaboration](guides/collaboration.md)
+   - [Debug .NET Core in a container](guides/debug-dotnet-container.md)
   - [Developer laptop setup](guides/developer-laptop-setup/README.md)
   - [Jenkins](guides/jenkins.md)
   - Kubernetes
     - [Interact with cluster](guides/kubernetes/interaction.md)
     - [Probes](guides/kubernetes/probes.md)
   - [Secrets management](guides/secrets-management.md)
+  - [VS Code and WSL1](guides/vs-code-wsl1.md)
 
 ## Licence
 

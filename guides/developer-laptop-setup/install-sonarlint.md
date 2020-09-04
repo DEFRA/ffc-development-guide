@@ -1,7 +1,7 @@
 # Install SonarLint
 [SonarLint](https://www.sonarlint.org/) is an IDE extension that identifies code quality issues as you code.
 
-It can be configured to run in `connected mode` which allows rules configured in a SonarCloud/SonarQube instance to be applied to a local workspace, flagging up issues as the developer writes code.
+It can be configured to run in `connected mode` which allows rules configured in a SonarCloud instance to be applied to a local workspace, flagging up issues as the developer writes code.
 
 This guide will demonstrate how to install the SonarLint extension in VS Code.  For other IDEs, refer to the [SonarLint documentation](https://www.sonarlint.org/).
 
@@ -50,7 +50,6 @@ This will give you Sonar code analysis using default quality gates for languages
 Rules, quality gates, exclusions etc set in the SonarCloud project will now be applied to local workspace.
 
 ## Configure Sonar for C#
-
 The SonarLint extension for VS Code does not currently support C#, but we can still get Sonar linting rules set up in VS Code by adding the Sonar analyser to Omnisharp.
 
 1. Add the Sonar Analyzer NuGet package if not alreay present in the `csproj` file:
