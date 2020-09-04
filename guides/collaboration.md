@@ -1,5 +1,5 @@
 # Collaboration
-There are several collaboration channels used in the Future Farming and Countryside programme.
+There are several collaboration channels used in the FFC.
 
 ## Sharepoint
 Sharepoint is used as an official document repository.
