@@ -13,29 +13,29 @@ Additional labels for pre-release and build metadata are available as extensions
 
 Full details can be found at [semver.org](https://semver.org).
 
-## Application version
-For a Node.js microservice, the version should be updated in the `package.json` file's `version` property.
+## Application
+- for a Node.js microservice, the version is updated in the `package.json` file's `version` property.  
 
-## Image version
-Prior to pushing to a container registry, all Docker images must be tagged. The tag must match the application version.
+- for a .NET Core microservice, the version is updated in the `.csproj` file in a `<Version>` tag.
 
-If the image is created as part of a pull request workflow, then the PR number should instead be used as the image tag, prior to pushing to the container registry.
+## Image
+- prior to pushing to a container registry, all Docker images must be tagged by CI. The tag must match the application version.
 
-For local development the tag should be added automatically when creating the image reading from the `package.json` (or equivalent) file.
+- if the image is created as part of a pull request workflow, then the PR number is instead used as the image tag.
 
-Within the CI/CD pipeline there should be logic to determine whether to use to PR number depending on whether the commit is to master or a feature/topic branch.
+## Helm chart
+- Helm chart versions are updated in the `Chart.yaml` file's `version` property.
 
-## Helm chart version
-Helm charts should be saved in a directory which matches the name of the chart. For example a chart referencing the ELM Payment Service would be stored in the `elm-payment-service` directory.
+- as Helm charts are saved in the same repository as the application they manage, the version numbers are updated in sync with the application by CI.
 
-Helm chart versions should be updated in the `Chart.yaml` file's `version` property.
+- Helm charts for PR deployments are not be pushed to a Helm repository.
 
-As Helm charts are saved in the same repository as the application they manage, the version numbers should be updated in sync with the application.
+## Releases
+- releases are packaged in the source code repository using the version number of the application by CI
 
-Helm charts for PR deployments should not be pushed to a Helm repository.
+## Databases
+- databases use Liquibase changesets for deployment and rollback.  
 
-## Release version
-Release should be packaged in a repository using the version number of the application.
+- all changesets are versioned independently of the application.
 
-## Creating a new version
-The judgement call as to whether a change is a MAJOR, MINOR or PATCH can only be assessed by a person. Therefore there needs to be a flag added to the application to indicate which type of release a change is.
+- there must be an initial `0.0.0` version before any changeset, to enable full rollback of a database
