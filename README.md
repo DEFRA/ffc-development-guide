@@ -29,9 +29,9 @@ Developers should fully familiarise themselves with these [core standards](https
   - [Technology stack](standards/technology-stack.md)
   - [Version control](standards/version-control.md)
 - [Guides](guides/README.md)
-  - Developer laptop setup
   - [Backlog management](guides/backlog-management.md)
   - [Collaboration](guides/collaboration.md)
+  - [Developer laptop setup](guides/developer-laptop-setup/README.md)
   - [Jenkins](guides/jenkins.md)
   - Kubernetes
     - [Interact with cluster](guides/kubernetes/interaction.md)

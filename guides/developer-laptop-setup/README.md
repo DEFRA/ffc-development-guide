@@ -1,22 +1,21 @@
 # Setup developer laptop
-Developers are free to use any Defra approved device and their own choice of operating system and code editor/IDE.
+Developers are free to use any Defra approved device as long as they adhere to Defra's guidance on [use of unmanaged devices](https://github.com/DEFRA/software-development-standards/blob/master/guides/unmanaged_devices.md). 
 
 The most common environments are Windows 10 with Windows Subsystem for Linux (WSL) Ubuntu distro and macOS.
 
-Visual Studio Code is the preferred code editor.
+Visual Studio Code is the preferred code editor and what the below setup steps will assume.  However, developers are free to use any compatible equivalent if it aides in their productivity.
 
-This guide will be targeted towards those setups. All terminal commands should be run in WSL unless specified.
+This guide will be targeted towards those setups. For Windows 10, all mention of terminal commands should be run in WSL unless specified.
 
 ## Configuration steps
-
-### Windows specific
-- [ ] [Install WSL](install-wsl.md)
+### Windows 10
+- [ ] [Install Windows Subsystem for Linux (WSL)](install-wsl.md)
 - [ ] [Mount Windows drives in WSL](mount-windows-drives-in-wsl.md)
 - [ ] [Install Docker for Windows and WSL](install-docker-for-windows-and-wsl.md)
 - [ ] [Configure Docker Desktop Kubernetes](configure-docker-desktop-kubernetes.md)
 - [ ] [Install Git on WSL](install-git-on-wsl.md)
 
-### MacOS specific
+### MacOS
 - [ ] [Setup MacBook](setup-macbook.md)
 
 ### General
