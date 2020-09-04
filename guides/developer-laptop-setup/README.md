@@ -29,4 +29,3 @@ This guide will be targeted towards those setups. For Windows 10, all mention of
 - [ ] [Install IDE](install-vs-code.md)
 - [ ] [Install SonarLint](install-sonarlint.md)
 - [ ] [Install Helm](installing-helm.md)
-- [ ] [Install Nginx Ingress on Kubernetes](configure-nginx-ingress-controller.md)
