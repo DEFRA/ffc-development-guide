@@ -6,3 +6,9 @@ FFC's microservice ecosystem will be orchestrated within Kubernetes clusters.
 # Installation
 Open Docker Desktop settings, select Kubernetes then enable Kubernetes.
 
+## WSL Specific config
+### Copy Kubernetes configuration from Windows
+```
+mkdir ~/.kube
+cp /c/Users/[USERNAME]/.kube/config ~/.kube
+```

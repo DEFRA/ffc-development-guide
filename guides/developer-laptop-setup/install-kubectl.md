@@ -1,23 +1,17 @@
 # Install kubectl
-
-## Prerequisites
-
-* [AWS IAM Authenticator](install-aws-aim-authenticator.md)
+kubectl is a command line tool for interacting with Kubernetes clusters.
 
 ## Installation
+Follow the [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-* https://kubernetes.io/docs/tasks/tools/install-kubectl/
-
-Note: For WSL use the 'Install on Linux' instructions
+**Note** For WSL use the 'Install on Linux' instructions
 
 ## Setup shell autocompletion (optional)
-
 ```
 sudo sh -c 'kubectl completion bash > /etc/bash_completion.d/kubectl'
 ```
 
-Notes
-
+Notes:
 1. assumes you are using `bash` shell
 1. you will need to reload your shell for the change to be picked up
 
@@ -26,7 +20,6 @@ Reference
 * https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion
 
 ## Add command alias for kubectl (optional)
-
 To add the frequently used alias `k` for `kubectl` add the following lines to your `.bashrc` file (the 2nd line adds autocomplete for the alias):
 
 ```
@@ -34,18 +27,28 @@ alias k=kubectl
 complete -o default -F __start_kubectl k
 ```
 
-## WSL Specific config
+## Add further aliases for Kubectl (optional)
+Download the following file and save to your home directory.
 
-### Copy Kubernetes configuration from Windows
+https://github.com/ahmetb/kubectl-aliases/blob/0533366d8e3e3b3987cc1b7b07a7e8fcfb69f93c/.kubectl_aliases
+
+Update your `.bashrc` file with the below to enable autocomplete on all aliases in the file.
+
 ```
-mkdir ~/.kube
-cp /c/Users/[USERNAME]/.kube/config ~/.kube
+# Kubectl
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+source <(kubectl completion bash)
+
+for a in $(sed '/^alias /!d;s/^alias //;s/=.*$//' ~/.kubectl_aliases); do
+  complete -F _complete_alias "$a"
+done
 ```
 
-## EKS Configuration
+For quick switching of Kubernetes contexts and namespaces, it may be beneficial to append the following lines to the `kubectl_aliases` file.
 
-Cluster specific EKS `kubectl` configuration files can be downloaded [from](https://gitlab-dev.aws-int.defra.cloud/ffc/kubernetes) this private GitLab repo.
+```
+alias kns='kubectl config set-context --current --namespace'
+alias kc='kubectl config use-context'
+```
 
-## Notes
-
-* When connecting to an AWS cluster the kubectl config makes use of the AWS command line tool, so you need to be authenticated as your Defra AWS user as well as connected to the VPN. This is because the cluster config uses the get-token feature of the AWS command.
+Full details are available in this [blog post](https://ahmet.im/blog/kubectl-aliases/)
