@@ -5,11 +5,12 @@ Node Version Manager allows a developer to easily switch between Node versions.
 ## Install NVM
 Run the below terminal commands.
 
-```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash```
+`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
 
-`nvm install 13.0`
-`nvm use 13.0`
+`nvm install 14.0`
+`nvm use 14.0`
 
-## Install NPM
-Run the below terminal command to install Node Package Manager (NPM) to WSL.
+## Install npm
+Run the below terminal command to install Node Package Manager (npm).
+
 `npm install npm@latest -g`

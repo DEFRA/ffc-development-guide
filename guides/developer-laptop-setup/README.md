@@ -24,7 +24,7 @@ This guide will be targeted towards those setups. For Windows 10, all mention of
 - [ ] [Install OpenVPN](install-openvpn.md)
 - [ ] [Install AWS CLI](install-azure-cli.md)
 - [ ] [Install kubectl](install-kubectl.md)
-- [ ] [Install Node Version Manager](install-node-version-manager.md)
+- [ ] [Install Node Version Manager (NVM)](install-node-version-manager.md)
 - [ ] [Install .Net Core SDK](install-dotnet-sdk.md)
 - [ ] [Install VS Code](install-vs-code.md) (optional)
 - [ ] [Install SonarLint extension](install-sonarlint.md)
