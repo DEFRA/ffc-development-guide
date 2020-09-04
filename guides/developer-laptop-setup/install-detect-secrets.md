@@ -1,5 +1,4 @@
-# Install detect-secrets
-
+# Install `detect-secrets`
 Prevent committing passwords and other sensitive information to git repositories.
 
 The [detect-secrets tool](https://github.com/Yelp/detect-secrets) provides out-of-the-box
@@ -7,9 +6,7 @@ support for scanning git commits for different types of credentials including ke
 (e.g. 'password' or 'secret'), private SSH keys, and base64 high entropy string.
 
 ## Installation
-
 ### Install prerequisites
-
 `detect-secrets` is written in Python and will require Python version 3 and
 `pip` (the package installer for Python) to be installed on your system.
 
@@ -17,7 +14,6 @@ support for scanning git commits for different types of credentials including ke
 2. Install `pip` using the `get-pip.py` script following [these instructions](https://pip.pypa.io/en/stable/installing/)
 
 ### Install detect-secrets and pre-commit
-
 `detect-secrets` harnesses the `pre-commit` tool to set-up the git pre-commit hook
 that runs `detect-secrets` on the contents of the commit.
 
@@ -29,13 +25,11 @@ pip install detect-secrets
 ```
 
 ## Configuration
-
 A `pre-commit` configuration file should exist in every FFC git repository that contains the necessary information to run `detect-secrets`. See the [guide for creating FFC git repositories](../source-code.md).
 
 Your system will need to be configured to set up the git hooks for both currently cloned, and future cloned, FFC repositories.
 
 ### Currently cloned FFC git repositories
-
 Set up the `pre-commit` git hook to run `detect-secrets` by running the following command **in every FFC repository you have cloned on your system**:
 
 ```
@@ -43,7 +37,6 @@ pre-commit install
 ```
 
 ### All future cloned FFC git repositories
-
 To automatically set up the `pre-commit` git hook to run `detect-secrets` for newly cloned repositories, set up a global template:
 
 ```
@@ -52,7 +45,6 @@ pre-commit init-templatedir ~/.git-template
 ```
 
 ### Using with other git hooks managers
-
 `pre-commit` installs a single git hook to `.git/hooks/pre-commit`
 
 By default git only allows a single script to be run for each hook.
@@ -69,6 +61,5 @@ this document. However, husky provides
 another.
 
 ## Usage
-
 Refer to the [secrets management guide](../secrets-management.md) for details on dealing
 with `detect-secrets` false positives and excludes.
