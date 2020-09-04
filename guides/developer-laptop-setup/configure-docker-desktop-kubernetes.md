@@ -1,13 +1,12 @@
-# Configure Docker Desktop and Kubernetes
-Kubernetes (commonly stylized as k8s) is an open-source container-orchestration system for automating application deployment, scaling, and management.
+# Configure Docker Desktop Kubernetes
+Docker Desktop enables developers to deploy a single node cluster to their local machine.
 
-FFC's microservice ecosystem will be orchestrated within Kubernetes clusters.
-
-# Installation
+## Installation
 Open Docker Desktop settings, select Kubernetes then enable Kubernetes.
 
-## WSL Specific config
-### Copy Kubernetes configuration from Windows
+## WSL configuration
+In order to interact with the cluster running in Windows, the default Kubeconfig file generated should be copied to WSL.
+
 ```
 mkdir ~/.kube
 cp /c/Users/[USERNAME]/.kube/config ~/.kube
