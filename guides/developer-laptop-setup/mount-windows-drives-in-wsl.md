@@ -3,7 +3,7 @@ In order to access the Windows file system within WSL, each drive needs to be mo
 
 The problem with this is some service such as Docker Compose volumes need the binding to be **/c/**. This can be configured in the WSL config file.
 
-# Configuration
+## Configuration
 1. Create or edit WSL config file by entering the below terminal command.
 `sudo nano /etc/wsl.conf`
 

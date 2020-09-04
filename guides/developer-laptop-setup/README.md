@@ -11,8 +11,9 @@ This guide will be targeted towards those setups. For Windows 10, all mention of
 ### Windows 10
 - [ ] [Install Windows Subsystem for Linux (WSL)](install-wsl.md)
 - [ ] [Mount Windows drives in WSL](mount-windows-drives-in-wsl.md)
-- [ ] [Install Docker for Windows and WSL](install-docker-for-windows-and-wsl.md)
+- [ ] [Install Docker Desktop](install-docker-desktop.md)
 - [ ] [Configure Docker Desktop Kubernetes](configure-docker-desktop-kubernetes.md)
+- [ ] [Install Docker Compose](install-docker-compose.md)
 - [ ] [Install Git on WSL](install-git-on-wsl.md)
 
 ### MacOS
