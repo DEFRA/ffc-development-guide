@@ -1,12 +1,12 @@
-# Install .Net Core SDK
-The .Net Core SDK is a set of libraries and tools that allow developers to create .Net Core applications and libraries.
+# Install .NET Core SDK
+The .NET Core SDK is a set of libraries and tools that allow developers to create .NET Core applications and libraries.
 
 ## Choose version (or use recommended)
 Select the version required then either a package manager or binary for your OS.
 
 https://dotnet.microsoft.com/download/dotnet-core/
 
-NB. On MacOS, creation of symbolic links is missing from the installer after installation.
+**Note** On MacOS, creation of symbolic links is missing from the installer after installation.
 To create them manually run
 
 `ln -s /usr/local/share/dotnet/dotnet /usr/local/bin/`
@@ -16,7 +16,7 @@ Check your installation was successful with
 
 `dotnet --version`
 
-## Install .Net Core tools
+## Install .NET Core tools
 As per [Microsoft's setup guide]
 (https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet) the Entity Framework tools allow the creation and application of code first migrations can be installed with the command
 
