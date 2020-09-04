@@ -1,8 +1,21 @@
-## Helm chart
-Helm charts should be saved in a directory which matches the name of the chart. For example a chart referencing the ELM Payment Service would be stored in the `elm-payment-service` directory.
+# Helm chart
+Helm charts allow multiple Kubenetes resource definitions to be deployed and undeployed as a single unit.
 
-Helm chart versions should be updated in the `Chart.yaml` file's `version` property.
+Helm version 3 is used within FFC.
 
-As Helm charts are saved in the same repository as the application they manage, the version numbers should be updated in sync with the application.
+## Source control
+- Helm charts are source controlled in the same repository as the microservice they relate to
 
-Helm charts for PR deployments should not be pushed to a Helm repository.
+- Helm charts are saved in a `helm` directory and named the same as the repository. For example a chart referencing the ELM Payment Service would be stored in the `./helm/elm-payment-service` directory
+
+- Helm chart versions are automatically updated by CI in line with the application version
+
+## Helm chart library
+- to keep Helm charts DRY, the [FFC Helm Chart Library](https://github.com/DEFRA/ffc-helm-library) is used as a base for all resource definitions
+
+- consuming Helm charts only need to define where there is variation from the base Helm chart
+
+## Helm chart repository
+- Helm charts are published to a Helm chart repository using Azure Container Registry
+
+- Helm charts for in flight Pull Requests are not published

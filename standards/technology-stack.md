@@ -41,6 +41,7 @@ When developing services, teams must use the following technology stack.
 - Application Configuration
 - Azure Key Vault
 - AAD Pod Identity
+- Application Insights
 - Azure Repos
 
 ## Cloud (public)
