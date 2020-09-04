@@ -1,32 +1,33 @@
 # Source code
 The default position for FFC is that code should be open source and hosted within GitHub.
 
-If there is a need for a private repository, for example when source controlling infrastructure as code, that should be controlled within Defra's hosted GitLab instance or AzureDevOps Repos.
+If there is a need for a private repository then an AzureDevOps Repo should be used instead.
 
 ## Creating repositories
 ### Naming repositories
-Repositories should follow the below naming convention.
+Repositories follow the below naming convention.
 
 `ffc-<workstream>-<service>`
 
 For example, `ffc-elm-apply`.
 
-Following this naming convention helps understand ownership of repositories and is also essential for teams to be able to use the [FFC Jenkins library](https://github.com/DEFRA/ffc-jenkins-pipeline-library) which is reliant on convention.
+Following this naming convention helps understand ownership of repositories and is also essential for automated secret scanning managed in Jenkins.
 
 ### Managing access
-The [FFC GitHub team](https://github.com/orgs/DEFRA/teams/ffc) should be added with `Admin` access to all repositories hosted on GitHub. For GitLab and AzureDevOps repositories, the equivalent FFC should be used.
+The [FFC GitHub team](https://github.com/orgs/DEFRA/teams/ffc) is added with `Admin` access to all repositories hosted on GitHub. For AzureDevOps repositories, the equivalent `FFC` team should be used.
 
 As per [Defra policy](https://github.com/DEFRA/dst-guides/tree/master/github), contractors should be added as contributors and should not be part of the FFC Team in GitHub.
 
 ### Branch policies
-Master branches should be protected by a branch policy where merges requires a Pull Request approved by at least one other person.
+- main branches are protected by a branch policy where merges requires a Pull Request approved by at least one other person.
 
-Stale reviews should be automatically dismissed.
+- stale reviews are automatically dismissed.
 
-Repositories should only allow Squash merging.
+- repositories only allow Squash merging.
+
+- as the FFC team is added in the `Admin` role, Administrators are included in policy rules.
 
 ### Secret detection
-
 All developers are required to [install detect-secrets](developer-laptop-setup/install-detect-secrets.md)
 when working on open-source FFC git repositories in github.
 
@@ -68,57 +69,7 @@ Surrey, TW9 4DU.
 ```
 
 ### Readme
-A `README.md` should be added to initialise the repository. As work begins on the repository, the README should adhere to [FFC documentation standards](documentation-standards.md).
-
-## Branching strategies
-FFC aims to be a true DevOps programme with capability to deliver value often and rapidly.
-
-To support this, there are two branching strategy options, `Feature branch development` and `Trunk based development`. Feature branch development should be preferred as it has significantly lower risk and promotes more collaboration. However, there may be some scenarios where a trunk based development approach can deliver more value.
-
-### Feature branch development
-With feature branch development, all feature development should take place in a dedicated branch instead of the master branch.
-
-This allows multiple developers to work on a feature whilst protecting the master branch.
-
-New branches should be created from master for both feature development and bug fixes.
-
-![Feature branch development](/docs/images/feature-branch-development.png)
-
-#### Pros
-- more control over Master
-- increased opportunity for collaboration through pull requests
-- broken builds can automatically be kept out of Master
-- supports remote working and a experience variation
-- features can be tested in isolated PR environment before approval
-
-#### Cons
-- feature branches can be long lived
-- prone to larger merge conflicts
-
-#### Notes
-- well refined user stories can reduce feature branch scope
-- good collaboration on how to implement a feature can reduce code review time
-
-### Trunk based development
-With trunk based development, developers commit code directly to the master branch.
-
-This allows for a more rapid CI/CD approach, but needs to be well supported with robust working practices.
-
-![Trunk based development](/docs/images/trunk-based-development.png)
-
-#### Pros
-- no long running feature branches
-- changes can be implemented quickly
-- less admin from branch creation and pull requests
-
-#### Cons
-- depends on developers running builds locally
-- no way to automatically prevent broken builds into master branch
-- difficult to support when there is experience variation or remote working
-
-#### Notes
-- feature flags and branching by abstraction can support long running changes
-- pair programming can reduce risk through real time code review
+A `README.md` should be added to initialise the repository. As work begins on the repository, the README must adhere to [FFC documentation standards](documentation-standards.md).
 
 ## Branch naming convention
 Branches should be named in the format `<project code>-<ticket id>-<description of change>` in lower case.
@@ -137,4 +88,4 @@ In order to complete a pull request, all of the following conditions must be met
 - at least one approver
 - PR build must complete successfully
 
-On completion of a pull request a squash merge should be performed and the feature/bug branch should be deleted. The commit message should be amended to give a concise description of the changes, rather than the default list of individual commits.
+On completion of a pull request a squash merge is performed and the feature/bug branch deleted. The commit message should be amended to give a concise description of the changes, rather than the default list of individual commits.
