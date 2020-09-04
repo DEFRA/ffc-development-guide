@@ -35,6 +35,7 @@ Developers should fully familiarise themselves with these [core standards](https
   - [Developer laptop setup](guides/developer-laptop-setup/README.md)
   - [Jenkins](guides/jenkins.md)
   - Kubernetes
+    - [Install Kubernetes Dashboard](kubernetes/install-kubernetes-dashboard.md)
     - [Interact with cluster](guides/kubernetes/interaction.md)
     - [Probes](guides/kubernetes/probes.md)
   - [Secrets management](guides/secrets-management.md)

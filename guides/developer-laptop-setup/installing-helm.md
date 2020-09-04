@@ -1,5 +1,4 @@
 # Install Helm
-
 [Helm](https://helm.sh/) is a package manager for Kubernetes. Helm Charts are
 the package definitions which help you install and upgrade Kubernetes
 applications.
@@ -14,7 +13,6 @@ management experience.
 
 All charts created by FFC are done so using Helm 3.
 
-# Installation
-
+## Installation
 Installation instructions vary based on OS. Refer to the official docs for
 [details](https://helm.sh/docs/intro/install/).
