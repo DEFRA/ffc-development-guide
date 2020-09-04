@@ -14,4 +14,4 @@ Microservice Jenkinsfiles are source controlled in the same repository as the mi
 Secret values and sensitive configuration are not included in Jenkinsfiles, instead use either a parameter or environment variable.
 
 ## Credentials
-Jenkins credentials should only be used for Jenkins pipeline specific activities.  They should not hold credentials relating to microservice configuration or deployment.  These credentials should be sourced from Azure Key Vault or for files, a private Azure DevOps repository.
+Jenkins credentials should only be used for Jenkins pipeline specific activities.  They should not hold credentials relating to microservice configuration or deployment.  These credentials should be sourced from Azure Key Vault or for files, a private Azure Repository.

@@ -1,69 +1,49 @@
-# Overview
+# Technology Stack
 All technology choices are in line with Defra Digital’s Common Technology Choices (CTC). A copy of which is available on SharePoint https://defra.sharepoint.com/sites/def-ddts-ioc/pdce/Cloud%20Ecosystem%20Wiki/Common%20Technology%20Choices%20V.01.aspx
 
 These choice have been used as a baseline to help decide which technologies to build services with. Where there are gaps in the CTC not covering FFC needs we have aligned ourselves to the architectural vision, Cloud Service Centre recognised patterns and lessons learned from other digital teams.
 
-FFC Test Lead has been involved in these discussions.
+When developing services, teams must use the following technology stack.
 
 ## Microservice Development
-- Node.js
-- Hapi.js
-
-## Databases
-### Relational
-- PostgreSQL
-
-### NoSQL
-All NoSQL databases will use the Mongo driver as this is the only driver compatible with PaaS services in both Azure and AWS
-
-- CosmosDB for NoSQL databases host in Azure
-- DocumentDB (with MongoDB compatibility) for NoSQL databases hosted in AWS
-
-## Infrastructure Building
-- Terraform
-
-## Source Code Repository
-- GitHub (public)
-- GitLab (private)
-
-## Code Build Tools
-- Node Package Manager (NPM)
-
-## CI/CD Pipelines
-- Jenkins (Groovy syntax)
-
-## Repository Manager
-- JFrog Artifactory (TBC)
-
-## Container Orchestration
+- Node.js (with Hapi.js)
+- npm
+- .NET Core
+- Nuget
 - Docker
 - Docker Compose
-- Kubernetes
+- Helm
 
-## Code Quality
-- SonarQube
+## CI
+- Jenkins (Groovy syntax)
+- ARM templates
+- Azure CLI
 
 ## Testing
-### Unit
 - Jest
-
-### Functional
-- Cypress
-
-### Compatibility
-- Selenium
-- BrowserStack
-
-### Performance
-- JMeter
-
-### Security
-- Snyk
-- OWASP Zap
-
-### Acceptance
+- NUnit
+- Pact
 - Cypress
 - Cucumber
-
-### Accessibility
+- Selenium
+- BrowserStack
+- JMeter
+- Snyk
+- OWASP Zap
 - Pa11y
+
+## Cloud (private)
+- Azure Kubernetes Service (AKS)
+- Azure Container Registry (ACR)
+- Azure PostgreSQL
+- CosmosDB
+- Azure Service Bus
+- Application Configuration
+- Azure Key Vault
+- AAD Pod Identity
+- Azure Repos
+
+## Cloud (public)
+- GitHub
+- SonarCloud
+- DockerHub
