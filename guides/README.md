@@ -8,6 +8,7 @@ These guides help provide additional context to support our standards.
 - [Developer laptop setup](developer-laptop-setup/README.md)
 - [Jenkins](jenkins.md)
 - [Kubernetes](kubernetes/README.md)
+  - [AAD Pod Identity](kubernetes/pod-identity.md)
   - [Configure NGINX Ingress Controller](kubernetes/configure-nginx-ingress-controller.md)
   - [Install Kubernetes Dashboard](kubernetes/install-kubernetes-dashboard.md)
   - [Interact with cluster](kubernetes/interaction.md)

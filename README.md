@@ -37,6 +37,7 @@ Developers should fully familiarise themselves with these [core standards](https
   - [Developer laptop setup](guides/developer-laptop-setup/README.md)
   - [Jenkins](guides/jenkins.md)
   - [Kubernetes](guides/kubernetes/README.md)
+    - [AAD Pod Identity](guides/kubernetes/pod-identity.md)
     - [Configure NGINX Ingress Controller](kubernetes/configure-nginx-ingress-controller.md)
     - [Install Kubernetes Dashboard](kubernetes/install-kubernetes-dashboard.md)
     - [Interact with cluster](guides/kubernetes/interaction.md)
