@@ -3,7 +3,8 @@ These standards must be adhered to by all FFC developers.
 
 ## Contents
 - [Backlog management](backlog-management.md)
-- [Code Reviews](code-review.md)
+- [Code reviews](code-review.md)
+- [Developer workflow](developer-workflow.md)
 - [Documentation](documentation.md)
 - [Jenkins](jenkins.md)
 - [Kubernetes](kubernetes/README.md)

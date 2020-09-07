@@ -13,7 +13,8 @@ Developers should fully familiarise themselves with these [core standards](https
 ## Contents
 - [Standards](standards/README.md)
   - [Backlog management](standards/backlog-management.md)
-  - [Code Reviews](standards/code-review.md)
+  - [Code reviews](standards/code-review.md)
+  - [Developer workflow](standards/developer-workflow.md)
   - [Documentation](standards/documentation.md)
   - [Jenkins](standards/jenkins.md)
   - [Kubernetes](standards/kubernetes/README.md)
