@@ -10,6 +10,7 @@ These guides help provide additional context to support our standards.
 - [Kubernetes](kubernetes/README.md)
   - [AAD Pod Identity](kubernetes/pod-identity.md)
   - [Configure NGINX Ingress Controller](kubernetes/configure-nginx-ingress-controller.md)
+  - [Creating a workstream namespace](kubernetes/create-namespace.md)
   - [Install Kubernetes Dashboard](kubernetes/install-kubernetes-dashboard.md)
   - [Interact with cluster](kubernetes/interaction.md)
   - [Probes](kubernetes/probes.md)
