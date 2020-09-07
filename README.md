@@ -41,6 +41,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
    - [Debug .NET Core in a container](guides/debug-dotnet-container.md)
   - [Developer laptop setup](guides/developer-laptop-setup/README.md)
   - [Jenkins](guides/jenkins.md)
+  - [Joiners, movers and leavers](jlm.md)
   - [Kubernetes](guides/kubernetes/README.md)
     - [AAD Pod Identity](guides/kubernetes/pod-identity.md)
     - [Configure NGINX Ingress Controller](guides/kubernetes/configure-nginx-ingress-controller.md)
