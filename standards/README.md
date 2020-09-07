@@ -21,4 +21,5 @@ These standards must be adhered to by all FFC developers.
 - [Secrets management](secrets-management.md)
 - [Source code](source-code.md)
 - [Technology stack](technology-stack.md)
+- [Testing](testing.md)
 - [Version control](version-control.md)

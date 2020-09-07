@@ -51,6 +51,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
     - [Probes](guides/kubernetes/probes.md)
   - [Secrets management](guides/secrets-management.md)
   - [Shared assets](guides/shared-assets.md)
+  - [Testing](guides/testing.md)
   - [VS Code and WSL1](guides/vs-code-wsl1.md)
 
 ## Licence
