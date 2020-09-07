@@ -1,7 +1,9 @@
 # Helm chart
 Helm charts allow multiple Kubenetes resource definitions to be deployed and undeployed as a single unit.
 
-Helm version 3 is used within FFC.
+Helm version 3 is used within FFC.  
+
+Helm 2 should never be used due to security risk introduced by Tiller in a cluster.
 
 ## Source control
 - Helm charts are source controlled in the same repository as the microservice they relate to
