@@ -28,7 +28,7 @@ As per [Defra policy](https://github.com/DEFRA/dst-guides/tree/master/github), c
 - as the FFC team is added in the `Admin` role, Administrators are included in policy rules.
 
 ### Secret detection
-All developers are required to [install detect-secrets](developer-laptop-setup/install-detect-secrets.md)
+All developers are required to [install detect-secrets](../guides/developer-laptop-setup/install-detect-secrets.md)
 when working on open-source FFC git repositories in github.
 
 When setting up a new FFC git repository, it needs to be configured to work with the client-side `detect-secrets` tool:
@@ -79,7 +79,7 @@ For example, `psd-452-add-dockerfile`.
 ## Pull Requests
 When following feature branch development, pull requests should be used to collaborate and ensure code quality.
 
-Pull requests should be created in line with [Defra's standards](https://github.com/DEFRA/software-development-standards/blob/master/processes/pull_requests.md) and reviewed in the spirit of [FFC's code review standards](/docs/code-review.md).
+Pull requests should be created in line with [Defra's standards](https://github.com/DEFRA/software-development-standards/blob/master/processes/pull_requests.md) and reviewed in the spirit of [FFC's code review standards](code-review.md).
 
 Pull requests should trigger a build and a PR deployment to support the view.
 

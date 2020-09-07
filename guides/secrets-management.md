@@ -1,6 +1,6 @@
 # Secrets Management
 ## Setting up a new FFC git repository
-The [guide for creating FFC git repositories](source-code.md) contains details for configuring new repos to
+The [standards for creating FFC git repositories](../standards/source-code.md) contains details for configuring new repos to
 work with the client-side `detect-secrets` tool.
 
 ## Dealing with false positives
@@ -18,6 +18,6 @@ detect-secrets scan --update .secrets.baseline
 ```
 
 ## Excluding files and directories
-The `pre-commit` configuration file detailed in the [guide for creating FFC git repositories](source-code.md)
+The `pre-commit` configuration file detailed in the [guide for creating FFC git repositories](../standards/source-code.md)
 contains a regex for exlcuding files from the `detect-secrets` scan. This can be updated to exlcude additional
 files or directories. Update with caution.

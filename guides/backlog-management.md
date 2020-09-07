@@ -26,7 +26,7 @@ Refined issues with full description and acceptance criteria. The team have agre
 Issues currently being worked on. These issues should be assigned to a team member. Team members should work on one story at a time where possible to manage Work in Progress (WIP). Kanban teams may impose a WIP limit to control the throughput of work.
 
 ### Review
-Issues that have been completed by the team and are ready for review. The review be undertaken by another member of the team who confirms that all acceptance criteria has been met and the issue is done. For code based issues, this review is likely to be a [code review](/docs/code-review.md).
+Issues that have been completed by the team and are ready for review. The review be undertaken by another member of the team who confirms that all acceptance criteria has been met and the issue is done. For code based issues, this review is likely to be a [code review](../standards/code-review.md).
 
 It is the responsibility of the person who worked on the task to find a reviewer. The issue should be reassigned to the reviewer who becomes the new owner.
 
