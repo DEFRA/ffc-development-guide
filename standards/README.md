@@ -16,6 +16,7 @@ These standards must be adhered to by all FFC developers.
   - [Role Based Access Control (RBAC)](kubernetes/rbac.md)
   - [Resource management](kubernetes/resource-usage.md)
   - [Secrets](kubernetes/secrets.md)
+- [Quick reference](quick-reference.md)
 - [Release notes](release-notes.md)
 - [Secrets management](secrets-management.md)
 - [Source code](source-code.md)

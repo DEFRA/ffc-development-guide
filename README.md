@@ -10,6 +10,9 @@ The standards and guidance contained here is intended to be an FFC context speci
 
 Developers should fully familiarise themselves with these [core standards](https://github.com/DEFRA/software-development-standards/).
 
+## Quick reference
+The [Quick reference](standards/quick-reference.md) page gives a high level summary of the core standards within FFC.
+
 ## Contents
 - [Standards](standards/README.md)
   - [Backlog management](standards/backlog-management.md)
@@ -26,6 +29,7 @@ Developers should fully familiarise themselves with these [core standards](https
     - [Role Based Access Control (RBAC)](standards/kubernetes/rbac.md)
     - [Resource management](standards/kubernetes/resource-usage.md)
     - [Secrets](standards/kubernetes/secrets.md)
+  - [Quick reference](standards/quick-reference.md)
   - [Release notes](standards/release-notes.md)
   - [Secrets management](standards/secrets-management.md)
   - [Source code](standards/source-code.md)
