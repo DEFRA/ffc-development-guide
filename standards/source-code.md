@@ -25,7 +25,7 @@ As per [Defra policy](https://github.com/DEFRA/dst-guides/tree/master/github), c
 
 - repositories only allow Squash merging.
 
-- as the FFC team is added with `Write` role, Administrators are included in policy rules.
+- as the FFC team is added with `Write` role.
 
 ### Secret detection
 All developers are required to [install detect-secrets](../guides/developer-laptop-setup/install-detect-secrets.md)
