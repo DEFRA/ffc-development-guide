@@ -22,7 +22,7 @@ This guide will be targeted towards those setups. For Windows 10, all mention of
 - [ ] [Install Docker Compose](install-docker-compose.md)
 - [ ] [Install detect-secrets](install-detect-secrets.md)
 - [ ] [Install OpenVPN](install-openvpn.md)
-- [ ] [Install AWS CLI](install-azure-cli.md)
+- [ ] [Install Azure CLI](install-azure-cli.md)
 - [ ] [Install kubectl](install-kubectl.md)
 - [ ] [Install Node Version Manager (NVM)](install-node-version-manager.md)
 - [ ] [Install .NET Core SDK](install-dotnet-sdk.md)
