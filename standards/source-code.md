@@ -38,7 +38,7 @@ When setting up a new FFC git repository, it needs to be configured to work with
 ```
 repos:
 - repo: https://github.com/Yelp/detect-secrets
-  rev: v0.13.1
+  rev: v0.14.3
   hooks:
   - id: detect-secrets
     args: ['--baseline', '.secrets.baseline']
