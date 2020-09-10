@@ -34,6 +34,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [Secrets management](standards/secrets-management.md)
   - [Source code](standards/source-code.md)
   - [Technology stack](standards/technology-stack.md)
+  - [Testing](standards/testing.md)
   - [Version control](standards/version-control.md)
 - [Guides](guides/README.md)
   - [Backlog management](guides/backlog-management.md)
@@ -41,7 +42,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
    - [Debug .NET Core in a container](guides/debug-dotnet-container.md)
   - [Developer laptop setup](guides/developer-laptop-setup/README.md)
   - [Jenkins](guides/jenkins.md)
-  - [Joiners, movers and leavers](jlm.md)
+  - [Joiners, movers and leavers](guides/jlm.md)
   - [Kubernetes](guides/kubernetes/README.md)
     - [AAD Pod Identity](guides/kubernetes/pod-identity.md)
     - [Configure NGINX Ingress Controller](guides/kubernetes/configure-nginx-ingress-controller.md)
@@ -51,7 +52,6 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
     - [Probes](guides/kubernetes/probes.md)
   - [Secrets management](guides/secrets-management.md)
   - [Shared assets](guides/shared-assets.md)
-  - [Testing](guides/testing.md)
   - [VS Code and WSL1](guides/vs-code-wsl1.md)
 
 ## Licence

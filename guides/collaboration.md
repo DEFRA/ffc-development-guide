@@ -48,6 +48,8 @@ Slack is used as the primary communication tool for all FFC teams.
 
 Access is authorised by a Slack account which must be created using your corporate email.
 
+**Note** some of these channels are private and will require invite from an existing member of that channel.
+
 ## `defra-digital.slack.com`
 `#ffc-programme-del` - Programme team channel for general updates  
 `#ffc-developers` - Technical discussions across delivery teams  
