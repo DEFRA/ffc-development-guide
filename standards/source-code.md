@@ -55,7 +55,7 @@ detect-secrets scan --exclude-files package-lock.json > .secrets.baseline
 ```
 
 ### Licence
-The Open Government Licence (OGL) Version 3 should be added to the repository.
+The Open Government Licence (OGL) Version 3 should be added to the repository.  A file verison is available in [this repository](../resources/LICENCE)
 
 ```
 The Open Government Licence (OGL) Version 3
