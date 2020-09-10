@@ -13,7 +13,7 @@ These standards are intended to support a consistent interpretation of the Archi
 - if Node.js is not appropriate, then use .NET Core
 - use PostgreSQL for relational databases
 - use CosmosDB for NoSQL databases
-- do not store secrets in a pod, instead use AAD Pod Identity
+- avoid storing secrets in the cluster where possible, instead use AAD Pod Identity
 - follow the agreed test structure in each microservice repository
 - use contract testing with Pact to support e2e testing
 - use the FFC shared library for CI
