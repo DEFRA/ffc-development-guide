@@ -10,10 +10,10 @@ This applies equally to a new feature or bug fix.
 2. developer creates an empty commit with the title of the change and a link to Jira ticket
 3. developer opens draft PR for change
 4. developer changes semantic version of application
-5. developer writes code and ensures behaviour is covered by automated tests
-7. as developer commits, CI builds and deploys to isolated PR environment
-8. CI runs tests to assure code quality
-9. when ready, code is reviewed using PR deployment and CI outputs to support
-10. if review passes code is merged to main branch
-11. CI automatically tears down PR deployment
-12. CI deploys to showcase environment with sibling services
+5. developer write code in line with team standards, following TDD where appropriate
+6. as developer commits, CI builds and deploys to isolated PR environment
+7. CI runs tests to assure code quality
+8. when ready, code is reviewed using PR deployment and CI outputs to support
+9.  if review passes code is merged to main branch
+10. CI automatically tears down PR deployment
+11. CI deploys to showcase environment with sibling services
