@@ -68,7 +68,7 @@ Access is authorised by a Slack account which must be created using your corpora
 ## `ffc-notifications.slack.com`
 `#masterbuildfailures` - notifications of failures relating to main branches  
 `#generalbuildfailures` - notifications of failures relating to non-main branches  
-`#anchorealerts` - notifications of detected vulnerabilities during container image scanning
+`#anchorealerts` - notifications of detected vulnerabilities during container image scanning  
 `#secretdetection` - notifications of detected secrects found in Git repositories
 
 ## `defra-ccoe.slack.com`
