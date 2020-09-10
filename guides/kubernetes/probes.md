@@ -5,6 +5,8 @@ Kubernetes uses readiness probes to know when a container is ready to start acce
 
 Kubernetes uses liveness probes to know when to restart a container.
 
+The [FFC Helm chart library](https://github.com/DEFRA/ffc-helm-library) includes templates for both readiness and liveness probes.
+
 ## Configuring probes
 Probes can be configured in the Helm chart on a `Deployment` resource, under the container node.
 
