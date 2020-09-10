@@ -55,7 +55,7 @@ Access is authorised by a Slack account which must be created using your corpora
 `#ffc-developers` - Technical discussions across delivery teams  
 `#ffc-devops` - Collaboration between FFC and CSC from both Azure and AWS  
 `#ffc-platform` - Platform Services team channel  
-`#elms` - ELM team channel
+`#elms` - ELM team channel  
 `#york-dev-test-cop` - York Developer and Test Community of Practice channel  
 `#development` - General software development channel for all of Defra Digital
 
