@@ -23,7 +23,7 @@ Don't make strong, opinionated statements or dictate specific changes.
 Do ask open-ended questions and keep an open mind about alternative solutions and reasoning that you may not have thought of.
 
 ## Scope of a code review
-Code reviews should focus on what is being changed and whether the change is appropriate.
+Code reviews should focus on what is being changed and whether the change is appropriate.  The scope will be stated in the acceptance criteria of the ticket.
 
 Expanding the scope of a pull request at the review stage is not acceptable. It is generally more valuable to swiftly conclude a piece of work that the team has prioritised than to opportunistically seek additional changes, such as refactoring related code. That said, it can be useful to comment on refactoring opportunities without blocking the pull request. It may be that the author has some spare time they can use to make those changes, or can incorporate them with their next piece of work.
 
