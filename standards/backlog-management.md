@@ -5,7 +5,7 @@ The [GDS Service manual](https://www.gov.uk/service-manual/agile-delivery) provi
 
 If teams are unclear which methodology to adopt, they should start with vanilla Scrum and iterate as appropriate. Teams looking for help getting started with Scrum can follow this [training series](http://scrumtrainingseries.com).
 
-All teams should manage their backlog in Jira.
+All teams should manage their backlog in a tool such as Jira, Azure DevOps Boards or Trello.
 
 ## Issue format
 - issues are appropriately categorised as either an Epic, Story, Task or Bug
@@ -14,7 +14,7 @@ All teams should manage their backlog in Jira.
 - issues include acceptance criteria to clearly explain when the issue is done
 
 ## New issues
-- new issues are added to the backlog in Jira
+- new issues are added to the backlog
 - if an issue relates to technical debt, a reference to a `Technical Debt` epic is added
 - issues should be added outside the current sprint in an estimated priority order, this priority order should be regularly reviewed as a team
 
