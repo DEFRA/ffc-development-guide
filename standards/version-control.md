@@ -30,6 +30,8 @@ Full details can be found at [semver.org](https://semver.org).
 
 - Helm charts for PR deployments are not be pushed to a Helm repository.
 
+**Note** when using the [FFC Jenkins library](https://github.com/DEFRA/ffc-jenkins-pipeline-library), Helm chart versioning is handled automatically, so no action is needed
+
 ## Releases
 - releases are packaged in the source code repository using the version number of the application by CI
 
