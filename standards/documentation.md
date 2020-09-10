@@ -7,7 +7,7 @@ Documentation should be "just enough" to cover what needs to be communicated and
 ## Documentation Location
 Documentation will be stored in the same source code repository as the product it supports.
 
-FFC developments will mostly be that of an open source microservices ecosystem. Each microservice will have its own repository and its own documentation.
+FFC developments will mostly be within an open source microservices ecosystem. Each microservice will have its own repository and its own documentation.
 
 ## Readme
 A readme file must exist in every repo in markdown format (.md). It must include the following **if** they apply:
