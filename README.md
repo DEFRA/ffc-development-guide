@@ -1,30 +1,60 @@
 # Future Farming and Countryside Programme Development Guide
+This is a repository of standards and supporting guidance for all developers working within the Future Farming and Countryside Programme (FFC).
 
-This is a repository for all core development documentation relating to the Future Farming and Countryside Programme (FFC).
+The purpose of the standards are to ensure that delivery supports the Architecture Vision set out by the programme and better enable developer agility and mobility through consistent patterns and practices.
 
-This repository includes development standards, patterns and guides to be used by all FFC developers.
+The guidance provides developers with quick access to resources and processes to best support the standards and delivery.
 
-In addition to specific FFC standards, teams should also follow Defra's wider software development standards which can be found [here](https://github.com/DEFRA/software-development-standards/).
+## Defra standards
+The standards and guidance contained here is intended to be an FFC context specific layer over Defra DDTS' wider development standards.
 
-## Documentation
+This guide ensures that Developers already understand and follow these [core standards](https://github.com/DEFRA/software-development-standards/).
 
-- [Documentation standards](docs/documentation-standards.md)
-- [Technology stack](docs/technology-stack.md)
-- [Technology guidelines](docs/technology-guidelines/README.md)
-- [Collaboration](docs/collaboration.md)
-- [Backlog management](docs/backlog-management.md)
-- [Setting up a development laptop](docs/developer-laptop-setup/README.md)
-- [Source code and branching strategy](docs/source-code.md)
-- [Code review standards](docs/code-review.md)
-- [CI/CD pipelines](docs/cicd/README.md)
-- [Version control](docs/version-control.md)
-- [Test strategy](docs/test-strategy.md)
-- [Kubernetes cluster management](docs/kubernetes-cluster-management/README.md)
-- [Static code analysis](docs/static-code-analysis.md)
-- [GitHub release notes](docs/github-release-notes.md)
-- [Secrets management](docs/secrets-management.md)
+## Quick reference
+The [Quick reference](standards/quick-reference.md) page gives a high level summary of the core standards within FFC.
 
-## License
+## Contents
+- [Standards](standards/README.md)
+  - [Backlog management](standards/backlog-management.md)
+  - [Code reviews](standards/code-review.md)
+  - [Developer workflow](standards/developer-workflow.md)
+  - [Documentation](standards/documentation.md)
+  - [Jenkins](standards/jenkins.md)
+  - [Kubernetes](standards/kubernetes/README.md)
+    - [Configuration](standards/kubernetes/configuration.md)
+    - [Helm charts](standards/kubernetes/helm-charts.md)
+    - [Labels](standards/kubernetes/labels.md)
+    - [Pod priority](standards/kubernetes/priority.md)
+    - [Probes](standards/kubernetes/probes.md)
+    - [Role Based Access Control (RBAC)](standards/kubernetes/rbac.md)
+    - [Resource management](standards/kubernetes/resource-usage.md)
+    - [Secrets](standards/kubernetes/secrets.md)
+  - [Quick reference](standards/quick-reference.md)
+  - [Release notes](standards/release-notes.md)
+  - [Secrets management](standards/secrets-management.md)
+  - [Source code](standards/source-code.md)
+  - [Technology stack](standards/technology-stack.md)
+  - [Testing](standards/testing.md)
+  - [Version control](standards/version-control.md)
+- [Guides](guides/README.md)
+  - [Backlog management](guides/backlog-management.md)
+  - [Collaboration](guides/collaboration.md)
+   - [Debug .NET Core in a container](guides/debug-dotnet-container.md)
+  - [Developer laptop setup](guides/developer-laptop-setup/README.md)
+  - [Jenkins](guides/jenkins.md)
+  - [Joiners, movers and leavers](guides/jlm.md)
+  - [Kubernetes](guides/kubernetes/README.md)
+    - [AAD Pod Identity](guides/kubernetes/pod-identity.md)
+    - [Configure NGINX Ingress Controller](guides/kubernetes/configure-nginx-ingress-controller.md)
+    - [Creating a workstream namespace](guides/kubernetes/create-namespace.md)
+    - [Install Kubernetes Dashboard](guides/kubernetes/install-kubernetes-dashboard.md)
+    - [Interact with cluster](guides/kubernetes/interaction.md)
+    - [Probes](guides/kubernetes/probes.md)
+  - [Secrets management](guides/secrets-management.md)
+  - [Shared assets](guides/shared-assets.md)
+  - [VS Code and WSL1](guides/vs-code-wsl1.md)
+
+## Licence
 
 THIS INFORMATION IS LICENSED UNDER THE CONDITIONS OF THE OPEN GOVERNMENT LICENCE found at:
 
@@ -34,7 +64,7 @@ The following attribution statement MUST be cited in your products and applicati
 
 > Contains public sector information licensed under the Open Government license v3
 
-### About the license
+### About the licence
 
 The Open Government Licence (OGL) was developed by the Controller of Her Majesty's Stationery Office (HMSO) to enable information providers in the public sector to license the use and re-use of their information under a common open licence.
 
