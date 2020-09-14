@@ -19,6 +19,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [Code reviews](standards/code-review.md)
   - [Developer workflow](standards/developer-workflow.md)
   - [Documentation](standards/documentation.md)
+  - - [FFC CI pipeline](standards/ci-pipeline.md)
   - [Jenkins](standards/jenkins.md)
   - [Kubernetes](standards/kubernetes/README.md)
     - [Configuration](standards/kubernetes/configuration.md)
