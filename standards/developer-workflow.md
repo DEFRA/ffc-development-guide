@@ -17,3 +17,5 @@ This applies equally to a new feature or bug fix.
 9.  if review passes code is merged to main branch
 10. CI automatically tears down PR deployment
 11. CI deploys to showcase environment with sibling services
+
+![Development workflow](developer-workflow.jpg "Development workflow")
