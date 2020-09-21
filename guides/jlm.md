@@ -1,10 +1,12 @@
 # Joiners, movers and leavers
 ## Joining the FFC programme
 - [ ] complete `Onboard New Users/Off board existings Users` request with Azure CSC [request portal](https://defra-azure.atlassian.net/servicedesk/customer/portal/6) requesting:
-  - [ ] OpenVPN certificate
-  - [ ] `a-` Microsoft adminstration account for Azure Portal
+  - [ ] OpenVPN certificate  
   - [ ] `dtz` account for Jenkins
   - [ ] accesss to all FFC cloud services
+- [ ] raise a myIT catalogue request for:
+  - [ ] `O365/AzureAD Platform Admin`, specifically an `a-` Microsoft adminstration account for Azure Portal
+  - [ ] `Microsoft InTune`
 - [ ] request a full set of developer Azure Service Bus queues suffixed with developer initials
 - [ ] join all relevant collaboration channels, [see here](collaboration.md)
 - [ ] request addition to the `FFC` GitHub team

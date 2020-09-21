@@ -7,6 +7,13 @@ Visual Studio Code is the preferred code editor and what the below setup steps w
 
 This guide will be targeted towards those setups. For Windows 10, all mention of terminal commands should be run in WSL unless specified.
 
+## Microsoft InTune
+Microsoft InTune allows an off network device access to Defra O365 resources such as Outlook and Sharepoint.
+
+As InTune requires a new user profile to be created on the device, it is recommended that developers request and complete InTune enrollment before following this guide, to avoid duplicating setup effort.
+
+See [Joiners, movers and leavers](../jlm.md) for enrollment steps.
+
 ## Configuration steps
 ### Windows 10
 - [ ] [Install Windows Subsystem for Linux (WSL)](install-wsl.md)
