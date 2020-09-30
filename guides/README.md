@@ -15,6 +15,7 @@ These guides help provide additional context to support our standards.
   - [Install Kubernetes Dashboard](kubernetes/install-kubernetes-dashboard.md)
   - [Interact with cluster](kubernetes/interaction.md)
   - [Probes](kubernetes/probes.md)
+- [Managing vulnerabilities](guides/vulnerabilities.md)
 - [Secrets management](secrets-management.md)
 - [Shared assets](shared-assets.md)
 - [VS Code and WSL1](vs-code-wsl1.md)
