@@ -1,7 +1,7 @@
 # Managing vulnerabilities
 
 ## Package vulnerabilities
-Vulnerabilties in applicaiton packages are identified using Snyk and npm Audit (Node.js only).
+Vulnerabilties in application packages are identified using Snyk and npm Audit (Node.js only).
 
 ## Resolving vulnerabilities
 ### npm Audit
