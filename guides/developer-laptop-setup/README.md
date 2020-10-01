@@ -36,3 +36,4 @@ See [Joiners, movers and leavers](../jlm.md) for enrollment steps.
 - [ ] [Install IDE](install-vs-code.md)
 - [ ] [Install SonarLint](install-sonarlint.md)
 - [ ] [Install Helm](installing-helm.md)
+- [ ] [Install Snyk CLI](install-snyk.md)
