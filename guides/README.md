@@ -19,3 +19,4 @@ These guides help provide additional context to support our standards.
 - [Secrets management](secrets-management.md)
 - [Shared assets](shared-assets.md)
 - [VS Code and WSL1](vs-code-wsl1.md)
+- [WAF Waivers](waf-waiver.md)
