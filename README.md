@@ -57,6 +57,10 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [Shared assets](guides/shared-assets.md)
   - [VS Code and WSL1](guides/vs-code-wsl1.md)
   - [WAF Waivers](guides/waf-waivers.md)
+  - [Microservice Resource Provisioning](guides/resource-provisioning/README.md)
+    - [Managed Identity](guides/resource-provisioning/managed-identity.md)
+    - [Postgres Database](guides/resource-provisioning/postgres-database.md)
+    - [ServiceBus Queues](guides/resource-provisioning/servicebus-queues.md)
 
 ## Licence
 
