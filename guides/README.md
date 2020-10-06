@@ -21,3 +21,8 @@ These guides help provide additional context to support our standards.
 - [Shared assets](shared-assets.md)
 - [VS Code and WSL1](vs-code-wsl1.md)
 - [WAF Waivers](waf-waiver.md)
+- [Microservice Resource Provisioning](resource-provisioning/README.md)
+  - [Managed Identity](resource-provisioning/managed-identity.md)
+  - [Postgres Database](resource-provisioning/postgres-database.md)
+  - [ServiceBus Queues](resource-provisioning/servicebus-queues.md)
+
