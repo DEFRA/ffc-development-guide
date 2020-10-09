@@ -20,3 +20,4 @@ These guides help provide additional context to support our standards.
 - [Shared assets](shared-assets.md)
 - [VS Code and WSL1](vs-code-wsl1.md)
 - [WAF Waivers](waf-waiver.md)
+- [Google Tag Manager](google-tag-manager.md)
