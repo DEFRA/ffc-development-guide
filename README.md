@@ -56,6 +56,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [Shared assets](guides/shared-assets.md)
   - [VS Code and WSL1](guides/vs-code-wsl1.md)
   - [WAF Waivers](guides/waf-waivers.md)
+  - [Google Tag Manager](google-tag-manager.md)
 
 ## Licence
 

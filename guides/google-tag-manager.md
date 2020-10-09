@@ -22,7 +22,7 @@
 - docker-compose.yaml
 - helm/ffc-demo-web/values.yaml
 
-> Once the GTM code has been replaced the developer can load the website and start interaction with the website. Then the developer needs to login Google Tag Manager with their DEFRA email (created in previous steps). The interactions can then be viewed in Google Analytics and Data Studio to verify everything is working correctly.
+> Once the GTM code has been replaced the developer can load and start interaction with the website. Then the developer needs to login Google Tag Manager with their DEFRA email (created in previous steps). The interactions can then be viewed in Google Analytics and Data Studio to verify everything is working correctly.
 
 See [DEFRA documentation](https://github.com/DEFRA/analytics-standards) for more information on Digital Analytics Standards.
 
