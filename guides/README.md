@@ -24,5 +24,5 @@ These guides help provide additional context to support our standards.
 - [Microservice Resource Provisioning](resource-provisioning/README.md)
   - [Managed Identity](resource-provisioning/managed-identity.md)
   - [Postgres Database](resource-provisioning/postgres-database.md)
-  - [ServiceBus Queues](resource-provisioning/servicebus-queues.md)
+  - [Service Bus Queues](resource-provisioning/servicebus-queues.md)
 

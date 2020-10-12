@@ -10,7 +10,7 @@ Main branch deployments of microservices to the Kubernetes require a managed ide
 ## Permissions
 
 * Request desired permissions to be granted to your managed identity through your usual Cloud Services support channel
-* See [ServiceBus queue configuration](servicebus-queues.md) and [Postgres database configuration](postgres-database.md) for identifying which permissions are requiredidentity
+* See [ServiceBus queue configuration](servicebus-queues.md) and [Postgres database configuration](postgres-database.md) for identifying which permissions are required
 
 ## Helm Chart
 
