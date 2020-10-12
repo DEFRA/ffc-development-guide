@@ -42,6 +42,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [Collaboration](guides/collaboration.md)
    - [Debug .NET Core in a container](guides/debug-dotnet-container.md)
   - [Developer laptop setup](guides/developer-laptop-setup/README.md)
+  - [Google Tag Manager](guides/google-tag-manager.md)
   - [Jenkins](guides/jenkins.md)
   - [Joiners, movers and leavers](guides/jlm.md)
   - [Kubernetes](guides/kubernetes/README.md)
@@ -56,7 +57,6 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [Shared assets](guides/shared-assets.md)
   - [VS Code and WSL1](guides/vs-code-wsl1.md)
   - [WAF Waivers](guides/waf-waivers.md)
-  - [Google Tag Manager](guides/google-tag-manager.md)
 
 ## Licence
 
