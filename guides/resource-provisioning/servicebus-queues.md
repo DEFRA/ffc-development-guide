@@ -9,7 +9,7 @@ If not alreay configured add [Managed Identity](managed-identity.md) to your mic
 * Request the creation of Azure Service Bus queues through your usual Cloud Services support channel
 * For each queue that you need, create one for the main branch deploy and one for each of the developers on the workstream to use for local development
 * Name of queues should follow the naming convention:
-`ffc-<workstream>-<service>-<purpose>` where `<purpose` either denotes the main branch deploy queue e.g. `ffc-demo-payment-dev`, or the developer queue for local development using the developer's initials `ffc-demo-payment-jw`
+`ffc-<workstream>-<identifier>-<purpose>` where `<purpose` either denotes the main branch deploy queue e.g. `ffc-demo-payment-dev`, or the developer queue for local development using the developer's initials `ffc-demo-payment-jw`
 
 ## Permissions
 
@@ -22,10 +22,10 @@ Queues can be automatically provisioned for each PR by the Jenkins CI pipleine t
 ```
 resources:
   queues:
-    - name: <service>
+    - name: <identifier>
 ```
 
-using the `<service>` part of the queue name. For example for the queue `ffc-demo-payment-dev`, `<service>` would be replaced with `payment`.
+using the `<identifier>` part of the queue name. For example for the queue `ffc-demo-payment-dev`, `<identifier>` would be replaced with `payment`.
 
 ## Update local development environment
 
@@ -55,10 +55,10 @@ MESSAGE_QUEUE_USER: ${MESSAGE_QUEUE_USER:-notset}
 And for every queue you have created also add:
 
 ```
-<SERVICE>_QUEUE_ADDRESS: ffc-<workstream>-<service>-${MESSAGE_QUEUE_SUFFIX}
+<IDENTIFIER_QUEUE_ADDRESS: ffc-<workstream>-<identifier>-${MESSAGE_QUEUE_SUFFIX}
 ```
 
-where `workstream` and `<service>` refer to those parts of the queue name
+where `<workstream>` and `<identifier>` refer to those parts of the queue name
 
 ## Helm Chart
 
@@ -66,7 +66,7 @@ Update the ConfigMap template of the Helm Chart (`helm/<REPO_NAME>/templates/con
 
 ```
 MESSAGE_QUEUE_HOST: {{ quote .Values.container.messageQueueHost }}
-<SERVICE>_QUEUE_ADDRESS: {{ quote .Values.container.<service>QueueAddress }}
+<IDENTIFIER>_QUEUE_ADDRESS: {{ quote .Values.container.<identifier>QueueAddress }}
 ```
 
 Then create default values for these in the `container` section of the Helm Chart values file (`helm/<REPO_NAME>/values.yaml`):
@@ -74,19 +74,19 @@ Then create default values for these in the `container` section of the Helm Char
 ```
 container:
   messageQueueHost: dummy
-  <service>QueueAddress: <service>
+  <identifier>QueueAddress: <identifier>
 ```
 
 ## Add Queue Names to App Config
 
 For each message queue create two entries relating to the main branch and PR queue names in App Config using the Azure Portal:
 
-1. Key: `dev/container.<service>QueueAddress`, value: `ffc-<workstream>-<service>-dev`
-2. Key: `dev/pr/container.<service>QueueAddress`, value: `ffc-<workstream>-<service>-pr`
+1. Key: `dev/container.<identifier>QueueAddress`, value: `ffc-<workstream>-<identifier>-dev`
+2. Key: `dev/pr/container.<identifier>QueueAddress`, value: `ffc-<workstream>-<identifier>-pr`
 
 Do not add a label to the App Config entries.
 
-## Add messaging code to the microserive
+## Add messaging code to the microservice (Node.js example)
 
 Install Azure Service Bus and Authentication NPM packages: `npm install @azure/ms-rest-nodeauth @azure/service-bus`.
 
