@@ -6,6 +6,7 @@ These guides help provide additional context to support our standards.
 - [Collaboration](collaboration.md)
 - [Debug .NET Core in a container](debug-dotnet-container.md)
 - [Developer laptop setup](developer-laptop-setup/README.md)
+- [Google Tag Manager](google-tag-manager.md)
 - [Jenkins](jenkins.md)
 - [Joiners, movers and leavers](jlm.md)
 - [Kubernetes](kubernetes/README.md)
