@@ -1,21 +1,30 @@
 # Managed Identity
 
-Main branch deployments of microservices to the Kubernetes require a managed identity to provide access to Postgres databases and ServiceBus message queues.
+Main branch deployments of microservices to the FFC Platform Kubernetes cluster require an Azure Managed Identity to be bound to a Pod to provide access to additional Azure resources such as [Postgres databases](postgres-database.md) and [Service Bus message queues](servicebus-queues.md).
 
-## Create
+## Create a Managed Identity
 
-* Request the creation of an Azure Managed Identity through your usual Cloud Services support channel
-* Name of Managed Identity should follow the naming convention: `ffc-<cloud-environment>-<workstream>-<service>-role` e.g. `ffc-snd-demo-web-role`
+Request the creation of an Azure Managed Identity through your usual Cloud Services support channel.
 
-## Permissions
+The name of the Managed Identity should adhere to the following naming convention: `ffc-<cloud-environment>-<workstream>-<service>-role`, e.g. `ffc-snd-demo-web-role`.
 
-* Request desired permissions to be granted to your managed identity through your usual Cloud Services support channel
-* See [ServiceBus queue configuration](servicebus-queues.md) and [Postgres database configuration](postgres-database.md) for identifying which permissions are required
+## Add Managed Identity Permissions
 
-## Helm Chart
+Permissions will need to be associated to the Managed Identity that determine which Azure resources it can access.
 
-Add Azure Identity and Azure Identity Bindings Kubernetes templates from the [ffc-helm-library](https://github.com/DEFRA/ffc-helm-library) to your microservice helm chart, [following the guidence](https://github.com/DEFRA/ffc-helm-library#azure-identity-template)
+This step should be carried out when configuring these additional resources. See relevant sections in [ServiceBus queue configuration](servicebus-queues.md) and [Postgres database configuration](postgres-database.md).
 
-## Add Managed Identity values to App Config
+## Update Microservice Helm Chart
 
-Create an entry for the `dev/azureIdentity.clientID` and `dev/azureIdentity.resourceID` keys with the Client ID and Resource ID values for your Manage Identity (found via the Azure Portal), using the label that corresponds to your microservice repository name (e.g. `ffc-demo-web`)
+In your microservice codebase, add the `AzureIdentity` and `AzureIdentityBinding` Kubernetes templates from the [ffc-helm-library](https://github.com/DEFRA/ffc-helm-library) to your microservice Helm Chart.
+
+Create these templates in the Helm chart directory of your microserive (`helm/<REPO_NAME>/templates/`) [following the FFC Helm Library guidence](https://github.com/DEFRA/ffc-helm-library#azure-identity-template).
+
+## Add Managed Identity values to Azure App Configuration
+
+Azure App Configuration stores values required by the Jenkins CI pipelines.
+
+For your newly created Managed Identity, create two entries:
+
+* **Key**: `dev/azureIdentity.clientID`; **Value**: Client ID of your Managed Identity (found via the Azure Portal); **Label**: `<REPO_NAME>` (e.g. `ffc-demo-web`)
+* **Key**: `dev/azureIdentity.resourceID`; **Value**: Resource ID of your Manage Identity (found via the Azure Portal); **Label**: `<REPO_NAME>` (e.g. `ffc-demo-web`)

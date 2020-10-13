@@ -62,7 +62,7 @@ where `<workstream>` and `<identifier>` refer to those parts of the queue name
 
 ## Helm Chart
 
-Update the ConfigMap template of the Helm Chart (`helm/<REPO_NAME>/templates/config-map.yaml`) to include the environment variables for the message queue host and every queue you have:
+Update the ConfigMap template of the Helm Chart  to(`helm/<REPO_NAME>/templates/config-map.yaml`) include the environment variables for the message queue host and every queue you have:
 
 ```
 MESSAGE_QUEUE_HOST: {{ quote .Values.container.messageQueueHost }}
