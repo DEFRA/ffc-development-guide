@@ -6,15 +6,25 @@ This guide describes how to add a Postgres database to a microservice running on
 
 If not alreay configured add [Managed Identity](managed-identity.md) to your microservice
 
-## Request Creation of Microservice Database
+## Request creation of microservice database
 
-Request the creation of a database within your Azure Database for PostgreSQL service through your usual Cloud Services support channel:
+Request Cloud Services through your usual support channel to create a database within your Azure Database for PostgreSQL following the naming convention:
 
-The name of the database should be `ffc_<workstream>_<service>` (note here the use of underscores instead of the normal hyphen convention. Postgres hyphens require escapiing so underscores are preferred).
+```
+ffc_<workstream>_<service>
+```
 
-Create a database role that is bound to the managed identity for the microservice ([Azure guidence](https://docs.microsoft.com/en-us/azure/postgresql/howto-connect-with-managed-identity#creating-a-postgresql-user-for-your-managed-identity))
+for example `ffc_demo_claim`.
 
-## Create database from Liquibase changelog
+*Note here the use of underscores instead of the normal hyphen convention. Postgres hyphens require escaping with double quote marks so underscores are preferred.*
+
+## Request creation of microservice database role
+
+Request Cloud Services to create a database role that is bound to the Managed Identity created for the microservice ([Azure guidence](https://docs.microsoft.com/en-us/azure/postgresql/howto-connect-with-managed-identity#creating-a-postgresql-user-for-your-managed-identity)), for example `ffc-snd-demo-claim-role`.
+
+## Create a Liquibase changelog
+
+HERE
 
 Make sure you have a Liquibase changelog defining the structure of your database available from the root of your microservice repoository in `changelog/db.changelog.xml`.
 
