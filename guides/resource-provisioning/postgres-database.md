@@ -24,15 +24,15 @@ Request Cloud Services to create a database role that is bound to the Managed Id
 
 ## Create a Liquibase changelog
 
-HERE
+The FFC Platfrom CI and deployment pipelines support database migrations using [Liquibase](https://www.liquibase.org/).
 
-Make sure you have a Liquibase changelog defining the structure of your database available from the root of your microservice repoository in `changelog/db.changelog.xml`.
+Create a Liquibase changelog defining the structure of your database available from the root of your microservice repoository in `changelog/db.changelog.xml`.
 
 Guidence on creating a Liquibase changelog is outside of the scope of this guide, so please check current best practice with the FFC Platform Team.
 
-## Update Docker Compose files to use Postgres environment variables and database migrations
+## Update Docker Compose files to use Postgres service and environment variables
 
-`docker-compose.yaml`:
+Add the following configuration to the microservice `docker-compose.yaml`:
 
 ```
     depends_on:
@@ -58,7 +58,11 @@ volumes:
   postgres_data: {}
 ```
 
-`docker-compose.override.yaml`:
+Replace `<workstrem>` and `<service>` as per naming convention described above.
+
+## Update Docker Compose Override files to use Postgres service
+
+Add the following configuration to the microservice `docker-compose.override.yaml`:
 
 ```
 ffc-<workstream>-<service>-postgres:
@@ -66,60 +70,13 @@ ffc-<workstream>-<service>-postgres:
       - "5432:5432"
 ```
 
-Add the file `docker-compose.migrate.yaml`:
+Replace `<workstrem>` and `<service>` as per naming convention described above.
 
-```
-version: '3.8'
+## Add Docker Compose files to run Liquibase migrations
 
-x-common-migration: &common-migration
-  POSTGRES_HOST: ${POSTGRES_HOST:-ffc-<workstream>-<service>-postgres}
-  SCHEMA_NAME: ${POSTGRES_SCHEMA_NAME:-public}
-  SCHEMA_ROLE: ${POSTGRES_SCHEMA_ROLE:-postgres}
-  SCHEMA_PASSWORD: ${POSTGRES_SCHEMA_PASSWORD:-ppp}
-  SCHEMA_USERNAME: ${POSTGRES_SCHEMA_USERNAME:-postgres}
+Add a `docker-compose.migrate.yaml` to the root of the microservice based on [the template provided in resources](../../resources/docker-compose.migrate.yaml).
 
-x-common-postgres: &common-postgres
-  POSTGRES_PORT: 5432
-  POSTGRES_DB: ${POSTGRES_DB:-ffc_<workstream>_<service>}
-  POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:-ppp}
-  POSTGRES_USER: ${POSTGRES_ADMIN_USERNAME:-postgres}
-
-services:
-  database-up:
-    image: liquibase/liquibase:3.10.x
-    environment:
-      << : *common-migration
-      << : *common-postgres
-    entrypoint: >
-      sh -c "/scripts/migration/database-up"
-    depends_on:
-      - ffc-<workstream>-<service>-postgres
-    volumes:
-      - ./changelog/:/liquibase/changelog/
-      - ./scripts/:/scripts/
-
-    database-down:
-    image: liquibase/liquibase:3.10.x
-    environment:
-      << : *common-migration
-      << : *common-postgres
-    entrypoint: >
-      sh -c "/scripts/migration/database-down"
-    depends_on:
-      - ffc-<workstream>-<service>-postgres
-    volumes:
-      - ./changelog/:/liquibase/changelog/
-      - ./scripts/:/scripts/
-
-  ffc-<workstream>-<service>-postgres:
-    image: postgres:11.4-alpine
-    environment: *common-postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data: {}
-```
+Replace `<workstrem>` and `<service>` as per naming convention described above.
 
 ## Helm Chart
 
