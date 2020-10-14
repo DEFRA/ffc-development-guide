@@ -1,23 +1,40 @@
 # Azure Service Bus Queues
 
-## Create Managed Identity for your microservice
+This guide describes how to add Azure Service Bus queues to a microservice running on the FFC Platform Kubernetes cluster.
 
-If not alreay configured add [Managed Identity](managed-identity.md) to your microservice
+## Create a Microservice Managed Identity
 
-## Create Queues
+If not alreay configured, [add an Azure Managed Identity to your microservice](managed-identity.md).
 
-* Request the creation of Azure Service Bus queues through your usual Cloud Services support channel
-* For each queue that you need, create one for the main branch deploy and one for each of the developers on the workstream to use for local development
-* Name of queues should follow the naming convention:
-`ffc-<workstream>-<identifier>-<purpose>` where `<purpose` either denotes the main branch deploy queue e.g. `ffc-demo-payment-dev`, or the developer queue for local development using the developer's initials `ffc-demo-payment-jw`
+## Create Service Bus Queues
 
-## Permissions
+For each queue required by your microservices, you will need to request:
+* A Service Bus queue for the main branch deploy
+* A Service Bus queue for each of the developers on the workstream to use for local development
 
-Request CSC to add the relevant read and/or write permissions to the microservice Managed Identity for the queues you have created.
+Queues should follow the following naming convention:
+
+```
+ffc-<workstream>-<identifier>-<purpose>
+```
+
+where `<purpose>` either denotes the main branch deploy queue e.g. `ffc-demo-payment-dev`, or the initials of a developer for the local development queues e.g. `ffc-demo-payment-jw`.
+
+Request the creation of the required queues through your usual Cloud Services support channel.
+
+## Update Managed Identity Permissions
+
+For each main branch queue created, read and/or write permissions should be added to the Managed Identites of the microservices that will be using the queues.
+
+Request Cloud Services to add the relevant permissions to the Managed Identities.
+
+Permissions do not need to be added to Managed Identities for the local development queues.
 
 ## PR Queue Provisioning
 
-Queues can be automatically provisioned for each PR by the Jenkins CI pipleine to ensure encapsulation of infrastructure. To enable this create `provision.azure.yaml` in the root directory of your microservice, and populate:
+Queues can be automatically provisioned for each microservice PR by the Jenkins CI pipleine to ensure encapsulation of infrastructure.
+
+Create a `provision.azure.yaml` file in the root directory of your microservice, and populate with the queues that need provisioning:
 
 ```
 resources:
@@ -25,11 +42,11 @@ resources:
     - name: <identifier>
 ```
 
-using the `<identifier>` part of the queue name. For example for the queue `ffc-demo-payment-dev`, `<identifier>` would be replaced with `payment`.
+where the `<identifier>` relates to the part of the queue name described above. For example for the queue `ffc-demo-payment-dev`, `<identifier>` would be replaced with `payment`. Add a `name` entry for each required queue.
 
 ## Update local development environment
 
-Add the following environment variables to the `.env` file in the root of your microservice.
+Add the following environment variables to the `.env` file in the root of the microservice to use the developer Service Bus queues during local development:
 
 ```
 MESSAGE_QUEUE_HOST=<INSERT_VALUE_FROM_AZURE_PORTAL>
@@ -38,9 +55,11 @@ MESSAGE_QUEUE_SUFFIX=<DEVELOPER_INITIALS>
 MESSAGE_QUEUE_USER=RootManageSharedAccessKey
 ```
 
-**Do not commit the `.env` file to the git repository so make sure to add it to the `.gitignore`**
+**Do not commit the `.env` file to the git repository so make sure it is added to the `.gitignore`**
 
-The `<DEVELOPER_INITIALS>` should match those used in the name of the Service Bus queues cretd for local devlopment.
+Values for `MESSAGE_QUEUE_HOST` and `MESSAGE_QUEUE_PASSWORD` will be found in the Azure Portal.
+
+The `<DEVELOPER_INITIALS>` should match those used in the name of the Service Bus queues created for local devlopment.
 
 ## Update Docker Compose to use Service Bus environment variables
 
@@ -58,11 +77,11 @@ And for every queue you have created also add:
 <IDENTIFIER_QUEUE_ADDRESS: ffc-<workstream>-<identifier>-${MESSAGE_QUEUE_SUFFIX}
 ```
 
-where `<workstream>` and `<identifier>` refer to those parts of the queue name
+where `<workstream>` and `<identifier>` refer to those parts of the queue name described above.
 
 ## Helm Chart
 
-Update the ConfigMap template of the Helm Chart  to(`helm/<REPO_NAME>/templates/config-map.yaml`) include the environment variables for the message queue host and every queue you have:
+Update the `ConfigMap` template of the Helm Chart (`helm/<REPO_NAME>/templates/config-map.yaml`) to include the environment variables for the message queue host and every queue you have created:
 
 ```
 MESSAGE_QUEUE_HOST: {{ quote .Values.container.messageQueueHost }}
