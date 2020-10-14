@@ -2,13 +2,13 @@
 
 This guide describes how to add Azure Service Bus queues to a microservice running on the FFC Platform Kubernetes cluster.
 
-## Create a Microservice Managed Identity
+## Create a microservice Managed Identity
 
 If not alreay configured, [add an Azure Managed Identity to your microservice](managed-identity.md).
 
-## Create Service Bus Queues
+## Request creation of Service Bus queues
 
-For each queue required by your microservices, you will need to request:
+For each queue required by your microservices, you will need:
 * A Service Bus queue for the main branch deploy
 * A Service Bus queue for each of the developers on the workstream to use for local development
 
@@ -22,7 +22,7 @@ where `<purpose>` either denotes the main branch deploy queue e.g. `ffc-demo-pay
 
 Request the creation of the required queues through your usual Cloud Services support channel.
 
-## Update Managed Identity Permissions
+## Update Managed Identity permissions
 
 For each main branch queue created, read and/or write permissions should be added to the Managed Identites of the microservices that will be using the queues.
 
@@ -30,7 +30,7 @@ Request Cloud Services to add the relevant permissions to the Managed Identities
 
 Permissions do not need to be added to Managed Identities for the local development queues.
 
-## PR Queue Provisioning
+## PR queue provisioning
 
 Queues can be automatically provisioned for each microservice PR by the Jenkins CI pipleine to ensure encapsulation of infrastructure.
 
@@ -79,7 +79,7 @@ And for every queue you have created also add:
 
 where `<workstream>` and `<identifier>` refer to those parts of the queue name described above.
 
-## Helm Chart
+## Update microservice Helm chart
 
 Update the `ConfigMap` template of the Helm Chart (`helm/<REPO_NAME>/templates/config-map.yaml`) to include the environment variables for the message queue host and every queue you have created:
 
@@ -96,7 +96,7 @@ container:
   <identifier>QueueAddress: <identifier>
 ```
 
-## Add Queue Names to Azure App Configuration
+## Add queue names to Azure App Configuration
 
 Azure App Configuration stores values required by the Jenkins CI pipelines. For each message queue create two key-value entries relating to the main branch and PR queue names via the Azure Portal:
 
@@ -109,7 +109,7 @@ Azure App Configuration stores values required by the Jenkins CI pipelines. For 
 
 Update your microservice code using the relevant Azure authentication and Service Bus SDKs for your language.
 
-### Node.js Example
+### Node.js example
 
 Install Azure authentication and Service Bus NPM packages:
 

@@ -1,4 +1,4 @@
-# Managed Identity
+# Azure Managed Identity
 
 This guide describes how to add an Azure Managed Identity to a microservice running on the FFC Platform Kubernetes cluster.
 
@@ -16,13 +16,13 @@ ffc-<cloud-environment>-<workstream>-<service>-role
 
 for example `ffc-snd-demo-web-role`.
 
-## Add Managed Identity Permissions
+## Add Managed Identity permissions
 
 Permissions will need to be associated to the Managed Identity that determine which Azure resources it can access.
 
 This step should be carried out when configuring these additional resources. See relevant sections in [ServiceBus queue configuration](servicebus-queues.md) and [Postgres database configuration](postgres-database.md).
 
-## Update Microservice Helm Chart
+## Update microservice Helm chart
 
 Add and configure the `AzureIdentity` and `AzureIdentityBinding` Kubernetes templates from the [ffc-helm-library](https://github.com/DEFRA/ffc-helm-library) to your microservice Helm Chart (`helm/<REPO_NAME>/templates/`) [following the FFC Helm Library guidence](https://github.com/DEFRA/ffc-helm-library#azure-identity-template).
 

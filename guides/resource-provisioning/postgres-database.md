@@ -1,10 +1,12 @@
 # Postgres Database
 
+This guide describes how to add a Postgres database to a microservice running on the FFC Platform Kubernetes cluster.
+
 ## Create Managed Identity for your microservice
 
 If not alreay configured add [Managed Identity](managed-identity.md) to your microservice
 
-## Create Database
+## Request Creation of Microservice Database
 
 Request the creation of a database within your Azure Database for PostgreSQL service through your usual Cloud Services support channel:
 
