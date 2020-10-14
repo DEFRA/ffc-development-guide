@@ -65,7 +65,7 @@ Replace `<workstrem>` and `<service>` as per naming convention described above.
 Add the following configuration to the microservice `docker-compose.override.yaml`:
 
 ```
-ffc-<workstream>-<service>-postgres:
+  ffc-<workstream>-<service>-postgres:
     ports:
       - "5432:5432"
 ```
@@ -78,9 +78,11 @@ Add a `docker-compose.migrate.yaml` to the root of the microservice based on [th
 
 Replace `<workstrem>` and `<service>` as per naming convention described above.
 
-## Helm Chart
+## Update microservice Helm chart
 
-Create Postgres template (`helm/<REPO_NAME>/templates/postgres-service.yaml`):
+### Create a Postgres Service
+
+Create a `Service` Kubernetes template for Postgres in `helm/<REPO_NAME>/templates/postgres-service.yaml`:
 
 ```
 {{- if .Values.postgresService.postgresExternalName }}
@@ -90,16 +92,9 @@ Create Postgres template (`helm/<REPO_NAME>/templates/postgres-service.yaml`):
 {{- end -}}
 ```
 
-Update the ConfigMap template of the Helm Chart (`helm/<REPO_NAME>/templates/config-map.yaml`) to include the environment variables for the Postgres database:
+replacing `<REPO_NAME>` with the git repository name.
 
-```
-POSTGRES_DB: {{ quote .Values.postgresService.postgresDb }}
-POSTGRES_HOST: {{ quote .Values.postgresService.postgresHost }}
-POSTGRES_PORT: {{ quote .Values.postgresService.postgresPort }}
-POSTGRES_SCHEMA_NAME: {{ quote .Values.postgresService.postgresSchema }}
-```
-
-Then create default values for these in the `postgres` section of the Helm Chart values file (`helm/<REPO_NAME>/values.yaml`):
+Update the Helm chart values file (`helm/<REPO_NAME>/values.yaml`) with default values for the Postgres service:
 
 ```
 postgresService:
@@ -111,7 +106,22 @@ postgresService:
   postgresUser: postgres
 ```
 
-Add Secret template (`helm/<REPO_NAME>/templates/container-secret.yaml`)
+replacing `<workstrem>` and `<service>` as per naming convention described above.
+
+### Update ConfigMap
+
+Update the `ConfigMap` template of the Helm Chart (`helm/<REPO_NAME>/templates/config-map.yaml`) to include the environment variables for the Postgres database:
+
+```
+POSTGRES_DB: {{ quote .Values.postgresService.postgresDb }}
+POSTGRES_HOST: {{ quote .Values.postgresService.postgresHost }}
+POSTGRES_PORT: {{ quote .Values.postgresService.postgresPort }}
+POSTGRES_SCHEMA_NAME: {{ quote .Values.postgresService.postgresSchema }}
+```
+
+### Create/Update the container Secret
+
+Create (or update) the Secret template in `helm/<REPO_NAME>/templates/container-secret.yaml`:
 
 ```
 {{- include "ffc-helm-library.container-secret" (list . "<REPO_NAME>.container-secret") -}}
@@ -121,7 +131,9 @@ stringData:
 {{- end -}}
 ```
 
-and update `values.yaml`:
+replacing `<REPO_NAME>` with the git repository name.
+
+Update the Helm chart values file (`helm/<REPO_NAME>/values.yaml`) with a name for the Secret:
 
 ```
 containerSecret:
@@ -129,22 +141,33 @@ containerSecret:
   type: Opaque
 ```
 
-## Add scripts
+replacing `<workstrem>` and `<service>` as per naming convention described above.
 
-`scripts/migration/database-down`
-`scripts/migration/database-up`
-`scripts/postgres-wait`
+## Add Liquibase migration scripts
 
-## Add database access code to the microservice (Node.js example)
+Copy the [scripts from resources](../../resources/scripts) to create the following scripts at the root of your microservice:
+* `scripts/migration/database-down`
+* `scripts/migration/database-up`
+* `scripts/postgres-wait`
 
-Install Azure Authentication NPM package: `npm install @azure/ms-rest-nodeauth`.
+## Add database code to the microservice
 
-With the Managed Identity bound to your microservice in the Kubernetes cluster, you can then access the database using the username `<managed-identity>@<azure-postgres-instance>` (e.g. `ffc-snd-demo-web-role@mypostgresserver` and an access token as the password e.g.:
+Update your microservice code using the relevant Azure authentication SDKs for your language.
+
+Patterns for using a Postgres database in microserive code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.
+
+### Node.js example
+
+Install the Azure Authentication SDK NPM package: `npm install @azure/ms-rest-nodeauth`.
+
+With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then access the database using the username `<managed-identity>@<azure-postgres-instance>` (e.g. `ffc-snd-demo-web-role@mypostgresserver` and an access token as the password e.g.:
 
 ```
-const auth = require('@azure/ms-rest-nodeauth')
-const credentials = await auth.loginWithVmMSI({ resource: 'https://ossrdbms-aad.database.windows.net' })
-const databasePassword = await credentials.getToken()
-```
+async function example() {
+  const auth = require('@azure/ms-rest-nodeauth')
+  const credentials = await auth.loginWithVmMSI({ resource: 'https://ossrdbms-aad.database.windows.net' })
+  const databasePassword = await credentials.getToken()
 
-Patterns for using a Postgres database are outside of the scope of this guide, but please check current best practice with the FFC Platform Team.
+  // Use databasePassword along with Postgres role bound to Managed Identity to authenticate to your database
+}
+```

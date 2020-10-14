@@ -109,9 +109,11 @@ Azure App Configuration stores values required by the Jenkins CI pipelines. For 
 
 Update your microservice code using the relevant Azure authentication and Service Bus SDKs for your language.
 
+Patterns for using a Service Bus in microservice code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.
+
 ### Node.js example
 
-Install Azure authentication and Service Bus NPM packages:
+Install the Azure authentication and Service Bus SDK NPM packages:
 
 ```
 npm install @azure/ms-rest-nodeauth @azure/service-bus
@@ -132,5 +134,3 @@ async function example() {
 }
 
 ```
-
-Patterns for using Service Bus in microservice code are outside of the scope of this guide, but please check current best practice with the FFC Platform Team.
