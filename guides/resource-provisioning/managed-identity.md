@@ -28,7 +28,7 @@ Add and configure the `AzureIdentity` and `AzureIdentityBinding` Kubernetes temp
 
 ## Add Managed Identity values to Azure App Configuration
 
-Azure App Configuration stores values required by the Jenkins CI pipelines. For your newly created Managed Identity, create two entries:
+Azure App Configuration stores values required by the Jenkins CI pipelines. For your newly created Managed Identity, create two key-value entries:
 
 * **Key**: `dev/azureIdentity.clientID`; **Value**: Client ID of your Managed Identity (found via the Azure Portal); **Label**: `<REPO_NAME>` (e.g. `ffc-demo-web`)
 * **Key**: `dev/azureIdentity.resourceID`; **Value**: Resource ID of your Manage Identity (found via the Azure Portal); **Label**: `<REPO_NAME>` (e.g. `ffc-demo-web`)

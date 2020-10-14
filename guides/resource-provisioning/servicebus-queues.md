@@ -74,7 +74,7 @@ MESSAGE_QUEUE_USER: ${MESSAGE_QUEUE_USER:-notset}
 And for every queue you have created also add:
 
 ```
-<IDENTIFIER_QUEUE_ADDRESS: ffc-<workstream>-<identifier>-${MESSAGE_QUEUE_SUFFIX}
+<IDENTIFIER>_QUEUE_ADDRESS: ffc-<workstream>-<identifier>-${MESSAGE_QUEUE_SUFFIX}
 ```
 
 where `<workstream>` and `<identifier>` refer to those parts of the queue name described above.
@@ -96,28 +96,41 @@ container:
   <identifier>QueueAddress: <identifier>
 ```
 
-## Add Queue Names to App Config
+## Add Queue Names to Azure App Configuration
 
-For each message queue create two entries relating to the main branch and PR queue names in App Config using the Azure Portal:
+Azure App Configuration stores values required by the Jenkins CI pipelines. For each message queue create two key-value entries relating to the main branch and PR queue names via the Azure Portal:
 
-1. Key: `dev/container.<identifier>QueueAddress`, value: `ffc-<workstream>-<identifier>-dev`
-2. Key: `dev/pr/container.<identifier>QueueAddress`, value: `ffc-<workstream>-<identifier>-pr`
+1. **Key**: `dev/container.<identifier>QueueAddress`; **Value**: `ffc-<workstream>-<identifier>-dev`
+2. **Key**: `dev/pr/container.<identifier>QueueAddress`; **Value**: `ffc-<workstream>-<identifier>-pr`
 
-Do not add a label to the App Config entries.
+**Do not** add a label to these App Configuration entries.
 
-## Add messaging code to the microservice (Node.js example)
+## Add messaging code to the microservice
 
-Install Azure Service Bus and Authentication NPM packages: `npm install @azure/ms-rest-nodeauth @azure/service-bus`.
+Update your microservice code using the relevant Azure authentication and Service Bus SDKs for your language.
 
-With the Managed Identity bound to your microservice in the Kubernetes cluster, you can then use the Service Bus message queues e.g.:
+### Node.js Example
+
+Install Azure authentication and Service Bus NPM packages:
 
 ```
-const auth = require('@azure/ms-rest-nodeauth')
-const credentials = await auth.loginWithVmMSI({ resource: 'https://servicebus.azure.net' })
-
-const { ServiceBusClient } = require('@azure/service-bus')
-const host = <REPLACE_WITH_SERVICE_BUS_HOST_ADDRESS>
-const sbClient = ServiceBusClient.createFromAadTokenCredentials(host, credentials)
+npm install @azure/ms-rest-nodeauth @azure/service-bus
 ```
 
-Patterns for using Service Bus are outside of the scope of this guide, but please check current best practice with the FFC Platform Team.
+With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then request credentials to authenticate with Service Bus e.g.:
+
+```
+async function example() {
+  const auth = require('@azure/ms-rest-nodeauth')
+  const credentials = await auth.loginWithVmMSI({ resource: 'https://servicebus.azure.net' })
+
+  const { ServiceBusClient } = require('@azure/service-bus')
+  const host = <REPLACE_WITH_SERVICE_BUS_HOST_ADDRESS>
+  const sbClient = ServiceBusClient.createFromAadTokenCredentials(host, credentials)
+
+  // Use sbClient to read/write messages to Service Bus queue
+}
+
+```
+
+Patterns for using Service Bus in microservice code are outside of the scope of this guide, but please check current best practice with the FFC Platform Team.
