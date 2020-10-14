@@ -150,6 +150,22 @@ Copy the [scripts from resources](../../resources/scripts) to create the followi
 * `scripts/migration/database-up`
 * `scripts/postgres-wait`
 
+## Add values to Azure Key Vault and App Configuration
+
+Azure Key Vault is used to store the Postgres username and Azure App Configuration is used to stores values required by the Jenkins CI pipelines.
+
+Create the following secret in Azure Key Vault via the Azure Portal:
+
+* **Name**: `dev-postgres<workstream><service>User`; **Value**: `<managed-identity>@<azure-postgres-instance>` (e.g. `ffc-snd-demo-web-role@mypostgresserver`)
+
+Create the following entries in Azure App Configuraiton via the Azure Portal:
+
+1. A key-value entry where **Key**: `dev/postgresService.postgresDb`; **Value**: `ffc_<workstream>_<service>`; **Label**: `<REPO_NAME>` (e.g. `ffc-demo-claim-service`)
+
+2. A Key Vault reference entry where **Key**: `dev/postgresService.postgresUser`; **Key Vault Secret Key**: `dev-postgres<workstream><service>User`; **Label**: `<REPO_NAME>` (e.g. `ffc-demo-claim-service`)
+
+where `<workstream>` and `<service>` refer to those parts of the queue name described above.
+
 ## Add database code to the microservice
 
 Update your microservice code using the relevant Azure authentication SDKs for your language.
@@ -160,7 +176,7 @@ Patterns for using a Postgres database in microserive code are outside of the sc
 
 Install the Azure Authentication SDK NPM package: `npm install @azure/ms-rest-nodeauth`.
 
-With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then access the database using the username `<managed-identity>@<azure-postgres-instance>` (e.g. `ffc-snd-demo-web-role@mypostgresserver` and an access token as the password e.g.:
+With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then access the database using the username `<managed-identity>@<azure-postgres-instance>` (e.g. `ffc-snd-demo-web-role@mypostgresserver`) and an access token as the password:
 
 ```
 async function example() {

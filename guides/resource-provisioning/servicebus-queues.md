@@ -103,6 +103,8 @@ Azure App Configuration stores values required by the Jenkins CI pipelines. For 
 1. **Key**: `dev/container.<identifier>QueueAddress`; **Value**: `ffc-<workstream>-<identifier>-dev`
 2. **Key**: `dev/pr/container.<identifier>QueueAddress`; **Value**: `ffc-<workstream>-<identifier>-pr`
 
+where `<workstream>` and `<identifier>` refer to those parts of the queue name described above.
+
 **Do not** add a label to these App Configuration entries.
 
 ## Add messaging code to the microservice
