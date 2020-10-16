@@ -19,7 +19,7 @@ A readme file must exist in every repo in markdown format (.md). It must include
 - How to run tests
 - How to make changes to the code
 
-## Additional Detail
+### Additional Detail
 Depending on the complexity of the product, the following may be included in the readme, or it may be more effective to capture in separate documentation/diagrams referenced by the readme.
 
 - How product fits into wider architecture
@@ -33,6 +33,29 @@ Depending on the complexity of the product, the following may be included in the
 - Security
 - Complexity worth documenting
 - Pipelines
+
+## Microservice Reference Library
+This is a reference library of all microservices created and maintained by FFC.  The purpose of which is so we have an easy access resource to understand what capability we have developed, but also to promote reuse where appropriate.
+
+The registry is updated initially by the Solution Architect when designing the service.  It is then updated and maintained by the developer as the service iterates through it's lifecycle.
+
+The registry is in [Confluence](https://eaflood.atlassian.net/wiki/spaces/FPS/pages/2315288783/Microservice+Reference+Library)
+
+### Library Content
+- Name of service
+- Owner of service
+- Link to Git repository
+- Link to Jira backlog
+- Summary of service's purpose and capability
+- Architectural diagrams following C4 model, see [c4model.com](https://c4model.com/) for more information
+- Technology stack
+- Dependencies
+- API specification, can be link to OpenAPI specification file
+- Events, can be link, can be link to AsyncAPI specification file
+- Functions
+- Version history, can be link to GitHub
+- Usage, ie which services use this microservice
+- Useful references
 
 ## Architecture Documentation
 There may be documentation owned by FFC architecture that developers need to contribute to.
