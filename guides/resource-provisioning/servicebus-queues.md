@@ -1,16 +1,16 @@
 # Azure Service Bus Queues
 
-This guide describes how to add Azure Service Bus queues to a microservice running on the FFC Platform Kubernetes cluster.
+This guide describes how to configure access to Azure Service Bus from microservices running within Azure Kubernetes Service (AKS).
 
 ## Create a microservice Managed Identity
 
-If not alreay configured, [add an Azure Managed Identity to your microservice](managed-identity.md).
+If not already configured, [add an Azure Managed Identity to your microservice](managed-identity.md).
 
 ## Request creation of Service Bus queues
 
 For each queue required by your microservices, you will need:
-* A Service Bus queue for the main branch deploy
-* A Service Bus queue for each of the developers on the workstream to use for local development
+* A Service Bus queue for each environment
+* A Service Bus queue for each of the developers on the workstream in the Sandpit environment to use for local development
 
 Queues should follow the following naming convention:
 
@@ -18,7 +18,7 @@ Queues should follow the following naming convention:
 ffc-<workstream>-<identifier>-<purpose>
 ```
 
-where `<purpose>` either denotes the main branch deploy queue e.g. `ffc-demo-payment-dev`, or the initials of a developer for the local development queues e.g. `ffc-demo-payment-jw`.
+where `<purpose>` either denotes the environment e.g. `ffc-demo-payment-dev`, or the initials of a developer for the local development queues e.g. `ffc-demo-payment-jw`.
 
 Request the creation of the required queues through your usual Cloud Services support channel.
 
@@ -46,7 +46,7 @@ where the `<identifier>` relates to the part of the queue name described above. 
 
 ## Update local development environment
 
-Add the following environment variables to the `.env` file in the root of the microservice to use the developer Service Bus queues during local development:
+Configure you development environment so that the following environment variables are available for local development:
 
 ```
 MESSAGE_QUEUE_HOST=<INSERT_VALUE_FROM_AZURE_PORTAL>
@@ -55,11 +55,11 @@ MESSAGE_QUEUE_SUFFIX=<DEVELOPER_INITIALS>
 MESSAGE_QUEUE_USER=RootManageSharedAccessKey
 ```
 
-**Do not commit the `.env` file to the git repository so make sure it is added to the `.gitignore`**
+Values for `MESSAGE_QUEUE_HOST` and `MESSAGE_QUEUE_PASSWORD` will be found in the Azure Portal, and the `<DEVELOPER_INITIALS>` should match those used in the name of the Service Bus queues created for local devlopment.
 
-Values for `MESSAGE_QUEUE_HOST` and `MESSAGE_QUEUE_PASSWORD` will be found in the Azure Portal.
-
-The `<DEVELOPER_INITIALS>` should match those used in the name of the Service Bus queues created for local devlopment.
+Options for storing these environment variables include:
+* A `.env` file in the root of the microservice that uses Service bus, making sure you **Do not commit the `.env` file to the git repository (add it to the `.gitignore`)**
+* Your shell `rc` file e.g. `.bashrc` or `.zshrc`
 
 ## Update Docker Compose to use Service Bus environment variables
 
@@ -111,7 +111,9 @@ where `<workstream>` and `<identifier>` refer to those parts of the queue name d
 
 Update your microservice code using the relevant Azure authentication and Service Bus SDKs for your language.
 
-Patterns for using a Service Bus in microservice code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.
+Patterns for using a Service Bus in microservice code are outside of the scope of this guide, you must use the official Azure SDKs to access Managed Identities in AKS and distributed tracing.
+
+An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.
 
 ### Node.js example
 
