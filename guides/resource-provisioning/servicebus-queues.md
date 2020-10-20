@@ -98,12 +98,11 @@ container:
 
 ## Add queue names to Azure App Configuration
 
-Azure App Configuration stores values required by the Jenkins CI pipelines. For each message queue create two key-value entries relating to the main branch and PR queue names via the Azure Portal:
+Azure App Configuration stores values required by the Jenkins CI pipelines. For each message queue create a key-value entry for each environment via the Azure Portal:
 
-1. **Key**: `dev/container.<identifier>QueueAddress`; **Value**: `ffc-<workstream>-<identifier>-dev`
-2. **Key**: `dev/pr/container.<identifier>QueueAddress`; **Value**: `ffc-<workstream>-<identifier>-pr`
+* **Key**: `dev/container.<identifier>QueueAddress`; **Value**: `ffc-<workstream>-<identifier>-<environment>`
 
-where `<workstream>` and `<identifier>` refer to those parts of the queue name described above.
+where `<workstream>` and `<identifier>` refer to those parts of the queue name described above, and `<environment>` denotes the environment e.g. `ffc-demo-payment-dev`
 
 **Do not** add a label to these App Configuration entries.
 
