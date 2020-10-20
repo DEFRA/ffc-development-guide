@@ -53,7 +53,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
     - [Interact with cluster](guides/kubernetes/interaction.md)
     - [Probes](guides/kubernetes/probes.md)
   - [Managing vulnerabilities](guides/vulnerabilities.md)
-    - [Microservice Resource Provisioning](guides/resource-provisioning/README.md)
+  - [Microservice Resource Provisioning](guides/resource-provisioning/README.md)
     - [Managed Identity](guides/resource-provisioning/managed-identity.md)
     - [Postgres Database](guides/resource-provisioning/postgres-database.md)
     - [Service Bus Queues](guides/resource-provisioning/servicebus-queues.md)

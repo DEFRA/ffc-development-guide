@@ -1,10 +1,10 @@
 # Postgres Database
 
-This guide describes how to add a Postgres database to a microservice running on the FFC Platform Kubernetes cluster.
+This guide describes how to configure access to an Azure PostgreSQL database from microservices running within Azure Kubernetes Service.
 
 ## Create Managed Identity for your microservice
 
-If not alreay configured add [Managed Identity](managed-identity.md) to your microservice
+If not already configured add [Managed Identity](managed-identity.md) to your microservice
 
 ## Request creation of microservice database
 
@@ -58,7 +58,7 @@ volumes:
   postgres_data: {}
 ```
 
-Replace `<workstrem>` and `<service>` as per naming convention described above.
+Replace `<workstream>` and `<service>` as per naming convention described above.
 
 ## Update Docker Compose Override files to use Postgres service
 
@@ -70,19 +70,19 @@ Add the following configuration to the microservice `docker-compose.override.yam
       - "5432:5432"
 ```
 
-Replace `<workstrem>` and `<service>` as per naming convention described above.
+Replace `<workstream>` and `<service>` as per naming convention described above.
 
 ## Add Docker Compose files to run Liquibase migrations
 
 Add a `docker-compose.migrate.yaml` to the root of the microservice based on [the template provided in resources](../../resources/docker-compose.migrate.yaml).
 
-Replace `<workstrem>` and `<service>` as per naming convention described above.
+Replace `<workstream>` and `<service>` as per naming convention described above.
 
 ## Update microservice Helm chart
 
 ### Create a Postgres Service
 
-Create a `Service` Kubernetes template for Postgres in `helm/<REPO_NAME>/templates/postgres-service.yaml`:
+Create a Kubernetes template for a Postgres Service in `helm/<REPO_NAME>/templates/postgres-service.yaml`:
 
 ```
 {{- if .Values.postgresService.postgresExternalName }}
@@ -106,7 +106,7 @@ postgresService:
   postgresUser: postgres
 ```
 
-replacing `<workstrem>` and `<service>` as per naming convention described above.
+replacing `<workstream>` and `<service>` as per naming convention described above.
 
 ### Update ConfigMap
 
@@ -141,7 +141,7 @@ containerSecret:
   type: Opaque
 ```
 
-replacing `<workstrem>` and `<service>` as per naming convention described above.
+replacing `<workstream>` and `<service>` as per naming convention described above.
 
 ## Add Liquibase migration scripts
 
@@ -170,7 +170,7 @@ where `<workstream>` and `<service>` refer to those parts of the queue name desc
 
 Update your microservice code using the relevant Azure authentication SDKs for your language.
 
-Patterns for using a Postgres database in microserive code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.
+Patterns for using a Postgres database in microservice code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.
 
 ### Node.js example
 
