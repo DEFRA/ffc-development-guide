@@ -1,8 +1,8 @@
 # Azure Managed Identity
 
-This guide describes how to add an Azure Managed Identity to a microservice running on the FFC Platform Kubernetes cluster.
+This guide describes how to add an Azure Managed Identity to a microservice running within Azure Kubernetes Service.
 
-For main branch deploys, a Managed Identity needs to be bound to the microservice Pod to provide access to additional Azure resources such as [Postgres databases](postgres-database.md) and [Service Bus message queues](servicebus-queues.md).
+A Managed Identity needs to be bound to the microservice Pod to provide access to additional Azure resources such as [Postgres databases](postgres-database.md) and [Service Bus message queues](servicebus-queues.md).
 
 ## Create a Managed Identity
 
