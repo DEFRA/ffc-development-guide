@@ -14,25 +14,15 @@ Release pipelines are run from Jenkins and a deployment to the development envir
 - enter the `item name` in the format `<repository name>-deploy`, for example `ffc-demo-web-deploy`
 - select `Pipeline`
 - select `Ok`
-- set `This project is parameterised` to `true` and add the following parameters
-  - `Name`: `chartVersion`
-  - `Default Value`: `1.0.0`
-  - `Description`: `Version of service to deploy`  
-  - `Name`: `chartName`
-  - `Default Value`: `<repository name>` for example, `ffc-demo-web`
-  - `Description`: `Service to deploy`
-  - `Name`: `namespace`
-  - `Default Value`: `ffc-<service name>` for example, `ffc-grants`
-  - `Description`: `Cluster namespace to deploy to`
-  - `Name`: `environment`
-  - `Default Value`: `dev`
-  - `Description`: `Cluster environment to deploy to`
-  - `Name`: `namespace`
-  - `Default Value`: `ffc-<service name>` for example, `ffc-grants`
-  - `Description`: `Cluster namespace to deploy to`
-  - `Name`: `helmChartRepoType`
-  - `Default Value`: `acr`
-  - `Description`: `Location of Helm charts`
+- set `This project is parameterised` to `true` and add the following parameters  
+  |Name|Default Value|Description|
+  |---|---|---|
+  |`chartVersion`|`1.0.0`|`Version of service to deploy`|
+  |`chartName`|`<repository name>` for example, `ffc-demo-web`|`Service to deploy`|
+  |`namespace`|`ffc-<service name>` for example, `ffc-grants`|`Cluster namespace to deploy to`|
+  |`environment`|`dev`|`Cluster environment to deploy to`|
+  |`namespace`|`ffc-<service name>` for example, `ffc-grants`|`Cluster namespace to deploy to`|
+  |`helmChartRepoType`|`acr`|`Location of Helm charts`|
 - set `Trigger builds remotely` to `true`
 - enter unique deploy token created above
 - add inline pipeline script with the following content
