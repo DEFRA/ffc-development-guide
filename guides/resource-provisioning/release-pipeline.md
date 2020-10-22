@@ -9,7 +9,7 @@ Release pipelines are run from Jenkins and a deployment to the development envir
 - navigate to your workstream folder in Jenkins
 - select `Credentials -> (global) -> Add Credentials`
 - select `Secret text` type and set both `Description` and `Id` to `<respository name>-deploy-token`, for example `ffc-demo-web-deploy-token`
-- set the secret value to be a unique string
+- set the secret value to be a unique string, this value will be used to authenticate the CI pipeline when triggering a release
 - navigate back to the workspace folder and select `New Item`
 - enter the `item name` in the format `<repository name>-deploy`, for example `ffc-demo-web-deploy`
 - select `Pipeline`
