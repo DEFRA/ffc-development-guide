@@ -40,3 +40,5 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 ### Configure repository
 
 - add this [Jenkinsfile](../../resources/Jenkinsfile) to the repository removing either the Node.js or .NET Core line as appropriate.
+
+For more information about usage of this Jenkinsfile, see the [FFC CI pipeline documentation](https://github.com/DEFRA/ffc-jenkins-pipeline-library).
