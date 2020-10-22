@@ -8,6 +8,7 @@
   - [ ] `O365/AzureAD Platform Admin`, specifically an `a-` Microsoft adminstration account for Azure Portal
   - [ ] `Microsoft InTune`
 - [ ] request a full set of developer Azure Service Bus queues suffixed with developer initials
+- [ ] join [Defra FFC Snyk organisation](https://app.snyk.io/org/defra-ffc)
 - [ ] join all relevant collaboration channels, [see here](collaboration.md)
 - [ ] request addition to the `FFC` GitHub team
 - [ ] request addition to the `FFC` Azure DevOps team
@@ -21,6 +22,7 @@
 ## Leaving the FFC programme
 - [ ] complete `Onboard New Users/Off board existings Users` request with Azure CCoE [request portal](https://defra-azure.atlassian.net/servicedesk/customer/portal/6) requesting removal from all FFC specific resources
 - [ ] request removal of all Azure Service Bus developer queues
+- [ ] leave [Defra FFC Snyk organisation](https://app.snyk.io/org/defra-ffc)
 - [ ] leave all collaboration channels
 - [ ] leave `FFC` developer team in GitHub
 - [ ] leave `FFC` developer team in Azure DevOps
