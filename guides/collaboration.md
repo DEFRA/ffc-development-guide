@@ -51,11 +51,11 @@ Access is authorised by a Slack account which must be created using your corpora
 **Note** some of these channels are private and will require invite from an existing member of that channel.
 
 ## `defra-digital.slack.com`
-`#ffc-programme-del` - Programme team channel for general updates  
-`#ffc-developers` - Technical discussions across delivery teams  
-`#ffc-devops` - Collaboration between FFC and CSC from both Azure and AWS  
-`#ffc-platform` - Platform Services team channel  
-`#elms` - ELM team channel  
+`#ffc-programme-del (private)` - Programme team channel for general updates  
+`#ffc-developers (private)` - Technical discussions across delivery teams  
+`#ffc-devops (private)` - Collaboration between FFC and CCoE from both Azure and AWS  
+`#ffc-platform (private)` - Platform Services team channel  
+`#elms (private)` - ELM team channel  
 `#york-dev-test-cop` - York Developer and Test Community of Practice channel  
 `#development` - General software development channel for all of Defra Digital
 
@@ -72,10 +72,10 @@ Access is authorised by a Slack account which must be created using your corpora
 `#secretdetection` - notifications of detected secrects found in Git repositories
 
 ## `defra-ccoe.slack.com`
-`#ffc-azure-webops` - Support and collaboration with CSC Azure
+`#ffc-azure-webops` - Support and collaboration with CCoE Azure
 
 ## `ea-webops.slack.com`
-`#ffc` - Support and collaboration with CSC AWS
+`#ffc` - Support and collaboration with CCoE AWS
 
 ## `ukgovernmentdigital.slack.com`
 `#software-development` - General software development channel across government departments

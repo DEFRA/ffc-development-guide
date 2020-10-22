@@ -1,7 +1,7 @@
 # Technology Stack
 All technology choices are in line with Defra Digital’s Common Technology Choices (CTC). A copy of which is available on SharePoint https://defra.sharepoint.com/sites/def-ddts-ioc/pdce/Cloud%20Ecosystem%20Wiki/Common%20Technology%20Choices%20V.01.aspx
 
-These choice have been used as a baseline to help decide which technologies to build services with. Where there are gaps in the CTC not covering FFC needs we have aligned ourselves to the architectural vision, Cloud Service Centre recognised patterns and lessons learned from other digital teams.
+These choice have been used as a baseline to help decide which technologies to build services with. Where there are gaps in the CTC not covering FFC needs we have aligned ourselves to the architectural vision, Cloud Centre of Excellence recognised patterns and lessons learned from other digital teams.
 
 When developing services, teams must use the following technology stack.  Where a new need is not covered by the below technology stack, collaboration between FFC architecture and the Tools Authority must take place to agree how to fill the gap.
 

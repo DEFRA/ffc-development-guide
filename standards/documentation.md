@@ -60,7 +60,7 @@ The registry is in [Confluence](https://eaflood.atlassian.net/wiki/spaces/FPS/pa
 ## Architecture Documentation
 There may be documentation owned by FFC architecture that developers need to contribute to.
 
-For example, a Defra wide API endpoint catalogue or a Cloud Service Centre namespace library. These documents should be completed in line with the standards of the owner.
+For example, a Defra wide API endpoint catalogue or a Cloud Centre of Excellence namespace library. These documents should be completed in line with the standards of the owner.
 
 ## Architectural Decisions
 Architectural decisions are discussed and agreed at FFC Technical Design Authority (TDA) chaired by the Chief Architect. Agreed outputs are captured as part of the TDA by Architecture.

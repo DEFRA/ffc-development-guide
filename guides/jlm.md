@@ -1,6 +1,6 @@
 # Joiners, movers and leavers
 ## Joining the FFC programme
-- [ ] complete `Onboard New Users/Off board existings Users` request with Azure CSC [request portal](https://defra-azure.atlassian.net/servicedesk/customer/portal/6) requesting:
+- [ ] complete `Onboard New Users/Off board existings Users` request with Azure CCoE [request portal](https://defra-azure.atlassian.net/servicedesk/customer/portal/6) requesting:
   - [ ] OpenVPN certificate  
   - [ ] `dtz` account for Jenkins
   - [ ] accesss to all FFC cloud services
@@ -19,7 +19,7 @@
 - [ ] ensure you have all relevant Azure Service Bus queues for the new service
 
 ## Leaving the FFC programme
-- [ ] complete `Onboard New Users/Off board existings Users` request with Azure CSC [request portal](https://defra-azure.atlassian.net/servicedesk/customer/portal/6) requesting removal from all FFC specific resources
+- [ ] complete `Onboard New Users/Off board existings Users` request with Azure CCoE [request portal](https://defra-azure.atlassian.net/servicedesk/customer/portal/6) requesting removal from all FFC specific resources
 - [ ] request removal of all Azure Service Bus developer queues
 - [ ] leave all collaboration channels
 - [ ] leave `FFC` developer team in GitHub
