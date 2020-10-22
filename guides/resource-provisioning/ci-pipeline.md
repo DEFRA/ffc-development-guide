@@ -6,9 +6,22 @@ All Jenkins pipelines are created within a workstream team's Jenkins folder, for
 
 All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 
+### Configure GitHub repository
+
 - generate an SSH key pair
 - in GitHub, navigate to your repository's `Settings -> Deploy Keys -> Add deploy key`
 - add the public key as a new deployment key
+- navigate to `Settings -> Webhooks -> Add webhook`
+- set `Payload URL` to be `https://jenkins-ffc-api.azure.defra.cloud/github-webhook/`
+- set `Content type` to be `application/json`
+- set `Secret` to be the webhook secret value.  This can be retrieved from Azure Key Vault
+- set the following events to trigger the webhook
+  - `Pull requests`
+  - `Pushes`
+- select `Add webhook`
+
+### Configure Jenkins
+
 - navigate to your workstream folder in Jenkins
 - select `Credentials -> (global) -> Add Credentials`
 - select `Secret text` type and set both `Description` and `Id` to `<respository name>-deploy-token`, for example `ffc-demo-web-deploy-token`
@@ -23,3 +36,7 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 - set `Pipeline Action Triggers -> Pipeline Delete Event` set `ffc-housekeeping/cleanup-on-branch-delete` 
 - set `Pipeline Action Triggers -> Include Filter` to be `*`
 - set `Pipeline Action Triggers -> Additional Parameter -> Parameter Name` to be `repoName` and `Parameter Value` to be the name of the repository, for example, `ffc-demo-web`
+
+### Configure repository
+
+- add this [Jenkinsfile](../../resources/Jenkinsfile) to the repository removing either the Node.js or .NET Core line as appropriate.
