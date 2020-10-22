@@ -32,9 +32,33 @@ Guidence on creating a Liquibase changelog is outside of the scope of this guide
 
 ## Update Docker Compose files to use Postgres service and environment variables
 
-Add the following configuration to the microservice `docker-compose.yaml`:
+Update `docker-compose.yaml`, `docker-compose.override.yaml`, and `docker-compose.test.yaml` to include a Postgres service and add Postgres environment variables to the microservice.
+
+An example Postgres service:
 
 ```
+services:
+  # Microservice definition here
+  ffc-<workstream>-<service>-postgres:
+    image: postgres:11.4-alpine
+    environment:
+      POSTGRES_DB: ffc_<workstream>_<service>
+      POSTGRES_PASSWORD: ppp
+      POSTGRES_USER: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data: {}
+```
+
+Add dependency on the Postgres service and environment variables the microservice `services` definition:
+
+```
+services:
+  # Microservice definition here
     depends_on:
       - ffc-<workstream>-<service>-postgres
     environment:
@@ -44,30 +68,6 @@ Add the following configuration to the microservice `docker-compose.yaml`:
       POSTGRES_HOST: ffc-<workstream>-<service>-postgres
       POSTGRES_PORT: 5432
       POSTGRES_SCHEMA_NAME: public
-
-  ffc-<workstream>-<service>-postgres:
-    image: postgres:11.4-alpine
-    environment:
-      POSTGRES_DB: ffc_<workstream>_<service>
-      POSTGRES_PASSWORD: ppp
-      POSTGRES_USER: postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data: {}
-```
-
-Replace `<workstream>` and `<service>` as per naming convention described above.
-
-## Update Docker Compose Override files to use Postgres service
-
-Add the following configuration to the microservice `docker-compose.override.yaml`:
-
-```
-  ffc-<workstream>-<service>-postgres:
-    ports:
-      - "5432:5432"
 ```
 
 Replace `<workstream>` and `<service>` as per naming convention described above.

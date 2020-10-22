@@ -63,7 +63,7 @@ Options for storing these environment variables include:
 
 ## Update Docker Compose to use Service Bus environment variables
 
-Add the following environment variables to the `environment` section of the `docker-compose.yaml`:
+Add the following environment variables to the microserive `environment` section of the `docker-compose.yaml`:
 
 ```
 MESSAGE_QUEUE_HOST: ${MESSAGE_QUEUE_HOST:-notset}
