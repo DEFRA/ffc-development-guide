@@ -8,7 +8,7 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 
 ### Configure GitHub repository
 
-- generate an SSH key pair
+- generate an SSH key pair, for example on your development machine
 - in GitHub, navigate to your repository's `Settings -> Deploy Keys -> Add deploy key`
 - add the public key as a new deployment key
 - navigate to `Settings -> Webhooks -> Add webhook`
@@ -33,6 +33,7 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 - enter `GitHub` as a Branch Source
 - for credentials select the `ffcplatform` GitHub token
 - enter your GitHub URL in the `HTTPS URL` field, for example `https://github.com/DEFRA/ffc-demo-web.git`
+- set `Scan Repository Triggers -> Periodically if not otherwise run` to `true` with an interval of `1 hour`
 - set `Pipeline Action Triggers -> Pipeline Delete Event` set `ffc-housekeeping/cleanup-on-branch-delete` 
 - set `Pipeline Action Triggers -> Include Filter` to be `*`
 - set `Pipeline Action Triggers -> Additional Parameter -> Parameter Name` to be `repoName` and `Parameter Value` to be the name of the repository, for example, `ffc-demo-web`
