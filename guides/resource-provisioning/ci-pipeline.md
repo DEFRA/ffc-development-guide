@@ -8,9 +8,6 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 
 ### Configure GitHub repository
 
-- generate an SSH key pair, for example on your development machine
-- in GitHub, navigate to your repository's `Settings -> Deploy Keys -> Add deploy key`
-- add the public key as a new deployment key
 - navigate to `Settings -> Webhooks -> Add webhook`
 - set `Payload URL` to be `https://jenkins-ffc-api.azure.defra.cloud/github-webhook/`
 - set `Content type` to be `application/json`
@@ -23,9 +20,6 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 ### Configure Jenkins
 
 - navigate to your workstream folder in Jenkins
-- select `Credentials -> (global) -> Add Credentials`
-- select `Secret text` type and set both `Description` and `Id` to `<respository name>-deploy-token`, for example `ffc-demo-web-deploy-token`
-- set the secret value to be the private key
 - select `New Item`
 - enter the `item name` in the format `<repository name>-build`, for example `ffc-demo-web-build`
 - select `Multibranch Pipeline`
