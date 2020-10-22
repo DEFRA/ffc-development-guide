@@ -21,6 +21,7 @@ These guides help provide additional context to support our standards.
   - [CI pipeline](resource-provisioning/ci-pipeline.md)
   - [Managed Identity](resource-provisioning/managed-identity.md)
   - [Postgres database](resource-provisioning/postgres-database.md)
+  - [Release pipeline](resource-provisioning/release-pipeline.md)
   - [Service Bus queues](resource-provisioning/servicebus-queues.md)
 - [Secrets management](secrets-management.md)
 - [Shared assets](shared-assets.md)

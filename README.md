@@ -58,6 +58,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
     - [CI pipeline](guides/resource-provisioning/ci-pipeline.md)
     - [Managed Identity](guides/resource-provisioning/managed-identity.md)
     - [Postgres database](guides/resource-provisioning/postgres-database.md)
+    - [Release pipeline](guides/resource-provisioning/release-pipeline.md)
     - [Service Bus queues](guides/resource-provisioning/servicebus-queues.md)
   - [Secrets management](guides/secrets-management.md)
   - [Shared assets](guides/shared-assets.md)
