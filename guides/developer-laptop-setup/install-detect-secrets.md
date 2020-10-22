@@ -25,7 +25,7 @@ pip install detect-secrets
 ```
 
 ## Configuration
-A `pre-commit` configuration file should exist in every FFC git repository that contains the necessary information to run `detect-secrets`. See the [guide for creating FFC git repositories](../source-code.md).
+A `pre-commit` configuration file should exist in every FFC git repository that contains the necessary information to run `detect-secrets`. See the [guide for creating FFC git repositories](../../standards/source-code.md).
 
 Your system will need to be configured to set up the git hooks for both currently cloned, and future cloned, FFC repositories.
 

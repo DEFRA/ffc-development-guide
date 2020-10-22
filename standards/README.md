@@ -6,6 +6,7 @@ These standards must be adhered to by all FFC developers.
 - [Code reviews](code-review.md)
 - [Developer workflow](developer-workflow.md)
 - [Documentation](documentation.md)
+- [Events and messages](events.md)
 - [FFC CI pipeline](ci-pipeline.md)
 - [Jenkins](jenkins.md)
 - [Kubernetes](kubernetes/README.md)
