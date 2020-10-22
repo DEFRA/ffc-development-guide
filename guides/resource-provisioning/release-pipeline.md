@@ -14,7 +14,8 @@ Release pipelines are run from Jenkins and a deployment to the development envir
 - enter the `item name` in the format `<repository name>-deploy`, for example `ffc-demo-web-deploy`
 - select `Pipeline`
 - select `Ok`
-- set `This project is parameterised` to `true` and add the following parameters  
+- set `This project is parameterised` to `true` and add the following parameters
+
   |Name|Default Value|Description|
   |---|---|---|
   |`chartVersion`|`1.0.0`|`Version of service to deploy`|
@@ -23,9 +24,11 @@ Release pipelines are run from Jenkins and a deployment to the development envir
   |`environment`|`dev`|`Cluster environment to deploy to`|
   |`namespace`|`ffc-<service name>` for example, `ffc-grants`|`Cluster namespace to deploy to`|
   |`helmChartRepoType`|`acr`|`Location of Helm charts`|
+
 - set `Trigger builds remotely` to `true`
 - enter unique deploy token created above
 - add inline pipeline script with the following content
+
   ```
   @Library('defra-library@v-8') _
 
