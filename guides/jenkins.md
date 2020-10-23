@@ -1,6 +1,9 @@
 # Jenkins
+
 ## Using Jenkins locally
+
 ### Installation
+
 It is recommended that Jenkins is run locally within the Blue Ocean Docker image. The Blue Ocean image is recommended by Jenkins as it comes with Blue Ocean already configured. Blue Ocean provides a more user friendly experience which may suit developers new to Jenkins.
 
 The below command will pull the image and run the container.
@@ -27,6 +30,7 @@ An example could be ` -v /c/users/ddts_220606/source/repos:\repos:ro`
 This [official guide](https://jenkins.io/doc/book/installing/) includes instructions for how to setup access credentials to the Jenkins container.
 
 ### Run build from local repository
+
 The following assumes you have an existing repository containing a Jenkinsfile.
 
 - select `New Item` from the main menu

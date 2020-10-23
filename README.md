@@ -54,14 +54,16 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
     - [Interact with cluster](guides/kubernetes/interaction.md)
     - [Probes](guides/kubernetes/probes.md)
   - [Managing vulnerabilities](guides/vulnerabilities.md)
-  - [Microservice Resource Provisioning](guides/resource-provisioning/README.md)
+  - [Microservice resource provisioning](guides/resource-provisioning/README.md)
+    - [CI pipeline](guides/resource-provisioning/ci-pipeline.md)
     - [Managed Identity](guides/resource-provisioning/managed-identity.md)
-    - [Postgres Database](guides/resource-provisioning/postgres-database.md)
-    - [Service Bus Queues](guides/resource-provisioning/servicebus-queues.md)
+    - [Postgres database](guides/resource-provisioning/postgres-database.md)
+    - [Release pipeline](guides/resource-provisioning/release-pipeline.md)
+    - [Service Bus queues](guides/resource-provisioning/servicebus-queues.md)
   - [Secrets management](guides/secrets-management.md)
   - [Shared assets](guides/shared-assets.md)
   - [VS Code and WSL1](guides/vs-code-wsl1.md)
-  - [WAF Waivers](guides/waf-waivers.md)
+  - [WAF waivers](guides/waf-waivers.md)
 
 ## Licence
 

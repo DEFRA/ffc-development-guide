@@ -15,3 +15,7 @@ Secret values and sensitive configuration are not included in Jenkinsfiles, inst
 
 ## Credentials
 Jenkins credentials should only be used for Jenkins pipeline specific activities.  They should not hold credentials relating to microservice configuration or deployment.  These credentials should be sourced from Azure Key Vault or for files, a private Azure Repository.
+
+## Workspace folders
+All delivery teams will have their own workspace folders to logically separate their pipelines and credentials. 
+The naming convention of these folders will be `ffc-<service>`.  For example, `ffc-grants`.

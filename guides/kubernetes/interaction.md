@@ -4,7 +4,7 @@
 A cluster can only be accessed when connected to VPN.
 
 ## Acquiring a Kubeconfig file for a cluster
-To acquire a Kubeconfig, a subscription Id is needed along with the name of the cluster and the resource group in which it resides.  This information can be acquired via the Azure Portal or from CSC.
+To acquire a Kubeconfig, a subscription Id is needed along with the name of the cluster and the resource group in which it resides.  This information can be acquired via the Azure Portal or from CCoE.
 
 `az account set --subscription SUBSCRIPTION_ID`
 
