@@ -8,4 +8,4 @@ Guides supporting the addition of Azure resources to microservices running on th
 - [Managed Identity](managed-identity.md)
 - [Postgres database](postgres-database.md)
 - [Release pipeline](release-pipeline.md)
-- [Service Bus queues](servicebus-queues.md)
+- [Service Bus queues, topics and subscriptions](servicebus-queues.md)

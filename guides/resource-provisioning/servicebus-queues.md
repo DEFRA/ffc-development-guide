@@ -1,4 +1,4 @@
-# Azure Service Bus Queues
+# Azure Service Bus Queues, Topics and Subscriptions
 
 This guide describes how to configure access to Azure Service Bus from microservices running within Azure Kubernetes Service (AKS).
 
@@ -74,7 +74,7 @@ Add a `name` entry in the `provision.azure.yaml` for each required queue and top
 
 ## Update local development environment
 
-Configure you development environment so that the following environment variables are available for local development:
+Configure your development environment so that the following environment variables are available for local development:
 
 ```
 MESSAGE_QUEUE_HOST=<INSERT_VALUE_FROM_AZURE_PORTAL>
@@ -84,15 +84,13 @@ MESSAGE_QUEUE_USER=RootManageSharedAccessKey
 
 Values for `MESSAGE_QUEUE_HOST` and `MESSAGE_QUEUE_PASSWORD` will be found in the Azure Portal.
 
-Also create a variable with the name for each queue, topic and subscription:
+Also create a variable for each of your developer queues, topics and subscriptions:
 
 ```
-<IDENTIFIER>_QUEUE_ADDRESS
-<IDENTIFIER>_TOPIC_ADDRESS
-<IDENTIFIER>_SUBSCRIPTION_ADDRESS
+<IDENTIFIER>_<QUEUE|TOPIC|SUBSCRIPTION>_ADDRESS=ffc-<workstream>-<identifier>-<purpose>
 ```
 
-where `<IDENTIFIER>` is the same as the `<identifier>` part of the queue/topic/subscription name as described above.
+where `<IDENTIFIER>` is the same as the `<identifier>` part of the queue/topic/subscription name.
 
 Options for storing these environment variables include:
 * A `.env` file in the root of the microservice that uses Service bus, making sure you **Do not commit the `.env` file to the git repository (add it to the `.gitignore`)**
@@ -111,18 +109,16 @@ MESSAGE_QUEUE_USER: ${MESSAGE_QUEUE_USER:-notset}
 And for every queue, topic and subscription you have created also add:
 
 ```
-<IDENTIFIER>_QUEUE_ADDRESS: ${<IDENTIFIER>_QUEUE_ADDRESS:-notset}
-<IDENTIFIER>_TOPIC_ADDRESS: ${<IDENTIFIER>_TOPIC_ADDRESS:-notset}
-<IDENTIFIER>_SUBSCRIPTION_ADDRESS: ${<IDENTIFIER>_SUBSCRIPTION_ADDRESS:-notset}
+<IDENTIFIER>_<QUEUE|TOPIC|SUBSCRIPTION>_ADDRESS: ${<IDENTIFIER>_<QUEUE|TOPIC|SUBSCRIPTION>_ADDRESS:-notset}
 ```
 
 ## Update microservice Helm chart
 
-Update the `ConfigMap` template of the Helm Chart (`helm/<REPO_NAME>/templates/config-map.yaml`) to include the environment variables for the message queue host and every queue you have created:
+Update the `ConfigMap` template of the Helm Chart (`helm/<REPO_NAME>/templates/config-map.yaml`) to include the environment variables for the message queue host and every queue, topic and subscription you have created, for example:
 
 ```
 MESSAGE_QUEUE_HOST: {{ quote .Values.container.messageQueueHost }}
-<IDENTIFIER>_QUEUE_ADDRESS: {{ quote .Values.container.<identifier>QueueAddress }}
+<IDENTIFIER>_<QUEUE|TOPIC|SUBSCRIPTION>_ADDRESS: {{ quote .Values.container.<identifier><Queue|Topic|Subscription>Address }}
 ```
 
 Then create default values for these in the `container` section of the Helm Chart values file (`helm/<REPO_NAME>/values.yaml`):
@@ -130,14 +126,14 @@ Then create default values for these in the `container` section of the Helm Char
 ```
 container:
   messageQueueHost: dummy
-  <identifier>QueueAddress: <identifier>
+  <identifier><Queue|Topic|Subscription>Address: <identifier>
 ```
 
-## Add queue names to Azure App Configuration
+## Add queue, topic and subscription names to Azure App Configuration
 
-Azure App Configuration stores values required by the Jenkins CI pipelines. For each message queue create a key-value entry for each environment via the Azure Portal:
+Azure App Configuration stores values required by the Jenkins CI pipelines. For each queue, topic and subscription create a key-value entry for each environment via the Azure Portal:
 
-* **Key**: `dev/container.<identifier>QueueAddress`; **Value**: `ffc-<workstream>-<identifier>-<environment>`
+* **Key**: `dev/container.<identifier><Queue|Topic|Subscription>Address`; **Value**: `ffc-<workstream>-<identifier>-<environment>`
 
 where `<workstream>` and `<identifier>` refer to those parts of the queue name described above, and `<environment>` denotes the environment e.g. `ffc-demo-payment-dev`
 
@@ -147,7 +143,7 @@ where `<workstream>` and `<identifier>` refer to those parts of the queue name d
 
 Update your microservice code using the relevant Azure authentication and Service Bus SDKs for your language.
 
-Patterns for using a Service Bus in microservice code are outside of the scope of this guide, you must use the official Azure SDKs to access Managed Identities in AKS and distributed tracing.
+Patterns for using a Service Bus in microservice code are outside of the scope of this guide, but you must use the official Azure SDKs to access Managed Identities in AKS and distributed tracing.
 
 An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.
 
@@ -172,5 +168,4 @@ async function example() {
 
   // Use sbClient to read/write messages to Service Bus queue
 }
-
 ```
