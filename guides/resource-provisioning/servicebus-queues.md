@@ -6,7 +6,9 @@ This guide describes how to configure access to Azure Service Bus from microserv
 
 If not already configured, [add an Azure Managed Identity to your microservice](managed-identity.md).
 
-## Request creation of Service Bus queues
+## Request creation of Service Bus queues, topics and subscriptions
+
+### For point-to-point queues
 
 For each queue required by your microservices, you will need:
 * A Service Bus queue for each environment
@@ -22,9 +24,29 @@ where `<purpose>` either denotes the environment e.g. `ffc-demo-payment-dev`, or
 
 Request the creation of the required queues through your usual Cloud Services support channel.
 
+### For topics and subscriptions
+
+For each topic, you will need:
+* A Service Bus topic for each environment
+* A Service Bus topic for each of the developers on the workstream in the Sandpit environment to use for local development
+
+Subscriptions are created on a topic. For every subscription, you will also need:
+* A Service Bus subscription to the topic for each environment
+* A Service Bus subscription to each developer topic in the Sandpit environment to use for local development
+
+Topics and subscriptions should follow the following naming convention:
+
+```
+ffc-<workstream>-<identifier>-<purpose>
+```
+
+where `<purpose>` either denotes the environment e.g. `ffc-demo-reporting-dev`, or the initials of a developer for the local development queues e.g. `ffc-demo-reporting-jw`.
+
+Request the creation of the required topics and subscriptions through your usual Cloud Services support channel.
+
 ## Update Managed Identity permissions
 
-For each main branch queue created, read and/or write permissions should be added to the Managed Identites of the microservices that will be using the queues.
+For each environment queue, topic and subscription created, read and/or write permissions should be added to the Managed Identites of the microservices that will be using it.
 
 Request Cloud Services to add the relevant permissions to the Managed Identities.
 
@@ -32,17 +54,23 @@ Permissions do not need to be added to Managed Identities for the local developm
 
 ## PR queue provisioning
 
-Queues can be automatically provisioned for each microservice PR by the Jenkins CI pipleine to ensure encapsulation of infrastructure.
+Queues, topics and subscriptions can be automatically provisioned for each microservice PR by the Jenkins CI pipleine to ensure encapsulation of infrastructure.
 
-Create a `provision.azure.yaml` file in the root directory of your microservice, and populate with the queues that need provisioning:
+Create a `provision.azure.yaml` file in the root directory of your microservice, and populate with the Service Bus infrastructure that need provisioning:
 
 ```
 resources:
   queues:
-    - name: <identifier>
+    - name: <queue_identifier>
+  topics:
+    - name: <topic_identifier>
 ```
 
-where the `<identifier>` relates to the part of the queue name described above. For example for the queue `ffc-demo-payment-dev`, `<identifier>` would be replaced with `payment`. Add a `name` entry for each required queue.
+where the `<queue_identifier>` and/or `<topic_identifier>` relates to the part of the queue or topic name described above. For example for the queue `ffc-demo-payment-dev`, `<queue_identifier>` would be replaced with `payment`.
+
+For every topic specified in `provision.azure.yaml`, the CI pipeline will also create a subscription, so subscriptions **do not** need to be explictly spcecified.
+
+Add a `name` entry in the `provision.azure.yaml` for each required queue and topic/subscription.
 
 ## Update local development environment
 
@@ -51,11 +79,20 @@ Configure you development environment so that the following environment variable
 ```
 MESSAGE_QUEUE_HOST=<INSERT_VALUE_FROM_AZURE_PORTAL>
 MESSAGE_QUEUE_PASSWORD=<INSERT_VALUE_FROM_AZURE_PORTAL>
-MESSAGE_QUEUE_SUFFIX=<DEVELOPER_INITIALS>
 MESSAGE_QUEUE_USER=RootManageSharedAccessKey
 ```
 
-Values for `MESSAGE_QUEUE_HOST` and `MESSAGE_QUEUE_PASSWORD` will be found in the Azure Portal, and the `<DEVELOPER_INITIALS>` should match those used in the name of the Service Bus queues created for local devlopment.
+Values for `MESSAGE_QUEUE_HOST` and `MESSAGE_QUEUE_PASSWORD` will be found in the Azure Portal.
+
+Also create a variable with the name for each queue, topic and subscription:
+
+```
+<IDENTIFIER>_QUEUE_ADDRESS
+<IDENTIFIER>_TOPIC_ADDRESS
+<IDENTIFIER>_SUBSCRIPTION_ADDRESS
+```
+
+where `<IDENTIFIER>` is the same as the `<identifier>` part of the queue/topic/subscription name as described above.
 
 Options for storing these environment variables include:
 * A `.env` file in the root of the microservice that uses Service bus, making sure you **Do not commit the `.env` file to the git repository (add it to the `.gitignore`)**
@@ -71,13 +108,13 @@ MESSAGE_QUEUE_PASSWORD: ${MESSAGE_QUEUE_PASSWORD:-notset}
 MESSAGE_QUEUE_USER: ${MESSAGE_QUEUE_USER:-notset}
 ```
 
-And for every queue you have created also add:
+And for every queue, topic and subscription you have created also add:
 
 ```
-<IDENTIFIER>_QUEUE_ADDRESS: ffc-<workstream>-<identifier>-${MESSAGE_QUEUE_SUFFIX}
+<IDENTIFIER>_QUEUE_ADDRESS: ${<IDENTIFIER>_QUEUE_ADDRESS:-notset}
+<IDENTIFIER>_TOPIC_ADDRESS: ${<IDENTIFIER>_TOPIC_ADDRESS:-notset}
+<IDENTIFIER>_SUBSCRIPTION_ADDRESS: ${<IDENTIFIER>_SUBSCRIPTION_ADDRESS:-notset}
 ```
-
-where `<workstream>` and `<identifier>` refer to those parts of the queue name described above.
 
 ## Update microservice Helm chart
 
