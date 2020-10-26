@@ -22,7 +22,7 @@ These guides help provide additional context to support our standards.
   - [Managed Identity](resource-provisioning/managed-identity.md)
   - [Postgres database](resource-provisioning/postgres-database.md)
   - [Release pipeline](resource-provisioning/release-pipeline.md)
-  - [Service Bus queues](resource-provisioning/servicebus-queues.md)
+  - [Service Bus queues, topics and subscriptions](resource-provisioning/servicebus-queues.md)
 - [Secrets management](secrets-management.md)
 - [Shared assets](shared-assets.md)
 - [VS Code and WSL1](vs-code-wsl1.md)
