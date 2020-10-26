@@ -2,6 +2,7 @@
 These standards must be adhered to by all FFC developers.
 
 ## Contents
+- [APIs](api.md)
 - [Backlog management](backlog-management.md)
 - [Code reviews](code-review.md)
 - [Developer workflow](developer-workflow.md)
