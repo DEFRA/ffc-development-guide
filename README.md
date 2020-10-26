@@ -15,6 +15,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
 
 ## Contents
 - [Standards](standards/README.md)
+  - [API's](standards/api.md)
   - [Backlog management](standards/backlog-management.md)
   - [Code reviews](standards/code-review.md)
   - [Developer workflow](standards/developer-workflow.md)
