@@ -27,8 +27,10 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 - enter `GitHub` as a Branch Source
 - for credentials select the `ffcplatform` GitHub token
 - enter your GitHub URL in the `HTTPS URL` field, for example `https://github.com/DEFRA/ffc-demo-web.git`
+- set `Discover branches` to `All branches`
+- delete `Discover pull requests from origin` and `Discover pull requests from forks`
 - set `Scan Repository Triggers -> Periodically if not otherwise run` to `true` with an interval of `1 hour`
-- set `Pipeline Action Triggers -> Pipeline Delete Event` set `ffc-housekeeping/cleanup-on-branch-delete` 
+- set `Pipeline Action Triggers -> Pipeline Delete Event` set `ffc-housekeeping/cleanup-on-branch-delete`
 - set `Pipeline Action Triggers -> Include Filter` to be `*`
 - set `Pipeline Action Triggers -> Additional Parameter -> Parameter Name` to be `repoName` and `Parameter Value` to be the name of the repository, for example, `ffc-demo-web`
 
@@ -44,6 +46,10 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 - select `Administration -> Quality Profiles` and set all to `Sonar way`
 - select `Administration -> Quality Gate` and set to `Sonar way`
 - select `Administration -> Update key` and ensure key matches the name of the repository, removing the `DEFRA_` prefix, for example, `ffc-demo-web`
+
+### Configure Snyk
+
+A [Snyk](https://app.snyk.io/) scan is run as part of the CI pipeline. By default, a project will be set to private. In order to access unlimited [free tests](https://snyk.io/plans/) the project needs to be marked as open source. To do so, follow the [instructions](https://support.snyk.io/hc/en-us/articles/360000910597).
 
 ### Configure repository
 

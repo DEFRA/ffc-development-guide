@@ -22,7 +22,6 @@ Release pipelines are run from Jenkins and a deployment to the development envir
   |`chartName`|`<repository name>` for example, `ffc-demo-web`|`Service to deploy`|
   |`namespace`|`ffc-<service name>` for example, `ffc-grants`|`Cluster namespace to deploy to`|
   |`environment`|`dev`|`Cluster environment to deploy to`|
-  |`namespace`|`ffc-<service name>` for example, `ffc-grants`|`Cluster namespace to deploy to`|
   |`helmChartRepoType`|`acr`|`Location of Helm charts`|
 
 - set `Trigger builds remotely` to `true`
@@ -32,9 +31,9 @@ Release pipelines are run from Jenkins and a deployment to the development envir
   ```
   @Library('defra-library@v-8') _
 
-  deployToCluster environment: params.environment, 
-                namespace: params.namespace, 
-                chartName: params.chartName, 
+  deployToCluster environment: params.environment,
+                namespace: params.namespace,
+                chartName: params.chartName,
                 chartVersion: params.chartVersion,
                 helmChartRepoType: params.helmChartRepoType
   ```
