@@ -47,7 +47,13 @@ All FFC services based on the Defra .NET Core development image include the `vsd
 
 ### Visual Studio
 
-Visual Studio does not integrate with the WSL filesystem, so WSL users must clone the repository in Windows to debug using Visual Studio.
+Visual Studio does not integrate with the WSL filesystem, so WSL users must clone the repository in Windows to debug using Visual Studio. 
+
+It is important that the following git configuration setting is present to ensure that cloning in Windows does not alter existing line endings
+
+```
+git config --global core.autocrlf input
+```
 
 For services which require environment variables to be read from the host, it is recommended to store these in a `.env` file in the repository as Docker Compose
 will automatically read this file when running the container.  This file must be excluded from source control.
