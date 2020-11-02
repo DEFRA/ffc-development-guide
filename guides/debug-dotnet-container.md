@@ -49,6 +49,9 @@ All FFC services based on the Defra .NET Core development image include the `vsd
 
 Visual Studio does not integrate with the WSL filesystem, so WSL users must clone the repository in Windows to debug using Visual Studio.
 
+For services which require environment variables to be read from the host, it is recommended to store these in a `.env` file in the repository as Docker Compose
+will automatically read this file when running the container.  This file must be excluded from source control.
+
 This process has a prerequisite of the user having [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) installed which includes Docker Compose by default.
 
 - add your break point
