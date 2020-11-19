@@ -29,7 +29,7 @@ Release pipelines are run from Jenkins and a deployment to the development envir
 - add inline pipeline script with the following content
 
   ```
-  @Library('defra-library@v-8') _
+  @Library('defra-library@v-9') _
 
   deployToCluster environment: params.environment,
                 namespace: params.namespace,
