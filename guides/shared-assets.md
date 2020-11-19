@@ -78,11 +78,4 @@ All FFC repositories are regularly scanned for committed secrets.  A utility rep
 ## Demo service
 A demo service has been created to demonstrate FFC's standards and patterns in operation.  The demo service allows developers to see an example of how these patterns work in a "real" implementation.
 
-### GitHub
-- [Web service](https://github.com/DEFRA/ffc-demo-web)
-- [Claim service](https://github.com/DEFRA/ffc-demo-claim-service)
-- [Calculation service](https://github.com/DEFRA/ffc-demo-calculation-service)
-- [Payment service (Node.js)](https://github.com/DEFRA/ffc-demo-payment-service)
-- [Payment service (.NET Core)](https://github.com/DEFRA/ffc-demo-payment-service-core)
-- [Payment web service](https://github.com/DEFRA/ffc-demo-payment-web)
-- [Local development support](https://github.com/DEFRA/ffc-demo-development)
+See [Demo service](demo-service.md) for further details.
