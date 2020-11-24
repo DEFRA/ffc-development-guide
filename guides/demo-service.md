@@ -130,6 +130,9 @@ Below is a reference of where patterns and standards can be found.
 - Payment (Node.js)
 - Payment (.NET Core)
 
+#### GOV.UK Notify
+- Claim
+
 #### Outbox pattern
 - Claim
 
