@@ -21,8 +21,11 @@ When sending an event to Azure Service Bus, it will be decorated by default brok
 
 All FFC events from any service must also declare the following custom properties when publishing an event.
 
-- `type` - the type of event
-- `source` - where the event originated from
-- `subject` - the subject which will give consumers context, for example when the body cannot be consistently read or contains blob data
+- `type` - the type of event, this should be prefixed with reverse DNS and describe the object and event occuring on that object in the format:
+`<reverse DNS>.ffc.<object>.<event>`
+
+  For example, `uk.gov.ffc.demo.claim.validated`
+- `source` - the service the event originated from, eg `ffc-demo-web`
+- `subject (optional)` - the subject which will give consumers context, for example when the body cannot be consistently read or contains blob data
 
 These additional properties are based on values included in the [CloudEvents](https://cloudevents.io/) specification that are not included in the Azure Service Bus envelope.  Refer to the Cloud Events specification for further examples of their usage.
