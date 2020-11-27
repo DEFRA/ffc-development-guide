@@ -8,22 +8,23 @@ When developing services, teams must use the following technology stack.  Where 
 ## Microservice Development
 - Node.js (with Hapi.js)
 - npm
-- .NET Core
+- .NET
 - Nuget
 - Docker
 - Docker Compose
 - Helm
 
-## CI
+## CI/CD
 - Jenkins (Groovy syntax)
 - ARM templates
 - Azure CLI
+- Azure DevOps
 
 ## Testing
 - Jest
 - NUnit
 - Pact
-- Cypress
+- Web Driver IO
 - Cucumber
 - Selenium
 - BrowserStack
@@ -31,14 +32,15 @@ When developing services, teams must use the following technology stack.  Where 
 - Snyk
 - OWASP Zap
 - Pa11y
+- Anchore Engine
+- Aqua Trivy
 
 ## Cloud (private)
 - Azure Kubernetes Service (AKS)
 - Azure Container Registry (ACR)
 - Azure PostgreSQL
-- CosmosDB
 - Azure Service Bus
-- Application Configuration
+- Azure Application Configuration
 - Azure Key Vault
 - AAD Pod Identity
 - Application Insights
@@ -48,3 +50,4 @@ When developing services, teams must use the following technology stack.  Where 
 - GitHub
 - SonarCloud
 - DockerHub
+- BrowserStack
