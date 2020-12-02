@@ -18,6 +18,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [APIs](standards/api.md)
   - [Backlog management](standards/backlog-management.md)
   - [Code reviews](standards/code-review.md)
+  - [Configuration management](standards/configuration-management.md)
   - [Developer workflow](standards/developer-workflow.md)
   - [Documentation](standards/documentation.md)
   - [Events and messages](standards/events.md)

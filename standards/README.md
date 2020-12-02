@@ -5,6 +5,7 @@ These standards must be adhered to by all FFC developers.
 - [APIs](api.md)
 - [Backlog management](backlog-management.md)
 - [Code reviews](code-review.md)
+- [Configuration management](configuration-management.md)
 - [Developer workflow](developer-workflow.md)
 - [Documentation](documentation.md)
 - [Events and messages](events.md)
