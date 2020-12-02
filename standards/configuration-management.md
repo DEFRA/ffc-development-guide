@@ -64,7 +64,7 @@ For example, `pr/container.port` would mean all PR deployments would get the sam
 
 ## Microservice specific values
 
-When you want to provide a value depending on the specific microservice and not just the service you can add a different label to that key referncing the name of the microservice.
+When you want to provide a value depending on the specific microservice and not just the service you can add a different label to that key referencing the name of the microservice.
 
 For example, if you have a key `ffc-demo/common/container.port` with an unlabelled value of `4000` and a value of `5000` labelled `ffc-demo-web`, then all `ffc-demo` services would get a value of `4000` except the `ffc-demo-web` microservice which would get `5000`.
 
@@ -93,7 +93,7 @@ Only values that are used by everyone should be scoped to `common/` or `environm
 
 ### Exceptions to the rule
 
-The are some values that are exceptions to this rule because of dynamic infrastructure provisioning and related test exection in CI.
+The are some values that are exceptions to this rule because of dynamic infrastructure provisioning and related test execution in CI.
 
 #### Ingress values
 
