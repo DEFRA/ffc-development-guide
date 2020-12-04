@@ -22,6 +22,8 @@ for example `ffc_demo_claim`.
 
 Request Cloud Services to create a database role that is bound to the Managed Identity created for the microservice ([Azure guidence](https://docs.microsoft.com/en-us/azure/postgresql/howto-connect-with-managed-identity#creating-a-postgresql-user-for-your-managed-identity)), for example `ffc-snd-demo-claim-role`.
 
+This identity must also be assigned to the Jenkins VM to ensure that Liquibase migrations can run.
+
 ## Create a Liquibase changelog
 
 The FFC Platfrom CI and deployment pipelines support database migrations using [Liquibase](https://www.liquibase.org/).
