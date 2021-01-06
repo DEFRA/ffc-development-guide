@@ -2,6 +2,7 @@
 These guides help provide additional context to support our standards.
 
 ## Contents
+- [Accounts](accounts.md)
 - [Backlog management](backlog-management.md)
 - [Collaboration](collaboration.md)
 - [Debug .NET Core in a Linux container](debug-dotnet-container.md)
