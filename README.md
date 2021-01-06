@@ -41,6 +41,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [Testing](standards/testing.md)
   - [Version control](standards/version-control.md)
 - [Guides](guides/README.md)
+  - [Accounts](guides/accounts.md)
   - [Backlog management](guides/backlog-management.md)
   - [Collaboration](guides/collaboration.md)
   - [Debug .NET Core in a Linux container](guides/debug-dotnet-container.md)
