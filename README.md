@@ -64,10 +64,12 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
     - [Postgres database](guides/resource-provisioning/postgres-database.md)
     - [Release pipeline](guides/resource-provisioning/release-pipeline.md)
     - [Service Bus queues, topics and subscriptions](guides/resource-provisioning/servicebus-queues.md)
+  - [Pact Broker](guides/pact-broker.md)
   - [Secrets management](guides/secrets-management.md)
   - [Shared assets](guides/shared-assets.md)
   - [VS Code and WSL1](guides/vs-code-wsl1.md)
   - [WAF waivers](guides/waf-waivers.md)
+
 
 ## Licence
 
