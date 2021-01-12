@@ -12,7 +12,6 @@ These standards are intended to support a consistent interpretation of the Archi
 - if a web framework is needed, use Hapi.js
 - if Node.js is not appropriate, then use .NET Core
 - use PostgreSQL for relational databases
-- use CosmosDB for NoSQL databases
 - avoid storing secrets in the cluster where possible, instead use AAD Pod Identity
 - follow the agreed test structure in each microservice repository
 - use contract testing with Pact to support e2e testing
