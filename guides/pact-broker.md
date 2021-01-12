@@ -6,12 +6,7 @@ To use the Pact-Broker locally, this repository contains a Dockerized version of
 https://github.com/pact-foundation/pact-broker-docker
  
 ## Pact-Broker CLI
-To install the Pact-Broker CLI locally use: 
- 
-https://github.com/pact-foundation/pact-ruby-standalone/releases/tag/v1.88.26
- 
-Documentation:
-https://docs.pact.io/pact_broker/client_cli/readme
+To install the Pact-Broker CLI follow the instructions in the Developer set up guide
  
 ## Webhooks
  
