@@ -157,3 +157,6 @@ Below is a reference of where patterns and standards can be found.
 
 ### Application Insights
 - All
+
+### Horizontal pod autoscaling
+- Calculation
