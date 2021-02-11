@@ -6,6 +6,8 @@ The simplest test is a URL ping. A URL ping relys on a public accessible URL.
 
 ## How to add an availability alert
 
+The availability alerts are setup through the Azure Portal on the subscription where alerting is required.
+
 1. Select an Application Insight resource
 2. Click on the "Availibility" option under "Investigate" within the navigation pane.
 3. Within the "Create Test" pane
