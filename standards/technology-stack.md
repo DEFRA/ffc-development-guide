@@ -32,6 +32,7 @@ When developing services, teams must use the following technology stack.  Where 
 - Snyk
 - OWASP Zap
 - Pa11y
+- WAVE
 - Anchore Engine
 - Aqua Trivy
 
@@ -51,3 +52,5 @@ When developing services, teams must use the following technology stack.  Where 
 - SonarCloud
 - DockerHub
 - BrowserStack
+- npm
+- NuGet

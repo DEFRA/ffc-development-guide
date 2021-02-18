@@ -1,10 +1,9 @@
-# Release pipeline
+# Release pipelines
 
-Release pipelines are run from Jenkins and a deployment to the development environment is automatically triggered by the CI pipeline if building from a main branch.
+## Sandpit
+Sandpit release pipelines are run from Jenkins and a deployment to the sandpit environment is automatically triggered by the CI pipeline if building from a main branch.
 
-**Note** this approach to a release pipeline is only a temporary approach and will be replaced when our release capability using Azure DevOps is ready for use.
-
-## Configure release pipeline
+### Configure sandpit release pipeline
 
 - navigate to your workstream folder in Jenkins
 - select `Credentials -> (global) -> Add Credentials`
@@ -38,3 +37,20 @@ Release pipelines are run from Jenkins and a deployment to the development envir
                 helmChartRepoType: params.helmChartRepoType
   ```
 - select `Save`
+
+## Development, Test, PreProduction and Production release pipelines
+Release pipelines to higher environments are run from Azure DevOps using a common microservice pipeline.
+
+A deployment to the development and test environments environment are automatically triggered following a build from a main branch.  These pipelines can also be run manually by delivery teams.
+
+Deployments to PreProd require a ticket raised with CCoE.
+
+Deployments to Production require an RFC raised in myIT to authorise CCoE to deploy.
+
+### Preparations for higher environments
+Teams should ensure they have completed the following before deploying to higher environments.
+
+- Update Azure Application Configuration is updated with all required Helm chart configurations
+- Share any new databases created with the Platform team.  The release pipelines are currently dependent on knowing which services have databases in advance.  This is expected to change in the near future.
+- Ensure all managed identities are created
+- Ensure all Service Bus queues are created

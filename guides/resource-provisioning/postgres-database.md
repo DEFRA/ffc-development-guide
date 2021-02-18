@@ -8,13 +8,9 @@ If not already configured add [Managed Identity](managed-identity.md) to your mi
 
 ## Request creation of microservice database
 
-Request Cloud Services through your usual support channel to create a database within your Azure Database for PostgreSQL following the naming convention:
+Request Cloud Services through your usual support channel to create a database within your Azure Database for PostgreSQL.  The name of the database should match the microservice repository name.  Microservices should not share a database.
 
-```
-ffc_<workstream>_<service>
-```
-
-for example `ffc_demo_claim`.
+For example, a microservice named `ffc-demo-claim-service` would have a database named `ffc_demo_claim_service`
 
 *Note here the use of underscores instead of the normal hyphen convention. Postgres hyphens require escaping with double quote marks so underscores are preferred.*
 
@@ -158,15 +154,17 @@ Azure Key Vault is used to store the Postgres username and Azure App Configurati
 
 Create the following secret in Azure Key Vault via the Azure Portal:
 
-* **Name**: `dev-postgres<workstream><service>User`; **Value**: `<managed-identity>@<azure-postgres-instance>` (e.g. `ffc-snd-demo-web-role@mypostgresserver`)
+* **Name**: `snd-postgres<workstream><service>User`; **Value**: `<managed-identity>@<azure-postgres-instance>` (e.g. `ffc-snd-demo-web-role@mypostgresserver`)
 
 Create the following entries in Azure App Configuraiton via the Azure Portal:
 
-1. A key-value entry where **Key**: `dev/postgresService.postgresDb`; **Value**: `ffc_<workstream>_<service>`; **Label**: `<REPO_NAME>` (e.g. `ffc-demo-claim-service`)
+1. A key-value entry where **Key**: `<environment>/postgresService.postgresDb` (e.g. `dev/postgresService.postgresDb`); **Value**: `ffc_<workstream>_<service>` (e.g. `ffc_demo_claim_service`); **Label**: `<REPO_NAME>` (e.g. `ffc-demo-claim-service`)
 
 2. A Key Vault reference entry where **Key**: `dev/postgresService.postgresUser`; **Key Vault Secret Key**: `dev-postgres<workstream><service>User`; **Label**: `<REPO_NAME>` (e.g. `ffc-demo-claim-service`)
 
 where `<workstream>` and `<service>` refer to those parts of the queue name described above.
+
+**Note** in environments beyond Sandpit, Azure DevOps will provision databases suffixed with the target environment.  The values should be ammended accordingly. e.g. `ffc_demo_claim_service_dev`
 
 ## Add database code to the microservice
 
