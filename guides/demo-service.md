@@ -6,7 +6,7 @@ The FFC Demo service is a mock digital service to both prove Platform capability
 
 The demo service is built around the premise of claiming financial aid in the event property subsides into a mine shaft.  This is an entirely fictional scenario and no Defra service providing this capabililty exists.
 
-The demo service is made up of six microservices, five Node.js and one .NET Core.  There is also a respository that supports local development across all six microservices.
+The demo service is made up of seven microservices, five Node.js and one .NET Core.  There is also a respository that supports local development across all seven microservices.
 
 ### Web service
 
@@ -45,6 +45,13 @@ Front end web application for internal users.  Requests payment schedule data fr
 
 [Source code](https://github.com/DEFRA/ffc-demo-payment-web)
 
+
+### Collector service
+
+Consumes payment update events from Azure Event Hub and persists in a PostgreSQL database.
+
+[Source code](https://github.com/DEFRA/ffc-demo-collector)
+
 ### Local development orchestration
 
 Easy running and debugging of all demo services locally within single Docker network.
@@ -66,6 +73,7 @@ Below is a reference of where patterns and standards can be found.
 - Payment (.NET Core)
 - Calculation
 - Payment web
+- Collector
 
 #### Narrow integration
 - Web
@@ -78,6 +86,7 @@ Below is a reference of where patterns and standards can be found.
 - Claim - Azure Service Bus, PostgreSQL
 - Payment (Node.js) - Azure Service Bus, PostgreSQL
 - Calculation - Azure Service Bus
+- Collector - Azure Event Hub
 
 #### Contract - Provider Async
 - Claim
@@ -117,6 +126,7 @@ Below is a reference of where patterns and standards can be found.
 - Claim
 - Payment (Node.js)
 - Payment (.NET Core)
+- Collector
 
 ### Messaging
 #### Send message to queue
@@ -160,3 +170,10 @@ Below is a reference of where patterns and standards can be found.
 
 ### Horizontal pod autoscaling
 - Calculation
+
+### Events
+#### Publishing event
+- Payment
+
+#### Consuming event
+- Collector

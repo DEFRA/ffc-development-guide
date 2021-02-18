@@ -51,8 +51,7 @@ Access is authorised by a Slack account which must be created using your corpora
 **Note** some of these channels are private and will require invite from an existing member of that channel.
 
 ## `defra-digital.slack.com`
-`#ffc-programme-del (private)` - Programme team channel for general updates  
-`#ffc-developers (private)` - Technical discussions across delivery teams  
+`#ffc-programme-del (private)` - Programme team channel for general updates   
 `#ffc-devops (private)` - Collaboration between FFC and CCoE from both Azure and AWS  
 `#ffc-platform (private)` - Platform Services team channel  
 `#elms (private)` - ELM team channel  
@@ -60,6 +59,7 @@ Access is authorised by a Slack account which must be created using your corpora
 `#development` - General software development channel for all of Defra Digital
 
 ## `ddtsbdt.slack.com`
+`#ffc-developers` - Technical discussions across delivery teams 
 `#northeast` - General software development channel for the North East hub  
 `#northeastwfhsocial` - Social channel for North East hub  
 `#newcastle-devs` - Software resource management channel for Newcastle  

@@ -69,13 +69,53 @@ The Jenkins agent is a Docker image to support a Jenkins instance running in a K
 ### GitHub
 - [Jenkins agent](https://github.com/DEFRA/ffc-jenkins-agent)
 
-## Git secret scanning
+## Secret scanning
 All FFC repositories are regularly scanned for committed secrets.  A utility repository has been created in support of that.
 
 ### GitHub
 - [Git secret scanning](https://github.com/DEFRA/ffc-git-secret-scanning)
+- [Secret scanning](https://github.com/DEFRA/ffc-secret-scanning)
 
 ## Demo service
 A demo service has been created to demonstrate FFC's standards and patterns in operation.  The demo service allows developers to see an example of how these patterns work in a "real" implementation.
 
 See [Demo service](demo-service.md) for further details.
+
+## Microservice reference library
+A repository of all microservices created by the programme.
+
+### Confluence
+[Reference library](https://eaflood.atlassian.net/wiki/spaces/FPS/pages/2315288783/Microservice+Reference+Library)
+
+## npm publishing
+Simplify publishing packages to npm, including switching between pre-release and full releases.
+
+### GitHub
+- [npm publish](https://github.com/DEFRA/ffc-npm-publish)
+
+### DockerHub
+- [npm publish](https://hub.docker.com/r/defradigital/ffc-npm-publish)
+
+## Kafka admin client
+Simplify viewing and deleting Kafka consumer groups
+
+### GitHub
+- [Kafka admin client](https://github.com/DEFRA/ffc-kafka-admin)
+
+## Messaging npm package
+npm package to simplify Azure Service Bus sending and consuming in line with FFC standards
+
+### GitHub
+- [ffc-messaging](https://github.com/DEFRA/ffc-messaging)
+
+### npm
+- [ffc-messaging](https://www.npmjs.com/package/ffc-messaging)
+
+## Events npm package
+npm package to simplify Azure Event Hubs sending and consuming in line with FFC standards
+
+### GitHub
+- [ffc-events](https://github.com/DEFRA/ffc-events)
+
+### npm
+- [ffc-events](https://www.npmjs.com/package/ffc-events)

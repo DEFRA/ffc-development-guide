@@ -20,7 +20,7 @@ Queues should follow the following naming convention:
 ffc-<workstream>-<identifier>-<purpose>
 ```
 
-where `<purpose>` either denotes the environment e.g. `ffc-demo-payment-dev`, or the initials of a developer for the local development queues e.g. `ffc-demo-payment-jw`.
+where `<purpose>` either denotes the environment e.g. `ffc-demo-payment-snd`, or the initials of a developer for the local development queues e.g. `ffc-demo-payment-jw`.
 
 Request the creation of the required queues through your usual Cloud Services support channel.
 
@@ -40,7 +40,7 @@ Topics and subscriptions should follow the following naming convention:
 ffc-<workstream>-<identifier>-<purpose>
 ```
 
-where `<purpose>` either denotes the environment e.g. `ffc-demo-reporting-dev`, or the initials of a developer for the local development queues e.g. `ffc-demo-reporting-jw`.
+where `<purpose>` either denotes the environment e.g. `ffc-demo-reporting-snd`, or the initials of a developer for the local development queues e.g. `ffc-demo-reporting-jw`.
 
 Request the creation of the required topics and subscriptions through your usual Cloud Services support channel.
 

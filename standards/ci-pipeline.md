@@ -8,10 +8,10 @@ All FFC microservices will use the FFC CI pipeline.
 - .NET Core
 
 ## Pipeline trigger
-The pipeline will trigger automatically on any commit to a branch with an open Pull Request (PR) or the master branch.
+The pipeline will trigger automatically on any commit to a branch with an open Pull Request (PR) or the main branch.
 
 ## Build steps
-The steps for a PR or master build are more or less the same.  The most significant difference is there is no deployment to a dedicated PR Kubernetes namespace with a master build.  Instead additional build assets are created.
+The steps for a PR or main build are more or less the same.  The most significant difference is there is no deployment to a dedicated PR Kubernetes namespace with a main build.  Instead additional build assets are created.
 
 The pipeline supports context specific flexiblity by allowing custom steps to be injected into various points.  Anywhere `CUSTOM INJECTION` is shown below can support any number of additional steps to run.
 
@@ -40,16 +40,18 @@ The pipeline supports context specific flexiblity by allowing custom steps to be
 - build image
 - push to container registry
 - deploy to PR namespace (PR build only)
-- run acceptance tests (PR build only)
+- run accessibility tests
+  - Pa11y
+- run acceptance tests
   - Selenium
   - Cucumber
 - run security tests 
   - OWASP Zap
 - run performance tests
   - JMeter
-- publish Helm chart (master build only)
+- publish Helm chart (main build only)
 - CUSTOM INJECTION
-- create GitHub release (master build only)
+- create GitHub release (main build only)
 - destroy dedicated infrastructure for build
 - CUSTOM INJECTION
 
@@ -58,5 +60,5 @@ On closure or merge of a PR, the cleanup pipeline will run.  This will destroy a
 
 ## Upcoming steps
 The FFC CI pipeline is rapidly iterating.  Upcoming features include:
-- accessiblity tests
+- additional accessibility tests
 - compatibility tests
