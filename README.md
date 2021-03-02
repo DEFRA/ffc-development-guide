@@ -8,7 +8,7 @@ The guidance provides developers with quick access to resources and processes to
 ## Defra standards
 The standards and guidance contained here is intended to be an FFC context specific layer over Defra DDTS' wider development standards.
 
-This guide ensures that Developers already understand and follow these [core standards](https://github.com/DEFRA/software-development-standards/).
+This guide assumes that Developers already understand and follow these [core standards](https://github.com/DEFRA/software-development-standards/).
 
 ## Quick reference
 The [Quick reference](standards/quick-reference.md) page gives a high level summary of the core standards within FFC.
