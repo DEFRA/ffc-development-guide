@@ -6,13 +6,14 @@ Sandpit release pipelines are run from Jenkins and a deployment to the sandpit e
 ### Configure sandpit release pipeline
 
 - navigate to your workstream folder in Jenkins
-- select `Credentials -> (global) -> Add Credentials`
-- select `Secret text` type and set both `Description` and `Id` to `<respository name>-deploy-token`, for example `ffc-demo-web-deploy-token`
-- set the secret value to be a unique string, this value will be used to authenticate the CI pipeline when triggering a release
-- navigate back to the workspace folder and select `New Item`
-- enter the `item name` in the format `<repository name>-deploy`, for example `ffc-demo-web-deploy`
-- select `Pipeline`
-- select `Ok`
+- the below steps are optional and if not done, it will default to the `default-deploy-token` for the repo
+  1. select `Credentials -> (global) -> Add Credentials`
+  2. select `Secret text` type and set both `Description` and `Id` to `<respository name>-deploy-token`, for example `ffc-demo-web-deploy-token`
+  3. set the secret value to be a unique string, this value will be used to authenticate the CI pipeline when triggering a release
+  4. navigate back to the workspace folder and select `New Item`
+  5. enter the `item name` in the format `<repository name>-deploy`, for example `ffc-demo-web-deploy`
+  6. select `Pipeline`
+  7. select `Ok`
 - set `This project is parameterised` to `true` and add the following parameters
 
   |Name|Default Value|Description|
