@@ -39,4 +39,5 @@ See [Joiners, movers and leavers](../jlm.md) for enrollment steps.
 - [ ] [Install Snyk CLI](install-snyk.md)
 - [ ] [Install Pact CLI](pact-cli.md)
 - [ ] [Install Linkerd](install-linkerd.md)
+- [ ] [Sign Commits](sign-commits.md)
 

@@ -52,3 +52,6 @@ This means when code is source controlled in WSL, VS Code can read, debug and in
 In WSL2 it is recommended to always use the remote WSL approach.  A current directory can be opened in VS Code with `code .`.
 
 With WSL1, as source code will be in Windows, depending on the development activity it may be easier to use WSL in Windows.
+
+## Turn on signed commits
+To turn on signed commits (see section on signed commits for more information) in the UI make sure the "Enable commit signing with GPG or X.509" is ticked. For the JSON version of the settings use `"git.enableCommitSigning": true`
