@@ -27,6 +27,8 @@ As per [Defra policy](https://github.com/DEFRA/dst-guides/tree/master/github), c
 
 - as the FFC team is added with `Write` role.
 
+- must require signed commit
+
 ### Secret detection
 All developers are required to [install detect-secrets](../guides/developer-laptop-setup/install-detect-secrets.md)
 when working on open-source FFC git repositories in github.
@@ -70,9 +72,6 @@ Surrey, TW9 4DU.
 
 ### Readme
 A `README.md` should be added to initialise the repository. As work begins on the repository, the README must adhere to [FFC documentation standards](documentation-standards.md).
-
-### Commit Signing
-Signed commits will need to be enforced in the main branch.
 
 ## Branch naming convention
 Branches should be named in the format `<project code>-<ticket id>-<description of change>` in lower case.
