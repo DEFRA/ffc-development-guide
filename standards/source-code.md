@@ -71,6 +71,9 @@ Surrey, TW9 4DU.
 ### Readme
 A `README.md` should be added to initialise the repository. As work begins on the repository, the README must adhere to [FFC documentation standards](documentation-standards.md).
 
+### Commit Signing
+Signed commits will need to be enforced in the main branch.
+
 ## Branch naming convention
 Branches should be named in the format `<project code>-<ticket id>-<description of change>` in lower case.
 
