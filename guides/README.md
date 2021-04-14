@@ -9,7 +9,6 @@ These guides help provide additional context to support our standards.
 - [Debug .NET Core in a Linux container](debug-dotnet-container.md)
 - [Demo service](demo-service.md)
 - [Developer laptop setup](developer-laptop-setup/README.md)
-  - [Setup commit signing](developer-laptop-setup/sign-commits.md)
 - [Google Tag Manager](google-tag-manager.md)
 - [Jenkins](jenkins.md)
 - [Joiners, movers and leavers](jlm.md)
