@@ -40,4 +40,3 @@ See [Joiners, movers and leavers](../jlm.md) for enrollment steps.
 - [ ] [Install Pact CLI](pact-cli.md)
 - [ ] [Install Linkerd](install-linkerd.md)
 - [ ] [Setup commit signing](sign-commits.md)
-
