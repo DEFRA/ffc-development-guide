@@ -17,3 +17,7 @@ https://docs.github.com/en/github/authenticating-to-github/signing-commits
 
 ## Signing commits via VS code
 To turn on signed commits in the UI make sure the "Enable commit signing with GPG or X.509" is ticked. For the JSON version of the settings use `"git.enableCommitSigning": true`
+
+## Auto sign commits
+To automatically sign commits run the following command:
+`git config --global commit.gpgsign true`
