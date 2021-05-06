@@ -27,6 +27,8 @@ As per [Defra policy](https://github.com/DEFRA/dst-guides/tree/master/github), c
 
 - as the FFC team is added with `Write` role.
 
+- must require signed commit
+
 ### Secret detection
 All developers are required to [install detect-secrets](../guides/developer-laptop-setup/install-detect-secrets.md)
 when working on open-source FFC git repositories in github.
