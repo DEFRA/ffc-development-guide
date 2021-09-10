@@ -27,6 +27,7 @@ These guides help provide additional context to support our standards.
   - [Release pipeline](resource-provisioning/release-pipeline.md)
   - [Service Bus queues, topics and subscriptions](resource-provisioning/servicebus-queues.md)
 - [Pact Broker](pact-broker.md)
+- [Redis caching in Hapi](redis-caching.md)
 - [Secrets management](secrets-management.md)
 - [Shared assets](shared-assets.md)
 - [VS Code and WSL1](vs-code-wsl1.md)
