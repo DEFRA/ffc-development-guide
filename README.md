@@ -48,6 +48,7 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [Debug .NET Core in a Linux container](guides/debug-dotnet-container.md)
   - [Demo service](guides/demo-service.md)
   - [Developer laptop setup](guides/developer-laptop-setup/README.md)
+  - [Developing and debugging in a container](guides/developing-in-container.md)
   - [Google Tag Manager](guides/google-tag-manager.md)
   - [Jenkins](guides/jenkins.md)
   - [Joiners, movers and leavers](guides/jlm.md)
