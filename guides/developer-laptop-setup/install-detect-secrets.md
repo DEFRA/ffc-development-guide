@@ -19,7 +19,8 @@ Install `python` version 3, download the latest version for your operating syste
   - Windows - Open Powershell/Command Prompt and type `python --verison`, it should report the version
   - Mac Os - Open a Terminal and type `python –version`, it should report the version
 
-If installing Python on WSL Ubuntu then use the following guide:
+#### WSL
+If using WSL2 with Docker Desktop then python should already be installed.  However, if needed it can be added with the following guide:
   - WSL - https://docs.python-guide.org/starting/install3/linux/
 
 Once successfully installed, run the command `python3 –-version`, it should report the version
