@@ -13,7 +13,7 @@ The pipeline will trigger automatically on any commit to a branch with an open P
 ## Build steps
 The steps for a PR or main build are more or less the same.  The most significant difference is there is no deployment to a dedicated PR Kubernetes namespace with a main build.  Instead additional build assets are created.
 
-The pipeline supports context specific flexiblity by allowing custom steps to be injected into various points.  Anywhere `CUSTOM INJECTION` is shown below can support any number of additional steps to run.
+The pipeline supports context specific flexibility by allowing custom steps to be injected into various points.  Anywhere `CUSTOM INJECTION` is shown below can support any number of additional steps to run.
 
 - validate semantic version of package
 - lint Helm chart
@@ -42,9 +42,11 @@ The pipeline supports context specific flexiblity by allowing custom steps to be
 - deploy to PR namespace (PR build only)
 - run accessibility tests
   - Pa11y
+  - AXE
 - run acceptance tests
   - Selenium
   - Cucumber
+  - BrowserStack
 - run security tests 
   - OWASP Zap
 - run performance tests
@@ -57,8 +59,3 @@ The pipeline supports context specific flexiblity by allowing custom steps to be
 
 ## Cleanup steps
 On closure or merge of a PR, the cleanup pipeline will run.  This will destroy any related dynamically created infrastructure or PR deployments.
-
-## Upcoming steps
-The FFC CI pipeline is rapidly iterating.  Upcoming features include:
-- additional accessibility tests
-- compatibility tests
