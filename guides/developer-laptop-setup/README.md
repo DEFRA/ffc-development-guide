@@ -35,5 +35,6 @@ See [Joiners, movers and leavers](../jlm.md) for enrollment steps.
 - [ ] [Install Azure CLI](install-azure-cli.md)
 - [ ] [Install Snyk CLI](install-snyk.md)
 - [ ] [Install Pact CLI](pact-cli.md)
-- [ ] [Install Linkerd](install-linkerd.md)
+- [ ] [Install Linkerd CLI](install-linkerd.md)
+- [ ] [Install GitHub CLI](install-github.md)
 - [ ] [Install OpenVPN](install-openvpn.md)
