@@ -143,29 +143,4 @@ where `<workstream>` and `<identifier>` refer to those parts of the queue name d
 
 Update your microservice code using the relevant Azure authentication and Service Bus SDKs for your language.
 
-Patterns for using a Service Bus in microservice code are outside of the scope of this guide, but you must use the official Azure SDKs to access Managed Identities in AKS and distributed tracing.
-
-An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.
-
-### Node.js example
-
-Install the Azure authentication and Service Bus SDK NPM packages:
-
-```
-npm install @azure/ms-rest-nodeauth @azure/service-bus
-```
-
-With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then request credentials to authenticate with Service Bus e.g.:
-
-```
-async function example() {
-  const auth = require('@azure/ms-rest-nodeauth')
-  const credentials = await auth.loginWithVmMSI({ resource: 'https://servicebus.azure.net' })
-
-  const { ServiceBusClient } = require('@azure/service-bus')
-  const host = <REPLACE_WITH_SERVICE_BUS_HOST_ADDRESS>
-  const sbClient = ServiceBusClient.createFromAadTokenCredentials(host, credentials)
-
-  // Use sbClient to read/write messages to Service Bus queue
-}
-```
+The easiest way to do this is by using the [`ffc-messaging` module](https://github.com/DEFRA/ffc-messaging#readme).
