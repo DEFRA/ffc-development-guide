@@ -6,7 +6,8 @@ A troubleshooting guide for common problems faced by developers on the FFC progr
 #### Application logs message or service timeout
 
 What this looks like
-+ In the application logs, `data: {"message": "Unable to create the amqp session due to operation timeout."}` or `ServiceBusError: Unable to create the amqp session due to operation timeout at ... code: 'ServiceTimeout'` or similar
++ In the application logs, `data: {"message": "Unable to create the amqp session due to operation timeout."}` 
++ `ServiceBusError: Unable to create the amqp session due to operation timeout at ... code: 'ServiceTimeout'`
 <br>
 
 What this means
@@ -45,11 +46,30 @@ What this looks like
 <br>
 
 What this means
-+ The messages received from the Azure topic are pushed to the Service Bus scubscription(s) but not being processed
++ The messages received from the Azure topic are pushed to the Service Bus subscription(s) but not being processed
 <br>
 
 What is the solution
-+ Check a subcription is setup for the topic
++ Check a subcription is setup for the topic, Azure automatically deletes idle subscriptions after 14 days unless specified to never do so during creation
 + Usually, another microservice is responsible for ingesting and processing these messages, ensure it is up
 + Check the environmental subscription variables are correct for the ingesting service (these are usually stored locally within the repository)
 <br>
+
+## Docker
+
+#### Tests cannot access database migration data
+
+What this looks like
++ `await db.tblName.findAll()` returns nothing for a table with insert data in a changelog file(s)
++ `await db.tblName.create(tblRecord).catch(err => { console.log(err) })` returns `relation "public.tblName" does not exist`
+<br>
+
+What this means
++ The application is attempting to read from an empty database table
+<br>
+
+What is the solution
++ Check the `docker-compose.migrate.yaml` file was ran 
++ Confirm the database migration was successful
++ If using (`docker compose`)[https://docs.docker.com/compose/cli-command/], ensure the database volume is mapped correctly
++ If using (`docker compose`)[https://docs.docker.com/compose/cli-command/], ensure Docker Desktop is configured correctly for V2 by checking/unchecking the `Use Docker Compose V2` in Docker Desktop's preferences
