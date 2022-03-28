@@ -39,12 +39,14 @@ What this looks like
 - On the Azure portal, the message count for the topic's Service Bus subscription(s) increase once a request has been sent
 
 What this means
-- The messages received from the Azure topic are pushed to the Service Bus subscription(s) but not being processed
+- The messages received from the Azure topic are pushed to the Service Bus subscription(s) but are not being processed
 
 What is the solution
-- Check a subcription is setup for the topic, Azure automatically deletes idle subscriptions after 14 days unless specified to never do so during creation
+- Check the subcription is setup for the topic, [Azure automatically deletes idle subscriptions after 14 days](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-expiration#temporary-entities) unless specified to never do so during creation
 - Usually, another microservice is responsible for ingesting and processing these messages, ensure it is up
 - Check the environmental subscription variables are correct for the ingesting service (these are usually stored locally within the repository in a `.env` file)
+
+> **Note:** These issues and remedies also apply to Azure's Service Bus queues
 
 ## Docker
 
@@ -52,7 +54,7 @@ What is the solution
 
 What this looks like
 - `await db.tblName.findAll()` returns nothing for a table with insert data in a changelog file(s)
-- `await db.tblName.create(tblRecord).catch(err => { console.log(err) })` returns `relation "public.tblName" does not exist`
+- `await db.tblName.create(tableRecord).catch(err => { console.log(err) })` returns `relation "public.tableName" does not exist`
 
 What this means
 - The application is attempting to read from an empty database table
@@ -61,4 +63,4 @@ What is the solution
 - Check the `docker-compose.migrate.yaml` file was ran 
 - Confirm the database migration was successful
 - If using [`docker compose`](https://docs.docker.com/compose/cli-command/), ensure the database volume is mapped correctly
-- If using [`docker compose`](https://docs.docker.com/compose/cli-command/), ensure Docker Desktop is configured correctly for V2 by checking/unchecking the `Use Docker Compose V2` in Docker Desktop's preferences
+- If using [`docker compose`](https://docs.docker.com/compose/cli-command/), ensure [Docker Desktop is configured correctly for V2](https://docs.docker.com/compose/cli-command/#:~:text=Docker%20Compose%20V2%20will%20be,version%20of%20the%20Docker%20CLI.) by checking/unchecking the `Use Docker Compose V2` in Docker Desktop's preferences
