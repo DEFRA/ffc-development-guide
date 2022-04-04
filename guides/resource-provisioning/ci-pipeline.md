@@ -25,11 +25,11 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 - select `Multibranch Pipeline`
 - select `Ok`
 - enter `GitHub` as a Branch Source
-- for credentials select the `ffcplatform` GitHub token
+- for credentials select the `github-token` with the `ffcplatform` user
 - enter your GitHub URL in the `HTTPS URL` field, for example `https://github.com/DEFRA/ffc-demo-web.git`
 - set `Discover branches` to `All branches`
 - delete `Discover pull requests from origin` and `Discover pull requests from forks`
-- set `Scan Repository Triggers -> Periodically if not otherwise run` to `true` with an interval of `1 hour`
+- set `Scan Multibranch Pipeline Triggers -> Periodically if not otherwise run` to `true` with an interval of `1 hour`
 - set `Pipeline Action Triggers -> Pipeline Delete Event` set `ffc-housekeeping/cleanup-on-branch-delete`
 - set `Pipeline Action Triggers -> Include Filter` to be `*`
 - set `Pipeline Action Triggers -> Additional Parameter -> Parameter Name` to be `repoName` and `Parameter Value` to be the name of the repository, for example, `ffc-demo-web`
