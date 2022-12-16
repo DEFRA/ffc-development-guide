@@ -1,12 +1,15 @@
 # Install kubectl
+
 kubectl is a command line tool for interacting with Kubernetes clusters.
 
 ## Installation
+
 Follow the [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 **Note** For WSL use the 'Install on Linux' instructions
 
 ## Setup shell autocompletion (optional)
+
 ```
 sudo sh -c 'kubectl completion bash > /etc/bash_completion.d/kubectl'
 ```
@@ -20,6 +23,7 @@ Reference
 * https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion
 
 ## Add command alias for kubectl (optional)
+
 To add the frequently used alias `k` for `kubectl` add the following lines to your `.bashrc` file (the 2nd line adds autocomplete for the alias):
 
 ```
@@ -28,6 +32,7 @@ complete -o default -F __start_kubectl k
 ```
 
 ## Add further aliases for Kubectl (optional)
+
 Download the following file and save to your home directory.
 
 https://github.com/ahmetb/kubectl-aliases/blob/0533366d8e3e3b3987cc1b7b07a7e8fcfb69f93c/.kubectl_aliases

@@ -1,4 +1,5 @@
 # Add user to sudoers file
+
 `sudo` is a command line programme that allows trusted users to execute commands as root user.
 
 Running a `sudo` command will prompt for a password.  For local development in WSL, developers may prefer to add their WSL user to the `sudoers` file to avoid the need for a password.

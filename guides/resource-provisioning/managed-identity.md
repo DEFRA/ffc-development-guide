@@ -4,6 +4,8 @@ This guide describes how to add an Azure Managed Identity to a microservice runn
 
 A Managed Identity needs to be bound to the microservice Pod to provide access to additional Azure resources such as [Postgres databases](postgres-database.md) and [Service Bus message queues](servicebus-queues.md).
 
+> Note: in environments beyond sandpit, managed identities must be created by a pipeline and not manually.
+
 ## Create a Managed Identity
 
 Request the creation of an Azure Managed Identity through your usual Cloud Services support channel.
