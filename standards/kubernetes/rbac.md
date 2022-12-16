@@ -1,9 +1,4 @@
 # Role Based Access Control (RBAC)
-FFC clusters enable RBAC through `RoleBinding` Kubernetes resources.
+FFC clusters enable RBAC through `RoleBinding` Kubernetes resources.  Users must be added as Cluster Admins to access Kubernetes through tools such as [Lens](https://k8slens.dev/) or [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
-Each delivery team will have it's own Rolebinding so permissions can be permitted or denied on a team level.
-
-## Development cluster
-- Platform team developers have Cluster Admin role allowing them full access to the cluster
-
-- Delivery team developers are restricted to only namespaces they own
+CCoE can provide this access to users on request.

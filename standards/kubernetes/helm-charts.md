@@ -1,7 +1,7 @@
 # Helm chart
-Helm charts allow multiple Kubenetes resource definitions to be deployed and undeployed as a single unit.
+Helm charts allow multiple Kubernetes resource definitions to be deployed and un-deployed as a single unit.
 
-Helm version 3 is used within FFC.  
+Helm version 3 is used within FFC.  Currently FFC is limited to version `3.6` due to breaking changes introduced in version [`3.7`](https://github.com/helm/helm/releases/tag/v3.7.0).
 
 Helm 2 should never be used due to security risk introduced by Tiller in a cluster.
 
@@ -17,7 +17,13 @@ Helm 2 should never be used due to security risk introduced by Tiller in a clust
 
 - consuming Helm charts only need to define where there is variation from the base Helm chart
 
+- the library helps teams abstract complexity of Kubernetes resource definitions as well as providing a consistent approach to Helm chart development and container security
+
 ## Helm chart repository
-- Helm charts are published to a Helm chart repository using Azure Container Registry
+- Helm charts are published by CI to a Helm chart repository within [Azure Container Registry](https://azure.microsoft.com/en-us/products/container-registry/)
+
+- Helm charts are only published on a main branch build
+
+- Helm charts are automatically versioned by CI pipeline to be consistent with the application version
 
 - Helm charts for in flight Pull Requests are not published

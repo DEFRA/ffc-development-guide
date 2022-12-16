@@ -5,6 +5,8 @@ Labels can be used to organise and to select subsets of objects. Labels can be a
 
 In order to take full advantage of using labels, they should be applied on every resource object within a Helm chart. i.e. all deployments, services, ingresses etc.
 
+When using the [FFC Helm Chart Library](https://github.com/DEFRA/ffc-helm-library), these labels are automatically applied to all resource objects.
+
 ## Required labels
 Each Helm chart templated resource should have the below labels. Example placeholders are provided for values.
 

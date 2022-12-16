@@ -87,13 +87,15 @@ Within the CI and CD pipelines, the values will be sourced and overwritten in th
 
 To improve performance in CI, keys should follow a convention that gives the narrowest scope possible.  
 
-For example, if a value is only used for one service or will vary depending on the service then it should be scoped to either `service/common` or `service/enviornment`
+For example, if a value is only used for one service or will vary depending on the service then it should be scoped to either `service/common` or `service/environment`
 
 Only values that are used by everyone should be scoped to `common/` or `environment/`
 
 ### Exceptions to the rule
 
 The are some values that are exceptions to this rule because of dynamic infrastructure provisioning and related test execution in CI.
+
+> Note: these exceptions only apply to the Sandpit (`SND`) environment.
 
 #### Ingress values
 
@@ -118,4 +120,12 @@ postgresService:
   postgresDb:
 ```
 
-These values must use the hierarchy `environment/key` for example `dev/posgresService.postgresUser` and use labels to separate each service's value. 
+These values must use the hierarchy `environment/key` for example `dev/postgresService.postgresUser` and use labels to separate each service's value. 
+
+## Updating values
+
+In Sandpit, values are added direct to Application Configuration via the Azure Portal or Azure CLI.
+
+In higher environments values are added by an Azure DevOps pipeline that sources configuration from a [git repository](https://dev.azure.com/defragovuk/DEFRA-FFC/_git/DEFRA-FFC-INFRA?path=/arm-templates/app-config/parameters).
+
+Full details for maintaining application configuration can be found in [this wiki](https://dev.azure.com/defragovuk/DEFRA-FFC/_wiki/wikis/DEFRA-FFC.wiki/5183/App-Configuration-Changes).

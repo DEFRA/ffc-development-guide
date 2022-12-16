@@ -8,9 +8,11 @@ Predictable demands are important to help Kubernetes find the right place for a 
 - pods with spiky usage patterns can be run as `burstable` but effort should be taken to understand why performance is not consistent and whether the service is doing too much
 
 ## Resource quotas
-FFC clusters will limit available resources within a namespace using a `resourceQuota`. This quota can be viewed in the [ffc-kubernetes-configuration](https://github.com/DEFRA/ffc-kubernetes-configuration/tree/master/resource-quotas) repository.
+FFC clusters will limit available resources within a namespace using a `resourceQuota`. 
 
-Services which require an exception to this limit should raise a request with the Platform Services team.
+Teams should frequently review the resource usage of their pods and adjust the `resourceQuota` accordingly.
+
+Resource quotas are deployed to AKS via an ADO pipeline.
 
 ## Resource profiling
 Performance testing a pod is the only way to understand it's resource utilisation pattern and needs. Performance testing should take place on all pods to accurately understand their usage before they can be deployed to production.
