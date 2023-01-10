@@ -11,7 +11,7 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 - navigate to `Settings -> Webhooks -> Add webhook`
 - set `Payload URL` to be `https://jenkins-ffc-api.azure.defra.cloud/github-webhook/`
 - set `Content type` to be `application/json`
-- set `Secret` to be the webhook secret value.  This can be retrieved from Azure Key Vault
+- set `Secret` to be the webhook secret value.  This can be retrieved from Azure Key Vault `github-webhook-secret` value
 - set the following events to trigger the webhook
   - `Pull requests`
   - `Pushes`

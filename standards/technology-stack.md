@@ -1,7 +1,7 @@
 # Technology Stack
-All technology choices are in line with Defra Digital’s Common Technology Choices (CTC). A copy of which is available on SharePoint https://defra.sharepoint.com/sites/def-ddts-ioc/pdce/Cloud%20Ecosystem%20Wiki/Common%20Technology%20Choices%20V.01.aspx
+All technology choices are in line with Defra Digital’s [Tools Radar](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630/roadmap)
 
-These choice have been used as a baseline to help decide which technologies to build services with. Where there are gaps in the CTC not covering FFC needs we have aligned ourselves to the architectural vision, Cloud Centre of Excellence recognised patterns and lessons learned from other digital teams.
+These choice have been used as a baseline to help decide which technologies to build services with. Where there are gaps not covering FFC needs we have aligned ourselves to the FFC architectural vision, Cloud Centre of Excellence recognised patterns and lessons learned from other digital teams.
 
 When developing services, teams must use the following technology stack.  Where a new need is not covered by the below technology stack, collaboration between FFC architecture and the Tools Authority must take place to agree how to fill the gap.
 
@@ -22,7 +22,7 @@ When developing services, teams must use the following technology stack.  Where 
 
 ## Testing
 - Jest
-- NUnit
+- xUnit
 - Pact
 - Web Driver IO
 - Cucumber
@@ -31,18 +31,20 @@ When developing services, teams must use the following technology stack.  Where 
 - JMeter
 - Snyk
 - OWASP Zap
-- Pa11y
+- AXE
 - WAVE
 - Anchore Engine
-- Aqua Trivy
 
 ## Cloud (private)
 - Azure Kubernetes Service (AKS)
 - Azure Container Registry (ACR)
 - Azure PostgreSQL
 - Azure Service Bus
+- Azure Event Hubs
 - Azure Application Configuration
 - Azure Key Vault
+- Azure Functions
+- Azure Storage
 - AAD Pod Identity
 - Application Insights
 - Azure Repos
@@ -54,3 +56,5 @@ When developing services, teams must use the following technology stack.  Where 
 - BrowserStack
 - npm
 - NuGet
+- Snyk
+- Google Analytics

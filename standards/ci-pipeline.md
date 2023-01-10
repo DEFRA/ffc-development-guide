@@ -5,10 +5,14 @@ All FFC microservices will use the FFC CI pipeline.
 
 ## Supported technologies
 - Node.js
-- .NET Core
+- .NET
+- Helm charts
+- Azure Functions
+- Docker images
+- npm packages
 
 ## Pipeline trigger
-The pipeline will trigger automatically on any commit to a branch with an open Pull Request (PR) or the main branch.
+The pipeline will trigger automatically on any commit to a branch with an open Pull Request (PR) or the main branch.  Assuming the repository is configured in line with [Source control standards](source-code.md).
 
 ## Build steps
 The steps for a PR or main build are more or less the same.  The most significant difference is there is no deployment to a dedicated PR Kubernetes namespace with a main build.  Instead additional build assets are created.
@@ -25,6 +29,7 @@ The pipeline supports context specific flexibility by allowing custom steps to b
 - provision dynamic infrastructure for PR deployment and build
   - Azure Service Bus
   - Azure PostgreSQL
+  - Azure Function
 - CUSTOM INJECTION
 - run tests
   - lint
@@ -57,5 +62,5 @@ The pipeline supports context specific flexibility by allowing custom steps to b
 - destroy dedicated infrastructure for build
 - CUSTOM INJECTION
 
-## Cleanup steps
-On closure or merge of a PR, the cleanup pipeline will run.  This will destroy any related dynamically created infrastructure or PR deployments.
+## Clean up steps
+On closure or merge of a PR, the clean up pipeline will run.  This will destroy any related dynamically created infrastructure or PR deployments.
