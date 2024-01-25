@@ -1,17 +1,17 @@
-# Future Farming and Countryside Programme Development Guide
-This is a repository of standards and supporting guidance for all developers working within the Future Farming and Countryside Programme (FFC).
+# Farming and Countryside Programme Development Guide
+This is a repository of standards and supporting guidance for all developers working within the Farming and Countryside Programme (FCP).
 
 The purpose of the standards are to ensure that delivery supports the Architecture Vision set out by the programme and better enable developer agility and mobility through consistent patterns and practices.
 
 The guidance provides developers with quick access to resources and processes to best support the standards and delivery.
 
 ## Defra standards
-The standards and guidance contained here is intended to be an FFC context specific layer over Defra DDTS' wider development standards.
+The standards and guidance contained here is intended to be an FCP context specific layer over Defra DDTS' wider development standards.
 
 This guide assumes that Developers already understand and follow these [core standards](https://github.com/DEFRA/software-development-standards/).
 
 ## Quick reference
-The [Quick reference](standards/quick-reference.md) page gives a high level summary of the core standards within FFC.
+The [Quick reference](standards/quick-reference.md) page gives a high level summary of the core standards within FCP.
 
 ## Contents
 - [Standards](standards/README.md)
