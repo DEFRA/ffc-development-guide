@@ -10,7 +10,7 @@ When using the [FFC Helm Chart Library](https://github.com/DEFRA/ffc-helm-librar
 ## Required labels
 Each Helm chart templated resource should have the below labels. Example placeholders are provided for values.
 
-```
+```go
 metadata:
   labels:
     app: {{ quote .Values.namespace }}
