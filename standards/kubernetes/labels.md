@@ -20,7 +20,7 @@ metadata:
     app.kubernetes.io/component: {{ quote .Values.labels.component }}
     app.kubernetes.io/part-of: {{ quote .Values.namespace }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    
     environment: {{ quote .Values.environment }}
 ```
 
