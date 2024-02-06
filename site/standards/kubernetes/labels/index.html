@@ -90,7 +90,7 @@
     app.kubernetes.io/component: {{ quote .Values.labels.component }}
     app.kubernetes.io/part-of: {{ quote .Values.namespace }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace &quot;+&quot; &quot;_&quot; }}
     environment: {{ quote .Values.environment }}
 </code></pre>
 <p><strong>Note</strong> <code>Deployment</code> resource objects should have two sets of labels, one for the actual deployment and another for the pod template the deployment manages.</p>
