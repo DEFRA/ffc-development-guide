@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-sonarlint/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Install SonarLint - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Install SonarLint";
+        var mkdocs_page_input_path = "guides/developer-laptop-setup/install-sonarlint.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/developer-laptop-setup/install-sonarlint/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Install SonarLint</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="install-sonarlint">Install SonarLint</h1>
+<p><a href="https://www.sonarlint.org/">SonarLint</a> is an IDE extension that identifies code quality issues as you code.</p>
+<p>It can be configured to run in <code>connected mode</code> which allows rules configured in a SonarCloud instance to be applied to a local workspace, flagging up issues as the developer writes code.</p>
+<p>This guide will demonstrate how to install the SonarLint extension in VS Code.  For other IDEs, refer to the <a href="https://www.sonarlint.org/">SonarLint documentation</a>.</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li>Java Runtime Environment v11+</li>
+</ul>
+<p>With Ubuntu, the open source version of the Java Runtime Environment (JRE) can be installed using the following command.</p>
+<pre><code>sudo apt-get install openjdk-11-jre
+</code></pre>
+<h2 id="sonarlint-installation-vs-code">SonarLint Installation (VS Code)</h2>
+<ol>
+<li>
+<p>install <a href="https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode">SonarLint</a> extension</p>
+</li>
+<li>
+<p>set location of JRE in VS Code settings.  The below example is the install location of the above command
+   <code>"sonarlint.ls.javaHome": "/usr/lib/jvm/java-11-openjdk-amd64"</code>
+   <strong>Note to WSL users</strong> ensure that you update the <strong>remote</strong> <code>settings.json</code> file if you wish to use SonarLint in your linux environment.</p>
+</li>
+</ol>
+<p>This will give you Sonar code analysis using default quality gates for languages supported by SonarLint.  If you wish to use <code>connected mode</code> to sync your local workspace with a SonarCloud project, follow the below steps.</p>
+<ol>
+<li>
+<p>within the SonarCloud UI, navigate to your account's <a href="https://sonarcloud.io/account/security/">security settings</a></p>
+</li>
+<li>
+<p>enter a token name and generate a token, noting the token value securely</p>
+</li>
+<li>
+<p>within VS Code, add a SonarCloud server connection to <code>settings.json</code> to enable <code>connected mode</code>
+   <code>"sonarlint.connectedMode.connections.sonarcloud": [{
+    "organizationKey": "defra",
+    "token": "MY_TOKEN"
+   }]</code></p>
+</li>
+<li>
+<p>within each project workspace, create or edit your workspace <code>settings.json</code> file to include a project link
+   <code>"sonarlint.connectedMode.project": {
+    "projectKey": "ffc-demo-payment-web"
+   }</code>
+<strong>Note</strong> if you have multiple SonarCloud instances then a <code>connectionId</code> property can be added to the two code snippets above to correctly bind a project to the correct SonarCloud instance.</p>
+</li>
+<li>
+<p>update project bindings by selecting <code>Update all project bindings to SonarQube/SonarCloud</code> from the VS Code <code>Command Palette</code>.  (<code>ctrl + shift + p</code> to open)</p>
+</li>
+</ol>
+<p>Rules, quality gates, exclusions etc set in the SonarCloud project will now be applied to local workspace.</p>
+<h2 id="configure-sonar-for-c">Configure Sonar for C</h2>
+<p>The SonarLint extension for VS Code does not currently support C#, but we can still get Sonar linting rules set up in VS Code by adding the Sonar analyser to Omnisharp.</p>
+<ol>
+<li>Add the Sonar Analyzer NuGet package if not already present in the <code>csproj</code> file:</li>
+</ol>
+<pre><code>dotnet add &lt;PROJECT_NAME&gt; package SonarAnalyzer.CSharp
+</code></pre>
+<ol>
+<li>Enable analysers in VS Code: Search for Omnisharp in settings and select <code>Enable Roslyn Analysers</code>. <a href="https://www.strathweb.com/2019/04/roslyn-analyzers-in-code-fixes-in-omnisharp-and-vs-code/">Alternative configuration is available</a> outside of VS Code.</li>
+</ol>
+<p>When VS Code analyses C# code, it will now check against the standard set of Sonar rules for C#. The Sonar rule IDs are prefixed with <code>S</code> when displayed in VS Code. For more details on the rules you can consult the <a href="https://rules.sonarsource.com/csharp">Sonar rules documentation</a>.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/standards/source-code/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Source code - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Source code";
+        var mkdocs_page_input_path = "standards/source-code.md";
+        var mkdocs_page_url = "/ffc-development-guide/standards/source-code/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../guides/">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Source code</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="source-code">Source code</h1>
+<p>The default position for FFC is that code should be open source and hosted within GitHub.</p>
+<p>If there is a need for a private repository then a private GitHub repository should be used instead.</p>
+<h2 id="creating-repositories">Creating repositories</h2>
+<h3 id="naming-repositories">Naming repositories</h3>
+<p>Repositories follow the below naming convention.</p>
+<p><code>ffc-&lt;workstream&gt;-&lt;service&gt;</code></p>
+<p>For example, <code>ffc-elm-apply</code>.</p>
+<p>Following this naming convention helps understand ownership of repositories and is also essential for CI/CD pipelines to function correctly.</p>
+<h3 id="templates">Templates</h3>
+<p>For Node.js repositories, the <a href="https://github.com/DEFRA/ffc-template-node">ffc-template-node</a> template repository should be used as a base.</p>
+<h3 id="managing-access">Managing access</h3>
+<p>The <a href="https://github.com/orgs/DEFRA/teams/ffc">FFC GitHub team</a> is added with <code>Write</code> access to all repositories hosted on GitHub.</p>
+<p>As per <a href="https://github.com/DEFRA/dst-guides/tree/master/github">Defra policy</a>, contractors should be added as contributors and should not be part of the FFC Team in GitHub.</p>
+<h3 id="branch-policies">Branch policies</h3>
+<ul>
+<li>
+<p>main branches are protected by a branch policy where merges requires a Pull Request approved by at least one other person.</p>
+</li>
+<li>
+<p>stale reviews are automatically dismissed.</p>
+</li>
+<li>
+<p>repositories only allow Squash merging.</p>
+</li>
+<li>
+<p>must require <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits">signed commit</a></p>
+</li>
+</ul>
+<h3 id="secret-detection">Secret detection</h3>
+<p>All developers are required to <a href="../../guides/developer-laptop-setup/install-detect-secrets/">install detect-secrets</a>
+when working on open-source FFC git repositories in github.</p>
+<p>When setting up a new FFC git repository, it needs to be configured to work with the client-side <code>detect-secrets</code> tool:</p>
+<ol>
+<li>Add the configuration file called <code>.pre-commit-config.yaml</code> to the repository root directory with the following contents:</li>
+</ol>
+<pre><code>repos:
+- repo: https://github.com/Yelp/detect-secrets
+  rev: v0.14.3
+  hooks:
+  - id: detect-secrets
+    args: ['--baseline', '.secrets.baseline']
+</code></pre>
+<ol>
+<li>Create and add the baseline file. To exclude files from the <code>detect-secrets</code> scan, run with <code>--exclude-files &lt;regex&gt;</code>. Examples:</li>
+</ol>
+<pre><code>detect-secrets scan &gt; .secrets.baseline
+</code></pre>
+<pre><code>detect-secrets scan --exclude-files package-lock.json &gt; .secrets.baseline
+</code></pre>
+<h3 id="licence">Licence</h3>
+<p>The Open Government Licence (OGL) Version 3 should be added to the repository.  A file version is available in <a href="../resources/LICENCE">this repository</a></p>
+<pre><code>The Open Government Licence (OGL) Version 3
+
+Copyright (c) 2022 Defra
+
+This source code is licensed under the Open Government Licence v3.0. To view this
+licence, visit www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+or write to the Information Policy Team, The National Archives, Kew, Richmond,
+Surrey, TW9 4DU.
+</code></pre>
+<h3 id="readme">Readme</h3>
+<p>A <code>README.md</code> should be added to initialise the repository. As work begins on the repository, the README must adhere to <a href="documentation-standards.md">FFC documentation standards</a>.</p>
+<h2 id="branch-naming-convention">Branch naming convention</h2>
+<p>Branches should be named in the format <code>&lt;ticket id&gt;-&lt;description of change&gt;</code> in lower case.</p>
+<p>For example, <code>1234567-add-dockerfile</code>.</p>
+<h2 id="pull-requests">Pull Requests</h2>
+<p>When following feature branch development, pull requests should be used to collaborate and ensure code quality.</p>
+<p>Pull requests should be created in line with <a href="https://github.com/DEFRA/software-development-standards/blob/master/processes/pull_requests.md">Defra's standards</a> and reviewed in the spirit of <a href="../code-review/">FFC's code review standards</a>.</p>
+<p>Pull requests should trigger a build and a PR deployment to support the review.</p>
+<h3 id="completing-pull-request">Completing Pull Request</h3>
+<p>In order to complete a pull request, all of the following conditions must be met:
+- at least one approver
+- PR build must complete successfully
+- dismiss stale reviews</p>
+<p>On completion of a pull request a squash merge is performed and the feature/bug branch deleted. The commit message should be amended to give a concise description of the changes, rather than the default list of individual commits.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/resource-provisioning/postgres-database/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Postgres Database - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Postgres Database";
+        var mkdocs_page_input_path = "guides/resource-provisioning/postgres-database.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/resource-provisioning/postgres-database/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Postgres Database</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="postgres-database">Postgres Database</h1>
+<p>This guide describes how to configure access to an Azure PostgreSQL database from microservices running within Azure Kubernetes Service.</p>
+<h2 id="create-managed-identity-for-your-microservice">Create Managed Identity for your microservice</h2>
+<p>If not already configured add <a href="../managed-identity/">Managed Identity</a> to your microservice</p>
+<h2 id="request-creation-of-microservice-database">Request creation of microservice database</h2>
+<p>Request Cloud Services through your usual support channel to create a database within your Azure Database for PostgreSQL.  The name of the database should match the microservice repository name.  Microservices should not share a database.</p>
+<p>For example, a microservice named <code>ffc-demo-claim-service</code> would have a database named <code>ffc_demo_claim_service</code></p>
+<p><em>Note here the use of underscores instead of the normal hyphen convention. Postgres hyphens require escaping with double quote marks so underscores are preferred.</em></p>
+<h2 id="request-creation-of-microservice-database-role">Request creation of microservice database role</h2>
+<p>Request Cloud Services to create a database role that is bound to the Managed Identity created for the microservice (<a href="https://docs.microsoft.com/en-us/azure/postgresql/howto-connect-with-managed-identity#creating-a-postgresql-user-for-your-managed-identity">Azure guidence</a>), for example <code>ffc-snd-demo-claim-role</code>.</p>
+<p>This identity must also be assigned to the Jenkins VM to ensure that Liquibase migrations can run.</p>
+<h2 id="create-a-liquibase-changelog">Create a Liquibase changelog</h2>
+<p>The FFC Platfrom CI and deployment pipelines support database migrations using <a href="https://www.liquibase.org/">Liquibase</a>.</p>
+<p>Create a Liquibase changelog defining the structure of your database available from the root of your microservice repoository in <code>changelog/db.changelog.xml</code>.</p>
+<p>Guidence on creating a Liquibase changelog is outside of the scope of this guide, so please check current best practice with the FFC Platform Team.</p>
+<h2 id="update-docker-compose-files-to-use-postgres-service-and-environment-variables">Update Docker Compose files to use Postgres service and environment variables</h2>
+<p>Update <code>docker-compose.yaml</code>, <code>docker-compose.override.yaml</code>, and <code>docker-compose.test.yaml</code> to include a Postgres service and add Postgres environment variables to the microservice.</p>
+<p>An example Postgres service:</p>
+<pre><code>services:
+  # Microservice definition here
+  ffc-&lt;workstream&gt;-&lt;service&gt;-postgres:
+    image: postgres:11.4-alpine
+    environment:
+      POSTGRES_DB: ffc_&lt;workstream&gt;_&lt;service&gt;
+      POSTGRES_PASSWORD: ppp
+      POSTGRES_USER: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - &quot;5432:5432&quot;
+
+volumes:
+  postgres_data: {}
+</code></pre>
+<p>Add dependency on the Postgres service and environment variables the microservice <code>services</code> definition:</p>
+<pre><code>services:
+  # Microservice definition here
+    depends_on:
+      - ffc-&lt;workstream&gt;-&lt;service&gt;-postgres
+    environment:
+      POSTGRES_DB: ffc_&lt;workstream&gt;_&lt;service&gt;
+      POSTGRES_PASSWORD: ppp
+      POSTGRES_USER: postgres
+      POSTGRES_HOST: ffc-&lt;workstream&gt;-&lt;service&gt;-postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_SCHEMA_NAME: public
+</code></pre>
+<p>Replace <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> as per naming convention described above.</p>
+<h2 id="add-docker-compose-files-to-run-liquibase-migrations">Add Docker Compose files to run Liquibase migrations</h2>
+<p>Add a <code>docker-compose.migrate.yaml</code> to the root of the microservice based on <a href="../../resources/docker-compose.migrate.yaml">the template provided in resources</a>.</p>
+<p>Replace <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> as per naming convention described above.</p>
+<h2 id="update-microservice-helm-chart">Update microservice Helm chart</h2>
+<h3 id="create-a-postgres-service">Create a Postgres Service</h3>
+<p>Create a Kubernetes template for a Postgres Service in <code>helm/&lt;REPO_NAME&gt;/templates/postgres-service.yaml</code>:</p>
+<pre><code>{{- if .Values.postgresService.postgresExternalName }}
+{{- include &quot;ffc-helm-library.postgres-service&quot; (list . &quot;&lt;REPO_NAME&gt;.postgres-service&quot;) -}}
+{{- end }}
+{{- define &quot;&lt;REPO_NAME&gt;.postgres-service&quot; -}}
+{{- end -}}
+</code></pre>
+<p>replacing <code>&lt;REPO_NAME&gt;</code> with the git repository name.</p>
+<p>Update the Helm chart values file (<code>helm/&lt;REPO_NAME&gt;/values.yaml</code>) with default values for the Postgres service:</p>
+<pre><code>postgresService:
+  postgresDb: ffc_&lt;workstream&gt;_&lt;service&gt;
+  postgresExternalName:
+  postgresHost: ffc-&lt;workstream&gt;-&lt;service&gt;-postgres
+  postgresPort: 5432
+  postgresSchema: public
+  postgresUser: postgres
+</code></pre>
+<p>replacing <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> as per naming convention described above.</p>
+<h3 id="update-configmap">Update ConfigMap</h3>
+<p>Update the <code>ConfigMap</code> template of the Helm Chart (<code>helm/&lt;REPO_NAME&gt;/templates/config-map.yaml</code>) to include the environment variables for the Postgres database:</p>
+<pre><code>POSTGRES_DB: {{ quote .Values.postgresService.postgresDb }}
+POSTGRES_HOST: {{ quote .Values.postgresService.postgresHost }}
+POSTGRES_PORT: {{ quote .Values.postgresService.postgresPort }}
+POSTGRES_SCHEMA_NAME: {{ quote .Values.postgresService.postgresSchema }}
+</code></pre>
+<h3 id="createupdate-the-container-secret">Create/Update the container Secret</h3>
+<p>Create (or update) the Secret template in <code>helm/&lt;REPO_NAME&gt;/templates/container-secret.yaml</code>:</p>
+<pre><code>{{- include &quot;ffc-helm-library.container-secret&quot; (list . &quot;&lt;REPO_NAME&gt;.container-secret&quot;) -}}
+{{- define &quot;&lt;REPO_NAME&gt;.container-secret&quot; -}}
+stringData:
+  POSTGRES_USER: {{ .Values.postgresService.postgresUser | quote }}
+{{- end -}}
+</code></pre>
+<p>replacing <code>&lt;REPO_NAME&gt;</code> with the git repository name.</p>
+<p>Update the Helm chart values file (<code>helm/&lt;REPO_NAME&gt;/values.yaml</code>) with a name for the Secret:</p>
+<pre><code>containerSecret:
+  name: ffc-&lt;workstream&gt;-&lt;service&gt;-container-secret
+  type: Opaque
+</code></pre>
+<p>replacing <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> as per naming convention described above.</p>
+<h2 id="add-liquibase-migration-scripts">Add Liquibase migration scripts</h2>
+<p>Copy the <a href="../../resources/scripts">scripts from resources</a> to create the following scripts at the root of your microservice:
+* <code>scripts/migration/database-down</code>
+* <code>scripts/migration/database-up</code>
+* <code>scripts/postgres-wait</code></p>
+<h2 id="add-values-to-azure-key-vault-and-app-configuration">Add values to Azure Key Vault and App Configuration</h2>
+<p>Azure Key Vault is used to store the Postgres username and Azure App Configuration is used to stores values required by the Jenkins CI pipelines.</p>
+<p>Create the following secret in Azure Key Vault via the Azure Portal:</p>
+<ul>
+<li><strong>Name</strong>: <code>snd-postgres&lt;workstream&gt;&lt;service&gt;User</code>; <strong>Value</strong>: <code>&lt;managed-identity&gt;@&lt;azure-postgres-instance&gt;</code> (e.g. <code>ffc-snd-demo-web-role@mypostgresserver</code>)</li>
+</ul>
+<p>Create the following entries in Azure App Configuraiton via the Azure Portal:</p>
+<ol>
+<li>
+<p>A key-value entry where <strong>Key</strong>: <code>&lt;environment&gt;/postgresService.postgresDb</code> (e.g. <code>dev/postgresService.postgresDb</code>); <strong>Value</strong>: <code>ffc_&lt;workstream&gt;_&lt;service&gt;</code> (e.g. <code>ffc_demo_claim_service</code>); <strong>Label</strong>: <code>&lt;REPO_NAME&gt;</code> (e.g. <code>ffc-demo-claim-service</code>)</p>
+</li>
+<li>
+<p>A Key Vault reference entry where <strong>Key</strong>: <code>dev/postgresService.postgresUser</code>; <strong>Key Vault Secret Key</strong>: <code>dev-postgres&lt;workstream&gt;&lt;service&gt;User</code>; <strong>Label</strong>: <code>&lt;REPO_NAME&gt;</code> (e.g. <code>ffc-demo-claim-service</code>)</p>
+</li>
+</ol>
+<p>where <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> refer to those parts of the queue name described above.</p>
+<p><strong>Note</strong> in environments beyond Sandpit, Azure DevOps will provision databases suffixed with the target environment.  The values should be ammended accordingly. e.g. <code>ffc_demo_claim_service_dev</code></p>
+<h2 id="add-database-code-to-the-microservice">Add database code to the microservice</h2>
+<p>Update your microservice code using the relevant Azure authentication SDKs for your language.</p>
+<p>Patterns for using a Postgres database in microservice code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.</p>
+<h3 id="nodejs-example">Node.js example</h3>
+<p>Install the Azure Authentication SDK NPM package: <code>npm install @azure/ms-rest-nodeauth</code>.</p>
+<p>With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then access the database using the username <code>&lt;managed-identity&gt;@&lt;azure-postgres-instance&gt;</code> (e.g. <code>ffc-snd-demo-web-role@mypostgresserver</code>) and an access token as the password:</p>
+<pre><code>async function example() {
+  const auth = require('@azure/ms-rest-nodeauth')
+  const credentials = await auth.loginWithVmMSI({ resource: 'https://ossrdbms-aad.database.windows.net' })
+  const databasePassword = await credentials.getToken()
+
+  // Use databasePassword along with Postgres role bound to Managed Identity to authenticate to your database
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

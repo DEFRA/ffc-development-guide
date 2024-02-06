@@ -1,5 +1,5 @@
 # Standards
-These standards must be adhered to by all FFC developers.
+These standards must be adhered to by all FCP developers.
 
 ## Contents
 - [APIs](api.md)

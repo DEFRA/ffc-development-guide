@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/redis-caching/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Redis Caching in Hapi - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Redis Caching in Hapi";
+        var mkdocs_page_input_path = "guides/redis-caching.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/redis-caching/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Redis Caching in Hapi</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="redis-caching-in-hapi">Redis Caching in Hapi</h1>
+<p><a href="https://hapi.dev/tutorials/caching/">Hapi caching</a> is described in their official documentation. The following guide specifically describes how server-side Redis caching can be added to a Hapi based microservice.</p>
+<h2 id="server-side-caching-in-hapi">Server-side caching in Hapi</h2>
+<p>Hapi server-side caching uses the <a href="https://hapi.dev/module/catbox/">catbox</a> interface to abstract away the underlying caching technology being used (e.g. memory, Redis, Memcached).</p>
+<p><img alt="redis-hapi" src="../redis-hapi.png" title="redis-hapi" /></p>
+<p>There are three main concepts to Hapi server-side caching:
+* The cache <strong>strategy</strong> (or provider): is the underlying caching technology being employed. Here <a href="https://github.com/hapijs/catbox-redis">catbox-redis</a>, the Redis adapter for catbox, is the strategy.
+* The cache <strong>client</strong>: is the low-level cache abstraction, and is initialised using a cache stragegy (e.g. memory or Redis). <strong>Hapi initialises an in-memory cache client by default</strong>, and you can create additional cache clients using the same or different strategies (e.g. you can have one in-memory cache, and one Redis cache).
+* The cache <strong>policy</strong>: is a higher-level cache abstraction that sets a policy on the storage within the cache (e.g. expiry times). The cache policy also provides additional segmentation within the cache client. Typically the cache policy is how you would interact with cache values via the <code>get</code> and <code>set</code> menthods.</p>
+<h2 id="configuring-the-default-cache-client">Configuring the default cache client</h2>
+<p>As mentioned above, Hapi initialises an in-memory cache client by default. If you wish you can make the default cache client use a different strategy. For example, the following would make the default cache strategy use Redis or memory depending on the value of <code>config.useRedis</code>:</p>
+<pre><code>const catbox = config.useRedis ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
+const catboxOptions = config.useRedis
+  ? {
+      host: process.env.REDIS_HOSTNAME,
+      port: process.env.REDIS_PORT,
+      password: process.env.REDIS_PASSWORD,
+      partition: process.env.REDIS_PARTITION,
+      tls: process.env.NODE_ENV === 'production' ? {} : undefined
+    }
+  : {}
+
+const server = hapi.server({
+  port: config.port,
+  cache: [{
+    provider: {
+      constructor: catbox,
+      options: catboxOptions
+    }
+  }]
+}
+</code></pre>
+<h2 id="configuring-new-cache-clients">Configuring new cache clients</h2>
+<p>Additional cache clients can be created when initialising the Hapi server by adding new definitions to the <code>cache</code> array. Additional caches are required to be given a <code>name</code>. For example, the following will create a new Redis cache client called session.</p>
+<pre><code>const catbox = require('@hapi/catbox-redis')
+const catboxOptions = {
+  host: process.env.REDIS_HOSTNAME,
+  port: process.env.REDIS_PORT,
+  password: process.env.REDIS_PASSWORD,
+  partition: process.env.REDIS_PARTITION,
+  tls: process.env.NODE_ENV === 'production' ? {} : undefined
+}
+
+const server = hapi.server({
+  port: config.port,
+  cache: [{
+    name: 'session',
+    provider: {
+      constructor: catbox,
+      options: catboxOptions
+    }
+  }]
+}
+</code></pre>
+<p><strong>NOTE 1</strong>: This example will create two cache clients, the default in-memory cache client and a new cache client called <code>session</code> that uses Redis</p>
+<p><strong>NOTE 2</strong>: Hapi will always use the default in-memory cache client unless you specify the <code>name</code> when using it (either directly or via the cache policy, see below)</p>
+<h2 id="creating-and-using-a-cache-policy">Creating and using a cache policy</h2>
+<p>Lastly we create the cache policy, which is typically how we interact with the cache (see the <a href="https://hapi.dev/module/catbox/api/?v=11.1.1#policy">catbox policy documentation</a> for more details and how set and get data in the cache).</p>
+<p>When creating a cache policy, if you don't explictily provide the name of a cache client (via the <code>cache</code> property), it will use the default cache client.</p>
+<p>To create a cache policy using a segement within the default cache client:</p>
+<pre><code>myCache = server.cache({
+  expiresIn: 36000,
+  segment: 'mySegment'
+  // ... any other configuration
+})
+</code></pre>
+<p>To create a cache policy using a segement within a named cache client (in this case <code>session</code>):</p>
+<pre><code>myCache = server.cache({
+  cache: 'session'
+  expiresIn: 36000,
+  segment: 'mySegment'
+  // ... any other configuration
+})
+</code></pre>
+<h2 id="integration-with-yar-session-cookies">Integration with yar session cookies</h2>
+<p><a href="https://hapi.dev/module/yar/">Hapi yar</a> is a plugin that adds unauthenticatd session support (state across multiple browser request) to Hapi. By default it tries to fit session data into a session cookie, but will use server-side storage via the Hapi cache interface if the sesion data is greater than the max size specified when registering the plugin.</p>
+<p>Combining Hapi yar with Redis caching is one way to allow multiple replicates of a web server microservice to share server-side user session data.</p>
+<p>Example configuration using the default cache client:</p>
+<pre><code>server.register({
+  plugin: require('@hapi/yar'),
+  options: {
+    cache: {
+      expiresIn: 36000
+    },
+    maxCookieSize: 0 // this will force server-side caching
+    // ... other config here
+  }
+})
+</code></pre>
+<p>Example configuration using a named cache client:</p>
+<pre><code>server.register({
+  plugin: require('@hapi/yar'),
+  options: {
+    cache: {
+      cache: 'session'
+      expiresIn: 36000
+    },
+    maxCookieSize: 0 // this will force server-side caching
+    // ... other config here
+  }
+})
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

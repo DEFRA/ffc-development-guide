@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/resource-provisioning/managed-identity/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Azure Managed Identity - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Azure Managed Identity";
+        var mkdocs_page_input_path = "guides/resource-provisioning/managed-identity.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/resource-provisioning/managed-identity/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Azure Managed Identity</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="azure-managed-identity">Azure Managed Identity</h1>
+<p>This guide describes how to add an Azure Managed Identity to a microservice running within Azure Kubernetes Service.</p>
+<p>A Managed Identity needs to be bound to the microservice Pod to provide access to additional Azure resources such as <a href="../postgres-database/">Postgres databases</a> and <a href="../servicebus-queues/">Service Bus message queues</a>.</p>
+<blockquote>
+<p>Note: in environments beyond sandpit, managed identities must be created by a pipeline and not manually.</p>
+</blockquote>
+<h2 id="create-a-managed-identity">Create a Managed Identity</h2>
+<p>Request the creation of an Azure Managed Identity through your usual Cloud Services support channel.</p>
+<p>The name of the Managed Identity should adhere to the following naming convention:</p>
+<pre><code>ffc-&lt;cloud-environment&gt;-&lt;workstream&gt;-&lt;service&gt;-role
+</code></pre>
+<p>for example <code>ffc-snd-demo-web-role</code>.</p>
+<h2 id="add-managed-identity-permissions">Add Managed Identity permissions</h2>
+<p>Permissions will need to be associated to the Managed Identity that determine which Azure resources it can access.</p>
+<p>This step should be carried out when configuring these additional resources. See relevant sections in <a href="../servicebus-queues/">ServiceBus queue configuration</a> and <a href="../postgres-database/">Postgres database configuration</a>.</p>
+<h2 id="update-microservice-helm-chart">Update microservice Helm chart</h2>
+<p>Add and configure the <code>AzureIdentity</code> and <code>AzureIdentityBinding</code> Kubernetes templates from the <a href="https://github.com/DEFRA/ffc-helm-library">ffc-helm-library</a> to your microservice Helm Chart (<code>helm/&lt;REPO_NAME&gt;/templates/</code>) <a href="https://github.com/DEFRA/ffc-helm-library#azure-identity-template">following the FFC Helm Library guidence</a>.</p>
+<h2 id="add-managed-identity-values-to-azure-app-configuration">Add Managed Identity values to Azure App Configuration</h2>
+<p>Azure App Configuration stores values required by the Jenkins CI pipelines. For your newly created Managed Identity, create two key-value entries:</p>
+<ul>
+<li><strong>Key</strong>: <code>dev/azureIdentity.clientID</code>; <strong>Value</strong>: Client ID of your Managed Identity (found via the Azure Portal); <strong>Label</strong>: <code>&lt;REPO_NAME&gt;</code> (e.g. <code>ffc-demo-web</code>)</li>
+<li><strong>Key</strong>: <code>dev/azureIdentity.resourceID</code>; <strong>Value</strong>: Resource ID of your Manage Identity (found via the Azure Portal); <strong>Label</strong>: <code>&lt;REPO_NAME&gt;</code> (e.g. <code>ffc-demo-web</code>)</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

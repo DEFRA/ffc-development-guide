@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/standards/kubernetes/helm-charts/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Helm chart - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Helm chart";
+        var mkdocs_page_input_path = "standards/kubernetes/helm-charts.md";
+        var mkdocs_page_url = "/ffc-development-guide/standards/kubernetes/helm-charts/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../guides/">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Helm chart</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="helm-chart">Helm chart</h1>
+<p>Helm charts allow multiple Kubernetes resource definitions to be deployed and un-deployed as a single unit.</p>
+<p>Helm version 3 is used within FFC.  Currently FFC is limited to version <code>3.6</code> due to breaking changes introduced in version <a href="https://github.com/helm/helm/releases/tag/v3.7.0"><code>3.7</code></a>.</p>
+<p>Helm 2 should never be used due to security risk introduced by Tiller in a cluster.</p>
+<h2 id="source-control">Source control</h2>
+<ul>
+<li>
+<p>Helm charts are source controlled in the same repository as the microservice they relate to</p>
+</li>
+<li>
+<p>Helm charts are saved in a <code>helm</code> directory and named the same as the repository. For example a chart referencing the ELM Payment Service would be stored in the <code>./helm/elm-payment-service</code> directory</p>
+</li>
+<li>
+<p>Helm chart versions are automatically updated by CI in line with the application version</p>
+</li>
+</ul>
+<h2 id="helm-chart-library">Helm chart library</h2>
+<ul>
+<li>
+<p>to keep Helm charts DRY, the <a href="https://github.com/DEFRA/ffc-helm-library">FFC Helm Chart Library</a> is used as a base for all resource definitions</p>
+</li>
+<li>
+<p>consuming Helm charts only need to define where there is variation from the base Helm chart</p>
+</li>
+<li>
+<p>the library helps teams abstract complexity of Kubernetes resource definitions as well as providing a consistent approach to Helm chart development and container security</p>
+</li>
+</ul>
+<h2 id="helm-chart-repository">Helm chart repository</h2>
+<ul>
+<li>
+<p>Helm charts are published by CI to a Helm chart repository within <a href="https://azure.microsoft.com/en-us/products/container-registry/">Azure Container Registry</a></p>
+</li>
+<li>
+<p>Helm charts are only published on a main branch build</p>
+</li>
+<li>
+<p>Helm charts are automatically versioned by CI pipeline to be consistent with the application version</p>
+</li>
+<li>
+<p>Helm charts for in flight Pull Requests are not published</p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

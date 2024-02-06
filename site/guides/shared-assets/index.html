@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/shared-assets/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Shared assets - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Shared assets";
+        var mkdocs_page_input_path = "guides/shared-assets.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/shared-assets/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Shared assets</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="shared-assets">Shared assets</h1>
+<p>To better enable developer agility, the FFC Platform team have created several shared assets to reduce the effort needed to deliver a microservice ecosystem within FFC.</p>
+<p>Teams are expected to use these shared assets.</p>
+<h2 id="development-guide">Development guide</h2>
+<p>The development guide is a library of FFC standards and guides useful to support developers within the FFC programme.</p>
+<h3 id="github">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-development-guide">Development guide</a></li>
+</ul>
+<h2 id="docker-parent-images">Docker parent images</h2>
+<p>Docker parent images have been created for Node.js and .NET Core.  These parent images prevent duplication in each microservice by abstracting common layers away from each microservice.</p>
+<h3 id="dockerhub">DockerHub</h3>
+<ul>
+<li><a href="https://hub.docker.com/r/defradigital/node">Node.js</a></li>
+<li><a href="https://hub.docker.com/r/defradigital/node-development">Node.js development</a></li>
+<li><a href="https://hub.docker.com/r/defradigital/dotnetcore">.NET Core</a></li>
+<li><a href="https://hub.docker.com/r/defradigital/dotnetcore-development">.NET Core development</a></li>
+</ul>
+<h3 id="github_1">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/defra-docker-node">Node.js</a></li>
+<li><a href="https://github.com/DEFRA/defra-docker-dotnetcore">.NET Core</a></li>
+</ul>
+<h2 id="jenkins-library">Jenkins library</h2>
+<p>The Jenkins shared library abstracts common CI stages away from each microservice repository and ensures that all adequate assurance steps are completed.  The library supports the addition of custom steps at key points in the pipeline.</p>
+<h3 id="github_2">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-jenkins-pipeline-library">Jenkins library</a></li>
+</ul>
+<h2 id="helm-chart-library">Helm chart library</h2>
+<p>The Helm chart library keeps microservice Helm charts dry by abstracting common resource definitions away from each microservice repository.  The packaged chart is hosted in a GitHub repository.</p>
+<h3 id="github_3">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-helm-library">Helm chart library</a></li>
+<li><a href="https://github.com/DEFRA/ffc-helm-repository">Helm chart repository</a></li>
+</ul>
+<h2 id="microservice-template">Microservice template</h2>
+<p>A GitHub template repository has been created to allow teams to quickly get started with new microservice.  The template includes all common setup steps such as Docker, Helm charts and Jenkins.</p>
+<h3 id="github_4">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-template-node">Node.js</a></li>
+</ul>
+<h2 id="net-core-sonarcloud-scanning">.NET Core SonarCloud scanning</h2>
+<p>Analysing containerised .NET Core microservices with SonarCloud in CI is challenging.  To simplify this process a Docker image has been created to abstract this complexity away from both microservices and the Jenkins library.</p>
+<h3 id="dockerhub_1">DockerHub</h3>
+<ul>
+<li><a href="https://hub.docker.com/r/defradigital/ffc-dotnet-core-sonar">.NET Core SonarCloud Analysis</a></li>
+</ul>
+<h3 id="github_5">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-dotnet-core-sonar">.NET Core SonarCloud Analysis</a></li>
+</ul>
+<h2 id="kubernetes-configuration">Kubernetes configuration</h2>
+<p>To support creation of new Kubernetes clusters and workstream namespaces, a repostory containing setup defininitions has been created.</p>
+<h3 id="github_6">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-kubernetes-configuration">Kubernetes configuration</a></li>
+</ul>
+<h2 id="pact-broker">Pact broker</h2>
+<p>The Pact Broker is a repository for all Pact contracts across all environments for the programme.  It is used as a tool to aide contract testing in both build and deployment phases.</p>
+<h3 id="github_7">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-pact-broker">Pact broker</a></li>
+</ul>
+<h2 id="jenkins-agent">Jenkins agent</h2>
+<p>The Jenkins agent is a Docker image to support a Jenkins instance running in a Kubernetes cluster</p>
+<h3 id="github_8">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-jenkins-agent">Jenkins agent</a></li>
+</ul>
+<h2 id="secret-scanning">Secret scanning</h2>
+<p>All FFC repositories are regularly scanned for committed secrets.  A utility repository has been created in support of that.</p>
+<h3 id="github_9">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-git-secret-scanning">Git secret scanning</a></li>
+<li><a href="https://github.com/DEFRA/ffc-secret-scanning">Secret scanning</a></li>
+</ul>
+<h2 id="demo-service">Demo service</h2>
+<p>A demo service has been created to demonstrate FFC's standards and patterns in operation.  The demo service allows developers to see an example of how these patterns work in a "real" implementation.</p>
+<p>See <a href="../demo-service/">Demo service</a> for further details.</p>
+<h2 id="microservice-reference-library">Microservice reference library</h2>
+<p>A repository of all microservices created by the programme.</p>
+<h3 id="confluence">Confluence</h3>
+<p><a href="https://eaflood.atlassian.net/wiki/spaces/FPS/pages/2315288783/Microservice+Reference+Library">Reference library</a></p>
+<h2 id="npm-publishing">npm publishing</h2>
+<p>Simplify publishing packages to npm, including switching between pre-release and full releases.</p>
+<h3 id="github_10">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-npm-publish">npm publish</a></li>
+</ul>
+<h3 id="dockerhub_2">DockerHub</h3>
+<ul>
+<li><a href="https://hub.docker.com/r/defradigital/ffc-npm-publish">npm publish</a></li>
+</ul>
+<h2 id="kafka-admin-client">Kafka admin client</h2>
+<p>Simplify viewing and deleting Kafka consumer groups</p>
+<h3 id="github_11">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-kafka-admin">Kafka admin client</a></li>
+</ul>
+<h2 id="messaging-npm-package">Messaging npm package</h2>
+<p>npm package to simplify Azure Service Bus sending and consuming in line with FFC standards</p>
+<h3 id="github_12">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-messaging">ffc-messaging</a></li>
+</ul>
+<h3 id="npm">npm</h3>
+<ul>
+<li><a href="https://www.npmjs.com/package/ffc-messaging">ffc-messaging</a></li>
+</ul>
+<h2 id="events-npm-package">Events npm package</h2>
+<p>npm package to simplify Azure Event Hubs sending and consuming in line with FFC standards</p>
+<h3 id="github_13">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-events">ffc-events</a></li>
+</ul>
+<h3 id="npm_1">npm</h3>
+<ul>
+<li><a href="https://www.npmjs.com/package/ffc-events">ffc-events</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

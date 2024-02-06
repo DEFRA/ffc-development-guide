@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/demo-service/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Demo service - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Demo service";
+        var mkdocs_page_input_path = "guides/demo-service.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/demo-service/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Demo service</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="demo-service">Demo service</h1>
+<p>The FFC Demo service is a mock digital service to both prove Platform capability and act as an examplar service.  This allows delivery teams see working examples of patterns and standards in practice and replicate them within their own services.</p>
+<h2 id="service-context">Service context</h2>
+<p>The demo service is built around the premise of claiming financial aid in the event property subsides into a mine shaft.  This is an entirely fictional scenario and no Defra service providing this capabililty exists.</p>
+<p>The demo service is made up of seven microservices, five Node.js and one .NET Core.  There is also a respository that supports local development across all seven microservices.</p>
+<h3 id="web-service">Web service</h3>
+<p>Front end web application where user follows a claim creation journey and submits a new claim for payment. 
+Claim data is cached using Redis between questions and submitted to an Azure Service Bus queue for the Claim service.</p>
+<p><a href="https://github.com/DEFRA/ffc-demo-web">Source code</a></p>
+<h3 id="claim-service">Claim service</h3>
+<p>Receives a new claim submission and persists claim data in a PostgreSQL database. 
+Publishes new claim validated message to two Azure Service Bus queues for the Payment and Calculation services.</p>
+<p><a href="https://github.com/DEFRA/ffc-demo-claim-service">Source code</a></p>
+<h3 id="calculation-service">Calculation service</h3>
+<p>Receives a valid claim message and calculates a monetary value based on claim data.
+Publishes claim value to Azure Service Bus queue for Payment Service.</p>
+<p><a href="https://github.com/DEFRA/ffc-demo-calculation-service">Source code</a></p>
+<h3 id="payment-service">Payment service</h3>
+<p>Generates a payment schedule from valid claim message and persists in a PostgreSQL database.
+Also persists associated payment value received from calcuated message.</p>
+<p>Both a Node.js and .NET Core version of this service exist.</p>
+<p><a href="https://github.com/DEFRA/ffc-demo-payment-service">Source code (Node.js)</a>
+<a href="https://github.com/DEFRA/ffc-demo-payment-service-core">Source code (.NET Core)</a></p>
+<h3 id="payment-web-service">Payment web service</h3>
+<p>Front end web application for internal users.  Requests payment schedule data from Payment service via HTTP (Node.js only).</p>
+<p><a href="https://github.com/DEFRA/ffc-demo-payment-web">Source code</a></p>
+<h3 id="collector-service">Collector service</h3>
+<p>Consumes payment update events from Azure Event Hub and persists in a PostgreSQL database.</p>
+<p><a href="https://github.com/DEFRA/ffc-demo-collector">Source code</a></p>
+<h3 id="local-development-orchestration">Local development orchestration</h3>
+<p>Easy running and debugging of all demo services locally within single Docker network.</p>
+<p><a href="https://github.com/DEFRA/ffc-demo-development">Source code</a></p>
+<h2 id="patterns-and-standards">Patterns and standards</h2>
+<p>The demo service is built following FFC standards and patterns.  However, for reasons of time constraint, not every service has every pattern in place.
+Below is a reference of where patterns and standards can be found.</p>
+<h3 id="directory-structure">Directory structure</h3>
+<ul>
+<li>All</li>
+</ul>
+<h3 id="tests">Tests</h3>
+<h4 id="unit">Unit</h4>
+<ul>
+<li>Web</li>
+<li>Payment (Node.js)</li>
+<li>Payment (.NET Core)</li>
+<li>Calculation</li>
+<li>Payment web</li>
+<li>Collector</li>
+</ul>
+<h4 id="narrow-integration">Narrow integration</h4>
+<ul>
+<li>Web</li>
+<li>Payment (Node.js)</li>
+<li>Calculation</li>
+<li>Payment web</li>
+</ul>
+<h4 id="local-integration">Local integration</h4>
+<ul>
+<li>Web - Redis, Azure Service Bus</li>
+<li>Claim - Azure Service Bus, PostgreSQL</li>
+<li>Payment (Node.js) - Azure Service Bus, PostgreSQL</li>
+<li>Calculation - Azure Service Bus</li>
+<li>Collector - Azure Event Hub</li>
+</ul>
+<h4 id="contract-provider-async">Contract - Provider Async</h4>
+<ul>
+<li>Claim</li>
+</ul>
+<h4 id="contract-consumer-async">Contract - Consumer Async</h4>
+<ul>
+<li>Payment (Node.js)</li>
+</ul>
+<h4 id="contract-provider-http">Contract - Provider HTTP</h4>
+<ul>
+<li>Payment (Node.js)</li>
+</ul>
+<h4 id="contract-consumer-http">Contract - Consumer HTTP</h4>
+<ul>
+<li>Payment web</li>
+</ul>
+<h4 id="acceptance">Acceptance</h4>
+<ul>
+<li>Web</li>
+</ul>
+<h4 id="security">Security</h4>
+<ul>
+<li>Web</li>
+<li>Payment web</li>
+</ul>
+<h4 id="accessibility">Accessibility</h4>
+<ul>
+<li>Web</li>
+</ul>
+<h4 id="net-core-snyk-setup">.NET Core Snyk setup</h4>
+<ul>
+<li>Payment (.NET Core)</li>
+</ul>
+<h3 id="docker">Docker</h3>
+<ul>
+<li>All</li>
+</ul>
+<h3 id="docker-compose">Docker Compose</h3>
+<ul>
+<li>All</li>
+</ul>
+<h3 id="ffc-ci-pipeline-jenkinsfile">FFC CI Pipeline Jenkinsfile</h3>
+<ul>
+<li>All</li>
+</ul>
+<h3 id="liquibase-database-migrations">Liquibase database migrations</h3>
+<ul>
+<li>Claim</li>
+<li>Payment (Node.js)</li>
+<li>Payment (.NET Core)</li>
+<li>Collector</li>
+</ul>
+<h3 id="messaging">Messaging</h3>
+<h4 id="send-message-to-queue">Send message to queue</h4>
+<ul>
+<li>Web</li>
+<li>Claim</li>
+<li>Calculation</li>
+</ul>
+<h4 id="receive-message-from-queue">Receive message from queue</h4>
+<ul>
+<li>Claim</li>
+<li>Calculation</li>
+<li>Payment (Node.js)</li>
+<li>Payment (.NET Core)</li>
+</ul>
+<h4 id="govuk-notify">GOV.UK Notify</h4>
+<ul>
+<li>Claim</li>
+</ul>
+<h4 id="outbox-pattern">Outbox pattern</h4>
+<ul>
+<li>Claim</li>
+</ul>
+<h4 id="dead-lettering">Dead lettering</h4>
+<ul>
+<li>Calcuation</li>
+</ul>
+<h4 id="completing-message">Completing message</h4>
+<ul>
+<li>Claim</li>
+<li>Calculation</li>
+<li>Payment (Node.js)</li>
+<li>Payment (.NET Core)</li>
+</ul>
+<h4 id="abandon-message">Abandon message</h4>
+<ul>
+<li>Claim</li>
+<li>Calculation</li>
+<li>Payment (Node.js)</li>
+<li>Payment (.NET Core)</li>
+</ul>
+<h3 id="webpack">Webpack</h3>
+<ul>
+<li>Web</li>
+<li>Payment web</li>
+</ul>
+<h3 id="application-insights">Application Insights</h3>
+<ul>
+<li>All</li>
+</ul>
+<h3 id="horizontal-pod-autoscaling">Horizontal pod autoscaling</h3>
+<ul>
+<li>Calculation</li>
+</ul>
+<h3 id="events">Events</h3>
+<h4 id="publishing-event">Publishing event</h4>
+<ul>
+<li>Payment</li>
+</ul>
+<h4 id="consuming-event">Consuming event</h4>
+<ul>
+<li>Collector</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/resource-provisioning/release-pipeline/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Release pipelines - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Release pipelines";
+        var mkdocs_page_input_path = "guides/resource-provisioning/release-pipeline.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/resource-provisioning/release-pipeline/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Release pipelines</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="release-pipelines">Release pipelines</h1>
+<h2 id="sandpit">Sandpit</h2>
+<p>Sandpit release pipelines are run from Jenkins and a deployment to the sandpit environment is automatically triggered by the CI pipeline if building from a main branch.</p>
+<h3 id="configure-sandpit-release-pipeline">Configure sandpit release pipeline</h3>
+<ul>
+<li>navigate to your workstream folder in Jenkins</li>
+<li>creating a new credential is optional and if not done, the value of <code>default-deploy-token</code> should be used</li>
+<li>select <code>Credentials -&gt; (global) -&gt; Add Credentials</code></li>
+<li>select <code>Secret text</code> type and set both <code>Description</code> and <code>Id</code> to <code>&lt;respository name&gt;-deploy-token</code>, for example <code>ffc-demo-web-deploy-token</code></li>
+<li>set the secret value to be a unique string, this value will be used to authenticate the CI pipeline when triggering a release</li>
+<li>navigate to your workspace folder and select <code>New Item</code></li>
+<li>enter the <code>item name</code> in the format <code>&lt;repository name&gt;-deploy</code>, for example <code>ffc-demo-web-deploy</code></li>
+<li>select <code>Pipeline</code></li>
+<li>select <code>Ok</code></li>
+<li>set <code>This project is parameterised</code> to <code>true</code> and add the following <code>string</code> parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chartVersion</code></td>
+<td><code>1.0.0</code></td>
+<td><code>Version of service to deploy</code></td>
+</tr>
+<tr>
+<td><code>chartName</code></td>
+<td><code>&lt;repository name&gt;</code> for example, <code>ffc-demo-web</code></td>
+<td><code>Service to deploy</code></td>
+</tr>
+<tr>
+<td><code>namespace</code></td>
+<td><code>ffc-&lt;service name&gt;</code> for example, <code>ffc-grants</code></td>
+<td><code>Cluster namespace to deploy to</code></td>
+</tr>
+<tr>
+<td><code>environment</code></td>
+<td><code>dev</code></td>
+<td><code>Cluster environment to deploy to</code></td>
+</tr>
+<tr>
+<td><code>helmChartRepoType</code></td>
+<td><code>acr</code></td>
+<td><code>Location of Helm charts</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>set <code>Trigger builds remotely</code> to <code>true</code></li>
+<li>enter unique deploy token created above</li>
+<li>add inline pipeline script with the following content</li>
+</ul>
+<p>```
+  @Library('defra-library@v-9') _</p>
+<p>deployToCluster environment: params.environment,
+                namespace: params.namespace,
+                chartName: params.chartName,
+                chartVersion: params.chartVersion,
+                helmChartRepoType: params.helmChartRepoType
+  <code>``
+- select</code>Save`</p>
+<h2 id="development-test-preproduction-and-production-release-pipelines">Development, Test, PreProduction and Production release pipelines</h2>
+<p>Release pipelines to higher environments are run from Azure DevOps using a common microservice pipeline.</p>
+<p>A deployment to the development and test environments environment are automatically triggered following a build from a main branch.  These pipelines can also be run manually by delivery teams.</p>
+<p>Deployments to PreProd require a ticket raised with CCoE.</p>
+<p>Deployments to Production require an RFC raised in myIT to authorise CCoE to deploy.</p>
+<h3 id="preparations-for-higher-environments">Preparations for higher environments</h3>
+<p>Teams should ensure they have completed the following before deploying to higher environments.</p>
+<ul>
+<li>Update Azure Application Configuration is updated with all required Helm chart configurations</li>
+<li>Share any new databases created with the Platform team.  The release pipelines are currently dependent on knowing which services have databases in advance.  This is expected to change in the near future.</li>
+<li>Ensure all managed identities are created</li>
+<li>Ensure all Service Bus queues are created</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/developing-in-container/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Developing in a container - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Developing in a container";
+        var mkdocs_page_input_path = "guides/developing-in-container.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/developing-in-container/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Developing in a container</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="developing-in-a-container">Developing in a container</h1>
+<p>The FFC Architecture Vision prescribes a containerised microservice ecosystem.  Docker is the containerisation technology used within Defra.</p>
+<p>Containers are lightweight and fast. One of their main benefits for developers is that it is simple to replicate an application’s environment and dependencies locally consistently. </p>
+<p>Crucially, they enable a workflow for your code that allows you to develop and test locally, push to upstream, and be confident that what you have built locally will work in CI and any environment.</p>
+<p>The following guide has a strong focus on Node.js as it is the primary technology choice of FFC and Defra.  However, details of debugging .NET containers is included in <a href="../debug-dotnet-container/">another guide</a>.</p>
+<h2 id="docker">Docker</h2>
+<p>All FFC microservices are built from supported Defra parent images for Node.js and .NET.  A <code>Dockerfile</code> will be included in each microservice repository containing a multi-stage build definition referencing these images.</p>
+<p>All microservice repositories created from the <a href="https://github.com/DEFRA/ffc-template-node">FFC Node template</a> will include this <code>Dockerfile</code> already configured.</p>
+<h2 id="docker-compose">Docker Compose</h2>
+<p><a href="https://docs.docker.com/compose/">Docker Compose</a> is a tool for defining and running multi-container Docker applications using yaml configuration files.</p>
+<p>All microservice repositories created from the <a href="https://github.com/DEFRA/ffc-template-node">FFC Node template</a> include a pre-configured set of Docker Compose yaml files to support local development and testing as well as some being a prerequisite for CI capability.</p>
+<p>An example Node.js <code>Dockerfile</code> showing a multi-stage build for both development and production.  Note that the <code>development</code> image runs the application in <code>watch</code> mode to support local development and testing, whilst <code>production</code> simply runs the application.</p>
+<p><code>development</code> is dependent on the local <code>package.json</code> including a watch script.  More on this below.</p>
+<pre><code>ARG PARENT_VERSION=1.2.9-node14.17.6
+ARG PORT=3000
+ARG PORT_DEBUG=9229
+
+# Development
+FROM defradigital/node-development:${PARENT_VERSION} AS development
+ARG PARENT_VERSION
+LABEL uk.gov.defra.ffc.parent-image=defradigital/node-development:${PARENT_VERSION}
+
+ARG PORT
+ARG PORT_DEBUG
+ENV PORT ${PORT}
+EXPOSE ${PORT} ${PORT_DEBUG}
+
+COPY --chown=node:node package*.json ./
+RUN npm install
+COPY --chown=node:node . .
+CMD [ &quot;npm&quot;, &quot;run&quot;, &quot;start:watch&quot; ]
+
+# Production
+FROM defradigital/node:${PARENT_VERSION} AS production
+ARG PARENT_VERSION
+LABEL uk.gov.defra.ffc.parent-image=defradigital/node:${PARENT_VERSION}
+
+ARG PORT
+ENV PORT ${PORT}
+EXPOSE ${PORT}
+
+COPY --from=development /home/node/app/ ./app/
+COPY --from=development /home/node/package*.json ./
+RUN npm ci
+CMD [ &quot;node&quot;, &quot;app&quot; ]
+</code></pre>
+<h3 id="docker-composeyaml"><code>docker-compose.yaml</code></h3>
+<p>Used to define creation of the production image locally and in CI.  This file should include all configuration needed to create a clean production image.  Port and local volume mapping should be avoided in this file.</p>
+<p>The template repository will set a <code>container_name</code> property in this file so that containers created have shorter and more predictable names to support local development.  However, if local scaling of container instances is required, then this property should be removed as container names will need to be dynamic in that scenario.</p>
+<p>To avoid duplication, other dependent container images can be defined in this file such as PostgreSQL or Redis, but no volume or port bindings for those dependencies should be included.</p>
+<h3 id="docker-composeoverrideyaml"><code>docker-compose.override.yaml</code></h3>
+<p>Used to apply overrides to <code>docker-compose.yaml</code> to support local development.  This is where port and volume mappings should be declared.</p>
+<p>If dependencies such as PostgreSQL or Redis are used, this is the file where volume and port bindings should be declared for those dependencies.</p>
+<p>This image will build the <code>development</code> image which typically is the same as production but will run the code in <code>watch</code> mode so changes made to the code locally are automatically picked up in the container and restart the application.</p>
+<h4 id="avoiding-port-conflicts">Avoiding port conflicts</h4>
+<p>When binding container ports to localhost, it is important to consider any conflicts that may occur with other services developers may wish to run locally.</p>
+<p>For example, if a service is made up of two microservices, both running on port <code>3000</code>.  Then both cannot be mapped to <code>localhost:3000</code> without a conflict.</p>
+<p>In this scenario, to successfully run both services on the same device with port binding, one of the services should bind the container's port <code>3000</code> to a different localhost port.</p>
+<p>The same consideration should be given to the debug port exposed to avoid a conflict on port <code>9229</code>, the default Node debug port.</p>
+<pre><code># service 1 docker-compose.override.yaml
+ports:
+  - &quot;3000:3000&quot;
+  - &quot;9229:9229&quot;
+
+# service 2 docker-compose.override.yaml
+ports:
+  - &quot;3001:3000&quot;
+  - &quot;9230:9229&quot;
+</code></pre>
+<p>This equally applies when binding dependency images such as PostgreSQL and Redis.</p>
+<h3 id="docker-composedebugyaml"><code>docker-compose.debug.yaml</code></h3>
+<p>Used to start application in debug mode.  This is only required if you wish the application to wait for the debugger before starting the application.  If you just wish to attach a debugger to an already running instance, the override file is sufficient.</p>
+<h3 id="docker-composetestyaml"><code>docker-compose.test.yaml</code></h3>
+<p>Used to run all tests in the repository.  This is a dependency of the FFC CI pipeline.  Port bindings should be avoided in this file to avoid conflicts between running builds.</p>
+<h3 id="docker-composetestwatchyaml"><code>docker-compose.test.watch.yaml</code></h3>
+<p>Used as an override to <code>docker-compose.test.yaml</code> to run tests in <code>watch</code> mode to support Test Driven Development (TDD).  Changes to either application or test code will automatically trigger re-running of affected tests.</p>
+<p>All Node.js FFC microservices use <a href="https://jestjs.io/">Jest</a>.  Jest has powerful capability to support multiple watch scenarios such as running individual tests, only tests affected by changes, only failed tests, filtering by regular expression as well as running the full suite.</p>
+<p>In order to understand which code has changed, Jest uses the local <code>.git</code> directory.  This means when running tests in a container, the local <code>.git</code> folder must be mounted to the container in <code>docker-compose.watch.yaml</code>.</p>
+<pre><code>volumes:
+  - ./.git:/home/node/.git
+</code></pre>
+<h3 id="docker-composetestdebugyaml"><code>docker-compose.test.debug.yaml</code></h3>
+<p>Used to run Jest in watch mode but support debugging of tests.  This allows developers to have all the capability of <code>watch</code> but with the added bonus of being able to attach a debugger.</p>
+<p>Details of debugging tests are below.</p>
+<h2 id="packagejson-scripts">package.json scripts</h2>
+<p>To enable the capability provided by the above Docker Compose files, <code>package.json</code> needs to be configured to support the scripts referenced in the <code>command</code>.</p>
+<p>Below is an extract of the default <code>package.json</code> file provided by <a href="https://github.com/DEFRA/ffc-template-node">FFC Node template</a>.</p>
+<pre><code>&quot;scripts&quot;: {
+    &quot;pretest&quot;: &quot;npm run test:lint&quot;,
+    &quot;test&quot;: &quot;jest --runInBand --forceExit&quot;,
+    &quot;test:watch&quot;: &quot;jest --coverage=false --onlyChanged --watch --runInBand&quot;,
+    &quot;test:debug&quot;: &quot;node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --coverage=false --onlyChanged --watch --runInBand --no-cache&quot;,
+    &quot;test:lint&quot;: &quot;standard&quot;,
+    &quot;start:watch&quot;: &quot;nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js&quot;,
+    &quot;start:debug&quot;: &quot;nodemon --inspect-brk=0.0.0.0 --ext js --legacy-watch app/index.js&quot;
+</code></pre>
+<h3 id="pretest"><code>pretest</code></h3>
+<p>This will automatically run before the <code>test</code> script and will lint all JavaScript files in according with StandardJs standards.</p>
+<h3 id="test"><code>test</code></h3>
+<p>This will run all Jest tests within the repository with no watch mode enabled and will output code coverage results on test completion.  This is primary used for CI, but can be run locally as a quick check of test status.</p>
+<p><code>--runInBand</code> will ensure that tests run sequentially rather than parallel.  Although this will result in slower running overall, it means that integration tests spanning containers have connections that are cleanly and predictably open and closed to avoid test disruption.</p>
+<p><code>--forceExit</code> will force Jest close a test with open connections 1 second after completion of the test.  Ideally this would not be needed, however in some scenarios Jest is unable to determine whether a Hapi server is still running even if it is cleanly shut down in the test.</p>
+<h3 id="testwatch"><code>test:watch</code></h3>
+<p>This will run tests in <code>watch</code> mode and is the most commonly used by developers to support TDD.</p>
+<p><code>--coverage=false</code> - as typically only running a subset of tests, there is little value displaying a test coverage summary.  Disabling it also reduces lines written to the console to support developer focus.</p>
+<p><code>--onlyChanged</code> - start by only running tests that are affected by code changes.  Accuracy of this is dependent on the <code>.git</code> folder being mounted to the volume as described above as well as the folders containing test and application code.</p>
+<p><code>--watch</code> - will run tests in watch mode, so as code, either in application or test, is changed the tests are automatically re-run.  Developers have the option to change the behaviour of watch mode.</p>
+<h3 id="testwatch_1"><code>test:watch</code></h3>
+<p>This will run tests in <code>watch</code> mode and is the most commonly used by developers to support TDD.</p>
+<p><code>--coverage=false</code> - as typically only running a subset of tests, there is little value displaying a test coverage summary.  Disabling it also reduces lines written to the console to support developer focus.</p>
+<p><code>--onlyChanged</code> - start by only running tests that are affected by code changes.  Accuracy of this is dependent on the <code>.git</code> folder being mounted to the volume as described above.</p>
+<p><code>--watch</code> - will run tests in watch mode, so as code, either in application or test, is changed the tests are automatically re-run.  Developers have the option to change the behaviour of watch mode.</p>
+<h3 id="testdebug"><code>test:debug</code></h3>
+<p>This runs tests in <code>watch</code> mode and has all the same behaviour and running options as <code>test:watch</code>.  However, the key difference it this will wait for a debugger to be attached before starting test execution.  This enables developers to apply breakpoints in the test and application code to debug troublesome tests.</p>
+<p>An example Visual Studio Code debugging profile to use this script is provided below.</p>
+<p><code>--no-cache</code> - Jest caches files between test runs which can result in some breakpoints not being hit.  This disables that behaviour.</p>
+<h3 id="testlint"><code>test:lint</code></h3>
+<p>Run linting with StandardJs only.</p>
+<h3 id="startwatch"><code>start:watch</code></h3>
+<p>Starts the application in watch mode.  This is typically how developers will run all applications locally.  As code is changed, the running application in the container automatically identifies the changes and restarts the running application.</p>
+<p><a href="https://www.npmjs.com/package/nodemon">Nodemon</a> is used to orchestrate restarting of the application.</p>
+<p>This is dependent on the application code folder having a volume binding to the container.</p>
+<h3 id="startdebug"><code>start:debug</code></h3>
+<p>This has the same behaviour as <code>start:watch</code> but like <code>test:debug</code> will wait for a debugger to be attached before executing any code.</p>
+<h2 id="convenience-scripts">Convenience scripts</h2>
+<p>Repositories created from <a href="https://github.com/DEFRA/ffc-template-node">FFC Node template</a> will include two convenience scripts to support developers easily running the application utilising the above setup.</p>
+<h3 id="scriptsstart"><code>./scripts/start</code></h3>
+<p>Run the application using Docker Compose.  Typically this is just a simple abstraction over <code>docker-compose up</code> however, is can be extended to ensure container runs in a specific container network or run database migrations prior to starting the application for example.</p>
+<h3 id="scriptstest"><code>./scripts/test</code></h3>
+<p>Run tests.  Without any arguments provided will run the <code>test</code> script in <code>package.json</code>.</p>
+<p>To ensure clean running, all test containers are recreated.  Note that this will not affect data persisted in development databases for example if the above setup is followed.</p>
+<h4 id="optional-arguments">Optional arguments</h4>
+<p><code>-h</code> - shows all available arguments.</p>
+<p><code>-w</code> - runs tests in watch mode using <code>test:watch</code> script</p>
+<p><code>-d</code> - runs tests in debug mode using <code>test:debug</code> script</p>
+<h2 id="debugging-code-running-in-a-container">Debugging code running in a container</h2>
+<p>If the above setup is followed, then everything is in place to support debugging of applications and tests in containers.</p>
+<p>Developers are free to use their own choice of IDE, however, all example debug configurations within this guide will assume Visual Studio Code is used.</p>
+<p>These debug configurations should all be included in a <code>launch.json</code> file in the <code>.vscode</code> folder at the root of the repository.  This folder should be excluded from source control.</p>
+<h3 id="application-debugging-profiles">Application debugging profiles</h3>
+<h4 id="attach-to-an-already-running-container">Attach to an already running container</h4>
+<pre><code>{
+  &quot;name&quot;: &quot;Docker: Attach&quot;,
+  &quot;type&quot;: &quot;node&quot;,
+  &quot;request&quot;: &quot;attach&quot;,
+  &quot;restart&quot;: true,
+  &quot;port&quot;: 9229,
+  &quot;remoteRoot&quot;: &quot;/home/node&quot;,
+  &quot;skipFiles&quot;: [
+    &quot;&lt;node_internals&gt;/**&quot;,
+    &quot;**/node_modules/**&quot;
+  ]
+}
+</code></pre>
+<p>This will attach to the node process exposed by the debug port.  Note that this uses the <code>localhost</code> port not the container port.  So if port <code>9229</code> is bound to a different port locally, then this value should be changed to match here.</p>
+<p><code>restart</code> - will ensure that as code is changed and the application restarted, the debugger is automatically reattached.</p>
+<p><code>remoteRoot</code> - must match the location of the code that matches the local workspace structure.  When using the Node.js Defra Docker base images the location will always be <code>home/node</code>.</p>
+<p><code>skipFiles</code> - an array of locations where debugging such skip.  Typically this would be internal Node.js code as well as those from third party npm modules.</p>
+<h4 id="start-an-application-in-debug-mode">Start an application in debug mode</h4>
+<pre><code>{
+      &quot;name&quot;: &quot;Docker: Attach Launch&quot;,
+      &quot;type&quot;: &quot;node&quot;,
+      &quot;request&quot;: &quot;attach&quot;,
+      &quot;remoteRoot&quot;: &quot;/home/node&quot;,
+      &quot;restart&quot;: true,
+      &quot;port&quot;: 9229,
+      &quot;skipFiles&quot;: [
+        &quot;&lt;node_internals&gt;/**&quot;,
+        &quot;**/node_modules/**&quot;
+      ],
+      &quot;preLaunchTask&quot;: &quot;compose-debug-up&quot;,
+      &quot;postDebugTask&quot;: &quot;compose-debug-down&quot;
+    },
+</code></pre>
+<p>This will start a new container in debug mode using the <code>start:debug</code> <code>package.json</code> script.  The application will wait for a debugger before running any code.</p>
+<p>This is dependent on <code>preLaunchTask</code> and <code>postDebugTask</code> being defined in a <code>.vscode/tasks.json</code> file.</p>
+<p>An example of this is below.</p>
+<pre><code>{
+  &quot;version&quot;: &quot;2.0.0&quot;,
+  &quot;tasks&quot;: [
+    {
+      &quot;label&quot;: &quot;compose-debug-up&quot;,
+      &quot;type&quot;: &quot;shell&quot;,
+      &quot;command&quot;: &quot;docker-compose -f docker-compose.yaml -f docker-compose.override.yaml -f docker-compose.debug.yaml up -d&quot;
+    },
+    {
+      &quot;label&quot;: &quot;compose-debug-down&quot;,
+      &quot;type&quot;: &quot;shell&quot;,
+      &quot;command&quot;: &quot;docker-compose -f docker-compose.yaml -f docker-compose.override.yaml -f docker-compose.debug.yaml down&quot;
+    }
+  ]
+}
+</code></pre>
+<h3 id="test-debugging">Test debugging</h3>
+<pre><code>{
+  &quot;name&quot;: &quot;Docker: Jest Attach&quot;,
+  &quot;type&quot;: &quot;node&quot;,
+  &quot;request&quot;: &quot;attach&quot;,
+  &quot;port&quot;: 9229,
+  &quot;restart&quot;: true,
+  &quot;timeout&quot;: 10000,
+  &quot;remoteRoot&quot;: &quot;/home/node&quot;,
+  &quot;disableOptimisticBPs&quot;: true,
+  &quot;continueOnAttach&quot;: true,
+  &quot;skipFiles&quot;: [
+    &quot;&lt;node_internals&gt;/**&quot;,
+    &quot;**/node_modules/**&quot;
+  ]
+}
+</code></pre>
+<p>This assumes that the <code>./script/test -d</code> command referenced above has already been run and the test suit is waiting for the debugger to attach. 
+This profile will attach that debugger.</p>
+<p><code>disableOptimisticBPs</code> - this needs to be set as <code>true</code> as Jest takes a copy of all test files and uses these copies for execution.  If this is not disabled then this process can result in breakpoints not being mapped to their correct location.</p>
+<p><code>continueOnAttach</code> - instruct the pending test execution to continue once the debugger is attached.</p>
+<h2 id="other-debugging-profiles">Other debugging profiles</h2>
+<p>A range of different debugging profiles can be found in <a href="https://github.com/johnwatson484/vscode-debug-profiles-node">this repository</a> as well as a test application setup to the above standards to test them.</p>
+<h2 id="other-useful-docker-development-guides">Other useful Docker development guides</h2>
+<p>Defra has well documented <a href="https://github.com/DEFRA/software-development-standards/blob/master/standards/container_standards.md">standards</a> and <a href="https://github.com/DEFRA/software-development-standards/blob/master/guides/docker_guidance.md">guidance</a> on developing with containers, that provides further examples of good local development practice.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

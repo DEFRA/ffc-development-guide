@@ -3,4 +3,5 @@ site_url: https://defra.github.io/ffc-development-guide/
 theme: readthedocs
 nav:
   - Home: index.md
-  - About: about.md
+  - Standards: standards/index.md
+  - Guides: guides/index.md
