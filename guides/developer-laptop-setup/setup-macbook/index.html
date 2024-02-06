@@ -3,15 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="/ffc-development-guide/img/favicon.ico" />
-    <title>FCP Development Guide</title>
-    <link rel="stylesheet" href="/ffc-development-guide/css/theme.css" />
-    <link rel="stylesheet" href="/ffc-development-guide/css/theme_extra.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/setup-macbook/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Setup developer macbook - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Setup developer macbook";
+        var mkdocs_page_input_path = "guides/developer-laptop-setup/setup-macbook.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/developer-laptop-setup/setup-macbook/";
+      </script>
+    
     <!--[if lt IE 9]>
-      <script src="/ffc-development-guide/js/html5shiv.min.js"></script>
+      <script src="../../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -23,9 +30,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="/ffc-development-guide/." class="icon icon-home"> FCP Development Guide
+          <a href="../../.." class="icon icon-home"> FCP Development Guide
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="/ffc-development-guide//search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -33,15 +40,15 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="/ffc-development-guide/.">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="/ffc-development-guide/standards/">Standards</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../../standards/">Standards</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="/ffc-development-guide/guides/">Guides</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../">Guides</a>
                 </li>
               </ul>
       </div>
@@ -51,13 +58,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="/ffc-development-guide/.">FCP Development Guide</a>
+          <a href="../../..">FCP Development Guide</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="/ffc-development-guide/." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Setup developer macbook</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -66,12 +74,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-
-  <h1 id="404-page-not-found">404</h1>
-
-  <p><strong>Page not found</strong></p>
-
-
+                <h1 id="setup-developer-macbook">Setup developer macbook</h1>
+<p>Written for use with bash, zsh instructions will be similar.</p>
+<h2 id="install-developer-tools">Install developer tools</h2>
+<pre><code>  xcode-select --install
+</code></pre>
+<p>More details <a href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">here</a></p>
+<h2 id="install-docker-desktop-for-mac">Install Docker desktop for Mac</h2>
+<ul>
+<li>Download from <a href="https://docs.docker.com/docker-for-mac/install/">here</a></li>
+<li>Enable Kubernetes in Docker desktop</li>
+<li>Open preferences, select Kubernetes</li>
+<li>Check the 'enable Kubernetes' checkbox and click 'Apply'.</li>
+<li>Allow it to install the Kubernetes cluster.</li>
+</ul>
+              
             </div>
           </div><footer>
 
@@ -98,11 +115,11 @@
     
   </span>
 </div>
-    <script src="/ffc-development-guide/js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "/ffc-development-guide/";</script>
-    <script src="/ffc-development-guide/js/theme_extra.js"></script>
-    <script src="/ffc-development-guide/js/theme.js"></script>
-      <script src="/ffc-development-guide/search/main.js"></script>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);

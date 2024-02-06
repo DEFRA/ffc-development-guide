@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/standards/technology-stack/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Technology Stack - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Technology Stack";
+        var mkdocs_page_input_path = "standards/technology-stack.md";
+        var mkdocs_page_url = "/ffc-development-guide/standards/technology-stack/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../guides/">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Technology Stack</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="technology-stack">Technology Stack</h1>
+<p>All technology choices are in line with Defra Digital’s <a href="https://eaflood.atlassian.net/jira/software/projects/TR/boards/630/roadmap">Tools Radar</a></p>
+<p>These choice have been used as a baseline to help decide which technologies to build services with. Where there are gaps not covering FFC needs we have aligned ourselves to the FFC architectural vision, Cloud Centre of Excellence recognised patterns and lessons learned from other digital teams.</p>
+<p>When developing services, teams must use the following technology stack.  Where a new need is not covered by the below technology stack, collaboration between FFC architecture and the Tools Authority must take place to agree how to fill the gap.</p>
+<h2 id="microservice-development">Microservice Development</h2>
+<ul>
+<li>Node.js (with Hapi.js)</li>
+<li>npm</li>
+<li>.NET</li>
+<li>Nuget</li>
+<li>Docker</li>
+<li>Docker Compose</li>
+<li>Helm</li>
+</ul>
+<h2 id="cicd">CI/CD</h2>
+<ul>
+<li>Jenkins (Groovy syntax)</li>
+<li>ARM templates</li>
+<li>Azure CLI</li>
+<li>Azure DevOps</li>
+</ul>
+<h2 id="testing">Testing</h2>
+<ul>
+<li>Jest</li>
+<li>xUnit</li>
+<li>Pact</li>
+<li>Web Driver IO</li>
+<li>Cucumber</li>
+<li>Selenium</li>
+<li>BrowserStack</li>
+<li>JMeter</li>
+<li>Snyk</li>
+<li>OWASP Zap</li>
+<li>AXE</li>
+<li>WAVE</li>
+<li>Anchore Engine</li>
+</ul>
+<h2 id="cloud-private">Cloud (private)</h2>
+<ul>
+<li>Azure Kubernetes Service (AKS)</li>
+<li>Azure Container Registry (ACR)</li>
+<li>Azure PostgreSQL</li>
+<li>Azure Service Bus</li>
+<li>Azure Event Hubs</li>
+<li>Azure Application Configuration</li>
+<li>Azure Key Vault</li>
+<li>Azure Functions</li>
+<li>Azure Storage</li>
+<li>AAD Pod Identity</li>
+<li>Application Insights</li>
+<li>Azure Repos</li>
+</ul>
+<h2 id="cloud-public">Cloud (public)</h2>
+<ul>
+<li>GitHub</li>
+<li>SonarCloud</li>
+<li>DockerHub</li>
+<li>BrowserStack</li>
+<li>npm</li>
+<li>NuGet</li>
+<li>Snyk</li>
+<li>Google Analytics</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

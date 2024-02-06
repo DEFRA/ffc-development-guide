@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/pact-broker/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Pact Broker - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Pact Broker";
+        var mkdocs_page_input_path = "guides/pact-broker.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/pact-broker/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Pact Broker</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pact-broker">Pact Broker</h1>
+<p>The Pact Broker is an application for sharing of consumer driven contracts and verification results. It is optimised for use with "pacts" (contracts created by the Pact framework), but can be used for any type of contract that can be serialized to JSON. https://github.com/pact-foundation/pact_broker</p>
+<p>To use the Pact-Broker locally, this repository contains a Dockerized version of the Pact Broker:
+https://github.com/pact-foundation/pact-broker-docker</p>
+<h2 id="pact-broker-cli">Pact Broker CLI</h2>
+<p>To install the Pact Broker CLI follow the instructions in the Developer set up guide</p>
+<h2 id="webhooks">Webhooks</h2>
+<p>Documentation:
+https://docs.pact.io/pact_broker/webhooks</p>
+<p>Through the Pact-Broker CLI:</p>
+<p>Open a command window and navigate to the bin folder of the pact-cli and run the following command replacing the varibles for your deployment. For more information: https://docs.pact.io/pact_broker/client_cli/readme</p>
+<pre><code>pact-broker create-webhook &quot;https://listeners.jenkins-sb.savagebeast.com/job/listeners-acceptance/job/graphql/job/DEVTOOLS-610-test-pact-broker-webhooks/buildWithParameters?os_authType=basic&amp;environment=shared&amp;graphqlHost=shared.graphql.docker.savagebeast.com&quot; --request=POST --broker-base-url=http://localhost:9292 --description='Test 3 Webhook CLI' --contract-content-changed --consumer=&quot;Example App&quot; --provider=&quot;Example API&quot; --user=username:password --header=&quot;accept:application/json&quot;
+</code></pre>
+<p>Through the Pact-Broker UI:</p>
+<ol>
+<li>Under the column called "Webhook status" click on "Create"</li>
+<li>Under the heading "Links" Locate "pb:create" in the column called "NON-GET" Click on the "<strong>!</strong>" symbol. </li>
+<li>A new window will open to allow the use of HTTP verbs POST, DELETE. </li>
+</ol>
+<p>To create the webhook use POST with following body:</p>
+<h3 id="jenkins-example">Jenkins Example</h3>
+<pre><code>{
+  &quot;description&quot;: &quot;Trigger ffc-demo-claim-service Acceptance Test Job on contract_content_changed event from ffc-demo-payment-service&quot;,
+  &quot;events&quot;: [{
+    &quot;name&quot;: &quot;contract_content_changed&quot;
+  }],
+  &quot;request&quot;: {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;url&quot;: &quot;&quot;,
+    &quot;headers&quot;: {
+      &quot;authorization&quot;: &quot;Basic &quot;
+    }
+  }
+}
+
+</code></pre>
+<h3 id="slack-example">Slack Example</h3>
+<pre><code>{
+  &quot;description&quot;: &quot;Trigger to send Slack message on provider-verification-failed event from ffc-demo-payment-service&quot;,
+  &quot;events&quot;: [
+    {
+      &quot;name&quot;: &quot;provider_verification_failed&quot;
+    }
+  ],
+  &quot;request&quot;: {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;url&quot;: &quot;&quot;,
+    &quot;headers&quot;: {
+      &quot;Content-Type&quot;: &quot;application/json&quot;
+    },
+    &quot;body&quot;: {
+      &quot;channel&quot;: &quot;#generalbuildfailures&quot;,
+      &quot;username&quot;: &quot;webhookbot&quot;,
+      &quot;text&quot;: &quot;Pact verification failed for ${pactbroker.consumerName}/${pactbroker.providerName}: ${pactbroker.pactUrl}&quot;,
+      &quot;icon_emoji&quot;: &quot;:(&quot;
+    }
+  }
+}
+</code></pre>
+<p>To delete a Webhook use the DELETE Verb with an empty body.</p>
+<p>To test the webhook:</p>
+<ol>
+<li>Select the webhook using "GET"</li>
+<li>Under the heading "Links" Locate "pb:execute"</li>
+</ol>
+<h2 id="note">Note</h2>
+<p>As of writing this guide, there is an issue with the default url used within the UI for executing the API calls. </p>
+<p>The current default url uses the internal IP address. This causes the following error: </p>
+<p><code>violates the following Content Security Policy directive: "default-src 'self'". Note that 'connect-src' was not explicitly set, so 'default-src' is used as a fallback.</code></p>
+<p>to resolve the issue, the IP address needs replacing with the DNS domain name.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

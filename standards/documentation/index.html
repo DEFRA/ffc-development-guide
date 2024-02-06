@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/standards/documentation/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Documentation - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Documentation";
+        var mkdocs_page_input_path = "standards/documentation.md";
+        var mkdocs_page_url = "/ffc-development-guide/standards/documentation/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../guides/">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Documentation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="documentation">Documentation</h1>
+<p>FFC products are delivered following an agile methodology based on evidenced user needs. Documentation is expected to follow this mantra and be iterated with the code as the product evolves.</p>
+<p>Documentation should be "just enough" to cover what needs to be communicated and presented as simply and effectively as possible.</p>
+<h2 id="documentation-location">Documentation Location</h2>
+<p>Documentation will be stored in the same source code repository as the product it supports.</p>
+<p>FFC developments will mostly be within an open source microservices ecosystem. Each microservice will have its own repository and its own documentation.</p>
+<h2 id="readme">Readme</h2>
+<p>A readme file must exist in every repo in markdown format (.md). It must include the following <strong>if</strong> they apply:
+- Description of product
+- Prerequisites
+- Development tools setup
+- Test tools setup
+- How to run in development
+- How to run tests
+- How to make changes to the code</p>
+<h3 id="additional-detail">Additional Detail</h3>
+<p>Depending on the complexity of the product, the following may be included in the readme, or it may be more effective to capture in separate documentation/diagrams referenced by the readme.</p>
+<ul>
+<li>How product fits into wider architecture</li>
+<li>Internal product architecture</li>
+<li>Data structure</li>
+<li>API end points</li>
+<li>Monitoring</li>
+<li>Error handling</li>
+<li>Audit</li>
+<li>User access</li>
+<li>Security</li>
+<li>Complexity worth documenting</li>
+<li>Pipelines</li>
+</ul>
+<h2 id="microservice-reference-library">Microservice Reference Library</h2>
+<p>This is a reference library of all microservices created and maintained by FFC.  The purpose of which is so we have an easy access resource to understand what capability we have developed, but also to promote reuse where appropriate.</p>
+<p>The registry is updated initially by the Solution Architect when designing the service.  It is then updated and maintained by the developer as the service iterates through it's lifecycle.</p>
+<p>The registry is in <a href="https://eaflood.atlassian.net/wiki/spaces/FPS/pages/2315288783/Microservice+Reference+Library">Confluence</a></p>
+<h3 id="library-content">Library Content</h3>
+<ul>
+<li>Name of service</li>
+<li>Owner of service</li>
+<li>Link to Git repository</li>
+<li>Link to Jira backlog</li>
+<li>Summary of service's purpose and capability</li>
+<li>Architectural diagrams following C4 model, see <a href="https://c4model.com/">c4model.com</a> for more information</li>
+<li>Technology stack</li>
+<li>Dependencies</li>
+<li>API specification, can be link to OpenAPI specification file</li>
+<li>Events, can be link, can be link to AsyncAPI specification file</li>
+<li>Functions</li>
+<li>Version history, can be link to GitHub</li>
+<li>Usage, ie which services use this microservice</li>
+<li>Useful references</li>
+</ul>
+<h2 id="architecture-documentation">Architecture Documentation</h2>
+<p>There may be documentation owned by FFC architecture that developers need to contribute to.</p>
+<p>For example, a Defra wide API endpoint catalogue or a Cloud Centre of Excellence namespace library. These documents should be completed in line with the standards of the owner.</p>
+<h2 id="architectural-decisions">Architectural Decisions</h2>
+<p>Architectural decisions are discussed and agreed at FFC Technical Design Authority (TDA) chaired by the Chief Architect. Agreed outputs are captured as part of the TDA by Architecture.</p>
+<h2 id="technical-debt">Technical Debt</h2>
+<p>A current view of technical debt is maintained by TDA. Developers are expected to contribute to forming this vision.</p>
+<h2 id="code">Code</h2>
+<p>Effective software engineering can negate the need for additional documentation. Code should follow Defra's digital standards and apply appropriate recognised design patterns.</p>
+<p>We should aim to write readable code that requires minimal comments as per Defra's digital standards. However in some scenarios effective code comments can be used to explain complexity.</p>
+<p>Well named and considered unit tests can also act as effective documentation.</p>
+<h2 id="issues">Issues</h2>
+<p>Work items are captured in the form Jira issues.</p>
+<p>There is no need to duplicate issues in additional documentation.</p>
+<p>Issues should be referenced in associated Pull Requests.</p>
+<h2 id="sensitive-documentation">Sensitive Documentation</h2>
+<p>Sensitive documentation should be stored within a private repository within Azure DevOps or Confluence depending on the audience.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

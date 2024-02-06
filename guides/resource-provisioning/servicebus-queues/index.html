@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/resource-provisioning/servicebus-queues/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Azure Service Bus Queues, Topics and Subscriptions - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Azure Service Bus Queues, Topics and Subscriptions";
+        var mkdocs_page_input_path = "guides/resource-provisioning/servicebus-queues.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/resource-provisioning/servicebus-queues/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Azure Service Bus Queues, Topics and Subscriptions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="azure-service-bus-queues-topics-and-subscriptions">Azure Service Bus Queues, Topics and Subscriptions</h1>
+<p>This guide describes how to configure access to Azure Service Bus from microservices running within Azure Kubernetes Service (AKS).</p>
+<h2 id="create-a-microservice-managed-identity">Create a microservice Managed Identity</h2>
+<p>If not already configured, <a href="../managed-identity/">add an Azure Managed Identity to your microservice</a>.</p>
+<h2 id="request-creation-of-service-bus-queues-topics-and-subscriptions">Request creation of Service Bus queues, topics and subscriptions</h2>
+<h3 id="for-point-to-point-queues">For point-to-point queues</h3>
+<p>For each queue required by your microservices, you will need:
+* A Service Bus queue for each environment
+* A Service Bus queue for each of the developers on the workstream in the Sandpit environment to use for local development</p>
+<p>Queues should follow the following naming convention:</p>
+<pre><code>ffc-&lt;workstream&gt;-&lt;identifier&gt;-&lt;purpose&gt;
+</code></pre>
+<p>where <code>&lt;purpose&gt;</code> either denotes the environment e.g. <code>ffc-demo-payment-snd</code>, or the initials of a developer for the local development queues e.g. <code>ffc-demo-payment-jw</code>.</p>
+<p>Request the creation of the required queues through your usual Cloud Services support channel.</p>
+<h3 id="for-topics-and-subscriptions">For topics and subscriptions</h3>
+<p>For each topic, you will need:
+* A Service Bus topic for each environment
+* A Service Bus topic for each of the developers on the workstream in the Sandpit environment to use for local development</p>
+<p>Subscriptions are created on a topic. For every subscription, you will also need:
+* A Service Bus subscription to the topic for each environment
+* A Service Bus subscription to each developer topic in the Sandpit environment to use for local development</p>
+<p>Topics and subscriptions should follow the following naming convention:</p>
+<pre><code>ffc-&lt;workstream&gt;-&lt;identifier&gt;-&lt;purpose&gt;
+</code></pre>
+<p>where <code>&lt;purpose&gt;</code> either denotes the environment e.g. <code>ffc-demo-reporting-snd</code>, or the initials of a developer for the local development queues e.g. <code>ffc-demo-reporting-jw</code>.</p>
+<p>Request the creation of the required topics and subscriptions through your usual Cloud Services support channel.</p>
+<h2 id="update-managed-identity-permissions">Update Managed Identity permissions</h2>
+<p>For each environment queue, topic and subscription created, read and/or write permissions should be added to the Managed Identites of the microservices that will be using it.</p>
+<p>Request Cloud Services to add the relevant permissions to the Managed Identities.</p>
+<p>Permissions do not need to be added to Managed Identities for the local development queues.</p>
+<h2 id="pr-queue-provisioning">PR queue provisioning</h2>
+<p>Queues, topics and subscriptions can be automatically provisioned for each microservice PR by the Jenkins CI pipleine to ensure encapsulation of infrastructure.</p>
+<p>Create a <code>provision.azure.yaml</code> file in the root directory of your microservice, and populate with the Service Bus infrastructure that need provisioning:</p>
+<pre><code>resources:
+  queues:
+    - name: &lt;queue_identifier&gt;
+  topics:
+    - name: &lt;topic_identifier&gt;
+</code></pre>
+<p>where the <code>&lt;queue_identifier&gt;</code> and/or <code>&lt;topic_identifier&gt;</code> relates to the part of the queue or topic name described above. For example for the queue <code>ffc-demo-payment-dev</code>, <code>&lt;queue_identifier&gt;</code> would be replaced with <code>payment</code>.</p>
+<p>For every topic specified in <code>provision.azure.yaml</code>, the CI pipeline will also create a subscription, so subscriptions <strong>do not</strong> need to be explictly spcecified.</p>
+<p>Add a <code>name</code> entry in the <code>provision.azure.yaml</code> for each required queue and topic/subscription.</p>
+<h2 id="update-local-development-environment">Update local development environment</h2>
+<p>Configure your development environment so that the following environment variables are available for local development:</p>
+<pre><code>MESSAGE_QUEUE_HOST=&lt;INSERT_VALUE_FROM_AZURE_PORTAL&gt;
+MESSAGE_QUEUE_PASSWORD=&lt;INSERT_VALUE_FROM_AZURE_PORTAL&gt;
+MESSAGE_QUEUE_USER=RootManageSharedAccessKey
+</code></pre>
+<p>Values for <code>MESSAGE_QUEUE_HOST</code> and <code>MESSAGE_QUEUE_PASSWORD</code> will be found in the Azure Portal.</p>
+<p>Also create a variable for each of your developer queues, topics and subscriptions:</p>
+<pre><code>&lt;IDENTIFIER&gt;_&lt;QUEUE|TOPIC|SUBSCRIPTION&gt;_ADDRESS=ffc-&lt;workstream&gt;-&lt;identifier&gt;-&lt;purpose&gt;
+</code></pre>
+<p>where <code>&lt;IDENTIFIER&gt;</code> is the same as the <code>&lt;identifier&gt;</code> part of the queue/topic/subscription name.</p>
+<p>Options for storing these environment variables include:
+* A <code>.env</code> file in the root of the microservice that uses Service bus, making sure you <strong>Do not commit the <code>.env</code> file to the git repository (add it to the <code>.gitignore</code>)</strong>
+* Your shell <code>rc</code> file e.g. <code>.bashrc</code> or <code>.zshrc</code></p>
+<h2 id="update-docker-compose-to-use-service-bus-environment-variables">Update Docker Compose to use Service Bus environment variables</h2>
+<p>Add the following environment variables to the microserive <code>environment</code> section of the <code>docker-compose.yaml</code>:</p>
+<pre><code>MESSAGE_QUEUE_HOST: ${MESSAGE_QUEUE_HOST:-notset}
+MESSAGE_QUEUE_PASSWORD: ${MESSAGE_QUEUE_PASSWORD:-notset}
+MESSAGE_QUEUE_USER: ${MESSAGE_QUEUE_USER:-notset}
+</code></pre>
+<p>And for every queue, topic and subscription you have created also add:</p>
+<pre><code>&lt;IDENTIFIER&gt;_&lt;QUEUE|TOPIC|SUBSCRIPTION&gt;_ADDRESS: ${&lt;IDENTIFIER&gt;_&lt;QUEUE|TOPIC|SUBSCRIPTION&gt;_ADDRESS:-notset}
+</code></pre>
+<h2 id="update-microservice-helm-chart">Update microservice Helm chart</h2>
+<p>Update the <code>ConfigMap</code> template of the Helm Chart (<code>helm/&lt;REPO_NAME&gt;/templates/config-map.yaml</code>) to include the environment variables for the message queue host and every queue, topic and subscription you have created, for example:</p>
+<pre><code>MESSAGE_QUEUE_HOST: {{ quote .Values.container.messageQueueHost }}
+&lt;IDENTIFIER&gt;_&lt;QUEUE|TOPIC|SUBSCRIPTION&gt;_ADDRESS: {{ quote .Values.container.&lt;identifier&gt;&lt;Queue|Topic|Subscription&gt;Address }}
+</code></pre>
+<p>Then create default values for these in the <code>container</code> section of the Helm Chart values file (<code>helm/&lt;REPO_NAME&gt;/values.yaml</code>):</p>
+<pre><code>container:
+  messageQueueHost: dummy
+  &lt;identifier&gt;&lt;Queue|Topic|Subscription&gt;Address: &lt;identifier&gt;
+</code></pre>
+<h2 id="add-queue-topic-and-subscription-names-to-azure-app-configuration">Add queue, topic and subscription names to Azure App Configuration</h2>
+<p>Azure App Configuration stores values required by the Jenkins CI pipelines. For each queue, topic and subscription create a key-value entry for each environment via the Azure Portal:</p>
+<ul>
+<li><strong>Key</strong>: <code>dev/container.&lt;identifier&gt;&lt;Queue|Topic|Subscription&gt;Address</code>; <strong>Value</strong>: <code>ffc-&lt;workstream&gt;-&lt;identifier&gt;-&lt;environment&gt;</code></li>
+</ul>
+<p>where <code>&lt;workstream&gt;</code> and <code>&lt;identifier&gt;</code> refer to those parts of the queue name described above, and <code>&lt;environment&gt;</code> denotes the environment e.g. <code>ffc-demo-payment-dev</code></p>
+<p><strong>Do not</strong> add a label to these App Configuration entries.</p>
+<h2 id="add-messaging-code-to-the-microservice">Add messaging code to the microservice</h2>
+<p>Update your microservice code using the relevant Azure authentication and Service Bus SDKs for your language.</p>
+<p>The easiest way to do this is by using the <a href="https://github.com/DEFRA/ffc-messaging#readme"><code>ffc-messaging</code> module</a>.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

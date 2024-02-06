@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/availability-alerts/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Availability Alert Setup Guide - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Availability Alert Setup Guide";
+        var mkdocs_page_input_path = "guides/availability-alerts.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/availability-alerts/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Availability Alert Setup Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="availability-alert-setup-guide">Availability Alert Setup Guide</h1>
+<p>Availability alerts send web request to an application at regular intervals from various different Azure region around the world. It will alert a set Action Group if an application isn't responding, or if it doesn't respond within a given timescale.</p>
+<p>The simplest test is a URL ping. A URL ping relys on a public accessible URL.</p>
+<h2 id="how-to-add-an-availability-alert">How to add an availability alert</h2>
+<p>The availability alerts are setup through the Azure Portal on the subscription where alerting is required.</p>
+<ol>
+<li>Select an Application Insight resource</li>
+<li>Click on the "Availibility" option under "Investigate" within the navigation pane.</li>
+<li>
+<p>Within the "Create Test" pane</p>
+<p>3.1. Within "Test name" add a name for the test</p>
+<p>3.2. Select "URL ping test" for the "Test type"</p>
+<p>3.3. Within URL add the URL for the web page you would like to test</p>
+<p>3.4. Select Parse dependent requests. This will include any dependencies (images, scripts, style files etc...) and test will fail if any these resources cannot be found. The response time will also include the loading of these dependecies.</p>
+<p>3.5. Select "Enable retries for availability test failures". This will ensure if a test fails, it is retried after a short interval.</p>
+<p>3.6. Select a "Test Frequency"</p>
+<p>3.7. Use the default 5 location(s) for the "Test locations". These are the Azure regions where the ping tests will send web requests from.</p>
+<p>3.8. Add the required "Success criteria"</p>
+<p>3.9. Click "Create"</p>
+</li>
+<li>
+<p>After a few minutes, click "Refreh" to see your test results</p>
+</li>
+<li>
+<p>To setup "Action Groups" for your alerts. Click on the elipseat the side of the test, to open the menu</p>
+</li>
+<li>
+<p>Click on "Open Rules (Alerts) page</p>
+</li>
+<li>
+<p>Within the "Rules Management" screen, Click on the Rule for the Availability Alert</p>
+</li>
+<li>
+<p>Under "Actions" Click on "Manage action groups"</p>
+</li>
+<li>
+<p>Within the "Select an action group..." pane, Click "Create action group"</p>
+<p>9.1. Under "Basics" and "Instance Details" add an "Action name" and a "Display name"</p>
+<p>9.2. Click "Next:Notifications &gt; "</p>
+<p>9.3. Under "Notifications" Select "Email/SMS message/Push/Voice". Within the pane, select "Email" and enter an email address. Click "Ok".</p>
+<p>9.4. Click "Review + create"</p>
+<p>9.5. Click "Create"</p>
+</li>
+</ol>
+<h2 id="reference">Reference</h2>
+<p>https://docs.microsoft.com/en-us/azure/azure-monitor/app/monitor-web-app-availability</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

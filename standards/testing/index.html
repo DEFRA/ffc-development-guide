@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/standards/testing/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Testing - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Testing";
+        var mkdocs_page_input_path = "standards/testing.md";
+        var mkdocs_page_url = "/ffc-development-guide/standards/testing/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../guides/">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Testing</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="testing">Testing</h1>
+<p>To support developer agility and consistent interpretation of the FFC Test Strategy, a common test structure has been agreed for usage across FFC microservices.</p>
+<h2 id="static-code">Static code</h2>
+<p>SonarCloud will provide static code analysis on all repositories regardless of technology choice.  </p>
+<p>In addition to SonarCloud, any JavaScript code is also linted using <a href="https://standardjs.com/">StandardJs</a>.  This linting is performed of a test script in package.json which is also run in CI pipeline.</p>
+<p>There is no linting used for C# in the programme at present.</p>
+<h2 id="unit">Unit</h2>
+<p>Unit tests should be used to: </p>
+<p>target functionality that is not already covered through contract or integration testing</p>
+<p>add extra assurance or visibility to specific functionality, for example an application that runs a series of calculations to determine a monetary value, may benefit from individual unit tests for each calculation.</p>
+<p>Code should be written so that where unit tests are required, mocking is not required if possible or is minimal.</p>
+<p>Unit tests should mock immediate dependencies only.</p>
+<h2 id="integration">Integration</h2>
+<p>Integration tests verify the interactions of several components, rather than a single unit. They are classified further into narrow and local integration tests. </p>
+<h3 id="narrow-integration">Narrow integration</h3>
+<p>Narrow integration tests should be considered as tests that are bigger than unit tests, but smaller than integration involving other services or modules.</p>
+<p>For example where a unit test would traditionally mock a web server, a narrow integration test may start the web server albeit without exposing any ports externally.</p>
+<p>Narrow integration tests should mock immediate dependencies only.</p>
+<h3 id="local-integration">Local integration</h3>
+<p>Local integration tests should cover functionality that integrates with dependencies that are local to the service, for example message queues and databases.</p>
+<p>Rather than mocking the database or queue, local integration tests could use a database or message queue container.  This reduces the need for mocks, increasing developer agility, reducing test complexity and a higher level of confidence in tests.</p>
+<p>Where integration with third party services are needed, not covered by contract tests, then tests should be make use use of Docker containers and stubs to reduce the need for mocking.</p>
+<h2 id="contract">Contract</h2>
+<p>Contract tests should cover all provider-consumer relationships with other services that are owned by FFC.  Where one side of the contract is not owned by FFC then more traditional provider-driven or even broad integration tests with test instances of those services may be preferred.  </p>
+<p>Contract tests should mock the immediate dependencies of the contract similar to unit tests. </p>
+<p>Service architectures should be written in such a way that reduce the need for these higher risk contracts.  For example introducing an FFC managed API gateway between third party services and FFC, would allow all FFC services to contract test against the API gateway abstraction.  More complicated end to end testing is then restricted to only the API gateway.</p>
+<h2 id="acceptance">Acceptance</h2>
+<p>Acceptance tests should cover key journeys through the application flow via the user interface. These are  defined in a Gherkin syntax (Given, When, Then) and use cucumber and webdriver.io to mimic a scenario from the user perspective. They’re executed against the microservices integrated and running as the complete service with the exception of external services (outside of the platform) which are stubbed.</p>
+<h2 id="repository-structure">Repository structure</h2>
+<h3 id="nodejs">Node.js</h3>
+<ul>
+<li>app - all application code</li>
+<li>test</li>
+<li>unit - unit tests</li>
+<li>integration - integration tests<ul>
+<li>narrow - narrow integration tests</li>
+<li>local - local integration tests</li>
+</ul>
+</li>
+<li>contract - contract tests</li>
+<li>acceptance - acceptance tests (for frontend applications)</li>
+</ul>
+<p>The integration tests are separated in the folder structure to reflect their different dependencies. </p>
+<p>This enables narrow integration tests that have no external dependencies to be easily run in isolation from the local integration tests.</p>
+<h4 id="standards">Standards</h4>
+<ul>
+<li>test files should be suffixed with <code>test.js</code> </li>
+<li>test subfolders should be as flat as possible and not mirror application code structure</li>
+<li>tests should be named so it is clear which module they relate to.  For example a module caclulations/gross.js could have a test file called, calcuation-gross.test.js</li>
+</ul>
+<h3 id="net-core">.NET Core</h3>
+<ul>
+<li>App - application csproj</li>
+<li>App.Tests - application tests csproj</li>
+<li>Integration</li>
+<li>Unit</li>
+<li>Contract</li>
+<li>Acceptance (for frontend applications)</li>
+</ul>
+<h4 id="standards_1">Standards</h4>
+<ul>
+<li>tests should be named so it is clear which module they relate to.</li>
+<li>all test types should be in one project</li>
+</ul>
+<h2 id="running-tests">Running tests</h2>
+<ul>
+<li>all tests should be executed in CI</li>
+<li>a <code>docker-compose.test.yaml</code> must exist in the repository to support running tests in CI.</li>
+<li>for local development, it may be beneficial to create a script/ Docker Compose combination to aid test environment setup and to take advantage of file watching.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

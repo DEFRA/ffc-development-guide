@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Setup developer laptop - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Setup developer laptop";
+        var mkdocs_page_input_path = "guides/developer-laptop-setup/README.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/developer-laptop-setup/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Setup developer laptop</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="setup-developer-laptop">Setup developer laptop</h1>
+<p>Developers are free to use any Defra approved device as long as they adhere to Defra's guidance on <a href="https://github.com/DEFRA/software-development-standards/blob/master/guides/unmanaged_devices.md">use of unmanaged devices</a>. </p>
+<p>The most common environments are Windows with <a href="https://learn.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux (WSL)</a> Ubuntu distro and macOS.</p>
+<p><a href="https://code.visualstudio.com/">Visual Studio Code</a> is the preferred code editor and what the below setup steps will assume.  However, developers are free to use any compatible equivalent if it aides in their productivity.</p>
+<p>This guide will be targeted towards those setups. For Windows, all mention of terminal commands should be run in WSL unless specified otherwise.</p>
+<h2 id="microsoft-intune">Microsoft InTune</h2>
+<p>Microsoft InTune allows an off network device access to Defra O365 resources such as Outlook and Sharepoint.</p>
+<p>As InTune requires a new user profile to be created on the device, it is recommended that developers request and complete InTune enrolment before following this guide, to avoid duplicating setup effort.</p>
+<p>See <a href="../jlm/">Joiners, movers and leavers</a> for enrolment steps.</p>
+<h2 id="configuration-steps">Configuration steps</h2>
+<h3 id="windows">Windows</h3>
+<ul>
+<li>[ ] <a href="install-wsl/">Install Windows Subsystem for Linux (WSL)</a></li>
+<li>[ ] <a href="mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a></li>
+<li>[ ] <a href="setup-sudoers/">Add user to sudoers file (optional)</a></li>
+</ul>
+<h3 id="macos">MacOS</h3>
+<ul>
+<li>[ ] <a href="setup-macbook/">Setup MacBook</a></li>
+</ul>
+<h3 id="general">General</h3>
+<ul>
+<li>[ ] <a href="sign-commits/">Setup commit signing</a></li>
+<li>[ ] <a href="install-vs-code/">Install IDE</a></li>
+<li>[ ] <a href="install-sonarlint/">Install SonarLint</a></li>
+<li>[ ] <a href="install-docker-compose/">Install Docker Compose</a></li>
+<li>[ ] <a href="install-detect-secrets/">Install detect-secrets</a></li>
+<li>[ ] <a href="install-node-version-manager/">Install Node Version Manager (NVM)</a></li>
+<li>[ ] <a href="install-dotnet-sdk/">Install .NET SDK</a></li>
+<li>[ ] <a href="install-kubectl/">Install kubectl</a></li>
+<li>[ ] <a href="installing-helm/">Install Helm</a></li>
+<li>[ ] <a href="install-azure-cli/">Install Azure CLI</a></li>
+<li>[ ] <a href="install-snyk/">Install Snyk CLI</a></li>
+<li>[ ] <a href="install-github/">Install GitHub CLI</a></li>
+<li>[ ] <a href="install-openvpn/">Install OpenVPN</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

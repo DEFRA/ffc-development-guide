@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/standards/configuration-management/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Configuration management - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Configuration management";
+        var mkdocs_page_input_path = "standards/configuration-management.md";
+        var mkdocs_page_url = "/ffc-development-guide/standards/configuration-management/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../guides/">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Configuration management</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="configuration-management">Configuration management</h1>
+<p>Non sensitive application configuration data is persisted in <a href="https://azure.microsoft.com/en-gb/services/app-configuration/">Azure Application Configuration</a>.</p>
+<p>Sensitive application data is persisted in <a href="https://azure.microsoft.com/en-gb/services/key-vault/">Azure Key Vault</a> and referenced from Application Configuration.</p>
+<p>One instance of Azure Key Vault and Azure Application Configuration will exist in every FFC Azure subscription.</p>
+<p>The configuration keys used in Application Configuration must follow FFC naming convention below to ensure that CI and CD pipelines can retrieve values in a predictable and efficient way.</p>
+<h2 id="helm-values-in-deployment">Helm values in deployment</h2>
+<p>During deployment, our CI or CD pipeline will read the <code>values.yaml</code> file in the Helm chart to identify all potential configuration values that may need to be sourced from Application Configuration and then matches each of them by key name.</p>
+<p>For example, if a helm chart contains the below, then the key to be matched will be <code>container.port</code>.</p>
+<pre><code>container:
+  port: 3000
+</code></pre>
+<p>If a key exists then the value, <code>3000</code> in the example, will be overwritten with the value in Application Configuration.</p>
+<h2 id="key-naming-standards">Key naming standards</h2>
+<p>As all FFC teams will be sharing a single instance of Application Configuration in each subscription and that subscription may host multiple environments, we need to ensure our key naming convention is scalable, performant and avoids duplication where possible.</p>
+<p>There are five accepted formats a key name can follow.  The examples all use the <code>container.port</code> key as a demonstration for simplicity.</p>
+<h3 id="commonkey"><code>common/key</code></h3>
+<p>These are values that are consistent, regardless of service or environment. </p>
+<p>For example <code>common/container.port</code> would mean all services would all get the same value wherever they deploy.</p>
+<p>The <code>common/</code> text is necessary due to the limitation the Azure CLI used in pipelines returns keys. 
+Without the prefix there would be no way to only return these common items.</p>
+<h3 id="environmentkey"><code>environment/key</code></h3>
+<p>These are values that are environment specific, but not service specific.  </p>
+<p>For example, <code>dev/container.port</code> would mean all services would get the same value when deploying to the <code>dev</code> environment.</p>
+<h3 id="servicecommonkey"><code>service/common/key</code></h3>
+<p>These are values that are service specific, but not environment specific.</p>
+<p>For example, <code>ffc-demo/common/container.port</code> would mean all deployments belonging to the <code>ffc-demo</code> service would get the same value wherever they deploy.</p>
+<p>As before the <code>/common/</code> text is necessary to ensure the Azure CLI returns only relevant values.</p>
+<h3 id="serviceenvironmentkey"><code>service/environment/key</code></h3>
+<p>These are values that are service and environment specific.</p>
+<p>For example, <code>ffc-demo/dev/container.port</code> would mean all deployments belonging to the <code>ffc-demo</code> service would get the same value when deploying to the <code>dev</code> environment.</p>
+<h3 id="prkey"><code>pr/key</code></h3>
+<p>These are only used for PR deployments in CI when you need to provide a different value for that PR deployment and still be able to provide individual microservie labels (see below).  They are also used by CI to obtain dynamic infrastructure values.</p>
+<p>For example, <code>pr/container.port</code> would mean all PR deployments would get the same port value.</p>
+<h2 id="microservice-specific-values">Microservice specific values</h2>
+<p>When you want to provide a value depending on the specific microservice and not just the service you can add a different label to that key referencing the name of the microservice.</p>
+<p>For example, if you have a key <code>ffc-demo/common/container.port</code> with an unlabelled value of <code>4000</code> and a value of <code>5000</code> labelled <code>ffc-demo-web</code>, then all <code>ffc-demo</code> services would get a value of <code>4000</code> except the <code>ffc-demo-web</code> microservice which would get <code>5000</code>.</p>
+<h2 id="order-values-are-overridden">Order values are overridden</h2>
+<p>Within the CI and CD pipelines, the values will be sourced and overwritten in the following order.</p>
+<ol>
+<li><code>common/key</code></li>
+<li><code>common/key</code> plus microservice label</li>
+<li><code>environment/key</code></li>
+<li><code>environment/key</code> plus microservice label</li>
+<li><code>service/common/key</code></li>
+<li><code>service/common/key</code> plus microservice label</li>
+<li><code>service/environment/key</code></li>
+<li><code>service/environment/key</code> plus microservice label</li>
+<li><code>pr/key</code> (CI PR deployment only)</li>
+<li><code>pr/key</code> plus microservice label (CI PR deployment only)</li>
+</ol>
+<h2 id="deciding-which-convention-to-use">Deciding which convention to use</h2>
+<p>To improve performance in CI, keys should follow a convention that gives the narrowest scope possible.  </p>
+<p>For example, if a value is only used for one service or will vary depending on the service then it should be scoped to either <code>service/common</code> or <code>service/environment</code></p>
+<p>Only values that are used by everyone should be scoped to <code>common/</code> or <code>environment/</code></p>
+<h3 id="exceptions-to-the-rule">Exceptions to the rule</h3>
+<p>The are some values that are exceptions to this rule because of dynamic infrastructure provisioning and related test execution in CI.</p>
+<blockquote>
+<p>Note: these exceptions only apply to the Sandpit (<code>SND</code>) environment.</p>
+</blockquote>
+<h4 id="ingress-values">Ingress values</h4>
+<p>FFC Helm charts define their ingress resources like the below:</p>
+<pre><code>ingress:
+  server:
+  endpoint:
+  class:
+</code></pre>
+<p>These values must use the hierarchy <code>environment/key</code> for example <code>dev/ingress.server</code> and use labels to separate each service's value.</p>
+<h4 id="database-values">Database values</h4>
+<p>FFC Helm charts define their database names like the below:</p>
+<pre><code>postgresService:
+  postgresUser:
+  postgresDb:
+</code></pre>
+<p>These values must use the hierarchy <code>environment/key</code> for example <code>dev/postgresService.postgresUser</code> and use labels to separate each service's value. </p>
+<h2 id="updating-values">Updating values</h2>
+<p>In Sandpit, values are added direct to Application Configuration via the Azure Portal or Azure CLI.</p>
+<p>In higher environments values are added by an Azure DevOps pipeline that sources configuration from a <a href="https://dev.azure.com/defragovuk/DEFRA-FFC/_git/DEFRA-FFC-INFRA?path=/arm-templates/app-config/parameters">git repository</a>.</p>
+<p>Full details for maintaining application configuration can be found in <a href="https://dev.azure.com/defragovuk/DEFRA-FFC/_wiki/wikis/DEFRA-FFC.wiki/5183/App-Configuration-Changes">this wiki</a>.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

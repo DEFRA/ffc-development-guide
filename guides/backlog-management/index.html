@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/guides/backlog-management/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Backlog management - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Backlog management";
+        var mkdocs_page_input_path = "guides/backlog-management.md";
+        var mkdocs_page_url = "/ffc-development-guide/guides/backlog-management/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../standards/">Standards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">Guides</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Backlog management</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="backlog-management">Backlog management</h1>
+<h2 id="sizing-tickets">Sizing tickets</h2>
+<p>Teams may find it beneficial to score tickets to help plan their sprints and calculate delivery estimates. There are several techniques that could be applied to aide with this including:
+- Scrum Poker
+- T-shirt sizing
+- Large, uncertain, small
+- The Bucket system</p>
+<h2 id="board-format">Board format</h2>
+<p>Whether following a Scrum or Kanban approach, teams should have a board to support agile delivery. A board helps team visualise, prioritise and plan their work.</p>
+<p>As well as a virtual board in Jira it would be advantageous to have a physical board mirroring the content.</p>
+<p>The columns within the board should be decided by the team and integrated upon if opportunities to improve delivery are identified.</p>
+<p>The below represents a good starting position for a board.</p>
+<h3 id="backlog">Backlog</h3>
+<p>Issues that need refinement. Scrum teams may find it better to omit this column and only include issues that are in the current sprint on the board.</p>
+<h3 id="to-do">To do</h3>
+<p>Refined issues with full description and acceptance criteria. The team have agreed that these stories are a current priority and are ready to be worked on.</p>
+<h3 id="in-progress">In progress</h3>
+<p>Issues currently being worked on. These issues should be assigned to a team member. Team members should work on one story at a time where possible to manage Work in Progress (WIP). Kanban teams may impose a WIP limit to control the throughput of work.</p>
+<h3 id="review">Review</h3>
+<p>Issues that have been completed by the team and are ready for review. The review be undertaken by another member of the team who confirms that all acceptance criteria has been met and the issue is done. For code based issues, this review is likely to be a <a href="../../standards/code-review/">code review</a>.</p>
+<p>It is the responsibility of the person who worked on the task to find a reviewer. The issue should be reassigned to the reviewer who becomes the new owner.</p>
+<p>Teams should not pick up new issues if there are outstanding issues to review to prevent a bottleneck.</p>
+<h3 id="done">Done</h3>
+<p>Issues that have been delivered and successfully reviewed.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
