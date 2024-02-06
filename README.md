@@ -73,6 +73,25 @@ The [Quick reference](standards/quick-reference.md) page gives a high level summ
   - [VS Code and WSL1](guides/vs-code-wsl1.md)
   - [WAF waivers](guides/waf-waivers.md)
 
+## Updating the guide
+
+For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+
+## Commands
+
+* `mkdocs new [dir-name]` - Create a new project.
+* `mkdocs serve` - Start the live-reloading docs server.
+* `mkdocs build` - Build the documentation site.
+* `mkdocs -h` - Print help message and exit.
+
+## Project layout
+
+    mkdocs.yml    # The configuration file.
+    docs/
+        index.md  # The documentation homepage.
+        ...       # Other markdown pages, images and other files.
+
+
 
 ## Licence
 
