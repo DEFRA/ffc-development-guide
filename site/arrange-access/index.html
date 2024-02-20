@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/standards/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/arrange-access/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Standards - FCP Development Guide</title>
+    <title>Arrange access - FCP Development Guide</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Standards";
-        var mkdocs_page_input_path = "standards/index.md";
-        var mkdocs_page_url = "/ffc-development-guide/standards/";
+        var mkdocs_page_name = "Arrange access";
+        var mkdocs_page_input_path = "arrange-access.md";
+        var mkdocs_page_url = "/ffc-development-guide/arrange-access/";
       </script>
     
     <!--[if lt IE 9]>
@@ -43,8 +43,28 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Farming and Countryside Programme (FCP) Development Guide</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../arrange-access/">Arrange access</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Arrange access</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#azure-ad-administrative-account">Azure AD administrative account</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#access-to-the-azure-portal">Access to the Azure Portal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#access-to-azure-kubernetes-service-aks">Access to Azure Kubernetes Service (AKS)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#jenkins">Jenkins</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#synk">Synk</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#github">GitHub</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#azure-devops">Azure DevOps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#collaboration-channels">Collaboration channels</a>
+    </li>
+    </ul>
                 </li>
               </ul>
               <ul>
@@ -174,64 +194,60 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Standards</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Standards</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a>
-    </li>
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/">Standards</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="api/">API Standards</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/api/">API Standards</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="backlog-management/">Backlog management</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/backlog-management/">Backlog management</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="ci-pipeline/">FFC CI pipeline</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/ci-pipeline/">FFC CI pipeline</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="code-review/">Code review</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/code-review/">Code review</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="configuration-management/">Configuration management</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/configuration-management/">Configuration management</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="documentation/">Documentation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/documentation/">Documentation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="events/">Events and messages</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/events/">Events and messages</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="jenkins/">Jenkins</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/jenkins/">Jenkins</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="quick-reference/">Quick reference</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/quick-reference/">Quick reference</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="release-notes/">Release notes</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/release-notes/">Release notes</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="route-to-live/">Route to live</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/route-to-live/">Route to live</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="secrets-management/">Secrets Management</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/secrets-management/">Secrets Management</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="source-code/">Source code</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/source-code/">Source code</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="technology-stack/">Technology Stack</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/technology-stack/">Technology Stack</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="testing/">Testing</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/testing/">Testing</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="version-control/">Version Control</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../standards/version-control/">Version Control</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">Kubernetes</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="kubernetes/">Kubernetes</a>
+                <li class="toctree-l2"><a class="reference internal" href="../standards/kubernetes/">Kubernetes</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="kubernetes/configuration/">Configuration</a>
+                <li class="toctree-l2"><a class="reference internal" href="../standards/kubernetes/configuration/">Configuration</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="kubernetes/helm-charts/">Helm chart</a>
+                <li class="toctree-l2"><a class="reference internal" href="../standards/kubernetes/helm-charts/">Helm chart</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="kubernetes/labels/">Labels</a>
+                <li class="toctree-l2"><a class="reference internal" href="../standards/kubernetes/labels/">Labels</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="kubernetes/priority/">Pod priority</a>
+                <li class="toctree-l2"><a class="reference internal" href="../standards/kubernetes/priority/">Pod priority</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="kubernetes/probes/">Probes</a>
+                <li class="toctree-l2"><a class="reference internal" href="../standards/kubernetes/probes/">Probes</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="kubernetes/rbac/">Role Based Access Control (RBAC)</a>
+                <li class="toctree-l2"><a class="reference internal" href="../standards/kubernetes/rbac/">Role Based Access Control (RBAC)</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="kubernetes/resource-usage/">Resource usage</a>
+                <li class="toctree-l2"><a class="reference internal" href="../standards/kubernetes/resource-usage/">Resource usage</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="kubernetes/secrets/">Secrets</a>
+                <li class="toctree-l2"><a class="reference internal" href="../standards/kubernetes/secrets/">Secrets</a>
                 </li>
     </ul>
                   </li>
@@ -250,8 +266,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Standards</li>
-      <li class="breadcrumb-item active">Standards</li>
+      <li class="breadcrumb-item active">Arrange access</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -260,42 +275,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="standards">Standards</h1>
-<p>These standards must be adhered to by all FCP developers.</p>
-<h2 id="contents">Contents</h2>
-<ul>
-<li><a href="api/">APIs</a></li>
-<li><a href="backlog-management/">Backlog management</a></li>
-<li><a href="code-review/">Code reviews</a></li>
-<li><a href="configuration-management/">Configuration management</a></li>
-<li><a href="documentation/">Documentation</a></li>
-<li><a href="events/">Events and messages</a></li>
-<li><a href="ci-pipeline/">FFC CI pipeline</a></li>
-<li><a href="jenkins/">Jenkins</a></li>
-<li><a href="kubernetes/">Kubernetes</a></li>
-<li><a href="kubernetes/configuration/">Configuration</a></li>
-<li><a href="kubernetes/helm-charts/">Helm charts</a></li>
-<li><a href="kubernetes/labels/">Labels</a></li>
-<li><a href="kubernetes/priority/">Pod priority</a></li>
-<li><a href="kubernetes/probes/">Probes</a></li>
-<li><a href="kubernetes/rbac/">Role Based Access Control (RBAC)</a></li>
-<li><a href="kubernetes/resource-usage/">Resource management</a></li>
-<li><a href="kubernetes/secrets/">Secrets</a></li>
-<li><a href="quick-reference/">Quick reference</a></li>
-<li><a href="release-notes/">Release notes</a></li>
-<li><a href="route-to-live/">Route to live</a></li>
-<li><a href="secrets-management/">Secrets management</a></li>
-<li><a href="source-code/">Source code</a></li>
-<li><a href="technology-stack/">Technology stack</a></li>
-<li><a href="testing/">Testing</a></li>
-<li><a href="version-control/">Version control</a></li>
-</ul>
+                <h1 id="arrange-access">Arrange access</h1>
+<p>Developers will need access to several resources and communication channels in order to be productive.</p>
+<p>Access to some resources can take time to arrange, so it's important to start this process as soon as possible.</p>
+<h2 id="azure-ad-administrative-account">Azure AD administrative account</h2>
+<p>FCP environments are hosted on Azure.  Access to the Azure Portal is restricted to those with an Azure AD administrative account.</p>
+<p>These accounts follow the naming convention <code>a-&lt;initials&gt;.&lt;surname&gt;@defra.onmicrosoft.com</code>.</p>
+<p>The must be requested from ServiceNow under the catalogue item <code>O365/AzureAD Platform Admin</code>.</p>
+<p>The comments should make clear that the request is for a <code>a-</code> Microsoft administrative account for Azure Portal.</p>
+<h3 id="access-to-the-azure-portal">Access to the Azure Portal</h3>
+<p>Once the account has been created, the user will be able to access the Azure Portal.</p>
+<p>A request should be raised in ServiceNow for CCoE to provide access to the FCP Azure subscriptions.</p>
+<p>FCP environments are split across three Azure tenants, Development, PreProduction and Production.</p>
+<p>If a developer has Security Clearance, they can request access to the PreProduction and Production tenants.  Otherwise they will only be able to access the Development tenant.  The request should make clear which environments the developer requires access to.  </p>
+<blockquote>
+<p>Evidence of Security Clearance will be requested by CCoE prior to completing the request</p>
+</blockquote>
+<h3 id="access-to-azure-kubernetes-service-aks">Access to Azure Kubernetes Service (AKS)</h3>
+<p>As AKS is the primary compute hosting platform for FCP, developers will need to be added to the appropriate Kubernetes Cluster role.  This will allow access to Kubernetes using client tools such as <code>kubectl</code> or <code>Lens</code>.</p>
+<p>As with the Azure Portal, developers can only be added to the PreProduction and Production clusters if they have Security Clearance.</p>
+<p>A read only role, is all that is permitted for developers in PreProduction and Production.</p>
+<p>A request should be raised in ServiceNow for CCoE to provide access to the FCP AKS clusters.</p>
+<h2 id="jenkins">Jenkins</h2>
+<p>Jenkins is used for CI/CD in FCP.  Developers will need a <code>.dtz</code> account to access Jenkins.</p>
+<p>A request should be raised in ServiceNow for CCoE to provide access to Jenkins.</p>
+<h2 id="synk">Synk</h2>
+<p>Synk is used for security scanning of code dependencies.  </p>
+<p>An FCP organisation has been created in Synk and developers will need to be added to it.</p>
+<p>Contact one of Defra's Principal Developers to arrange access.</p>
+<h2 id="github">GitHub</h2>
+<p>FCP uses GitHub for source control within the <a href="https://github.com/DEFRA">Defra</a> organisation.</p>
+<p>As per GDS standards, code is open source by default.</p>
+<p>Developers will need to be added to the <code>FFC</code> GitHub team.</p>
+<p>Two Factor Authentication (2FA) and commit signing are mandatory for all GitHub accounts.</p>
+<p>Contact one of Defra's Principal Developers to arrange access.</p>
+<h2 id="azure-devops">Azure DevOps</h2>
+<h2 id="collaboration-channels">Collaboration channels</h2>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../local-development-setup/sign-commits/" class="btn btn-neutral float-left" title="Setup commit signing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="api/" class="btn btn-neutral float-right" title="API Standards">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href=".." class="btn btn-neutral float-left" title="Farming and Countryside Programme (FCP) Development Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../getting-started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -318,10 +339,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../local-development-setup/sign-commits/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="api/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../getting-started/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
