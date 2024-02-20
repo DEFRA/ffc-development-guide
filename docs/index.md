@@ -6,6 +6,14 @@ The purpose of the standards are to ensure that delivery supports the Architectu
 
 The guide also provides help and support for common setup and problem solving.
 
+## Architecture Vision
+
+The FCP Architecture vision is to deliver a modern, cloud native, event driven microservice ecosystem.
+
+Containerised Node.js microservices are the primary delivery mechanism for the programme.  These are deployed to the Azure Kubernetes service (AKS) and are expected to be highly available, scalable and resilient.
+
+For scenarios where Node.js is not appropriate, Defra's secondary framework and language is .NET and C#.
+
 ## Defra standards
 
 The standards and guidance contained here is intended to be an FCP context specific layer over Defra's wider development standards.
