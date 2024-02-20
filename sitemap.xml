@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://defra.github.io/ffc-development-guide/arrange-access/</loc>
+         <lastmod>2024-02-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://defra.github.io/ffc-development-guide/getting-started/</loc>
          <lastmod>2024-02-20</lastmod>
          <changefreq>daily</changefreq>
