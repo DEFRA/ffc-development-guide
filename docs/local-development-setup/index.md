@@ -26,11 +26,12 @@ InTune requires that the user profile on a device is an organisation account.  S
 
 ### Common
 1. [Install Docker Desktop](install-docker-desktop.md)
-1. [Setup commit signing](sign-commits.md)
 1. [Install IDE](install-vs-code.md)
+1. [Install StandardJs](install-standard-js.md)
 1. [Install SonarLint](install-sonarlint.md)
+1. [Setup commit signing](sign-commits.md)
 1. [Install Docker Compose](install-docker-compose.md)
-1. [Install detect-secrets](install-detect-secrets.md)
+1. [Install Detect Secrets](install-detect-secrets.md)
 1. [Install Node Version Manager (NVM)](install-node-version-manager.md)
 1. [Install .NET SDK](install-dotnet-sdk.md)
 1. [Install kubectl](install-kubectl.md)

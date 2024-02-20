@@ -10,7 +10,7 @@ The guide also provides help and support for common setup and problem solving.
 
 The FCP Architecture vision is to deliver a modern, cloud native, event driven microservice ecosystem.
 
-Containerised Node.js microservices are the primary delivery mechanism for the programme.  These are deployed to the Azure Kubernetes service (AKS) and are expected to be highly available, scalable and resilient.
+Containerised Node.js with JavaScript microservices are the primary delivery mechanism for the programme.  These are deployed to the Azure Kubernetes service (AKS) and are expected to be highly available, scalable and resilient.
 
 For scenarios where Node.js is not appropriate, Defra's secondary framework and language is .NET and C#.
 

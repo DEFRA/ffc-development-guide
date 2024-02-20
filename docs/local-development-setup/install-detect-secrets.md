@@ -1,4 +1,4 @@
-# Install `detect-secrets`
+# Install Detect Secrets
 
 Prevent committing passwords and other sensitive information to git repositories.
 
@@ -15,8 +15,8 @@ support for scanning git commits for different types of credentials including ke
 ### Python
 
 Install `python` version 3, download the latest version for your operating system
-- Windows - https://www.python.org/downloads/windows/
-- Mac OS - https://www.python.org/downloads/mac-osx/
+- [Windows](https://www.python.org/downloads/windows/)
+- [Mac OS](https://www.python.org/downloads/mac-osx/)
 
  Once downloaded, run the .exe (windows) or .pkg (macOS) file. Follow the on screen prompts, after successful installation run the following commands to confirm Python was successfully installed.
   - Windows - Open Powershell/Command Prompt and type `python --verison`, it should report the version
@@ -25,7 +25,7 @@ Install `python` version 3, download the latest version for your operating syste
 #### WSL
 
 If using WSL2 with Docker Desktop then python should already be installed.  However, if needed it can be added with the following guide:
-  - WSL - https://docs.python-guide.org/starting/install3/linux/
+  - [WSL](https://docs.python-guide.org/starting/install3/linux/)
 
 Once successfully installed, run the command `python3 –-version`, it should report the version
 

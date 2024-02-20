@@ -91,46 +91,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../guides/waf-waiver/">WAF waivers</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Developer laptop setup</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/">Setup developer laptop</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-azure-cli/">Install Azure CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-detect-secrets/">Install detect-secrets</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-docker-compose/">Install Docker Compose</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-dotnet-sdk/">Install .NET SDK</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-github/">Install GitHub CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-kubectl/">Install kubectl</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-node-version-manager/">Install Node Version Manager</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-openvpn/">Install OpenVPN</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-snyk/">Install Snyk CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-sonarlint/">Install SonarLint</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-vs-code/">Install IDE</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/installing-helm/">Install Helm</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-macbook/">Setup developer macbook</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-sudoers/">Add user to sudoers file</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/sign-commits/">Signing commits</a>
-                </li>
-    </ul>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">Kubernetes</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../guides/kubernetes/">Kubernetes</a>
@@ -172,7 +132,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-azure-cli/">Install Azure CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install detect-secrets</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install Detect Secrets</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-docker-compose/">Install Docker Compose</a>
                   </li>
@@ -180,7 +140,7 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Install .NET SDK</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#choose-version-or-use-recommended">Choose version (or use recommended)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#choose-version-or-use-lts">Choose version (or use LTS)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#verify-installation">Verify installation</a>
     </li>
@@ -202,6 +162,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-sonarlint/">Install SonarLint</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-standard-js/">Install StandardJs</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-vs-code/">Install IDE</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
@@ -214,7 +176,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../setup-sudoers/">Add user to sudoers file</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../sign-commits/">Signing commits</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../sign-commits/">Setup commit signing</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Standards</span></p>
@@ -302,18 +264,20 @@
               
                 <h1 id="install-net-sdk">Install .NET SDK</h1>
 <p>The .NET SDK is a set of libraries and tools that allow developers to create .NET applications and libraries.</p>
-<h2 id="choose-version-or-use-recommended">Choose version (or use recommended)</h2>
-<p>Select the version required then either a package manager or binary for your OS.</p>
-<p>https://dotnet.microsoft.com/download/dotnet</p>
-<p><strong>Note</strong> On MacOS, creation of symbolic links is missing from the installer after installation.
+<h2 id="choose-version-or-use-lts">Choose version (or use LTS)</h2>
+<p>Select the version required then either a package manager or binary for your OS from <a href="https://dotnet.microsoft.com/download/dotnet">Microsoft</a></p>
+<p><strong>Note</strong> On macOS, creation of symbolic links is missing from the installer after installation.
 To create them manually run</p>
-<p><code>ln -s /usr/local/share/dotnet/dotnet /usr/local/bin/</code></p>
+<pre><code class="language-bash">ln -s /usr/local/share/dotnet/dotnet /usr/local/bin/
+</code></pre>
 <h3 id="verify-installation">Verify installation</h3>
 <p>Check your installation was successful with</p>
-<p><code>dotnet --version</code></p>
+<pre><code class="language-bash">dotnet --version
+</code></pre>
 <h2 id="install-net-tools">Install .NET tools</h2>
 <p>As per <a href="https://docs.microsoft.com/en-us/ef/core/cli/dotnet">Microsoft's setup guide</a> the Entity Framework tools allow the creation and application of code first migrations can be installed with the command</p>
-<p><code>dotnet tool install --global dotnet-ef</code></p>
+<pre><code class="language-bash">dotnet tool install --global dotnet-ef
+</code></pre>
               
             </div>
           </div><footer>

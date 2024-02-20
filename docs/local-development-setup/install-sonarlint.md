@@ -8,12 +8,12 @@ This guide will demonstrate how to install the SonarLint extension in VS Code.  
 
 ## Dependencies
 
-- Java Runtime Environment v11+
+- Java Runtime Environment v17+
 
 With Ubuntu, the open source version of the Java Runtime Environment (JRE) can be installed using the following command.
 
 ```
-sudo apt-get install openjdk-11-jre
+sudo apt-get install openjdk-17-jre
 ```
 
 ## SonarLint Installation (VS Code)
@@ -21,7 +21,7 @@ sudo apt-get install openjdk-11-jre
 1. install [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension
 
 2. set location of JRE in VS Code settings.  The below example is the install location of the above command
-   ```
+   ```json
    "sonarlint.ls.javaHome": "/usr/lib/jvm/java-11-openjdk-amd64"
    ```
    **Note to WSL users** ensure that you update the **remote** `settings.json` file if you wish to use SonarLint in your linux environment.
@@ -33,7 +33,7 @@ This will give you Sonar code analysis using default quality gates for languages
 2. enter a token name and generate a token, noting the token value securely
 
 3. within VS Code, add a SonarCloud server connection to `settings.json` to enable `connected mode`
-   ```
+   ```json
    "sonarlint.connectedMode.connections.sonarcloud": [{
     "organizationKey": "defra",
     "token": "MY_TOKEN"
@@ -41,14 +41,14 @@ This will give you Sonar code analysis using default quality gates for languages
    ```
 
 4. within each project workspace, create or edit your workspace `settings.json` file to include a project link
-   ```
+   ```json
    "sonarlint.connectedMode.project": {
     "projectKey": "ffc-demo-payment-web"
    }
    ```
 **Note** if you have multiple SonarCloud instances then a `connectionId` property can be added to the two code snippets above to correctly bind a project to the correct SonarCloud instance.
 
-5. update project bindings by selecting `Update all project bindings to SonarQube/SonarCloud` from the VS Code `Command Palette`.  (`ctrl + shift + p` to open)
+5. update project bindings by selecting `Update all project bindings to SonarCloud` from the VS Code `Command Palette`.  (`ctrl + shift + p` to open)
 
 Rules, quality gates, exclusions etc set in the SonarCloud project will now be applied to local workspace.
 

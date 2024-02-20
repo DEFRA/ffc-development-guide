@@ -8,4 +8,4 @@ Install the client following the [OpenVPN documentation](https://openvpn.net/com
 
 ## Configure client
 
-Cloud Centre of Excellence (CCoE) will provide full client configuration instructions when setting up access for a developer.
+Cloud Centre of Excellence (CCoE) will provide full client configuration instructions when setting up access for a new FCP developer.

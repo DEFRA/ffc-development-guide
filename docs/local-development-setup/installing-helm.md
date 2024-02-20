@@ -12,7 +12,7 @@ removal of [Tiller](https://v2.helm.sh/docs/glossary/#tiller). This has
 resulted in a much easier installation process along with improving the
 management experience.
 
-All charts created by FFC are done so using Helm 3.
+All charts created by FCP are done so using Helm 3.
 
 ## Installation
 

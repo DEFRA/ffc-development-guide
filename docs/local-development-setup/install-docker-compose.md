@@ -10,17 +10,19 @@ It is also to be noted that `Compose` will not work with any volume mount ending
 
 For example, this will work:
 
-```
+```yaml
 - volumes:
   - ./app:/home/node/app
 ```
 
 This will not:
-```
+```yaml
 - volumes:
   - ./app/:/home/node/app/
 ```
 
 ## Installation
+
+> Only follow this if your current installation of Docker Desktop does not include Compose.
 
 Follow the [installation guide](https://docs.docker.com/compose/install/) provided by Docker for your OS.

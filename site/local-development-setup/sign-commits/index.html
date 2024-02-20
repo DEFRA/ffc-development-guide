@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/local-development-setup/sign-commits/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Signing commits - FCP Development Guide</title>
+    <title>Setup commit signing - FCP Development Guide</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Signing commits";
+        var mkdocs_page_name = "Setup commit signing";
         var mkdocs_page_input_path = "local-development-setup/sign-commits.md";
         var mkdocs_page_url = "/ffc-development-guide/local-development-setup/sign-commits/";
       </script>
@@ -91,46 +91,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../guides/waf-waiver/">WAF waivers</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Developer laptop setup</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/">Setup developer laptop</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-azure-cli/">Install Azure CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-detect-secrets/">Install detect-secrets</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-docker-compose/">Install Docker Compose</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-dotnet-sdk/">Install .NET SDK</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-github/">Install GitHub CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-kubectl/">Install kubectl</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-node-version-manager/">Install Node Version Manager</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-openvpn/">Install OpenVPN</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-snyk/">Install Snyk CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-sonarlint/">Install SonarLint</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-vs-code/">Install IDE</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/installing-helm/">Install Helm</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-macbook/">Setup developer macbook</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-sudoers/">Add user to sudoers file</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/sign-commits/">Signing commits</a>
-                </li>
-    </ul>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">Kubernetes</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../guides/kubernetes/">Kubernetes</a>
@@ -172,7 +132,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-azure-cli/">Install Azure CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install detect-secrets</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install Detect Secrets</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-docker-compose/">Install Docker Compose</a>
                   </li>
@@ -192,6 +152,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-sonarlint/">Install SonarLint</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-standard-js/">Install StandardJs</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-vs-code/">Install IDE</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
@@ -204,17 +166,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../setup-sudoers/">Add user to sudoers file</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Signing commits</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Setup commit signing</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#follow-these-instructions-to-generate-a-new-gpg-key">Follow these instructions to generate a new GPG Key</a>
+    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#signing-commits-via-vs-code">Signing commits via VS code</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#then-add-the-key-to-github">Then add the Key to github</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#signing-commits-when-using-the-ui">Signing commits when using the UI</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#signing-commits-via-vs-code">Signing commits via VS code</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#auto-sign-commits">Auto sign commits</a>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -293,7 +251,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Local development setup</li>
-      <li class="breadcrumb-item active">Signing commits</li>
+      <li class="breadcrumb-item active">Setup commit signing</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -302,21 +260,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="signing-commits">Signing commits</h1>
+                <h1 id="setup-commit-signing">Setup commit signing</h1>
 <p>You can sign commits and tags locally, so other people can verify that your work comes from a trusted source. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag as verified.</p>
 <p>If a commit or tag has a signature that cannot be verified, GitHub marks the commit or tag as unverified.</p>
 <p>You can check the verification status of your signed commits or tags on GitHub and view why your commit signatures might be unverified. </p>
-<h2 id="follow-these-instructions-to-generate-a-new-gpg-key">Follow these instructions to generate a new GPG Key</h2>
-<p>https://docs.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key</p>
-<h2 id="then-add-the-key-to-github">Then add the Key to github</h2>
-<p>https://docs.github.com/en/github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account</p>
-<h2 id="signing-commits-when-using-the-ui">Signing commits when using the UI</h2>
-<p>https://docs.github.com/en/github/authenticating-to-github/signing-commits</p>
-<h2 id="signing-commits-via-vs-code">Signing commits via VS code</h2>
-<p>To turn on signed commits in the UI make sure the "Enable commit signing with GPG or X.509" is ticked. For the JSON version of the settings use <code>"git.enableCommitSigning": true</code></p>
-<h2 id="auto-sign-commits">Auto sign commits</h2>
-<p>To automatically sign commits run the following command:
-<code>git config --global commit.gpgsign true</code></p>
+<h2 id="setup">Setup</h2>
+<p>Follow GitHub's instructions for setting up and configuring a GPG key.</p>
+<ol>
+<li><a href="https://docs.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key">Creating a new GPG key</a></li>
+<li><a href="https://docs.github.com/en/github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account">Adding a new GPG key to your GitHub account</a></li>
+<li><a href="https://docs.github.com/en/github/authenticating-to-github/telling-git-about-your-signing-key">Setup Git to use new GPG key</a></li>
+</ol>
+<h3 id="signing-commits-via-vs-code">Signing commits via VS code</h3>
+<p>To turn on signed commits in the VS Code UI, make sure the <code>Enable commit signing with GPG or X.509</code> is ticked. For the JSON version of the settings use <code>"git.enableCommitSigning": true</code></p>
               
             </div>
           </div><footer>

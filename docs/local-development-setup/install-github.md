@@ -4,7 +4,7 @@ GitHub allows interaction with GitHub via the command line.  Simplifying creatio
 
 For example, a new local branch can automatically be pushed to GitHub with a draft Pull Request with:
 
-```
+```bash
 gh pr create -d
 ```
 

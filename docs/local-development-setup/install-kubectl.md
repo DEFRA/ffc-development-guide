@@ -10,7 +10,7 @@ Follow the [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/ins
 
 ## Setup shell autocompletion (optional)
 
-```
+```bash
 sudo sh -c 'kubectl completion bash > /etc/bash_completion.d/kubectl'
 ```
 
@@ -26,7 +26,7 @@ Reference
 
 To add the frequently used alias `k` for `kubectl` add the following lines to your `.bashrc` file (the 2nd line adds autocomplete for the alias):
 
-```
+```bash
 alias k=kubectl
 complete -o default -F __start_kubectl k
 ```
@@ -39,7 +39,7 @@ https://github.com/ahmetb/kubectl-aliases/blob/0533366d8e3e3b3987cc1b7b07a7e8fcf
 
 Update your `.bashrc` file with the below to enable autocomplete on all aliases in the file.
 
-```
+```bash
 # Kubectl
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 source <(kubectl completion bash)
@@ -51,7 +51,7 @@ done
 
 For quick switching of Kubernetes contexts and namespaces, it may be beneficial to append the following lines to the `kubectl_aliases` file.
 
-```
+```bash
 alias kns='kubectl config set-context --current --namespace'
 alias kc='kubectl config use-context'
 ```

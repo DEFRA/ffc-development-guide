@@ -91,46 +91,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../guides/waf-waiver/">WAF waivers</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Developer laptop setup</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/">Setup developer laptop</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-azure-cli/">Install Azure CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-detect-secrets/">Install detect-secrets</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-docker-compose/">Install Docker Compose</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-dotnet-sdk/">Install .NET SDK</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-github/">Install GitHub CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-kubectl/">Install kubectl</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-node-version-manager/">Install Node Version Manager</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-openvpn/">Install OpenVPN</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-snyk/">Install Snyk CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-sonarlint/">Install SonarLint</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-vs-code/">Install IDE</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/installing-helm/">Install Helm</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-macbook/">Setup developer macbook</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-sudoers/">Add user to sudoers file</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/sign-commits/">Signing commits</a>
-                </li>
-    </ul>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">Kubernetes</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../guides/kubernetes/">Kubernetes</a>
@@ -172,7 +132,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-azure-cli/">Install Azure CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install detect-secrets</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install Detect Secrets</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-docker-compose/">Install Docker Compose</a>
                   </li>
@@ -192,17 +152,21 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-sonarlint/">Install SonarLint</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-standard-js/">Install StandardJs</a>
+                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Install IDE</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    <li class="toctree-l2"><a class="reference internal" href="#installation-vs-code">Installation VS Code</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vs-code-integration">VS Code Integration</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#install-standardjs">Install StandardJS</a>
+    <li class="toctree-l3"><a class="reference internal" href="#install-c-extension">Install C# Extension</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#install-c-extension">Install C# Extension</a>
+    <li class="toctree-l3"><a class="reference internal" href="#configure-autosave">Configure autosave</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configure-autosave">Configure autosave</a>
+    <li class="toctree-l3"><a class="reference internal" href="#indentation">Indentation</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#indentation">Indentation</a>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#wsl-configuration">WSL Configuration</a>
         <ul>
@@ -224,7 +188,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../setup-sudoers/">Add user to sudoers file</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../sign-commits/">Signing commits</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../sign-commits/">Setup commit signing</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Standards</span></p>
@@ -311,30 +275,29 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="install-ide">Install IDE</h1>
-<p>Developers are free to use their own IDE/text editor of choice.  However, this guide will assume <a href="https://code.visualstudio.com/">Visual Studio Code</a> will be used as that is the most commonly used tool in FFC and Defra.</p>
+<p>Developers are free to use their own IDE/text editor of choice.  However, this guide will assume <a href="https://code.visualstudio.com/">Visual Studio Code</a> will be used as that is the most commonly used tool in FCP and Defra.</p>
 <p>If not using VS Code, this guide should still be read to ensure that the equivalent installation steps are applied.</p>
 <p>Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control and GitHub, syntax highlighting, intelligent code completion, snippets, and code refactoring.</p>
-<h2 id="installation">Installation</h2>
-<p>Install OS specific version via download from https://code.visualstudio.com/download</p>
-<h2 id="install-standardjs">Install StandardJS</h2>
-<p>In line with Defra's digital standards for JavaScript, StandardJS coding standards should be used. Visual Studio has an extension to validate syntax for StandardJS.
-1. Install StandardJS extension
-1. Disable VS Code JavaScript Validation by adding <code>"javascript.validate.enable": false</code> to settings.json
-1. Install StandardJS locally or globally
-  <code>npm install standard</code>
-1. Set auto fix on save by adding <code>"standard.autoFixOnSave": true</code> to settings.json</p>
-<h2 id="install-c-extension">Install C# Extension</h2>
-<p>Add C# extension to enable .Net Core development.</p>
-<p>https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp</p>
-<h2 id="configure-autosave">Configure autosave</h2>
+<h2 id="installation-vs-code">Installation VS Code</h2>
+<p>Install for your operating system following <a href="https://code.visualstudio.com/download">Microsoft's guidance</a></p>
+<h3 id="vs-code-integration">VS Code Integration</h3>
+<p>Visual Studio has an extension to validate syntax for StandardJS, Defra's linting standard.</p>
+<ol>
+<li>Install StandardJS extension</li>
+<li>Disable VS Code JavaScript Validation by adding <code>"javascript.validate.enable": false</code> to settings.json</li>
+<li>Set auto fix on save by adding <code>"standard.autoFixOnSave": true</code> to settings.json</li>
+</ol>
+<h3 id="install-c-extension">Install C# Extension</h3>
+<p>Add C# extension to enable .Net development from the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">Marketplace</a></p>
+<h3 id="configure-autosave">Configure autosave</h3>
 <p>If you prefer your code to autosave, add the following to settings.json.</p>
-<pre><code>&quot;files.autoSave&quot;: &quot;afterDelay&quot;
+<pre><code class="language-json">&quot;files.autoSave&quot;: &quot;afterDelay&quot;
 &quot;files.autoSaveDelay&quot;: 600
 </code></pre>
-<h2 id="indentation">Indentation</h2>
+<h3 id="indentation">Indentation</h3>
 <p>VS Code supports multiple indentation settings for each language by updating the <code>settings.json</code> file.</p>
 <p>The below example sets a default indentation to two spaces, but uses four spaces for C# files as per Microsoft standards.</p>
-<pre><code>&quot;editor.tabSize&quot;: 2,
+<pre><code class="language-json">&quot;editor.tabSize&quot;: 2,
 &quot;[csharp]&quot;:{
     &quot;editor.tabSize&quot;: 4,
   },
@@ -342,17 +305,18 @@
 <p><strong>Note</strong> JS standard will automatically correct JavaScript files to two space indentation.</p>
 <h2 id="wsl-configuration">WSL Configuration</h2>
 <h3 id="install-remote-wsl-extension">Install Remote WSL extension</h3>
-<p>The [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl allows VS Code installed in Windows to be used in WSL.</p>
+<p>The <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">Remote - WSL</a> allows VS Code installed in Windows to be used in WSL.</p>
 <p>This means when code is source controlled in WSL, VS Code can read, debug and interact with it without workarounds.</p>
 <p>In WSL2 it is recommended to always use the remote WSL approach.  A current directory can be opened in VS Code with <code>code .</code>.</p>
-<p>With WSL1, as source code will be in Windows, depending on the development activity it may be easier to use WSL in Windows.</p>
+<p>With WSL1, as source code will be in Windows, depending on the development activity it may be easier to use VS Code in Windows.</p>
 <h2 id="turn-on-signed-commits">Turn on signed commits</h2>
-<p>To turn on signed commits (see section on signed commits for more information) in the UI make sure the "Enable commit signing with GPG or X.509" is ticked. For the JSON version of the settings use <code>"git.enableCommitSigning": true</code></p>
+<p>To turn on signed commits (see section on signed commits for more information) in the UI make sure the <code>Enable commit signing with GPG or X.509</code> is selected. </p>
+<p>For the JSON version of the settings use <code>"git.enableCommitSigning": true</code></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../install-sonarlint/" class="btn btn-neutral float-left" title="Install SonarLint"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../install-standard-js/" class="btn btn-neutral float-left" title="Install StandardJs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../install-wsl/" class="btn btn-neutral float-right" title="Install Windows Subsystem for Linux (WSL)">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -376,7 +340,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../install-sonarlint/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../install-standard-js/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../install-wsl/" style="color: #fcfcfc">Next &raquo;</a></span>

@@ -91,46 +91,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../guides/waf-waiver/">WAF waivers</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Developer laptop setup</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/">Setup developer laptop</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-azure-cli/">Install Azure CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-detect-secrets/">Install detect-secrets</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-docker-compose/">Install Docker Compose</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-dotnet-sdk/">Install .NET SDK</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-github/">Install GitHub CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-kubectl/">Install kubectl</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-node-version-manager/">Install Node Version Manager</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-openvpn/">Install OpenVPN</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-snyk/">Install Snyk CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-sonarlint/">Install SonarLint</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-vs-code/">Install IDE</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/installing-helm/">Install Helm</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-macbook/">Setup developer macbook</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-sudoers/">Add user to sudoers file</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/sign-commits/">Signing commits</a>
-                </li>
-    </ul>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">Kubernetes</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../guides/kubernetes/">Kubernetes</a>
@@ -172,7 +132,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-azure-cli/">Install Azure CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install detect-secrets</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install Detect Secrets</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-docker-compose/">Install Docker Compose</a>
                   </li>
@@ -202,6 +162,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-sonarlint/">Install SonarLint</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-standard-js/">Install StandardJs</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-vs-code/">Install IDE</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
@@ -214,7 +176,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../setup-sudoers/">Add user to sudoers file</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../sign-commits/">Signing commits</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../sign-commits/">Setup commit signing</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Standards</span></p>
@@ -306,7 +268,7 @@
 <p>Follow the <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">Kubernetes documentation</a></p>
 <p><strong>Note</strong> For WSL use the 'Install on Linux' instructions</p>
 <h2 id="setup-shell-autocompletion-optional">Setup shell autocompletion (optional)</h2>
-<pre><code>sudo sh -c 'kubectl completion bash &gt; /etc/bash_completion.d/kubectl'
+<pre><code class="language-bash">sudo sh -c 'kubectl completion bash &gt; /etc/bash_completion.d/kubectl'
 </code></pre>
 <p>Notes:
 1. assumes you are using <code>bash</code> shell
@@ -317,14 +279,14 @@
 </ul>
 <h2 id="add-command-alias-for-kubectl-optional">Add command alias for kubectl (optional)</h2>
 <p>To add the frequently used alias <code>k</code> for <code>kubectl</code> add the following lines to your <code>.bashrc</code> file (the 2nd line adds autocomplete for the alias):</p>
-<pre><code>alias k=kubectl
+<pre><code class="language-bash">alias k=kubectl
 complete -o default -F __start_kubectl k
 </code></pre>
 <h2 id="add-further-aliases-for-kubectl-optional">Add further aliases for Kubectl (optional)</h2>
 <p>Download the following file and save to your home directory.</p>
 <p>https://github.com/ahmetb/kubectl-aliases/blob/0533366d8e3e3b3987cc1b7b07a7e8fcfb69f93c/.kubectl_aliases</p>
 <p>Update your <code>.bashrc</code> file with the below to enable autocomplete on all aliases in the file.</p>
-<pre><code># Kubectl
+<pre><code class="language-bash"># Kubectl
 [ -f ~/.kubectl_aliases ] &amp;&amp; source ~/.kubectl_aliases
 source &lt;(kubectl completion bash)
 
@@ -333,7 +295,7 @@ for a in $(sed '/^alias /!d;s/^alias //;s/=.*$//' ~/.kubectl_aliases); do
 done
 </code></pre>
 <p>For quick switching of Kubernetes contexts and namespaces, it may be beneficial to append the following lines to the <code>kubectl_aliases</code> file.</p>
-<pre><code>alias kns='kubectl config set-context --current --namespace'
+<pre><code class="language-bash">alias kns='kubectl config set-context --current --namespace'
 alias kc='kubectl config use-context'
 </code></pre>
 <p>Full details are available in this <a href="https://ahmet.im/blog/kubectl-aliases/">blog post</a></p>

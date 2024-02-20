@@ -111,96 +111,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-azure-cli/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-detect-secrets/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-docker-compose/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-dotnet-sdk/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-github/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-kubectl/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-node-version-manager/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-openvpn/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-snyk/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-sonarlint/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-vs-code/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/install-wsl/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/installing-helm/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/mount-windows-drives-in-wsl/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/setup-macbook/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/setup-sudoers/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/developer-laptop-setup/sign-commits/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/guides/kubernetes/</loc>
          <lastmod>2024-02-20</lastmod>
          <changefreq>daily</changefreq>
@@ -322,6 +232,11 @@
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-sonarlint/</loc>
+         <lastmod>2024-02-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-standard-js/</loc>
          <lastmod>2024-02-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
