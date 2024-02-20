@@ -134,6 +134,10 @@ This channel is used for general development discussion and support across all o
 
 > For FCP Platform or service specific support, the above Teams chats should be used instead.
 
+Anyone with a `defra.gov.uk` or an ALB email address can join the Defra Digital Slack workspace automatically.
+
+For those with other email addresses, a request should be raised in the `#slack-support` channel by someone with access.
+
 ## SharePoint
 
 SharePoint is Defra's primary document library.
