@@ -91,46 +91,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../guides/waf-waiver/">WAF waivers</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Developer laptop setup</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/">Setup developer laptop</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-azure-cli/">Install Azure CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-detect-secrets/">Install detect-secrets</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-docker-compose/">Install Docker Compose</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-dotnet-sdk/">Install .NET SDK</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-github/">Install GitHub CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-kubectl/">Install kubectl</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-node-version-manager/">Install Node Version Manager</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-openvpn/">Install OpenVPN</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-snyk/">Install Snyk CLI</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-sonarlint/">Install SonarLint</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-vs-code/">Install IDE</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/installing-helm/">Install Helm</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-macbook/">Setup developer macbook</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/setup-sudoers/">Add user to sudoers file</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developer-laptop-setup/sign-commits/">Signing commits</a>
-                </li>
-    </ul>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">Kubernetes</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../guides/kubernetes/">Kubernetes</a>
@@ -172,12 +132,18 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-azure-cli/">Install Azure CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install detect-secrets</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install Detect Secrets</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-docker-compose/">Install Docker Compose</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Install Docker Desktop</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#wsl">WSL</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-dotnet-sdk/">Install .NET SDK</a>
@@ -194,6 +160,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-sonarlint/">Install SonarLint</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install-standard-js/">Install StandardJs</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-vs-code/">Install IDE</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
@@ -206,7 +174,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../setup-sudoers/">Add user to sudoers file</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../sign-commits/">Signing commits</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../sign-commits/">Setup commit signing</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Standards</span></p>
@@ -294,7 +262,17 @@
               
                 <h1 id="install-docker-desktop">Install Docker Desktop</h1>
 <p>Docker Desktop is a tool for MacOS and Windows machines for the building and sharing of containerized applications and microservices. It is the fastest and easiest way to get started with Docker on your local machine.</p>
-<p>As FCP services</p>
+<h2 id="installation">Installation</h2>
+<p>If not already installed as part of the Windows Subsystem for Linux (WSL) setup, follow the below steps to install Docker Desktop.</p>
+<ol>
+<li>Download the <a href="https://www.docker.com/products/docker-desktop">Docker Desktop installer</a> for your operating system.</li>
+<li>Run the installer and follow the prompts to install Docker Desktop.</li>
+</ol>
+<h3 id="wsl">WSL</h3>
+<ol>
+<li>Ensure that Docker Desktop is set to use the WSL2 backend.  This can be done by right clicking the Docker Desktop icon in the system tray and selecting <code>Settings</code>.  From there, select <code>General</code> and ensure <code>Use the WSL 2 based engine</code> is checked.</li>
+<li>Ensure that Docker Desktop is available to your WSL distro.  This can be done by right clicking the Docker Desktop icon in the system tray and selecting <code>Settings</code>.  From there, select <code>Resources</code>, <code>WSL Integration</code> and ensure that the distro you are using is checked.</li>
+</ol>
               
             </div>
           </div><footer>
