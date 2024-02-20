@@ -38,7 +38,7 @@ A request should be raised in ServiceNow for CCoE to provide access to the FCP A
 
 ## Jenkins
 
-Jenkins is used for CI/CD in FCP.  Developers will need a `.dtz` account to access Jenkins.
+Jenkins is used for Continuous Integration pipelines in FCP.  Developers will need a `.dtz` account to access Jenkins.
 
 A request should be raised in ServiceNow for CCoE to provide access to Jenkins.
 
@@ -46,7 +46,7 @@ A request should be raised in ServiceNow for CCoE to provide access to Jenkins.
 
 Synk is used for security scanning of code dependencies.  
 
-An FCP organisation has been created in Synk and developers will need to be added to it.
+An [FCP organisation](https://app.snyk.io/org/defra-ffc) has been created in Synk and developers will need to be added to it.
 
 Contact one of Defra's Principal Developers to arrange access.
 
@@ -62,7 +62,90 @@ Two Factor Authentication (2FA) and commit signing are mandatory for all GitHub 
 
 Contact one of Defra's Principal Developers to arrange access.
 
-## Azure DevOps
+## SonarCloud
 
-## Collaboration channels
+SonarCloud is used for static code analysis during Continuous Integration pipelines in FCP.
 
+A [Defra organisation](https://sonarcloud.io/organizations/defra) has been created and developers will need to be added to it using their GitHub account.
+
+Contact one of Defra's Principal Developers to arrange access.
+
+## Azure DevOps (ADO)
+
+Azure DevOps is used for Continuous Delivery pipelines in FCP.  ADO is also used for work item tracking and Wiki creation.
+
+Developers will need to be added to the [DEFRA-FFC](https://dev.azure.com/defragovuk/DEFRA-FFC) project.
+
+A request should be raised in ServiceNow for CCoE to provide access to ADO.
+
+## Microsoft Teams
+
+[Microsoft Teams](https://teams.microsoft.com/) is the primary communication tool used across Defra.  
+
+Teams supports access from third party teams tenants to allow collaboration across corporate boundaries.
+
+Developers should be added to the following Teams chat channels:
+
+### `DEFRA FCP - Platform Support - Teams Chat`
+
+This chat is used for general support and collaboration across all services using the FCP Platform.
+
+### `FCP Payments, Documents, Demo and Progressive Reductions releases`
+
+This chat is used to arrange and coordinate releases across the majority of FCP services.  As other services onboard to the FCP Platform, they can also use this chat.
+
+### `FCP Developer Forum`
+
+This chat is used for developer collaboration and support across all teams within the FCP Programme and those using the FCP Platform.
+
+Contact one of Defra's Principal Developers to arrange access.
+
+## Slack
+
+### `ffc-notifications.slack.com`
+
+Jenkins will publish alerts to Slack in the `ffc-notifications.slack.com` workspace.  Developers will need to be added to the following channels:
+
+#### `#masterbuildfailures`
+
+Notifications of failures relating to main branches.
+
+#### `#generalbuildfailures`
+
+Notifications of failures relating to feature branches.  
+
+#### `#secretdetection`
+
+Notifications of detected secrets found in public GitHub repositories for review.
+
+Contact one of Defra's Principal Developers to arrange access.
+
+### `defra-digital.slack.com`
+
+The wider Defra Digital Slack workspace is used for collaboration and support across all of Defra's digital services.
+
+Whilst not essential to be part of this workspace, it may be beneficial for cross Defra collaboration.
+
+Developers are recommended to join the following channel:
+
+#### `#development`
+
+This channel is used for general development discussion and support across all of Defra's digital services.
+
+> For FCP Platform or service specific support, the above Teams chats should be used instead.
+
+## SharePoint
+
+SharePoint is Defra's primary document library.
+
+An [FCP SharePoint site](https://defra.sharepoint.com/teams/Team1974/SitePages/Home.aspx) has been created.
+
+Not all developers will need access to SharePoint and it may not be possible for external suppliers to be provided with access.
+
+Should access be required, it should be request to an FCP Programme Delivery Manager.
+
+## Confluence
+
+Whilst ADO Wiki's are preferred, much historic content exists in [Defra Confluence](https://eaflood.atlassian.net/).
+
+New licenses are often challenging to obtain, but should be requested through the `defra-digital.slack.com` Slack workspace in the `#jira-support` channel.

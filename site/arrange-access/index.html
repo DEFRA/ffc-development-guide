@@ -60,9 +60,43 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#github">GitHub</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#azure-devops">Azure DevOps</a>
+    <li class="toctree-l2"><a class="reference internal" href="#sonarcloud">SonarCloud</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#collaboration-channels">Collaboration channels</a>
+    <li class="toctree-l2"><a class="reference internal" href="#azure-devops-ado">Azure DevOps (ADO)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#microsoft-teams">Microsoft Teams</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#defra-fcp-platform-support-teams-chat">DEFRA FCP - Platform Support - Teams Chat</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fcp-payments-documents-demo-and-progressive-reductions-releases">FCP Payments, Documents, Demo and Progressive Reductions releases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fcp-developer-forum">FCP Developer Forum</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#slack">Slack</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ffc-notificationsslackcom">ffc-notifications.slack.com</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#masterbuildfailures">#masterbuildfailures</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#generalbuildfailures">#generalbuildfailures</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#secretdetection">#secretdetection</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#defra-digitalslackcom">defra-digital.slack.com</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#development">#development</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sharepoint">SharePoint</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#confluence">Confluence</a>
     </li>
     </ul>
                 </li>
@@ -84,8 +118,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../guides/availability-alerts/">Availability Alert Setup Guide</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../guides/backlog-management/">Backlog management</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../guides/collaboration/">Collaboration</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../guides/debug-dotnet-container/">Debugging .NET Core in a Linux container</a>
                   </li>
@@ -297,11 +329,11 @@
 <p>A read only role, is all that is permitted for developers in PreProduction and Production.</p>
 <p>A request should be raised in ServiceNow for CCoE to provide access to the FCP AKS clusters.</p>
 <h2 id="jenkins">Jenkins</h2>
-<p>Jenkins is used for CI/CD in FCP.  Developers will need a <code>.dtz</code> account to access Jenkins.</p>
+<p>Jenkins is used for Continuous Integration pipelines in FCP.  Developers will need a <code>.dtz</code> account to access Jenkins.</p>
 <p>A request should be raised in ServiceNow for CCoE to provide access to Jenkins.</p>
 <h2 id="synk">Synk</h2>
 <p>Synk is used for security scanning of code dependencies.  </p>
-<p>An FCP organisation has been created in Synk and developers will need to be added to it.</p>
+<p>An <a href="https://app.snyk.io/org/defra-ffc">FCP organisation</a> has been created in Synk and developers will need to be added to it.</p>
 <p>Contact one of Defra's Principal Developers to arrange access.</p>
 <h2 id="github">GitHub</h2>
 <p>FCP uses GitHub for source control within the <a href="https://github.com/DEFRA">Defra</a> organisation.</p>
@@ -309,8 +341,52 @@
 <p>Developers will need to be added to the <code>FFC</code> GitHub team.</p>
 <p>Two Factor Authentication (2FA) and commit signing are mandatory for all GitHub accounts.</p>
 <p>Contact one of Defra's Principal Developers to arrange access.</p>
-<h2 id="azure-devops">Azure DevOps</h2>
-<h2 id="collaboration-channels">Collaboration channels</h2>
+<h2 id="sonarcloud">SonarCloud</h2>
+<p>SonarCloud is used for static code analysis during Continuous Integration pipelines in FCP.</p>
+<p>A <a href="https://sonarcloud.io/organizations/defra">Defra organisation</a> has been created and developers will need to be added to it using their GitHub account.</p>
+<p>Contact one of Defra's Principal Developers to arrange access.</p>
+<h2 id="azure-devops-ado">Azure DevOps (ADO)</h2>
+<p>Azure DevOps is used for Continuous Delivery pipelines in FCP.  ADO is also used for work item tracking and Wiki creation.</p>
+<p>Developers will need to be added to the <a href="https://dev.azure.com/defragovuk/DEFRA-FFC">DEFRA-FFC</a> project.</p>
+<p>A request should be raised in ServiceNow for CCoE to provide access to ADO.</p>
+<h2 id="microsoft-teams">Microsoft Teams</h2>
+<p><a href="https://teams.microsoft.com/">Microsoft Teams</a> is the primary communication tool used across Defra.  </p>
+<p>Teams supports access from third party teams tenants to allow collaboration across corporate boundaries.</p>
+<p>Developers should be added to the following Teams chat channels:</p>
+<h3 id="defra-fcp-platform-support-teams-chat"><code>DEFRA FCP - Platform Support - Teams Chat</code></h3>
+<p>This chat is used for general support and collaboration across all services using the FCP Platform.</p>
+<h3 id="fcp-payments-documents-demo-and-progressive-reductions-releases"><code>FCP Payments, Documents, Demo and Progressive Reductions releases</code></h3>
+<p>This chat is used to arrange and coordinate releases across the majority of FCP services.  As other services onboard to the FCP Platform, they can also use this chat.</p>
+<h3 id="fcp-developer-forum"><code>FCP Developer Forum</code></h3>
+<p>This chat is used for developer collaboration and support across all teams within the FCP Programme and those using the FCP Platform.</p>
+<p>Contact one of Defra's Principal Developers to arrange access.</p>
+<h2 id="slack">Slack</h2>
+<h3 id="ffc-notificationsslackcom"><code>ffc-notifications.slack.com</code></h3>
+<p>Jenkins will publish alerts to Slack in the <code>ffc-notifications.slack.com</code> workspace.  Developers will need to be added to the following channels:</p>
+<h4 id="masterbuildfailures"><code>#masterbuildfailures</code></h4>
+<p>Notifications of failures relating to main branches.</p>
+<h4 id="generalbuildfailures"><code>#generalbuildfailures</code></h4>
+<p>Notifications of failures relating to feature branches.  </p>
+<h4 id="secretdetection"><code>#secretdetection</code></h4>
+<p>Notifications of detected secrets found in public GitHub repositories for review.</p>
+<p>Contact one of Defra's Principal Developers to arrange access.</p>
+<h3 id="defra-digitalslackcom"><code>defra-digital.slack.com</code></h3>
+<p>The wider Defra Digital Slack workspace is used for collaboration and support across all of Defra's digital services.</p>
+<p>Whilst not essential to be part of this workspace, it may be beneficial for cross Defra collaboration.</p>
+<p>Developers are recommended to join the following channel:</p>
+<h4 id="development"><code>#development</code></h4>
+<p>This channel is used for general development discussion and support across all of Defra's digital services.</p>
+<blockquote>
+<p>For FCP Platform or service specific support, the above Teams chats should be used instead.</p>
+</blockquote>
+<h2 id="sharepoint">SharePoint</h2>
+<p>SharePoint is Defra's primary document library.</p>
+<p>An <a href="https://defra.sharepoint.com/teams/Team1974/SitePages/Home.aspx">FCP SharePoint site</a> has been created.</p>
+<p>Not all developers will need access to SharePoint and it may not be possible for external suppliers to be provided with access.</p>
+<p>Should access be required, it should be request to an FCP Programme Delivery Manager.</p>
+<h2 id="confluence">Confluence</h2>
+<p>Whilst ADO Wiki's are preferred, much historic content exists in <a href="https://eaflood.atlassian.net/">Defra Confluence</a>.</p>
+<p>New licenses are often challenging to obtain, but should be requested through the <code>defra-digital.slack.com</code> Slack workspace in the <code>#jira-support</code> channel.</p>
               
             </div>
           </div><footer>

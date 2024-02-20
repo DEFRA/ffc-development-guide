@@ -41,11 +41,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/guides/collaboration/</loc>
-         <lastmod>2024-02-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/guides/debug-dotnet-container/</loc>
          <lastmod>2024-02-20</lastmod>
          <changefreq>daily</changefreq>
