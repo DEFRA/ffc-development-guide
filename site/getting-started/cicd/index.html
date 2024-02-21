@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/local-development-setup/install-openvpn/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/getting-started/cicd/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Install OpenVPN - FCP Development Guide</title>
+    <title>Continuous Integration and Continuous Delivery (CI/CD) - FCP Development Guide</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Install OpenVPN";
-        var mkdocs_page_input_path = "local-development-setup/install-openvpn.md";
-        var mkdocs_page_url = "/ffc-development-guide/local-development-setup/install-openvpn/";
+        var mkdocs_page_name = "Continuous Integration and Continuous Delivery (CI/CD)";
+        var mkdocs_page_input_path = "getting-started/cicd.md";
+        var mkdocs_page_url = "/ffc-development-guide/getting-started/cicd/";
       </script>
     
     <!--[if lt IE 9]>
@@ -49,63 +49,73 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Getting started</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/arrange-access/">Arrange access</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/cicd/">Continuous Integration and Continuous Delivery (CI/CD)</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/platform/">Platform</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Local development setup</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../">Setup local development environment</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Getting started</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-azure-cli/">Install Azure CLI</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../arrange-access/">Arrange access</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-detect-secrets/">Install Detect Secrets</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-docker-compose/">Install Docker Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-docker-desktop/">Install Docker Desktop</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-dotnet-sdk/">Install .NET SDK</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-github/">Install GitHub CLI</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-kubectl/">Install kubectl</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-node-version-manager/">Install Node Version Manager</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Install OpenVPN</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Continuous Integration and Continuous Delivery (CI/CD)</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#install-client">Install client</a>
+    <li class="toctree-l2"><a class="reference internal" href="#continuous-integration-ci">Continuous Integration (CI)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#supported-technologies">Supported technologies</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#configure-client">Configure client</a>
+    <li class="toctree-l3"><a class="reference internal" href="#pipeline-stages">Pipeline stages</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#build-steps">Build steps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#clean-up-steps">Clean up steps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#continuous-delivery-cd">Continuous Delivery (CD)</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-snyk/">Install Snyk CLI</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../platform/">Platform</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-sonarlint/">Install SonarLint</a>
+              </ul>
+              <p class="caption"><span class="caption-text">Local development setup</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/">Setup local development environment</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-standard-js/">Install StandardJs</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-azure-cli/">Install Azure CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-vs-code/">Install IDE</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-detect-secrets/">Install Detect Secrets</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-docker-compose/">Install Docker Compose</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../installing-helm/">Install Helm</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-docker-desktop/">Install Docker Desktop</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-dotnet-sdk/">Install .NET SDK</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../setup-macos-command-line-tools/">Setup command line tools</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-github/">Install GitHub CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../setup-sudoers/">Add user to sudoers file</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-kubectl/">Install kubectl</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../sign-commits/">Setup commit signing</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-node-version-manager/">Install Node Version Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-openvpn/">Install OpenVPN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-snyk/">Install Snyk CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-sonarlint/">Install SonarLint</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-standard-js/">Install StandardJs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-vs-code/">Install IDE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/installing-helm/">Install Helm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/setup-macos-command-line-tools/">Setup command line tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/setup-sudoers/">Add user to sudoers file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../local-development-setup/sign-commits/">Setup commit signing</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Z content to be revised</span></p>
@@ -257,8 +267,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Local development setup</li>
-      <li class="breadcrumb-item active">Install OpenVPN</li>
+          <li class="breadcrumb-item">Getting started</li>
+      <li class="breadcrumb-item active">Continuous Integration and Continuous Delivery (CI/CD)</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -267,18 +277,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="install-openvpn">Install OpenVPN</h1>
-<p>Access to some cloud resources is restricted to VPN access only. </p>
-<h2 id="install-client">Install client</h2>
-<p>Install the client following the <a href="https://openvpn.net/community-downloads/">OpenVPN documentation</a></p>
-<h2 id="configure-client">Configure client</h2>
-<p>Cloud Centre of Excellence (CCoE) will provide full client configuration instructions when setting up access for a new FCP developer.</p>
+                <h1 id="continuous-integration-and-continuous-delivery-cicd">Continuous Integration and Continuous Delivery (CI/CD)</h1>
+<p>For the FCP Platform, <a href="https://jenkins-ffc.azure.defra.cloud/">Jenkins</a> is used for CI pipelines, whilst <a href="https://dev.azure.com/defragovuk/DEFRA-FFC">Azure DevOps</a> is used for CD.</p>
+<p>Originally the FCP Platform was primarily hosted on <a href="https://aws.amazon.com/">AWS</a> where Jenkins was prescribed as the CI/CD tool.  However, as the platform has migrated to <a href="https://azure.microsoft.com/">Azure</a>, Azure DevOps was prescribed as the CD tool.  Jenkins is still used for CI pipelines as it is a well established tool within the programme and redevelopment of the pipelines in Azure DevOps would be a significant undertaking.</p>
+<h2 id="continuous-integration-ci">Continuous Integration (CI)</h2>
+<p>FCP adopt a "shift left" approach to security and quality, meaning that security and quality checks are performed as early as possible in the development lifecycle.  The CI pipeline is designed around this principle and looks to provide fast feedback to developers and testers prior to merging code to the main branch.</p>
+<p>Feature branch development allows for small changes to be made and tested in isolation.  This is supported by the CI pipeline which will run a subset of tests and checks on a feature branch build.  The pipeline will also provision a dedicated environment for the feature branch build to be deployed to, allowing for a more comprehensive set of tests to be run.</p>
+<p>In order to avoid duplication across all microservices, a <a href="https://github.com/DEFRA/ffc-jenkins-pipeline-library">common Jenkins pipeline</a> has been created.</p>
+<blockquote>
+<p>Note that a feature branch must have an open Pull Request in order for the CI pipeline to run.</p>
+</blockquote>
+<h3 id="supported-technologies">Supported technologies</h3>
+<p>The CI pipeline supports the following technologies:</p>
+<ul>
+<li>Containerised Node.js applications targetting Azure Kubernetes Service (AKS)</li>
+<li>Containerised .NET applications targetting Azure Kubernetes Service (AKS)</li>
+<li>Helm charts</li>
+<li>Azure Functions</li>
+<li>Docker images</li>
+<li>npm packages</li>
+</ul>
+<h3 id="pipeline-stages">Pipeline stages</h3>
+<h2 id="build-steps">Build steps</h2>
+<p>The steps for a feature or main branch build are more or less the same.  The most significant difference is there is no feature branch deployment for a main build.  Instead additional build assets are created ready to be promoted to higher environments.</p>
+<p>Below shows the pipeline steps for building a Node.js application targetting AKS.  The steps for other technologies are similar.  Anywhere <code>CUSTOM INJECTION</code> is shown custom steps can be injected.</p>
+<p>Some steps are optional depending on the content of the repository.</p>
+<ol>
+<li>Validate semantic version of package</li>
+<li>Lint Helm chart</li>
+<li>npm Audit vulnerability check</li>
+<li>Snyk vulnerability check</li>
+<li><code>CUSTOM INJECTION</code></li>
+<li>Build test Docker image</li>
+<li>Provision dynamic infrastructure for feature branch and to support integration tests</li>
+<li><code>CUSTOM INJECTION</code></li>
+<li>Run containerised tests (linting, unit, integration, contract)  </li>
+<li><code>CUSTOM INJECTION</code></li>
+<li>Publish contracts to Pact Broker</li>
+<li>SonarCloud static code analysis</li>
+<li>Build production Docker image</li>
+<li>Publish image to to Azure Container Registry</li>
+<li>Deploy image to dynamic AKS namespace (feature branch build only)</li>
+<li>AXE accessibility tests (optional)</li>
+<li>BrowserStack containerised UI and compatibility tests (optional)</li>
+<li>OWASP Zap security tests (optional)</li>
+<li>JMeter performance tests (optional)</li>
+<li>Publish Helm chart to AZure Container Registry (main branch build only)</li>
+<li><code>CUSTOM INJECTION</code></li>
+<li>Create GitHub release (main branch build only)</li>
+<li>Clean up build specific dynamic infrastructure</li>
+<li><code>CUSTOM INJECTION</code></li>
+</ol>
+<h2 id="clean-up-steps">Clean up steps</h2>
+<p>Once a feature branch is deleted, the clean up process will automatically run to remove any dynamic infrastructure.</p>
+<h2 id="continuous-delivery-cd">Continuous Delivery (CD)</h2>
+<p>Once a feature branch has been merged into the main branch, the CI pipeline will automatically run to package the assets and deploy the application to the Sandpit environment.  Assuming the Sandpit deployment was successful, Jenkins will then trigger Azure DevOps to deploy the application to the higher environments.</p>
+<p>ADO will deploy the application to the following environments once the previous environment has been successfully deployed to:</p>
+<ul>
+<li>Development (automatic)</li>
+<li>Test (requires approval from anyone in the team)</li>
+<li>PreProduction (requires approval from anyone in the team)</li>
+<li>Production (requires approval from CCoE and an Request for Change (RFC))</li>
+</ul>
+<blockquote>
+<p>Note that some of the more mature teams in FCP have approval to run their own changes to Production using a standard change.</p>
+</blockquote>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../install-node-version-manager/" class="btn btn-neutral float-left" title="Install Node Version Manager"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../install-snyk/" class="btn btn-neutral float-right" title="Install Snyk CLI">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../arrange-access/" class="btn btn-neutral float-left" title="Arrange access"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../platform/" class="btn btn-neutral float-right" title="Platform">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -301,10 +370,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../install-node-version-manager/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../arrange-access/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../install-snyk/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../platform/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

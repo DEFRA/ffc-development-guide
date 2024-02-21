@@ -8,7 +8,7 @@ Access to some resources can take time to arrange, so it's important to start th
 
 FCP environments are hosted on Azure.  Access to the Azure Portal is restricted to those with an Azure AD administrative account.
 
-These accounts follow the naming convention `a-<initials>.<surname>@defra.onmicrosoft.com`.
+These accounts follow the naming convention `a-<initials>.<surname>@defra.onmicrosoft.com` or `<initials>.<surname>@defra.onmicrosoft.com`.
 
 The must be requested from ServiceNow under the catalogue item `O365/AzureAD Platform Admin`.
 
@@ -38,7 +38,9 @@ A request should be raised in ServiceNow for CCoE to provide access to the FCP A
 
 ## Jenkins
 
-Jenkins is used for Continuous Integration pipelines in FCP.  Developers will need a `.dtz` account to access Jenkins.
+Jenkins is used for Continuous Integration pipelines in FCP.  Developers will need a `@dtz.local` account to access Jenkins.
+
+[Jenkins](https://jenkins-ffc.azure.defra.cloud/) is hosted on an Azure Virtual Machine and can be accessed on the Defra network or via OpenVPN.
 
 A request should be raised in ServiceNow for CCoE to provide access to Jenkins.
 
