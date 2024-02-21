@@ -1671,15 +1671,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-sonarcloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure SonarCloud
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#configure-snyk" class="md-nav__link">
     <span class="md-ellipsis">
       Configure Snyk
@@ -1751,18 +1742,6 @@
 <li>set <code>Pipeline Action Triggers -&gt; Pipeline Delete Event</code> set <code>ffc-housekeeping/cleanup-on-branch-delete</code></li>
 <li>set <code>Pipeline Action Triggers -&gt; Include Filter</code> to be <code>*</code></li>
 <li>set <code>Pipeline Action Triggers -&gt; Additional Parameter -&gt; Parameter Name</code> to be <code>repoName</code> and <code>Parameter Value</code> to be the name of the repository, for example, <code>ffc-demo-web</code></li>
-</ul>
-<h3 id="configure-sonarcloud">Configure SonarCloud</h3>
-<p><strong>Note</strong> this step should be performed before running the build or you may end up with duplicate projects.</p>
-<ul>
-<li>navigate to the Defra organisation within <a href="https://sonarcloud.io/organizations/defra/projects?sort=analysis_date">SonarCloud</a></li>
-<li>select <code>Analyze new project</code></li>
-<li>select repository to analyse</li>
-<li>select <code>Set Up</code></li>
-<li>select <code>Adminsitration -&gt; Analysis Method</code> and disable <code>SonarCloud Automatic Analysis</code></li>
-<li>select <code>Administration -&gt; Quality Profiles</code> and set all to <code>Sonar way</code></li>
-<li>select <code>Administration -&gt; Quality Gate</code> and set to <code>Sonar way</code></li>
-<li>select <code>Administration -&gt; Update key</code> and ensure key matches the name of the repository, removing the <code>DEFRA_</code> prefix, for example, <code>ffc-demo-web</code></li>
 </ul>
 <h3 id="configure-snyk">Configure Snyk</h3>
 <p>A <a href="https://app.snyk.io/">Snyk</a> scan is run as part of the CI pipeline. By default, a project will be set to private. In order to access unlimited <a href="https://snyk.io/plans/">free tests</a> the project needs to be marked as open source. To do so, follow the <a href="https://support.snyk.io/hc/en-us/articles/360000910597">instructions</a>.</p>
