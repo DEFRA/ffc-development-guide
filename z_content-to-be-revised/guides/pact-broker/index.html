@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/z_content-to-be-revised/guides/pact-broker/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Pact Broker - FCP Development Guide</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Pact Broker";
+        var mkdocs_page_input_path = "z_content-to-be-revised/guides/pact-broker.md";
+        var mkdocs_page_url = "/ffc-development-guide/z_content-to-be-revised/guides/pact-broker/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FCP Development Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Farming and Countryside Programme (FCP) Development Guide</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/">Getting started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/arrange-access/">Arrange access</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/platform/">Platform</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Local development setup</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/">Setup local development environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-azure-cli/">Install Azure CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-detect-secrets/">Install Detect Secrets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-docker-compose/">Install Docker Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-docker-desktop/">Install Docker Desktop</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-dotnet-sdk/">Install .NET SDK</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-github/">Install GitHub CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-kubectl/">Install kubectl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-node-version-manager/">Install Node Version Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-openvpn/">Install OpenVPN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-snyk/">Install Snyk CLI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-sonarlint/">Install SonarLint</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-standard-js/">Install StandardJs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-vs-code/">Install IDE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/installing-helm/">Install Helm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/setup-macos-command-line-tools/">Setup command line tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/setup-sudoers/">Add user to sudoers file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/sign-commits/">Setup commit signing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Z content to be revised</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Guides</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../">Guides</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../accounts/">Accounts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../availability-alerts/">Availability Alert Setup Guide</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../backlog-management/">Backlog management</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../debug-dotnet-container/">Debugging .NET Core in a Linux container</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../demo-service/">Demo service</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developing-in-container/">Developing in a container</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../google-tag-manager/">Google Tag Manager</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../jenkins/">Jenkins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../jlm/">Joiners, movers and leavers</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Pact Broker</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#pact-broker-cli">Pact Broker CLI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#webhooks">Webhooks</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#jenkins-example">Jenkins Example</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#slack-example">Slack Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#note">Note</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../redis-caching/">Redis Caching in Hapi</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../secrets-management/">Secrets Management</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../shared-assets/">Shared assets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting Guide</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../vs-code-wsl1/">Using Visual Studio Code with WSL1</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../vulnerabilities/">Managing vulnerabilities</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../waf-waiver/">WAF waivers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Kubernetes</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/">Kubernetes</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/configure-nginx-ingress-controller/">Configure NGINX Ingress Controller</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/create-namespace/">Creating a workstream namespace</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/install-kubernetes-dashboard/">Install Kubernetes dashboard</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/interaction/">Interact with cluster</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/pod-identity/">AAD Pod Identity</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/probes/">Probes</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Resource provisioning</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../resource-provisioning/">Resource provisionsing</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../resource-provisioning/ci-pipeline/">FFC CI Pipeline</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../resource-provisioning/managed-identity/">Azure Managed Identity</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../resource-provisioning/postgres-database/">Postgres Database</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../resource-provisioning/release-pipeline/">Release pipelines</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../resource-provisioning/servicebus-queues/">Azure Service Bus Queues, Topics and Subscriptions</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Standards</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/">Standards</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/api/">API Standards</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/backlog-management/">Backlog management</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/ci-pipeline/">FFC CI pipeline</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/code-review/">Code review</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/configuration-management/">Configuration management</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/documentation/">Documentation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/events/">Events and messages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/jenkins/">Jenkins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/quick-reference/">Quick reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/release-notes/">Release notes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/route-to-live/">Route to live</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/secrets-management/">Secrets Management</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/source-code/">Source code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/technology-stack/">Technology Stack</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/testing/">Testing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../standards/version-control/">Version Control</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Kubernetes</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../standards/kubernetes/">Kubernetes</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../standards/kubernetes/configuration/">Configuration</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../standards/kubernetes/helm-charts/">Helm chart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../standards/kubernetes/labels/">Labels</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../standards/kubernetes/priority/">Pod priority</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../standards/kubernetes/probes/">Probes</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../standards/kubernetes/rbac/">Role Based Access Control (RBAC)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../standards/kubernetes/resource-usage/">Resource usage</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../standards/kubernetes/secrets/">Secrets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FCP Development Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Z content to be revised</li>
+          <li class="breadcrumb-item">Guides</li>
+      <li class="breadcrumb-item active">Pact Broker</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pact-broker">Pact Broker</h1>
+<p>The Pact Broker is an application for sharing of consumer driven contracts and verification results. It is optimised for use with "pacts" (contracts created by the Pact framework), but can be used for any type of contract that can be serialized to JSON. https://github.com/pact-foundation/pact_broker</p>
+<p>To use the Pact-Broker locally, this repository contains a Dockerized version of the Pact Broker:
+https://github.com/pact-foundation/pact-broker-docker</p>
+<h2 id="pact-broker-cli">Pact Broker CLI</h2>
+<p>To install the Pact Broker CLI follow the instructions in the Developer set up guide</p>
+<h2 id="webhooks">Webhooks</h2>
+<p>Documentation:
+https://docs.pact.io/pact_broker/webhooks</p>
+<p>Through the Pact-Broker CLI:</p>
+<p>Open a command window and navigate to the bin folder of the pact-cli and run the following command replacing the varibles for your deployment. For more information: https://docs.pact.io/pact_broker/client_cli/readme</p>
+<pre><code>pact-broker create-webhook &quot;https://listeners.jenkins-sb.savagebeast.com/job/listeners-acceptance/job/graphql/job/DEVTOOLS-610-test-pact-broker-webhooks/buildWithParameters?os_authType=basic&amp;environment=shared&amp;graphqlHost=shared.graphql.docker.savagebeast.com&quot; --request=POST --broker-base-url=http://localhost:9292 --description='Test 3 Webhook CLI' --contract-content-changed --consumer=&quot;Example App&quot; --provider=&quot;Example API&quot; --user=username:password --header=&quot;accept:application/json&quot;
+</code></pre>
+<p>Through the Pact-Broker UI:</p>
+<ol>
+<li>Under the column called "Webhook status" click on "Create"</li>
+<li>Under the heading "Links" Locate "pb:create" in the column called "NON-GET" Click on the "<strong>!</strong>" symbol. </li>
+<li>A new window will open to allow the use of HTTP verbs POST, DELETE. </li>
+</ol>
+<p>To create the webhook use POST with following body:</p>
+<h3 id="jenkins-example">Jenkins Example</h3>
+<pre><code>{
+  &quot;description&quot;: &quot;Trigger ffc-demo-claim-service Acceptance Test Job on contract_content_changed event from ffc-demo-payment-service&quot;,
+  &quot;events&quot;: [{
+    &quot;name&quot;: &quot;contract_content_changed&quot;
+  }],
+  &quot;request&quot;: {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;url&quot;: &quot;&quot;,
+    &quot;headers&quot;: {
+      &quot;authorization&quot;: &quot;Basic &quot;
+    }
+  }
+}
+
+</code></pre>
+<h3 id="slack-example">Slack Example</h3>
+<pre><code>{
+  &quot;description&quot;: &quot;Trigger to send Slack message on provider-verification-failed event from ffc-demo-payment-service&quot;,
+  &quot;events&quot;: [
+    {
+      &quot;name&quot;: &quot;provider_verification_failed&quot;
+    }
+  ],
+  &quot;request&quot;: {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;url&quot;: &quot;&quot;,
+    &quot;headers&quot;: {
+      &quot;Content-Type&quot;: &quot;application/json&quot;
+    },
+    &quot;body&quot;: {
+      &quot;channel&quot;: &quot;#generalbuildfailures&quot;,
+      &quot;username&quot;: &quot;webhookbot&quot;,
+      &quot;text&quot;: &quot;Pact verification failed for ${pactbroker.consumerName}/${pactbroker.providerName}: ${pactbroker.pactUrl}&quot;,
+      &quot;icon_emoji&quot;: &quot;:(&quot;
+    }
+  }
+}
+</code></pre>
+<p>To delete a Webhook use the DELETE Verb with an empty body.</p>
+<p>To test the webhook:</p>
+<ol>
+<li>Select the webhook using "GET"</li>
+<li>Under the heading "Links" Locate "pb:execute"</li>
+</ol>
+<h2 id="note">Note</h2>
+<p>As of writing this guide, there is an issue with the default url used within the UI for executing the API calls. </p>
+<p>The current default url uses the internal IP address. This causes the following error: </p>
+<p><code>violates the following Content Security Policy directive: "default-src 'self'". Note that 'connect-src' was not explicitly set, so 'default-src' is used as a fallback.</code></p>
+<p>to resolve the issue, the IP address needs replacing with the DNS domain name.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../jlm/" class="btn btn-neutral float-left" title="Joiners, movers and leavers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../redis-caching/" class="btn btn-neutral float-right" title="Redis Caching in Hapi">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../jlm/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../redis-caching/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
