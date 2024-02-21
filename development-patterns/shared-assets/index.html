@@ -8,21 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/archive/guides/troubleshooting/">
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/development-patterns/shared-assets/">
       
       
+        <link rel="prev" href="../git-secrets/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+        <link rel="next" href="../../testing/contract/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>Troubleshooting Guide - FCP Development Guide</title>
+        <title>Shared Assets - FCP Development Guide</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -41,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#troubleshooting-guide" class="md-skip">
+        <a href="#shared-assets" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Troubleshooting Guide
+              Shared Assets
             
           </span>
         </div>
@@ -183,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -213,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -268,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/platform/" class="md-nav__link">
+      <a href="../../getting-started/platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/cicd/" class="md-nav__link">
+      <a href="../../getting-started/cicd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/arrange-access/" class="md-nav__link">
+      <a href="../../getting-started/arrange-access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/" class="md-nav__link">
+      <a href="../../local-development-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -429,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-sudoers/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-sudoers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-desktop/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-desktop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-vs-code/" class="md-nav__link">
+      <a href="../../local-development-setup/install-vs-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-standard-js/" class="md-nav__link">
+      <a href="../../local-development-setup/install-standard-js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-sonarlint/" class="md-nav__link">
+      <a href="../../local-development-setup/install-sonarlint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
+      <a href="../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-compose/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-detect-secrets/" class="md-nav__link">
+      <a href="../../local-development-setup/install-detect-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-node-version-manager/" class="md-nav__link">
+      <a href="../../local-development-setup/install-node-version-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-kubectl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-helm/" class="md-nav__link">
+      <a href="../../local-development-setup/install-helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-azure-cli/" class="md-nav__link">
+      <a href="../../local-development-setup/install-azure-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-snyk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-snyk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-github/" class="md-nav__link">
+      <a href="../../local-development-setup/install-github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-openvpn/" class="md-nav__link">
+      <a href="../../local-development-setup/install-openvpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/choose-a-technology/" class="md-nav__link">
+      <a href="../../create-a-new-service/choose-a-technology/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/github/" class="md-nav__link">
+      <a href="../../create-a-new-service/github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/conventions/" class="md-nav__link">
+      <a href="../../create-a-new-service/conventions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/jenkins/" class="md-nav__link">
+      <a href="../../create-a-new-service/jenkins/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/ado/" class="md-nav__link">
+      <a href="../../create-a-new-service/ado/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,17 +1077,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1097,7 +1103,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Development patterns
@@ -1111,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/containers.md" class="md-nav__link">
+      <a href="../containers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1132,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/configuration.md" class="md-nav__link">
+      <a href="../configuration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-service-bus.md" class="md-nav__link">
+      <a href="../azure-service-bus.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1174,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-storage.md" class="md-nav__link">
+      <a href="../azure-storage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1195,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-postgresql.md" class="md-nav__link">
+      <a href="../azure-postgresql.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1216,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-redis.md" class="md-nav__link">
+      <a href="../azure-redis.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1237,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-application-insights.md" class="md-nav__link">
+      <a href="../azure-application-insights.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1293,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/defra-identity.md" class="md-nav__link">
+      <a href="../defra-identity.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-ad.md" class="md-nav__link">
+      <a href="../azure-ad.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1330,6 +1336,403 @@
             
           </ul>
         </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-secrets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Secrets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Shared Assets
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Shared Assets
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#development-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development guide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-parent-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker parent images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker parent images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      DockerHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jenkins-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jenkins library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jenkins library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-chart-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Helm chart library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Helm chart library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservice-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microservice template
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Microservice template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net-sonarcloud-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      .NET SonarCloud scanning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=".NET SonarCloud scanning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerhub_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DockerHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secret-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secret scanning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secret scanning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npm-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      npm publishing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="npm publishing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerhub_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      DockerHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kafka-admin-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kafka admin client
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kafka admin client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messaging-npm-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Messaging npm package
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Messaging npm package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      npm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events-npm-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events npm package
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Events npm package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      npm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1385,7 +1788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/unit-testing.md" class="md-nav__link">
+      <a href="../../testing/unit-testing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1406,7 +1809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/integration.md" class="md-nav__link">
+      <a href="../../testing/integration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1427,7 +1830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/contract.md" class="md-nav__link">
+      <a href="../../testing/contract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1448,7 +1851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/performance.md" class="md-nav__link">
+      <a href="../../testing/performance.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1469,7 +1872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/security.md" class="md-nav__link">
+      <a href="../../testing/security.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1490,7 +1893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/accessibility.md" class="md-nav__link">
+      <a href="../../testing/accessibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1511,7 +1914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/compatibility.md" class="md-nav__link">
+      <a href="../../testing/compatibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1574,7 +1977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards/" class="md-nav__link">
+      <a href="../../archive/standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1595,7 +1998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../archive/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1643,37 +2046,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#service-bus" class="md-nav__link">
+  <a href="#development-guide" class="md-nav__link">
     <span class="md-ellipsis">
-      Service bus
+      Development guide
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Service bus">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-parent-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker parent images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker parent images">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#application-logs-message-or-service-timeout" class="md-nav__link">
+  <a href="#dockerhub" class="md-nav__link">
     <span class="md-ellipsis">
-      Application logs message or service timeout
+      DockerHub
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#request-does-not-reach-the-azure-topic" class="md-nav__link">
+  <a href="#github" class="md-nav__link">
     <span class="md-ellipsis">
-      Request does not reach the Azure topic
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#messages-in-a-topics-service-bus-subscriptions-are-not-processed" class="md-nav__link">
-    <span class="md-ellipsis">
-      Messages in a topic's Service Bus Subscription(s) are not processed
+      GitHub
     </span>
   </a>
   
@@ -1685,19 +2088,247 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
+  <a href="#jenkins-library" class="md-nav__link">
     <span class="md-ellipsis">
-      Docker
+      Jenkins library
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Docker">
+    <nav class="md-nav" aria-label="Jenkins library">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tests-cannot-access-database-migration-data" class="md-nav__link">
+  <a href="#github_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Tests cannot access database migration data
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-chart-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Helm chart library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Helm chart library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservice-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microservice template
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Microservice template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net-sonarcloud-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      .NET SonarCloud scanning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=".NET SonarCloud scanning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerhub_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DockerHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secret-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secret scanning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secret scanning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npm-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      npm publishing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="npm publishing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerhub_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      DockerHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kafka-admin-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kafka admin client
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kafka admin client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messaging-npm-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Messaging npm package
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Messaging npm package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      npm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events-npm-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events npm package
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Events npm package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      npm
     </span>
   </a>
   
@@ -1726,55 +2357,100 @@
   
 
 
-<h1 id="troubleshooting-guide">Troubleshooting Guide</h1>
-<p>A troubleshooting guide for common problems faced by developers on the FFC programme</p>
-<h2 id="service-bus">Service bus</h2>
-<h4 id="application-logs-message-or-service-timeout">Application logs message or service timeout</h4>
-<p>What this looks like
-- In the application logs, <code>data: {"message": "Unable to create the amqp session due to operation timeout."}</code> 
-- <code>ServiceBusError: Unable to create the amqp session due to operation timeout at ... code: 'ServiceTimeout'</code></p>
-<p>What this means
-- The application is unable to send a message to its requested topic due to network or configuration issues</p>
-<p>What is the solution
-- Ensure the machine is connected to the Azure vNET with a valid FFC subscription via OpenVPN
-- Check the environment variables for the service bus connection: these are stored locally in either the user's profile file (e.g. <code>.bashrc</code>) or the repository's <code>.env</code> file
-- <a href="https://docs.docker.com/engine/reference/commandline/stop/">Stop</a> and <a href="https://docs.docker.com/engine/reference/commandline/system_prune/">prune all Docker containers, networks and volumes</a>
-- Use this <a href="https://github.com/johnwatson484/azure-service-bus-test-client">testing framework</a> to check outbound requests independently of the application</p>
-<h4 id="request-does-not-reach-the-azure-topic">Request does not reach the Azure topic</h4>
-<p>What this looks like
-- On the Azure portal, the requests chart for the topic has no activity once a request has been sent</p>
-<p>What this means
-- The request is not being received within the Azure topic</p>
-<p>What is the solution
-- Ensure you are looking at the correct Azure topic within the correct subscription
-- Check that the request does not <a href="#application-logs-message-or-service-timeout">timeout</a>
-- If the application is web-based, try again as webpack was possibly running
-- If the application is web-based, clear the web-browser's cache or use a <a href="https://www.computerworld.com/article/3356840/how-to-go-incognito-in-chrome-firefox-safari-and-edge.html">private/incognito window</a>
-- Check <a href="https://status.azure.com/en-gb/status">Azure platform's health</a></p>
-<h4 id="messages-in-a-topics-service-bus-subscriptions-are-not-processed">Messages in a topic's Service Bus Subscription(s) are not processed</h4>
-<p>What this looks like
-- On the Azure portal, the message count for the topic's Service Bus subscription(s) increase once a request has been sent</p>
-<p>What this means
-- The messages received from the Azure topic are pushed to the Service Bus subscription(s) but are not being processed</p>
-<p>What is the solution
-- Check the subcription is setup for the topic, <a href="https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-expiration#temporary-entities">Azure automatically deletes idle subscriptions after 14 days</a> unless specified to never do so during creation
-- Usually, another microservice is responsible for ingesting and processing these messages, ensure it is up
-- Check the environmental subscription variables are correct for the ingesting service (these are usually stored locally within the repository in a <code>.env</code> file)</p>
-<blockquote>
-<p><strong>Note:</strong> These issues and remedies also apply to Azure's Service Bus queues</p>
-</blockquote>
-<h2 id="docker">Docker</h2>
-<h4 id="tests-cannot-access-database-migration-data">Tests cannot access database migration data</h4>
-<p>What this looks like
-- <code>await db.tblName.findAll()</code> returns nothing for a table with insert data in a changelog file(s)
-- <code>await db.tblName.create(tableRecord).catch(err =&gt; { console.log(err) })</code> returns <code>relation "public.tableName" does not exist</code></p>
-<p>What this means
-- The application is attempting to read from an empty database table</p>
-<p>What is the solution
-- Check the <code>docker-compose.migrate.yaml</code> file was ran 
-- Confirm the database migration was successful
-- If using <a href="https://docs.docker.com/compose/cli-command/"><code>docker compose</code></a>, ensure the database volume is mapped correctly
-- If using <a href="https://docs.docker.com/compose/cli-command/"><code>docker compose</code></a>, ensure <a href="https://docs.docker.com/compose/cli-command/#:~:text=Docker%20Compose%20V2%20will%20be,version%20of%20the%20Docker%20CLI.">Docker Desktop is configured correctly for V2</a> by checking/unchecking the <code>Use Docker Compose V2</code> in Docker Desktop's preferences</p>
+<h1 id="shared-assets">Shared assets</h1>
+<p>To better enable developer agility, the FCP provide several shared assets to reduce the effort needed to deliver a microservice ecosystem within.</p>
+<p>Teams are expected to use these shared assets.</p>
+<h2 id="development-guide">Development guide</h2>
+<p>The development guide is a library of FFC standards and guides useful to support developers within the FFC programme.</p>
+<ul>
+<li><a href="https://defra.github.io/ffc-development-guide">Development guide</a></li>
+</ul>
+<h2 id="docker-parent-images">Docker parent images</h2>
+<p>Docker parent images have been created for Node.js and .NET.  These parent images prevent duplication in each microservice by abstracting common layers away from each microservice.</p>
+<h3 id="dockerhub">DockerHub</h3>
+<ul>
+<li><a href="https://hub.docker.com/r/defradigital/node">Node.js</a></li>
+<li><a href="https://hub.docker.com/r/defradigital/node-development">Node.js development</a></li>
+<li><a href="https://hub.docker.com/r/defradigital/dotnetcore">.NET</a></li>
+<li><a href="https://hub.docker.com/r/defradigital/dotnetcore-development">.NET development</a></li>
+</ul>
+<h3 id="github">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/defra-docker-node">Node.js</a></li>
+<li><a href="https://github.com/DEFRA/defra-docker-dotnetcore">.NET</a></li>
+</ul>
+<h2 id="jenkins-library">Jenkins library</h2>
+<p>The Jenkins shared library abstracts common CI stages away from each microservice repository and ensures that all adequate assurance steps are completed.  The library supports the addition of custom steps at key points in the pipeline.</p>
+<h3 id="github_1">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-jenkins-pipeline-library">Jenkins library</a></li>
+</ul>
+<h2 id="helm-chart-library">Helm chart library</h2>
+<p>The Helm chart library keeps microservice Helm charts dry by abstracting common resource definitions away from each microservice repository.  The packaged chart is hosted in a GitHub repository.</p>
+<h3 id="github_2">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-helm-library">Helm chart library</a></li>
+<li><a href="https://github.com/DEFRA/ffc-helm-repository">Helm chart repository</a></li>
+</ul>
+<h2 id="microservice-template">Microservice template</h2>
+<p>A GitHub template repository has been created to allow teams to quickly get started with new microservice.  The template includes all common setup steps such as Docker, Helm charts and Jenkins.</p>
+<h3 id="github_3">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-template-node">Node.js</a></li>
+</ul>
+<h2 id="net-sonarcloud-scanning">.NET SonarCloud scanning</h2>
+<p>Analysing containerised .NET microservices with SonarCloud in CI is challenging.  To simplify this process a Docker image has been created to abstract this complexity away from both microservices and the Jenkins library.</p>
+<h3 id="dockerhub_1">DockerHub</h3>
+<ul>
+<li><a href="https://hub.docker.com/r/defradigital/ffc-dotnet-core-sonar">.NET SonarCloud Analysis</a></li>
+</ul>
+<h3 id="github_4">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-dotnet-core-sonar">.NET SonarCloud Analysis</a></li>
+</ul>
+<h2 id="secret-scanning">Secret scanning</h2>
+<p>All FCP repositories are regularly scanned for committed secrets.  A utility repository has been created in support of that.</p>
+<h3 id="github_5">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-git-secret-scanning">Git secret scanning</a></li>
+<li><a href="https://github.com/DEFRA/ffc-secret-scanning">Secret scanning</a></li>
+</ul>
+<h2 id="npm-publishing">npm publishing</h2>
+<p>Simplify publishing packages to npm, including switching between pre-release and full releases.</p>
+<h3 id="github_6">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-npm-publish">npm publish</a></li>
+</ul>
+<h3 id="dockerhub_2">DockerHub</h3>
+<ul>
+<li><a href="https://hub.docker.com/r/defradigital/ffc-npm-publish">npm publish</a></li>
+</ul>
+<h2 id="kafka-admin-client">Kafka admin client</h2>
+<p>Simplify viewing and deleting Kafka consumer groups</p>
+<h3 id="github_7">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-kafka-admin">Kafka admin client</a></li>
+</ul>
+<h2 id="messaging-npm-package">Messaging npm package</h2>
+<p>npm package to simplify Azure Service Bus sending and consuming in line with FFC standards</p>
+<h3 id="github_8">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-messaging">ffc-messaging</a></li>
+</ul>
+<h3 id="npm">npm</h3>
+<ul>
+<li><a href="https://www.npmjs.com/package/ffc-messaging">ffc-messaging</a></li>
+</ul>
+<h2 id="events-npm-package">Events npm package</h2>
+<p>npm package to simplify Azure Event Hubs sending and consuming in line with FFC standards</p>
+<h3 id="github_9">GitHub</h3>
+<ul>
+<li><a href="https://github.com/DEFRA/ffc-events">ffc-events</a></li>
+</ul>
+<h3 id="npm_1">npm</h3>
+<ul>
+<li><a href="https://www.npmjs.com/package/ffc-events">ffc-events</a></li>
+</ul>
 
 
 
@@ -1821,10 +2497,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>

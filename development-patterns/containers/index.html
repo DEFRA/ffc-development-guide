@@ -8,21 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/archive/guides/developing-in-container/">
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/development-patterns/containers/">
       
       
+        <link rel="prev" href="../../create-a-new-service/ado/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+        <link rel="next" href="../analytics/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>Developing in a container - FCP Development Guide</title>
+        <title>Containers - FCP Development Guide</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -41,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Developing in a container
+              Containers
             
           </span>
         </div>
@@ -183,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -213,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -268,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/platform/" class="md-nav__link">
+      <a href="../../getting-started/platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/cicd/" class="md-nav__link">
+      <a href="../../getting-started/cicd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/arrange-access/" class="md-nav__link">
+      <a href="../../getting-started/arrange-access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/" class="md-nav__link">
+      <a href="../../local-development-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -429,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-sudoers/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-sudoers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-desktop/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-desktop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-vs-code/" class="md-nav__link">
+      <a href="../../local-development-setup/install-vs-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-standard-js/" class="md-nav__link">
+      <a href="../../local-development-setup/install-standard-js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-sonarlint/" class="md-nav__link">
+      <a href="../../local-development-setup/install-sonarlint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
+      <a href="../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-compose/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-detect-secrets/" class="md-nav__link">
+      <a href="../../local-development-setup/install-detect-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-node-version-manager/" class="md-nav__link">
+      <a href="../../local-development-setup/install-node-version-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-kubectl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-helm/" class="md-nav__link">
+      <a href="../../local-development-setup/install-helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-azure-cli/" class="md-nav__link">
+      <a href="../../local-development-setup/install-azure-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-snyk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-snyk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-github/" class="md-nav__link">
+      <a href="../../local-development-setup/install-github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-openvpn/" class="md-nav__link">
+      <a href="../../local-development-setup/install-openvpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/choose-a-technology/" class="md-nav__link">
+      <a href="../../create-a-new-service/choose-a-technology/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/github/" class="md-nav__link">
+      <a href="../../create-a-new-service/github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/conventions/" class="md-nav__link">
+      <a href="../../create-a-new-service/conventions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/jenkins/" class="md-nav__link">
+      <a href="../../create-a-new-service/jenkins/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/ado/" class="md-nav__link">
+      <a href="../../create-a-new-service/ado/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,17 +1077,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1097,7 +1103,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Development patterns
@@ -1108,10 +1114,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../development-patterns/containers.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1120,6 +1146,371 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-composeyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker-compose.yaml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-composeoverrideyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker-compose.override.yaml
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="docker-compose.override.yaml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avoiding-port-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoiding port conflicts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-composedebugyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker-compose.debug.yaml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-composetestyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker-compose.test.yaml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-composetestwatchyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker-compose.test.watch.yaml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-composetestdebugyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker-compose.test.debug.yaml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagejson-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      package.json scripts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="package.json scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pretest" class="md-nav__link">
+    <span class="md-ellipsis">
+      pretest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    <span class="md-ellipsis">
+      test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      test:watch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testwatch_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      test:watch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testdebug" class="md-nav__link">
+    <span class="md-ellipsis">
+      test:debug
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testlint" class="md-nav__link">
+    <span class="md-ellipsis">
+      test:lint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      start:watch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startdebug" class="md-nav__link">
+    <span class="md-ellipsis">
+      start:debug
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convenience-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convenience scripts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Convenience scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scriptsstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      ./scripts/start
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptstest" class="md-nav__link">
+    <span class="md-ellipsis">
+      ./scripts/test
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="./scripts/test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional arguments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-code-running-in-a-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging code running in a container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging code running in a container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#application-debugging-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application debugging profiles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Application debugging profiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attach-to-an-already-running-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attach to an already running container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-an-application-in-debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start an application in debug mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test debugging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-debugging-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other debugging profiles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-net-in-a-linux-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging .NET in a Linux container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attaching-to-the-remote-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attaching to the remote debugger
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attaching to the remote debugger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      VS Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Studio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-useful-docker-development-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other useful Docker development guides
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1132,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/configuration.md" class="md-nav__link">
+      <a href="../configuration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-service-bus.md" class="md-nav__link">
+      <a href="../azure-service-bus.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1174,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-storage.md" class="md-nav__link">
+      <a href="../azure-storage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1195,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-postgresql.md" class="md-nav__link">
+      <a href="../azure-postgresql.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1216,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-redis.md" class="md-nav__link">
+      <a href="../azure-redis.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1237,7 +1628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-application-insights.md" class="md-nav__link">
+      <a href="../azure-application-insights.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1293,7 +1684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/defra-identity.md" class="md-nav__link">
+      <a href="../defra-identity.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-ad.md" class="md-nav__link">
+      <a href="../azure-ad.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,6 +1722,69 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-secrets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Secrets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shared-assets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared Assets
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1385,7 +1839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/unit-testing.md" class="md-nav__link">
+      <a href="../../testing/unit-testing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1406,7 +1860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/integration.md" class="md-nav__link">
+      <a href="../../testing/integration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1427,7 +1881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/contract.md" class="md-nav__link">
+      <a href="../../testing/contract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1448,7 +1902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/performance.md" class="md-nav__link">
+      <a href="../../testing/performance.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1469,7 +1923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/security.md" class="md-nav__link">
+      <a href="../../testing/security.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1490,7 +1944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/accessibility.md" class="md-nav__link">
+      <a href="../../testing/accessibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1511,7 +1965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/compatibility.md" class="md-nav__link">
+      <a href="../../testing/compatibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1574,7 +2028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards/" class="md-nav__link">
+      <a href="../../archive/standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1595,7 +2049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../archive/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1937,6 +2391,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#debugging-net-in-a-linux-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging .NET in a Linux container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attaching-to-the-remote-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attaching to the remote debugger
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attaching to the remote debugger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      VS Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Studio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#other-useful-docker-development-guides" class="md-nav__link">
     <span class="md-ellipsis">
       Other useful Docker development guides
@@ -1964,19 +2460,18 @@
 
 
 <h1 id="developing-in-a-container">Developing in a container</h1>
-<p>The FFC Architecture Vision prescribes a containerised microservice ecosystem.  Docker is the containerisation technology used within Defra.</p>
+<p>The Architecture Vision prescribes a containerised microservice ecosystem.  Docker is the containerisation technology used within Defra.</p>
 <p>Containers are lightweight and fast. One of their main benefits for developers is that it is simple to replicate an application’s environment and dependencies locally consistently. </p>
 <p>Crucially, they enable a workflow for your code that allows you to develop and test locally, push to upstream, and be confident that what you have built locally will work in CI and any environment.</p>
-<p>The following guide has a strong focus on Node.js as it is the primary technology choice of FFC and Defra.  However, details of debugging .NET containers is included in <a href="../debug-dotnet-container/">another guide</a>.</p>
 <h2 id="docker">Docker</h2>
 <p>All FFC microservices are built from supported Defra parent images for Node.js and .NET.  A <code>Dockerfile</code> will be included in each microservice repository containing a multi-stage build definition referencing these images.</p>
 <p>All microservice repositories created from the <a href="https://github.com/DEFRA/ffc-template-node">FFC Node template</a> will include this <code>Dockerfile</code> already configured.</p>
 <h2 id="docker-compose">Docker Compose</h2>
 <p><a href="https://docs.docker.com/compose/">Docker Compose</a> is a tool for defining and running multi-container Docker applications using yaml configuration files.</p>
-<p>All microservice repositories created from the <a href="https://github.com/DEFRA/ffc-template-node">FFC Node template</a> include a pre-configured set of Docker Compose yaml files to support local development and testing as well as some being a prerequisite for CI capability.</p>
+<p>All microservice repositories created from the <a href="https://github.com/DEFRA/ffc-template-node">FCP Node template</a> include a pre-configured set of Docker Compose yaml files to support local development and testing as well as some being a prerequisite for CI capability.</p>
 <p>An example Node.js <code>Dockerfile</code> showing a multi-stage build for both development and production.  Note that the <code>development</code> image runs the application in <code>watch</code> mode to support local development and testing, whilst <code>production</code> simply runs the application.</p>
 <p><code>development</code> is dependent on the local <code>package.json</code> including a watch script.  More on this below.</p>
-<pre><code>ARG PARENT_VERSION=1.2.9-node14.17.6
+<pre><code class="language-dockerfile">ARG PARENT_VERSION=1.2.9-node14.17.6
 ARG PORT=3000
 ARG PORT_DEBUG=9229
 
@@ -2022,7 +2517,7 @@ CMD [ &quot;node&quot;, &quot;app&quot; ]
 <p>For example, if a service is made up of two microservices, both running on port <code>3000</code>.  Then both cannot be mapped to <code>localhost:3000</code> without a conflict.</p>
 <p>In this scenario, to successfully run both services on the same device with port binding, one of the services should bind the container's port <code>3000</code> to a different localhost port.</p>
 <p>The same consideration should be given to the debug port exposed to avoid a conflict on port <code>9229</code>, the default Node debug port.</p>
-<pre><code># service 1 docker-compose.override.yaml
+<pre><code class="language-yaml"># service 1 docker-compose.override.yaml
 ports:
   - &quot;3000:3000&quot;
   - &quot;9229:9229&quot;
@@ -2050,7 +2545,7 @@ ports:
 <h2 id="packagejson-scripts">package.json scripts</h2>
 <p>To enable the capability provided by the above Docker Compose files, <code>package.json</code> needs to be configured to support the scripts referenced in the <code>command</code>.</p>
 <p>Below is an extract of the default <code>package.json</code> file provided by <a href="https://github.com/DEFRA/ffc-template-node">FFC Node template</a>.</p>
-<pre><code>&quot;scripts&quot;: {
+<pre><code class="language-json">&quot;scripts&quot;: {
     &quot;pretest&quot;: &quot;npm run test:lint&quot;,
     &quot;test&quot;: &quot;jest --runInBand --forceExit&quot;,
     &quot;test:watch&quot;: &quot;jest --coverage=false --onlyChanged --watch --runInBand&quot;,
@@ -2104,7 +2599,7 @@ ports:
 <p>These debug configurations should all be included in a <code>launch.json</code> file in the <code>.vscode</code> folder at the root of the repository.  This folder should be excluded from source control.</p>
 <h3 id="application-debugging-profiles">Application debugging profiles</h3>
 <h4 id="attach-to-an-already-running-container">Attach to an already running container</h4>
-<pre><code>{
+<pre><code class="language-json">{
   &quot;name&quot;: &quot;Docker: Attach&quot;,
   &quot;type&quot;: &quot;node&quot;,
   &quot;request&quot;: &quot;attach&quot;,
@@ -2122,7 +2617,7 @@ ports:
 <p><code>remoteRoot</code> - must match the location of the code that matches the local workspace structure.  When using the Node.js Defra Docker base images the location will always be <code>home/node</code>.</p>
 <p><code>skipFiles</code> - an array of locations where debugging such skip.  Typically this would be internal Node.js code as well as those from third party npm modules.</p>
 <h4 id="start-an-application-in-debug-mode">Start an application in debug mode</h4>
-<pre><code>{
+<pre><code class="language-json">{
       &quot;name&quot;: &quot;Docker: Attach Launch&quot;,
       &quot;type&quot;: &quot;node&quot;,
       &quot;request&quot;: &quot;attach&quot;,
@@ -2140,7 +2635,7 @@ ports:
 <p>This will start a new container in debug mode using the <code>start:debug</code> <code>package.json</code> script.  The application will wait for a debugger before running any code.</p>
 <p>This is dependent on <code>preLaunchTask</code> and <code>postDebugTask</code> being defined in a <code>.vscode/tasks.json</code> file.</p>
 <p>An example of this is below.</p>
-<pre><code>{
+<pre><code class="language-json">{
   &quot;version&quot;: &quot;2.0.0&quot;,
   &quot;tasks&quot;: [
     {
@@ -2157,7 +2652,7 @@ ports:
 }
 </code></pre>
 <h3 id="test-debugging">Test debugging</h3>
-<pre><code>{
+<pre><code class="language-json">{
   &quot;name&quot;: &quot;Docker: Jest Attach&quot;,
   &quot;type&quot;: &quot;node&quot;,
   &quot;request&quot;: &quot;attach&quot;,
@@ -2179,6 +2674,69 @@ This profile will attach that debugger.</p>
 <p><code>continueOnAttach</code> - instruct the pending test execution to continue once the debugger is attached.</p>
 <h2 id="other-debugging-profiles">Other debugging profiles</h2>
 <p>A range of different debugging profiles can be found in <a href="https://github.com/johnwatson484/vscode-debug-profiles-node">this repository</a> as well as a test application setup to the above standards to test them.</p>
+<h2 id="debugging-net-in-a-linux-container">Debugging .NET in a Linux container</h2>
+<p>.NET services can be developed using VS Code or Visual Studio.</p>
+<p>As all FCP services are designed to be developed and run in Linux containers, debugging them requires the attachment of a debugger from the running container.  </p>
+<p>In the case of .NET, this is dependent on a remote debugger being present in the container image.</p>
+<p>All FCP services based on the Defra .NET development image include the <a href="https://github.com/Microsoft/MIEngine/wiki/Offroad-Debugging-of-.NET-Core-on-Linux---OSX-from-Visual-Studio"><code>vsdbg</code></a> remote debugger.</p>
+<h2 id="attaching-to-the-remote-debugger">Attaching to the remote debugger</h2>
+<h3 id="vs-code">VS Code</h3>
+<ul>
+<li>add your breakpoint</li>
+<li>start the container with <code>docker-compose up --build</code> from the repository root directory</li>
+<li>in VS Code create a <code>launch.json</code> configuration similar to the below substituting the name of the container, <code>ffc-demo-payment-service-core</code></li>
+</ul>
+<p><code>json
+  {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": ".NET Core Docker Attach",
+        "type": "coreclr",
+        "request": "attach",
+        "processId": "${command:pickRemoteProcess}",
+        "pipeTransport": {
+          "pipeProgram": "docker",
+          "pipeArgs": [ "exec", "-i", "ffc-demo-payment-service-core" ],
+          "debuggerPath": "/vsdbg/vsdbg",
+          "pipeCwd": "${workspaceRoot}",
+          "quoteArgs": false
+        },
+        "sourceFileMap": {
+          "/home/dotnet": "${workspaceFolder}"
+        }
+      }
+    ]
+  }</code></p>
+<ul>
+<li>start the VS Code debugger using this launch configuration</li>
+<li>in the context menu, select the process matching the running application, eg. <code>FFCDemoPaymentService</code></li>
+<li>the breakpoint can now be hit within VS Code</li>
+</ul>
+<h3 id="visual-studio">Visual Studio</h3>
+<p>Visual Studio does not integrate with the WSL filesystem, so WSL users must clone the repository in Windows to debug using Visual Studio. </p>
+<p>It is important that the following git configuration setting is present to ensure that cloning in Windows does not alter existing line endings</p>
+<pre><code class="language-bash">git config --global core.autocrlf input
+</code></pre>
+<p>For services which require environment variables to be read from the host, it is recommended to store these in a <code>.env</code> file in the repository as Docker Compose
+will automatically read this file when running the container.  This file must be excluded from source control.</p>
+<p>This process has a prerequisite of the user having <a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows/">Docker Desktop</a> installed which includes Docker Compose by default.</p>
+<ol>
+<li>add your break point</li>
+<li>using Powershell, start the container with <code>docker-compose up --build</code> from the repository root directory</li>
+<li>in Visual Studio, select <code>Debug -&gt; Attach to process</code></li>
+<li>select <code>Docker (Linux Container)</code> for <code>Connection type</code></li>
+<li>type the name of the container in <code>Connection target</code>, eg. <code>ffc-demo-payment-service</code></li>
+<li>click <code>Refresh</code></li>
+<li>select process matching running application, eg <code>FFCDemoPaymentService</code></li>
+<li>click <code>Attach</code></li>
+<li>select <code>Managed (.NET Core for Unix)</code> code type</li>
+<li>click <code>Ok</code></li>
+<li>the breakpoint can now be hit within Visual Studio</li>
+</ol>
+<blockquote>
+<p>Note volume mounts do not appear to work with this approach, so for changes to be picked up, the container will need to be recreated.</p>
+</blockquote>
 <h2 id="other-useful-docker-development-guides">Other useful Docker development guides</h2>
 <p>Defra has well documented <a href="https://github.com/DEFRA/software-development-standards/blob/master/standards/container_standards.md">standards</a> and <a href="https://github.com/DEFRA/software-development-standards/blob/master/guides/docker_guidance.md">guidance</a> on developing with containers, that provides further examples of good local development practice.</p>
 
@@ -2227,10 +2785,10 @@ This profile will attach that debugger.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>

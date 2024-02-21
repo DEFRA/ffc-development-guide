@@ -8,21 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/archive/guides/debug-dotnet-container/">
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/development-patterns/git-secrets/">
       
       
+        <link rel="prev" href="../analytics/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+        <link rel="next" href="../shared-assets/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>Debugging .NET Core in a Linux container - FCP Development Guide</title>
+        <title>Git Secrets - FCP Development Guide</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -41,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debugging-net-core-in-a-linux-container" class="md-skip">
+        <a href="#git-secrets" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Debugging .NET Core in a Linux container
+              Git Secrets
             
           </span>
         </div>
@@ -183,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -213,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -268,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/platform/" class="md-nav__link">
+      <a href="../../getting-started/platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/cicd/" class="md-nav__link">
+      <a href="../../getting-started/cicd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/arrange-access/" class="md-nav__link">
+      <a href="../../getting-started/arrange-access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/" class="md-nav__link">
+      <a href="../../local-development-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -429,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-sudoers/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-sudoers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-desktop/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-desktop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-vs-code/" class="md-nav__link">
+      <a href="../../local-development-setup/install-vs-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-standard-js/" class="md-nav__link">
+      <a href="../../local-development-setup/install-standard-js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-sonarlint/" class="md-nav__link">
+      <a href="../../local-development-setup/install-sonarlint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
+      <a href="../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-compose/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-detect-secrets/" class="md-nav__link">
+      <a href="../../local-development-setup/install-detect-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-node-version-manager/" class="md-nav__link">
+      <a href="../../local-development-setup/install-node-version-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-kubectl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-helm/" class="md-nav__link">
+      <a href="../../local-development-setup/install-helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-azure-cli/" class="md-nav__link">
+      <a href="../../local-development-setup/install-azure-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-snyk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-snyk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-github/" class="md-nav__link">
+      <a href="../../local-development-setup/install-github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-openvpn/" class="md-nav__link">
+      <a href="../../local-development-setup/install-openvpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/choose-a-technology/" class="md-nav__link">
+      <a href="../../create-a-new-service/choose-a-technology/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/github/" class="md-nav__link">
+      <a href="../../create-a-new-service/github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/conventions/" class="md-nav__link">
+      <a href="../../create-a-new-service/conventions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/jenkins/" class="md-nav__link">
+      <a href="../../create-a-new-service/jenkins/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/ado/" class="md-nav__link">
+      <a href="../../create-a-new-service/ado/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,17 +1077,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1097,7 +1103,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Development patterns
@@ -1111,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/containers.md" class="md-nav__link">
+      <a href="../containers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1132,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/configuration.md" class="md-nav__link">
+      <a href="../configuration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-service-bus.md" class="md-nav__link">
+      <a href="../azure-service-bus.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1174,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-storage.md" class="md-nav__link">
+      <a href="../azure-storage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1195,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-postgresql.md" class="md-nav__link">
+      <a href="../azure-postgresql.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1216,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-redis.md" class="md-nav__link">
+      <a href="../azure-redis.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1237,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-application-insights.md" class="md-nav__link">
+      <a href="../azure-application-insights.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1293,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/defra-identity.md" class="md-nav__link">
+      <a href="../defra-identity.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-ad.md" class="md-nav__link">
+      <a href="../azure-ad.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,6 +1337,118 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Git Secrets
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Git Secrets
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dealing-with-false-positives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dealing with false positives
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shared-assets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared Assets
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1385,7 +1503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/unit-testing.md" class="md-nav__link">
+      <a href="../../testing/unit-testing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1406,7 +1524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/integration.md" class="md-nav__link">
+      <a href="../../testing/integration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1427,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/contract.md" class="md-nav__link">
+      <a href="../../testing/contract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1448,7 +1566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/performance.md" class="md-nav__link">
+      <a href="../../testing/performance.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1469,7 +1587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/security.md" class="md-nav__link">
+      <a href="../../testing/security.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1490,7 +1608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/accessibility.md" class="md-nav__link">
+      <a href="../../testing/accessibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1511,7 +1629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/compatibility.md" class="md-nav__link">
+      <a href="../../testing/compatibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1574,7 +1692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards/" class="md-nav__link">
+      <a href="../../archive/standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1595,7 +1713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../archive/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1643,35 +1761,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#attaching-to-the-remote-debugger" class="md-nav__link">
+  <a href="#dealing-with-false-positives" class="md-nav__link">
     <span class="md-ellipsis">
-      Attaching to the remote debugger
+      Dealing with false positives
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Attaching to the remote debugger">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vs-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      VS Code
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visual-studio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Visual Studio
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1693,67 +1787,24 @@
   
 
 
-<h1 id="debugging-net-core-in-a-linux-container">Debugging .NET Core in a Linux container</h1>
-<p>.NET Core services can be developed using VS Code or Visual Studio.</p>
-<p>As all FFC services are designed to be developed and run in Linux containers, 
-debugging them requires the attachement of a debugger from the running container.  </p>
-<p>In the case of .NET Core, this is dependent on a remote debugger being present in the container image.</p>
-<p>All FFC services based on the Defra .NET Core development image include the <code>vsdbg</code> remote debugger.</p>
-<h2 id="attaching-to-the-remote-debugger">Attaching to the remote debugger</h2>
-<h3 id="vs-code">VS Code</h3>
-<ul>
-<li>add your breakpoint</li>
-<li>start the container with <code>docker-compose up --build</code> from the repository root directory</li>
-<li>in VS Code create a <code>launch.json</code> configuration similar to the below substituting the name of the container, <code>ffc-demo-payment-service-core</code></li>
-</ul>
-<p><code>{
-    "version": "0.2.0",
-    "configurations": [
-      {
-        "name": ".NET Core Docker Attach",
-        "type": "coreclr",
-        "request": "attach",
-        "processId": "${command:pickRemoteProcess}",
-        "pipeTransport": {
-          "pipeProgram": "docker",
-          "pipeArgs": [ "exec", "-i", "ffc-demo-payment-service-core" ],
-          "debuggerPath": "/vsdbg/vsdbg",
-          "pipeCwd": "${workspaceRoot}",
-          "quoteArgs": false
-        },
-        "sourceFileMap": {
-          "/home/dotnet": "${workspaceFolder}"
-        }
-      }
-    ]
-  }</code></p>
-<ul>
-<li>start the VS Code debugger using this launch configuration</li>
-<li>in the context menu, select the process matching the running application, eg. <code>FFCDemoPaymentService</code></li>
-<li>the breakpoint can now be hit within VS Code</li>
-</ul>
-<h3 id="visual-studio">Visual Studio</h3>
-<p>Visual Studio does not integrate with the WSL filesystem, so WSL users must clone the repository in Windows to debug using Visual Studio. </p>
-<p>It is important that the following git configuration setting is present to ensure that cloning in Windows does not alter existing line endings</p>
-<pre><code>git config --global core.autocrlf input
+<h1 id="git-secrets">Git secrets</h1>
+<p>When working in the open it is important to ensure that no secrets are committed to a public repository. </p>
+<p>All developers setup <a href="../../local-development-setup/install-detect-secrets/"><code>detect-secrets</code></a> to scan their code for secrets before committing.</p>
+<h2 id="dealing-with-false-positives">Dealing with false positives</h2>
+<p><code>detect-secrets</code> often identifies false positives (something it thinks is a secret, but is not), which will stop
+the developer from committing their changes. We have two strategies for dealing with false positives.</p>
+<ol>
+<li>
+<p>For one-time false positives, they can be overridden by committing with the <code>--no-verify</code> flag. This will commit the
+change, but any future commits with changes to the file containing the false positive will result in it being detected again.</p>
+</li>
+<li>
+<p>False positives can be permanently ignored by adding them to the secrets baseline. Run the following command and
+commit the updated <code>.secrets.baseline</code> file:</p>
+</li>
+</ol>
+<pre><code class="language-bash">detect-secrets scan --update .secrets.baseline
 </code></pre>
-<p>For services which require environment variables to be read from the host, it is recommended to store these in a <code>.env</code> file in the repository as Docker Compose
-will automatically read this file when running the container.  This file must be excluded from source control.</p>
-<p>This process has a prerequisite of the user having <a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows/">Docker Desktop</a> installed which includes Docker Compose by default.</p>
-<ul>
-<li>add your break point</li>
-<li>using Powershell, start the container with <code>docker-compose up --build</code> from the repository root directory</li>
-<li>in Visual Studio, select <code>Debug -&gt; Attach to process</code></li>
-<li>select <code>Docker (Linux Container)</code> for <code>Connection type</code></li>
-<li>type the name of the container in <code>Connection target</code>, eg. <code>ffc-demo-payment-service</code></li>
-<li>click <code>Refresh</code></li>
-<li>select process matching running application, eg <code>FFCDemoPaymentService</code></li>
-<li>click <code>Attach</code></li>
-<li>select <code>Managed (.NET Core for Unix)</code> code type</li>
-<li>click <code>Ok</code></li>
-<li>the breakpoint can now be hit within Visual Studio</li>
-</ul>
-<p><strong>Note</strong> volume mounts do not appear to work with this approach, so for changes to be picked up, the container will need to be recreated.</p>
 
 
 
@@ -1800,10 +1851,10 @@ will automatically read this file when running the container.  This file must be
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>

@@ -11,71 +11,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/accounts/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/availability-alerts/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/debug-dotnet-container/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/demo-service/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/developing-in-container/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/google-tag-manager/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/pact-broker/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/redis-caching/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/secrets-management/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/shared-assets/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/troubleshooting/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/vs-code-wsl1/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/vulnerabilities/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/kubernetes/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
@@ -276,6 +211,31 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/analytics/</loc>
+         <lastmod>2024-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/cache/</loc>
+         <lastmod>2024-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/containers/</loc>
+         <lastmod>2024-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/git-secrets/</loc>
+         <lastmod>2024-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/shared-assets/</loc>
+         <lastmod>2024-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://defra.github.io/ffc-development-guide/getting-started/arrange-access/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
@@ -387,6 +347,11 @@
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/sign-commits/</loc>
+         <lastmod>2024-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/testing/contract/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>

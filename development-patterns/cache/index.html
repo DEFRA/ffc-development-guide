@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/archive/guides/redis-caching/">
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/development-patterns/cache/">
       
       
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>Redis Caching in Hapi - FCP Development Guide</title>
+        <title>Caching - FCP Development Guide</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -41,7 +41,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#redis-caching-in-hapi" class="md-skip">
+        <a href="#caching" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +76,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Redis Caching in Hapi
+              Caching
             
           </span>
         </div>
@@ -183,7 +183,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -213,7 +213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -268,7 +268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/platform/" class="md-nav__link">
+      <a href="../../getting-started/platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/cicd/" class="md-nav__link">
+      <a href="../../getting-started/cicd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/arrange-access/" class="md-nav__link">
+      <a href="../../getting-started/arrange-access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/" class="md-nav__link">
+      <a href="../../local-development-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -429,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-sudoers/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-sudoers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-desktop/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-desktop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-vs-code/" class="md-nav__link">
+      <a href="../../local-development-setup/install-vs-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-standard-js/" class="md-nav__link">
+      <a href="../../local-development-setup/install-standard-js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-sonarlint/" class="md-nav__link">
+      <a href="../../local-development-setup/install-sonarlint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
+      <a href="../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-compose/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-detect-secrets/" class="md-nav__link">
+      <a href="../../local-development-setup/install-detect-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-node-version-manager/" class="md-nav__link">
+      <a href="../../local-development-setup/install-node-version-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-kubectl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-helm/" class="md-nav__link">
+      <a href="../../local-development-setup/install-helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-azure-cli/" class="md-nav__link">
+      <a href="../../local-development-setup/install-azure-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-snyk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-snyk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-github/" class="md-nav__link">
+      <a href="../../local-development-setup/install-github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-openvpn/" class="md-nav__link">
+      <a href="../../local-development-setup/install-openvpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/choose-a-technology/" class="md-nav__link">
+      <a href="../../create-a-new-service/choose-a-technology/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/github/" class="md-nav__link">
+      <a href="../../create-a-new-service/github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/conventions/" class="md-nav__link">
+      <a href="../../create-a-new-service/conventions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/jenkins/" class="md-nav__link">
+      <a href="../../create-a-new-service/jenkins/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/ado/" class="md-nav__link">
+      <a href="../../create-a-new-service/ado/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1111,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/containers.md" class="md-nav__link">
+      <a href="../containers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1132,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/configuration.md" class="md-nav__link">
+      <a href="../configuration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-service-bus.md" class="md-nav__link">
+      <a href="../azure-service-bus.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1174,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-storage.md" class="md-nav__link">
+      <a href="../azure-storage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1195,7 +1195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-postgresql.md" class="md-nav__link">
+      <a href="../azure-postgresql.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1216,7 +1216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-redis.md" class="md-nav__link">
+      <a href="../azure-redis.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1237,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-application-insights.md" class="md-nav__link">
+      <a href="../azure-application-insights.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1293,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/defra-identity.md" class="md-nav__link">
+      <a href="../defra-identity.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-ad.md" class="md-nav__link">
+      <a href="../azure-ad.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,6 +1331,69 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-secrets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Secrets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shared-assets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared Assets
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1385,7 +1448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/unit-testing.md" class="md-nav__link">
+      <a href="../../testing/unit-testing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1406,7 +1469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/integration.md" class="md-nav__link">
+      <a href="../../testing/integration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1427,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/contract.md" class="md-nav__link">
+      <a href="../../testing/contract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1448,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/performance.md" class="md-nav__link">
+      <a href="../../testing/performance.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1469,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/security.md" class="md-nav__link">
+      <a href="../../testing/security.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1490,7 +1553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/accessibility.md" class="md-nav__link">
+      <a href="../../testing/accessibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1511,7 +1574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/compatibility.md" class="md-nav__link">
+      <a href="../../testing/compatibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1574,7 +1637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards/" class="md-nav__link">
+      <a href="../../archive/standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1595,7 +1658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../archive/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1643,6 +1706,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hapijs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hapi.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hapi.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#server-side-caching-in-hapi" class="md-nav__link">
     <span class="md-ellipsis">
       Server-side caching in Hapi
@@ -1650,8 +1732,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#configuring-the-default-cache-client" class="md-nav__link">
     <span class="md-ellipsis">
       Configuring the default cache client
@@ -1659,8 +1741,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#configuring-new-cache-clients" class="md-nav__link">
     <span class="md-ellipsis">
       Configuring new cache clients
@@ -1668,13 +1750,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#creating-and-using-a-cache-policy" class="md-nav__link">
     <span class="md-ellipsis">
       Creating and using a cache policy
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1705,18 +1792,21 @@
   
 
 
-<h1 id="redis-caching-in-hapi">Redis Caching in Hapi</h1>
-<p><a href="https://hapi.dev/tutorials/caching/">Hapi caching</a> is described in their official documentation. The following guide specifically describes how server-side Redis caching can be added to a Hapi based microservice.</p>
-<h2 id="server-side-caching-in-hapi">Server-side caching in Hapi</h2>
+<h1 id="caching">Caching</h1>
+<h2 id="redis">Redis</h2>
+<p>When an external cache is needed, <a href="https://azure.microsoft.com/en-gb/services/cache/">Azure Cache for Redis</a> is the recommended choice.  For local development, a <a href="https://hub.docker.com/_/redis">Docker image</a> can be used.</p>
+<h2 id="hapijs">Hapi.js</h2>
+<p>Typically a cache is needed to work with a web server such as <a href="https://hapi.dev/">Hapi.js</a>.  <a href="https://hapi.dev/tutorials/caching/">Hapi caching</a> is described in their official documentation. The following guide specifically describes how server-side Redis caching can be added to a Hapi based microservice.</p>
+<h3 id="server-side-caching-in-hapi">Server-side caching in Hapi</h3>
 <p>Hapi server-side caching uses the <a href="https://hapi.dev/module/catbox/">catbox</a> interface to abstract away the underlying caching technology being used (e.g. memory, Redis, Memcached).</p>
-<p><img alt="redis-hapi" src="../redis-hapi.png" title="redis-hapi" /></p>
+<p><img alt="redis-hapi" src="redis-hapi.png" title="redis-hapi" /></p>
 <p>There are three main concepts to Hapi server-side caching:
 * The cache <strong>strategy</strong> (or provider): is the underlying caching technology being employed. Here <a href="https://github.com/hapijs/catbox-redis">catbox-redis</a>, the Redis adapter for catbox, is the strategy.
 * The cache <strong>client</strong>: is the low-level cache abstraction, and is initialised using a cache stragegy (e.g. memory or Redis). <strong>Hapi initialises an in-memory cache client by default</strong>, and you can create additional cache clients using the same or different strategies (e.g. you can have one in-memory cache, and one Redis cache).
 * The cache <strong>policy</strong>: is a higher-level cache abstraction that sets a policy on the storage within the cache (e.g. expiry times). The cache policy also provides additional segmentation within the cache client. Typically the cache policy is how you would interact with cache values via the <code>get</code> and <code>set</code> menthods.</p>
-<h2 id="configuring-the-default-cache-client">Configuring the default cache client</h2>
+<h3 id="configuring-the-default-cache-client">Configuring the default cache client</h3>
 <p>As mentioned above, Hapi initialises an in-memory cache client by default. If you wish you can make the default cache client use a different strategy. For example, the following would make the default cache strategy use Redis or memory depending on the value of <code>config.useRedis</code>:</p>
-<pre><code>const catbox = config.useRedis ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
+<pre><code class="language-javascript">const catbox = config.useRedis ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
 const catboxOptions = config.useRedis
   ? {
       host: process.env.REDIS_HOSTNAME,
@@ -1737,9 +1827,9 @@ const server = hapi.server({
   }]
 }
 </code></pre>
-<h2 id="configuring-new-cache-clients">Configuring new cache clients</h2>
+<h3 id="configuring-new-cache-clients">Configuring new cache clients</h3>
 <p>Additional cache clients can be created when initialising the Hapi server by adding new definitions to the <code>cache</code> array. Additional caches are required to be given a <code>name</code>. For example, the following will create a new Redis cache client called session.</p>
-<pre><code>const catbox = require('@hapi/catbox-redis')
+<pre><code class="language-javascript">const catbox = require('@hapi/catbox-redis')
 const catboxOptions = {
   host: process.env.REDIS_HOSTNAME,
   port: process.env.REDIS_PORT,
@@ -1761,18 +1851,18 @@ const server = hapi.server({
 </code></pre>
 <p><strong>NOTE 1</strong>: This example will create two cache clients, the default in-memory cache client and a new cache client called <code>session</code> that uses Redis</p>
 <p><strong>NOTE 2</strong>: Hapi will always use the default in-memory cache client unless you specify the <code>name</code> when using it (either directly or via the cache policy, see below)</p>
-<h2 id="creating-and-using-a-cache-policy">Creating and using a cache policy</h2>
+<h3 id="creating-and-using-a-cache-policy">Creating and using a cache policy</h3>
 <p>Lastly we create the cache policy, which is typically how we interact with the cache (see the <a href="https://hapi.dev/module/catbox/api/?v=11.1.1#policy">catbox policy documentation</a> for more details and how set and get data in the cache).</p>
-<p>When creating a cache policy, if you don't explictily provide the name of a cache client (via the <code>cache</code> property), it will use the default cache client.</p>
-<p>To create a cache policy using a segement within the default cache client:</p>
-<pre><code>myCache = server.cache({
+<p>When creating a cache policy, if you don't explicitly provide the name of a cache client (via the <code>cache</code> property), it will use the default cache client.</p>
+<p>To create a cache policy using a segment within the default cache client:</p>
+<pre><code class="language-javascript">myCache = server.cache({
   expiresIn: 36000,
   segment: 'mySegment'
   // ... any other configuration
 })
 </code></pre>
-<p>To create a cache policy using a segement within a named cache client (in this case <code>session</code>):</p>
-<pre><code>myCache = server.cache({
+<p>To create a cache policy using a segment within a named cache client (in this case <code>session</code>):</p>
+<pre><code class="language-javascript">myCache = server.cache({
   cache: 'session'
   expiresIn: 36000,
   segment: 'mySegment'
@@ -1780,10 +1870,10 @@ const server = hapi.server({
 })
 </code></pre>
 <h2 id="integration-with-yar-session-cookies">Integration with yar session cookies</h2>
-<p><a href="https://hapi.dev/module/yar/">Hapi yar</a> is a plugin that adds unauthenticatd session support (state across multiple browser request) to Hapi. By default it tries to fit session data into a session cookie, but will use server-side storage via the Hapi cache interface if the sesion data is greater than the max size specified when registering the plugin.</p>
+<p><a href="https://hapi.dev/module/yar/">Hapi yar</a> is a plugin that adds unauthenticated session support (state across multiple browser request) to Hapi. By default it tries to fit session data into a session cookie, but will use server-side storage via the Hapi cache interface if the session data is greater than the max size specified when registering the plugin.</p>
 <p>Combining Hapi yar with Redis caching is one way to allow multiple replicates of a web server microservice to share server-side user session data.</p>
 <p>Example configuration using the default cache client:</p>
-<pre><code>server.register({
+<pre><code class="language-javascript">server.register({
   plugin: require('@hapi/yar'),
   options: {
     cache: {
@@ -1795,7 +1885,7 @@ const server = hapi.server({
 })
 </code></pre>
 <p>Example configuration using a named cache client:</p>
-<pre><code>server.register({
+<pre><code class="language-javascript">server.register({
   plugin: require('@hapi/yar'),
   options: {
     cache: {
@@ -1853,10 +1943,10 @@ const server = hapi.server({
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>
