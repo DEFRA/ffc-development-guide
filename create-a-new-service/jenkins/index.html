@@ -1042,6 +1042,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Setup a Jenkins CI pipeline
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1051,6 +1062,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-bounded-context-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create bounded context folder
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-build-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a build pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-deployment-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a deployment pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the pipeline
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1652,6 +1718,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-bounded-context-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create bounded context folder
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-build-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a build pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-deployment-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a deployment pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the pipeline
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1669,6 +1779,69 @@
 
 
 <h1 id="setup-a-jenkins-ci-pipeline">Setup a Jenkins CI pipeline</h1>
+<p>Assuming the repository has been <a href="../github/">configured correctly</a>, including setup of <a href="https://sonarcloud.io/">SonarCloud</a> and <a href="https://app.snyk.io/">Snyk</a>, the following steps should be followed to setup a Jenkins CI pipeline.</p>
+<h2 id="create-bounded-context-folder">Create bounded context folder</h2>
+<p>Each service should group it's CI pipelines in a Jenkins folder matching the name of the bounded context.  This is to ensure that the Jenkins UI remains manageable as the number of services grows.</p>
+<p>For example, a repository named <code>ffc-pay-enrichment</code> would be placed in a folder named <code>ffc-pay</code>.</p>
+<p>If a bounded context folder does not exist, create one by:</p>
+<ol>
+<li>navigating to the <a href="https://jenkins-ffc.azure.defra.cloud/">Jenkins home page</a></li>
+<li>select <code>New Item</code></li>
+<li>enter the <code>item name</code> in the format <code>ffc-&lt;bounded context&gt;</code>, for example <code>ffc-pay</code></li>
+<li>select <code>Folder</code></li>
+<li>select <code>Ok</code></li>
+</ol>
+<h2 id="create-a-build-pipeline">Create a build pipeline</h2>
+<ol>
+<li>navigate to your bounded context folder in Jenkins</li>
+<li>select <code>New Item</code></li>
+<li>enter the <code>item name</code> in the format <code>&lt;repository name&gt;-build</code>, for example <code>ffc-demo-web-build</code></li>
+<li>select <code>Multibranch Pipeline</code></li>
+<li>select <code>Ok</code></li>
+<li>enter <code>GitHub</code> as a Branch Source</li>
+<li>for credentials select the <code>github-token</code> with the <code>ffcplatform</code> user</li>
+<li>enter your GitHub URL in the <code>HTTPS URL</code> field, for example <code>https://github.com/DEFRA/ffc-demo-web.git</code></li>
+<li>set <code>Discover branches</code> to <code>All branches</code></li>
+<li>delete <code>Discover pull requests from origin</code> and <code>Discover pull requests from forks</code></li>
+<li>set <code>Scan Multibranch Pipeline Triggers -&gt; Periodically if not otherwise run</code> to <code>true</code> with an interval of <code>1 hour</code></li>
+<li>set <code>Pipeline Action Triggers -&gt; Pipeline Delete Event</code> set <code>ffc-housekeeping/cleanup-on-branch-delete</code></li>
+<li>set <code>Pipeline Action Triggers -&gt; Include Filter</code> to be <code>*</code></li>
+<li>set <code>Pipeline Action Triggers -&gt; Additional Parameter -&gt; Parameter Name</code> to be <code>repoName</code> and <code>Parameter Value</code> to be the name of the repository, for example, <code>ffc-demo-web</code></li>
+</ol>
+<blockquote>
+<p>Definitions can be copied from existing pipelines.  To save time, when creating a new pipeline select <code>Copy from</code> and enter the name of an existing pipeline.  Remember to update the <code>repoName</code> and <code>GitHub URL</code> fields.</p>
+</blockquote>
+<h2 id="create-a-deployment-pipeline">Create a deployment pipeline</h2>
+<p>Although Azure DevOps is used for deployments, Jenkins is used to trigger the deployment pipeline following the successful run of a main branch build.  </p>
+<p>The deployment to the Sandpit environment is also orchestrated by Jenkins.</p>
+<ol>
+<li>navigate to your bounded context folder in Jenkins</li>
+<li>select <code>New Item</code></li>
+<li>enter the <code>item name</code> in the format <code>&lt;repository name&gt;-deploy</code>, for example <code>ffc-demo-web-deploy</code></li>
+<li>select <code>Pipeline</code></li>
+<li>select <code>Ok</code></li>
+<li>select <code>This project is parameterized</code></li>
+<li>add the following parameters:</li>
+<li><code>environment</code> with a default value of <code>snd</code></li>
+<li><code>namespace</code> with a default value of <code>&lt;bounded context&gt;</code></li>
+<li><code>chartName</code> with a default value of <code>&lt;repository name&gt;</code></li>
+<li><code>chartVersion</code> with a default value of <code>1.0.0</code></li>
+<li><code>helmChartRepoType</code> with a default value of <code>acr</code></li>
+<li>select <code>Trigger builds remotely (e.g., from scripts)</code></li>
+<li>enter <code>Authentication token</code> which can be found in any existing deployment pipeline</li>
+<li>enter the below script in the <code>Pipeline</code> section with a <code>Definition</code> of <code>Pipeline script</code></li>
+</ol>
+<pre><code class="language-groovy">@Library('defra-library@v-9') _
+
+deployToCluster environment: params.environment, 
+                namespace: params.namespace, 
+                chartName: params.chartName, 
+                chartVersion: params.chartVersion,
+                helmChartRepoType: params.helmChartRepoType
+</code></pre>
+<h2 id="test-the-pipeline">Test the pipeline</h2>
+<p>Commits to both feature branches and main branches should trigger the build pipeline.  Successful builds of the main branch should trigger the deployment pipeline.</p>
+<p>Following deployment the new service should be available in the Sandpit AKS cluster in a namespace matching the bounded context.  For example, <code>ffc-demo-web</code> would be deployed to the <code>ffc-demo</code> namespace.</p>
 
 
 
