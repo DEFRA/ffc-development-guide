@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#repository-conventions" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1013,6 +1018,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Repository conventions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1023,6 +1041,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node.js
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#net" class="md-nav__link">
+    <span class="md-ellipsis">
+      .NET
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1642,6 +1712,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node.js
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#net" class="md-nav__link">
+    <span class="md-ellipsis">
+      .NET
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1659,9 +1772,88 @@
   
 
 
-  <h1>Repository conventions</h1>
-
-
+<h1 id="repository-conventions">Repository conventions</h1>
+<p>Repositories should be setup with the following conventions to ensure consistency and to ensure the CI pipeline functions correctly.</p>
+<h2 id="structure">Structure</h2>
+<p>The following structure should be adhered to for all repositories.  Note that not all contents will be applicable depending on the nature of the service.</p>
+<ul>
+<li><code>&lt;root&gt;</code></li>
+<li><code>changelog</code><ul>
+<li>Liquibase changesets</li>
+</ul>
+</li>
+<li><code>docs</code><ul>
+<li>Documentation such as <a href="https://www.asyncapi.com/">AsyncAPI</a> and <a href="https://swagger.io/specification/">OpenAPI</a> specifications</li>
+</ul>
+</li>
+<li><code>helm/&lt;repository name&gt;</code><ul>
+<li>Helm chart for the service</li>
+</ul>
+</li>
+<li><code>scripts</code><ul>
+<li>Scripts to support local development and testing</li>
+</ul>
+</li>
+<li><code>.dockerignore</code></li>
+<li><code>.gitignore</code></li>
+<li><code>.pre-commit-config.yaml</code></li>
+<li><code>.snyk</code></li>
+<li><code>secrets.baseline</code></li>
+<li><code>Dockerfile</code></li>
+<li><code>Jenkinsfile</code></li>
+<li><code>LICENCE</code></li>
+<li><code>README</code></li>
+<li><code>docker-compose.debug.yaml</code></li>
+<li><code>docker-compose.link.yaml</code></li>
+<li><code>docker-compose.migrate.yaml</code></li>
+<li><code>docker-compose.override.yaml</code></li>
+<li><code>docker-compose.test.debug.yaml</code></li>
+<li><code>docker-compose.test.watch.yaml</code></li>
+<li><code>docker-compose.test.yaml</code></li>
+<li><code>docker-compose.yaml</code></li>
+<li><code>provision.azure.yaml</code></li>
+<li><code>sonar-project.properties</code></li>
+</ul>
+<h3 id="nodejs">Node.js</h3>
+<p>In addition to the above, Node.js services should include the following content.</p>
+<ul>
+<li><code>&lt;root&gt;</code></li>
+<li><code>app</code><ul>
+<li>All application code</li>
+</ul>
+</li>
+<li><code>test</code><ul>
+<li><code>unit</code></li>
+<li>Unit tests</li>
+<li><code>integration</code></li>
+<li><code>narrow</code><ul>
+<li>Narrow integration tests</li>
+</ul>
+</li>
+<li><code>local</code><ul>
+<li>Local integration tests</li>
+</ul>
+</li>
+<li><code>contract</code></li>
+<li>Contract tests</li>
+<li><code>acceptance</code></li>
+<li>UI and compatibility tests (for frontend applications)</li>
+</ul>
+</li>
+</ul>
+<h3 id="net">.NET</h3>
+<p>In addition to the above, .NET services should include the following content.</p>
+<ul>
+<li><code>&lt;root&gt;</code></li>
+<li><code>&lt;Project Name&gt;</code><ul>
+<li>All application code</li>
+</ul>
+</li>
+<li><code>&lt;Project Name&gt;.Tests</code><ul>
+<li>Application tests</li>
+</ul>
+</li>
+</ul>
 
 
 
