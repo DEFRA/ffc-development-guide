@@ -1,0 +1,7 @@
+@Library('defra-library@v-9') _
+
+// for Node.js
+buildNodeJs environment: 'dev'
+
+// for .NET Core
+buildDotNetCore environment: 'dev', project: 'My .NET Core project name'
