@@ -25,7 +25,3 @@ This guide assumes that Developers already understand and follow these [core sta
 The Government Digital Service (GDS) also have a set of standards that all government services must adhere to.  These are also assumed to be understood and followed by developers working within FCP.
 
 Read the full [GDS Service Manual](https://www.gov.uk/service-manual/service-standard) for more information.
-
-## Getting started
-
-The best place to start as a new developer joining FCP is to read the [Getting Started](getting-started/getting-started.md) guide.

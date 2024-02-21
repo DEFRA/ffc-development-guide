@@ -36,8 +36,28 @@ nav:
   - Create a new service:
       - Choose a technology: create-a-new-service/choose-a-technology.md
       - Create a source code repository: create-a-new-service/github.md
+      - Repository conventions: create-a-new-service/conventions.md
       - Setup a Jenkins CI pipeline: create-a-new-service/jenkins.md
       - Setup an Azure DevOps CD pipeline: create-a-new-service/azure-devops.md
+  - Development patterns:
+    - Containers: development-patterns/containers.md
+    - Configuration and secrets: development-patterns/configuration.md
+    - Messaging: development-patterns/azure-service-bus.md
+    - Storage: development-patterns/azure-storage.md
+    - Databases: development-patterns/azure-postgresql.md
+    - Caching: development-patterns/azure-redis.md
+    - Logging: development-patterns/azure-application-insights.md
+    - Authentication:
+      - External users: development-patterns/defra-identity.md
+      - Internal users: development-patterns/azure-ad.md
+  - Testing:
+    - Unit: testing/unit-testing.md
+    - Integration: testing/integration.md
+    - Contract: testing/contract.md
+    - Performance: testing/performance.md
+    - Security: testing/security.md
+    - Accessibility: testing/accessibility.md
+    - Compatibility: testing/compatibility.md
   - Archive content:
       - Standards: archive/standards/index.md
       - Guides: archive/guides/index.md
