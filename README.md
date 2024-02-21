@@ -16,7 +16,12 @@ The guide is best viewed in GitHub pages at [https://defra.github.io/ffc-develop
 
 ## Updating the guide
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This documentation is written in markdown and is built using [MkDocs](https://www.mkdocs.org) and the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme.
+
+Please follow the below installation instructions prior to working with this repository:
+
+- [mkdocs.org](https://www.mkdocs.org)
+- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
 ## Commands
 

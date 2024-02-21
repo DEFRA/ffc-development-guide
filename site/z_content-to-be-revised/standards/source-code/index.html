@@ -1,296 +1,2666 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/z_content-to-be-revised/standards/source-code/" />
-      <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Source code - FCP Development Guide</title>
-    <link rel="stylesheet" href="../../../css/theme.css" />
-    <link rel="stylesheet" href="../../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Source code";
-        var mkdocs_page_input_path = "z_content-to-be-revised/standards/source-code.md";
-        var mkdocs_page_url = "/ffc-development-guide/z_content-to-be-revised/standards/source-code/";
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/z_content-to-be-revised/standards/source-code/">
+      
+      
+        <link rel="prev" href="../secrets-management/">
+      
+      
+        <link rel="next" href="../technology-stack/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
-    <!--[if lt IE 9]>
-      <script src="../../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>Source code - FCP Development Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../../.." class="icon icon-home"> FCP Development Guide
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../..">Farming and Countryside Programme (FCP) Development Guide</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Create a new service</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../create-a-new-service/">Create a new service</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Getting started</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/">Getting started</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/arrange-access/">Arrange access</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/cicd/">Continuous Integration and Continuous Delivery (CI/CD)</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/platform/">Platform</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Local development setup</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/">Setup local development environment</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-azure-cli/">Install Azure CLI</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-detect-secrets/">Install Detect Secrets</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-docker-compose/">Install Docker Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-docker-desktop/">Install Docker Desktop</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-dotnet-sdk/">Install .NET SDK</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-github/">Install GitHub CLI</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-kubectl/">Install kubectl</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-node-version-manager/">Install Node Version Manager</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-openvpn/">Install OpenVPN</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-snyk/">Install Snyk CLI</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-sonarlint/">Install SonarLint</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-standard-js/">Install StandardJs</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-vs-code/">Install IDE</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/installing-helm/">Install Helm</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/setup-macos-command-line-tools/">Setup command line tools</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/setup-sudoers/">Add user to sudoers file</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../local-development-setup/sign-commits/">Setup commit signing</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Z content to be revised</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="#">Guides</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/">Guides</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/accounts/">Accounts</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/availability-alerts/">Availability Alert Setup Guide</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/backlog-management/">Backlog management</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/debug-dotnet-container/">Debugging .NET Core in a Linux container</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/demo-service/">Demo service</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/developing-in-container/">Developing in a container</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/google-tag-manager/">Google Tag Manager</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/jlm/">Joiners, movers and leavers</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/pact-broker/">Pact Broker</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/redis-caching/">Redis Caching in Hapi</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/secrets-management/">Secrets Management</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/shared-assets/">Shared assets</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/troubleshooting/">Troubleshooting Guide</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/vs-code-wsl1/">Using Visual Studio Code with WSL1</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/vulnerabilities/">Managing vulnerabilities</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../guides/waf-waiver/">WAF waivers</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">Kubernetes</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/kubernetes/">Kubernetes</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/kubernetes/configure-nginx-ingress-controller/">Configure NGINX Ingress Controller</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/kubernetes/create-namespace/">Creating a workstream namespace</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/kubernetes/install-kubernetes-dashboard/">Install Kubernetes dashboard</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/kubernetes/interaction/">Interact with cluster</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/kubernetes/pod-identity/">AAD Pod Identity</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/kubernetes/probes/">Probes</a>
-                </li>
-    </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">Resource provisioning</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/resource-provisioning/">Resource provisionsing</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/resource-provisioning/ci-pipeline/">FFC CI Pipeline</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/resource-provisioning/managed-identity/">Azure Managed Identity</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/resource-provisioning/postgres-database/">Postgres Database</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/resource-provisioning/release-pipeline/">Release pipelines</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../guides/resource-provisioning/servicebus-queues/">Azure Service Bus Queues, Topics and Subscriptions</a>
-                </li>
-    </ul>
-                </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Standards</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../">Standards</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../api/">API Standards</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../backlog-management/">Backlog management</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../ci-pipeline/">FFC CI pipeline</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../code-review/">Code review</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../configuration-management/">Configuration management</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../documentation/">Documentation</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../events/">Events and messages</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../jenkins/">Jenkins</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../quick-reference/">Quick reference</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../release-notes/">Release notes</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../route-to-live/">Route to live</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../secrets-management/">Secrets Management</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Source code</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#creating-repositories">Creating repositories</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#naming-repositories">Naming repositories</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#templates">Templates</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#managing-access">Managing access</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#branch-policies">Branch policies</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#secret-detection">Secret detection</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#licence">Licence</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#readme">Readme</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#branch-naming-convention">Branch naming convention</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pull-requests">Pull Requests</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#completing-pull-request">Completing Pull Request</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../technology-stack/">Technology Stack</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../testing/">Testing</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../version-control/">Version Control</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">Kubernetes</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/">Kubernetes</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/configuration/">Configuration</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/helm-charts/">Helm chart</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/labels/">Labels</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/priority/">Pod priority</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/probes/">Probes</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/rbac/">Role Based Access Control (RBAC)</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/resource-usage/">Resource usage</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../kubernetes/secrets/">Secrets</a>
-                </li>
-    </ul>
-                </li>
-    </ul>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#source-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FCP Development Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Source code
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../..">FCP Development Guide</a>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Z content to be revised</li>
-          <li class="breadcrumb-item">Standards</li>
-      <li class="breadcrumb-item active">Source code</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="source-code">Source code</h1>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    FCP Development Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Farming and Countryside Programme (FCP) Development Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Create a new service
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Create a new service
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../create-a-new-service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a new service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../create-a-new-service/choose-a-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose a technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../create-a-new-service/github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../create-a-new-service/jenkins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jenkins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/arrange-access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arrange access
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/cicd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Continuous Integration and Continuous Delivery (CI/CD)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Local development setup
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Local development setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup local development environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-azure-cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Azure CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-detect-secrets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Detect Secrets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-docker-compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Docker Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-docker-desktop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Docker Desktop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install .NET SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install GitHub CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-kubectl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install kubectl
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-node-version-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Node Version Manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-openvpn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install OpenVPN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-snyk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Snyk CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-sonarlint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install SonarLint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-standard-js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install StandardJs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-vs-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install IDE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/install-wsl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Windows Subsystem for Linux (WSL)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/installing-helm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Helm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mount Windows drives in WSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup command line tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/setup-sudoers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add user to sudoers file
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../local-development-setup/sign-commits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup commit signing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Z content to be revised
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Z content to be revised
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/accounts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accounts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/availability-alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Availability Alert Setup Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/backlog-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backlog management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/debug-dotnet-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging .NET Core in a Linux container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/demo-service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demo service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/developing-in-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developing in a container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/google-tag-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Tag Manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/jlm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Joiners, movers and leavers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/pact-broker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pact Broker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/redis-caching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis Caching in Hapi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/secrets-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Secrets Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/shared-assets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared assets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/vs-code-wsl1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Visual Studio Code with WSL1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/vulnerabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managing vulnerabilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/waf-waiver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WAF waivers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_18" id="__nav_5_1_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_18">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/kubernetes/configure-nginx-ingress-controller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure NGINX Ingress Controller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/kubernetes/create-namespace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a workstream namespace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/kubernetes/install-kubernetes-dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Kubernetes dashboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/kubernetes/interaction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interact with cluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/kubernetes/pod-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AAD Pod Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/kubernetes/probes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_19" id="__nav_5_1_19_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resource provisioning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_19">
+            <span class="md-nav__icon md-icon"></span>
+            Resource provisioning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/resource-provisioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resource provisionsing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/resource-provisioning/ci-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FFC CI Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/resource-provisioning/managed-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Managed Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/resource-provisioning/postgres-database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Postgres Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/resource-provisioning/release-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/resource-provisioning/servicebus-queues/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Service Bus Queues, Topics and Subscriptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Standards
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Standards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backlog management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ci-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FFC CI pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Events and messages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jenkins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jenkins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route-to-live/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Route to live
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Secrets Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Source code
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Source code
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating repositories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming repositories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Templates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch policies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secret detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Licence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Readme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branch-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch naming convention
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull Requests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pull Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#completing-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Completing Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technology-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Technology Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../version-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_18" id="__nav_5_2_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_18">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/helm-charts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helm chart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/labels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Labels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/priority/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pod priority
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/probes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/rbac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Role Based Access Control (RBAC)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/resource-usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resource usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/secrets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Secrets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating repositories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming repositories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Templates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch policies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secret detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Licence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Readme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branch-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch naming convention
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull Requests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pull Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#completing-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Completing Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="source-code">Source code</h1>
 <p>The default position for FFC is that code should be open source and hosted within GitHub.</p>
 <p>If there is a need for a private repository then a private GitHub repository should be used instead.</p>
 <h2 id="creating-repositories">Creating repositories</h2>
@@ -366,51 +2736,57 @@ Surrey, TW9 4DU.
 - PR build must complete successfully
 - dismiss stale reviews</p>
 <p>On completion of a pull request a squash merge is performed and the feature/bug branch deleted. The commit message should be amended to give a concise description of the changes, rather than the default list of individual commits.</p>
-              
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../secrets-management/" class="btn btn-neutral float-left" title="Secrets Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../technology-stack/" class="btn btn-neutral float-right" title="Technology Stack">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../secrets-management/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../technology-stack/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../../..";</script>
-    <script src="../../../js/theme_extra.js"></script>
-    <script src="../../../js/theme.js"></script>
-      <script src="../../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
 </html>
