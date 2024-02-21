@@ -34,19 +34,6 @@ All pipelines must use the [FFC CI pipeline](../standards/ci-pipeline.md).
 - set `Pipeline Action Triggers -> Include Filter` to be `*`
 - set `Pipeline Action Triggers -> Additional Parameter -> Parameter Name` to be `repoName` and `Parameter Value` to be the name of the repository, for example, `ffc-demo-web`
 
-### Configure SonarCloud
-
-**Note** this step should be performed before running the build or you may end up with duplicate projects.
-
-- navigate to the Defra organisation within [SonarCloud](https://sonarcloud.io/organizations/defra/projects?sort=analysis_date)
-- select `Analyze new project`
-- select repository to analyse
-- select `Set Up`
-- select `Adminsitration -> Analysis Method` and disable `SonarCloud Automatic Analysis`
-- select `Administration -> Quality Profiles` and set all to `Sonar way`
-- select `Administration -> Quality Gate` and set to `Sonar way`
-- select `Administration -> Update key` and ensure key matches the name of the repository, removing the `DEFRA_` prefix, for example, `ffc-demo-web`
-
 ### Configure Snyk
 
 A [Snyk](https://app.snyk.io/) scan is run as part of the CI pipeline. By default, a project will be set to private. In order to access unlimited [free tests](https://snyk.io/plans/) the project needs to be marked as open source. To do so, follow the [instructions](https://support.snyk.io/hc/en-us/articles/360000910597).
