@@ -28,4 +28,4 @@ Read the full [GDS Service Manual](https://www.gov.uk/service-manual/service-sta
 
 ## Getting started
 
-The best place to start as a new developer joining FCP is to read the [Getting Started](getting-started.md) guide.
+The best place to start as a new developer joining FCP is to read the [Getting Started](getting-started/getting-started.md) guide.

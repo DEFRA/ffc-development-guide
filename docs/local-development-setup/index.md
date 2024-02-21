@@ -26,7 +26,7 @@ InTune requires that the user profile on a device is an organisation account.  S
 
 ### Common
 1. [Install Docker Desktop](install-docker-desktop.md)
-1. [Install IDE](install-vs-code.md)
+1. [Install Visual Studio Code](install-vs-code.md)
 1. [Install StandardJs](install-standard-js.md)
 1. [Install SonarLint](install-sonarlint.md)
 1. [Setup commit signing](sign-commits.md)
@@ -35,7 +35,7 @@ InTune requires that the user profile on a device is an organisation account.  S
 1. [Install Node Version Manager (NVM)](install-node-version-manager.md)
 1. [Install .NET SDK](install-dotnet-sdk.md)
 1. [Install kubectl](install-kubectl.md)
-1. [Install Helm](installing-helm.md)
+1. [Install Helm](install-helm.md)
 1. [Install Azure CLI](install-azure-cli.md)
 1. [Install Snyk CLI](install-snyk.md)
 1. [Install GitHub CLI](install-github.md)
