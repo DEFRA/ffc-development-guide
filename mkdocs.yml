@@ -50,6 +50,9 @@ nav:
     - Authentication:
       - External users: development-patterns/defra-identity.md
       - Internal users: development-patterns/azure-ad.md
+    - Analytics: development-patterns/analytics.md
+    - Git Secrets: development-patterns/git-secrets.md
+    - Shared Assets: development-patterns/shared-assets.md
   - Testing:
     - Unit: testing/unit-testing.md
     - Integration: testing/integration.md

@@ -1,12 +1,10 @@
 # Developing in a container
 
-The FFC Architecture Vision prescribes a containerised microservice ecosystem.  Docker is the containerisation technology used within Defra.
+The Architecture Vision prescribes a containerised microservice ecosystem.  Docker is the containerisation technology used within Defra.
 
 Containers are lightweight and fast. One of their main benefits for developers is that it is simple to replicate an application’s environment and dependencies locally consistently. 
 
 Crucially, they enable a workflow for your code that allows you to develop and test locally, push to upstream, and be confident that what you have built locally will work in CI and any environment.
-
-The following guide has a strong focus on Node.js as it is the primary technology choice of FFC and Defra.  However, details of debugging .NET containers is included in [another guide](./debug-dotnet-container.md).
 
 ## Docker
 
@@ -18,13 +16,13 @@ All microservice repositories created from the [FFC Node template](https://githu
 
 [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multi-container Docker applications using yaml configuration files.
 
-All microservice repositories created from the [FFC Node template](https://github.com/DEFRA/ffc-template-node) include a pre-configured set of Docker Compose yaml files to support local development and testing as well as some being a prerequisite for CI capability.
+All microservice repositories created from the [FCP Node template](https://github.com/DEFRA/ffc-template-node) include a pre-configured set of Docker Compose yaml files to support local development and testing as well as some being a prerequisite for CI capability.
 
 An example Node.js `Dockerfile` showing a multi-stage build for both development and production.  Note that the `development` image runs the application in `watch` mode to support local development and testing, whilst `production` simply runs the application.
 
 `development` is dependent on the local `package.json` including a watch script.  More on this below.
 
-```
+```dockerfile
 ARG PARENT_VERSION=1.2.9-node14.17.6
 ARG PORT=3000
 ARG PORT_DEBUG=9229
@@ -82,7 +80,7 @@ In this scenario, to successfully run both services on the same device with port
 
 The same consideration should be given to the debug port exposed to avoid a conflict on port `9229`, the default Node debug port.
 
-```
+```yaml
 # service 1 docker-compose.override.yaml
 ports:
   - "3000:3000"
@@ -124,7 +122,7 @@ To enable the capability provided by the above Docker Compose files, `package.js
 
 Below is an extract of the default `package.json` file provided by [FFC Node template](https://github.com/DEFRA/ffc-template-node).
 
-```
+```json
 "scripts": {
     "pretest": "npm run test:lint",
     "test": "jest --runInBand --forceExit",
@@ -209,9 +207,10 @@ Developers are free to use their own choice of IDE, however, all example debug c
 These debug configurations should all be included in a `launch.json` file in the `.vscode` folder at the root of the repository.  This folder should be excluded from source control.
 
 ### Application debugging profiles
+
 #### Attach to an already running container
 
-```
+```json
 {
   "name": "Docker: Attach",
   "type": "node",
@@ -235,7 +234,7 @@ This will attach to the node process exposed by the debug port.  Note that this 
 
 #### Start an application in debug mode
 
-```
+```json
 {
       "name": "Docker: Attach Launch",
       "type": "node",
@@ -258,7 +257,7 @@ This is dependent on `preLaunchTask` and `postDebugTask` being defined in a `.vs
 
 An example of this is below.
 
-```
+```json
 {
   "version": "2.0.0",
   "tasks": [
@@ -277,7 +276,7 @@ An example of this is below.
 ```
 
 ### Test debugging
-```
+```json
 {
   "name": "Docker: Jest Attach",
   "type": "node",
@@ -304,6 +303,81 @@ This profile will attach that debugger.
 
 ## Other debugging profiles
 A range of different debugging profiles can be found in [this repository](https://github.com/johnwatson484/vscode-debug-profiles-node) as well as a test application setup to the above standards to test them.
+
+## Debugging .NET in a Linux container
+
+.NET services can be developed using VS Code or Visual Studio.
+
+As all FCP services are designed to be developed and run in Linux containers, debugging them requires the attachment of a debugger from the running container.  
+
+In the case of .NET, this is dependent on a remote debugger being present in the container image.
+
+All FCP services based on the Defra .NET development image include the [`vsdbg`](https://github.com/Microsoft/MIEngine/wiki/Offroad-Debugging-of-.NET-Core-on-Linux---OSX-from-Visual-Studio) remote debugger.
+
+## Attaching to the remote debugger
+
+### VS Code
+
+- add your breakpoint
+- start the container with `docker-compose up --build` from the repository root directory
+- in VS Code create a `launch.json` configuration similar to the below substituting the name of the container, `ffc-demo-payment-service-core`
+
+  ```json
+  {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": ".NET Core Docker Attach",
+        "type": "coreclr",
+        "request": "attach",
+        "processId": "${command:pickRemoteProcess}",
+        "pipeTransport": {
+          "pipeProgram": "docker",
+          "pipeArgs": [ "exec", "-i", "ffc-demo-payment-service-core" ],
+          "debuggerPath": "/vsdbg/vsdbg",
+          "pipeCwd": "${workspaceRoot}",
+          "quoteArgs": false
+        },
+        "sourceFileMap": {
+          "/home/dotnet": "${workspaceFolder}"
+        }
+      }
+    ]
+  }
+  ```
+
+- start the VS Code debugger using this launch configuration
+- in the context menu, select the process matching the running application, eg. `FFCDemoPaymentService`
+- the breakpoint can now be hit within VS Code
+
+### Visual Studio
+
+Visual Studio does not integrate with the WSL filesystem, so WSL users must clone the repository in Windows to debug using Visual Studio. 
+
+It is important that the following git configuration setting is present to ensure that cloning in Windows does not alter existing line endings
+
+```bash
+git config --global core.autocrlf input
+```
+
+For services which require environment variables to be read from the host, it is recommended to store these in a `.env` file in the repository as Docker Compose
+will automatically read this file when running the container.  This file must be excluded from source control.
+
+This process has a prerequisite of the user having [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) installed which includes Docker Compose by default.
+
+1. add your break point
+1. using Powershell, start the container with `docker-compose up --build` from the repository root directory
+1. in Visual Studio, select `Debug -> Attach to process`
+1. select `Docker (Linux Container)` for `Connection type`
+1. type the name of the container in `Connection target`, eg. `ffc-demo-payment-service`
+1. click `Refresh`
+1. select process matching running application, eg `FFCDemoPaymentService`
+1. click `Attach`
+1. select `Managed (.NET Core for Unix)` code type
+1. click `Ok`
+1. the breakpoint can now be hit within Visual Studio
+
+> Note volume mounts do not appear to work with this approach, so for changes to be picked up, the container will need to be recreated.
 
 ## Other useful Docker development guides
 Defra has well documented [standards](https://github.com/DEFRA/software-development-standards/blob/master/standards/container_standards.md) and [guidance](https://github.com/DEFRA/software-development-standards/blob/master/guides/docker_guidance.md) on developing with containers, that provides further examples of good local development practice.
