@@ -251,6 +251,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/ado/</loc>
+         <lastmod>2024-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/choose-a-technology/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
