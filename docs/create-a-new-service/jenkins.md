@@ -73,4 +73,6 @@ Commits to both feature branches and main branches should trigger the build pipe
 
 Following deployment the new service should be available in the Sandpit AKS cluster in a namespace matching the bounded context.  For example, `ffc-demo-web` would be deployed to the `ffc-demo` namespace.
 
+The specific steps that run during the pipeline are based on the content of the repository assuming it follows the [standard structure](conventions).
+
 > Builds can also be triggered manually by selecting `Build Now` from the pipeline page.
