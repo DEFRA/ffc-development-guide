@@ -1842,6 +1842,9 @@ deployToCluster environment: params.environment,
 <h2 id="test-the-pipeline">Test the pipeline</h2>
 <p>Commits to both feature branches and main branches should trigger the build pipeline.  Successful builds of the main branch should trigger the deployment pipeline.</p>
 <p>Following deployment the new service should be available in the Sandpit AKS cluster in a namespace matching the bounded context.  For example, <code>ffc-demo-web</code> would be deployed to the <code>ffc-demo</code> namespace.</p>
+<blockquote>
+<p>Builds can also be triggered manually by selecting <code>Build Now</code> from the pipeline page.</p>
+</blockquote>
 
 
 
