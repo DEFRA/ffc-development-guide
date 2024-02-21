@@ -6,12 +6,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/</loc>
+         <lastmod>2024-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://defra.github.io/ffc-development-guide/getting-started/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/getting-started/arrange-access/</loc>
+         <lastmod>2024-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/getting-started/cicd/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -157,11 +167,6 @@
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/z_content-to-be-revised/guides/google-tag-manager/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/z_content-to-be-revised/guides/jenkins/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>

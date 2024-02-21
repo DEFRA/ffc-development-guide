@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/local-development-setup/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://defra.github.io/ffc-development-guide/create-a-new-service/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Setup local development environment - FCP Development Guide</title>
+    <title>Create a new service - FCP Development Guide</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Setup local development environment";
-        var mkdocs_page_input_path = "local-development-setup/index.md";
-        var mkdocs_page_url = "/ffc-development-guide/local-development-setup/";
+        var mkdocs_page_name = "Create a new service";
+        var mkdocs_page_input_path = "create-a-new-service/index.md";
+        var mkdocs_page_url = "/ffc-development-guide/create-a-new-service/";
       </script>
     
     <!--[if lt IE 9]>
@@ -44,8 +44,10 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Create a new service</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../create-a-new-service/">Create a new service</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Create a new service</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Getting started</span></p>
@@ -60,60 +62,46 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Local development setup</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Setup local development environment</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#microsoft-intune">Microsoft InTune</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#setup-steps">Setup steps</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#macos">macOS</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#common">Common</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/">Setup local development environment</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-azure-cli/">Install Azure CLI</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-azure-cli/">Install Azure CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-detect-secrets/">Install Detect Secrets</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-detect-secrets/">Install Detect Secrets</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-docker-compose/">Install Docker Compose</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-docker-compose/">Install Docker Compose</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-docker-desktop/">Install Docker Desktop</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-docker-desktop/">Install Docker Desktop</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-dotnet-sdk/">Install .NET SDK</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-dotnet-sdk/">Install .NET SDK</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-github/">Install GitHub CLI</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-github/">Install GitHub CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-kubectl/">Install kubectl</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-kubectl/">Install kubectl</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-node-version-manager/">Install Node Version Manager</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-node-version-manager/">Install Node Version Manager</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-openvpn/">Install OpenVPN</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-openvpn/">Install OpenVPN</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-snyk/">Install Snyk CLI</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-snyk/">Install Snyk CLI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-sonarlint/">Install SonarLint</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-sonarlint/">Install SonarLint</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-standard-js/">Install StandardJs</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-standard-js/">Install StandardJs</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-vs-code/">Install IDE</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-vs-code/">Install IDE</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/install-wsl/">Install Windows Subsystem for Linux (WSL)</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="installing-helm/">Install Helm</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/installing-helm/">Install Helm</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="setup-macos-command-line-tools/">Setup command line tools</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/setup-macos-command-line-tools/">Setup command line tools</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="setup-sudoers/">Add user to sudoers file</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/setup-sudoers/">Add user to sudoers file</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="sign-commits/">Setup commit signing</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../local-development-setup/sign-commits/">Setup commit signing</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Z content to be revised</span></p>
@@ -265,8 +253,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Local development setup</li>
-      <li class="breadcrumb-item active">Setup local development environment</li>
+          <li class="breadcrumb-item">Create a new service</li>
+      <li class="breadcrumb-item active">Create a new service</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -275,50 +263,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="setup-local-development-environment">Setup local development environment</h1>
-<p>Developers are free to use any Defra approved device as long as they adhere to Defra's guidance on <a href="https://github.com/DEFRA/software-development-standards/blob/master/guides/unmanaged_devices.md">use of unmanaged devices</a>. </p>
-<p>The most common environments are Windows with <a href="https://learn.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux (WSL)</a> Ubuntu distro and macOS.</p>
-<p><a href="https://code.visualstudio.com/">Visual Studio Code</a> is the preferred code editor.  However, developers are free to use any compatible equivalent if it aides in their productivity.</p>
-<p>This guide will be targeted towards the above setups. For Windows, all mention of terminal commands should be run in WSL unless specified otherwise.</p>
-<h2 id="microsoft-intune">Microsoft InTune</h2>
-<p>Microsoft InTune allows an off network device access to Defra O365 resources such as Outlook, Teams and SharePoint.</p>
-<p>New InTune enrolments are currently banned which means if a user does not already have an InTune profile, they will not be able to access these resources from their device. There is no alternative at present.</p>
-<p>InTune requires that the user profile on a device is an organisation account.  So either this must be setup when first configuring the device or a new user profile will need to be created on the device.  It is not possible to convert an existing user profile to an InTune profile.</p>
-<h2 id="setup-steps">Setup steps</h2>
-<h3 id="windows">Windows</h3>
-<ol>
-<li><a href="install-wsl/">Install Windows Subsystem for Linux (WSL)</a></li>
-<li><a href="mount-windows-drives-in-wsl/">Mount Windows drives in WSL</a></li>
-<li><a href="setup-sudoers/">Add user to sudoers file (optional)</a></li>
-</ol>
-<h3 id="macos">macOS</h3>
-<ol>
-<li><a href="setup-macos-command-line-tools/">Setup command line tools</a></li>
-</ol>
-<h3 id="common">Common</h3>
-<ol>
-<li><a href="install-docker-desktop/">Install Docker Desktop</a></li>
-<li><a href="install-vs-code/">Install IDE</a></li>
-<li><a href="install-standard-js/">Install StandardJs</a></li>
-<li><a href="install-sonarlint/">Install SonarLint</a></li>
-<li><a href="sign-commits/">Setup commit signing</a></li>
-<li><a href="install-docker-compose/">Install Docker Compose</a></li>
-<li><a href="install-detect-secrets/">Install Detect Secrets</a></li>
-<li><a href="install-node-version-manager/">Install Node Version Manager (NVM)</a></li>
-<li><a href="install-dotnet-sdk/">Install .NET SDK</a></li>
-<li><a href="install-kubectl/">Install kubectl</a></li>
-<li><a href="installing-helm/">Install Helm</a></li>
-<li><a href="install-azure-cli/">Install Azure CLI</a></li>
-<li><a href="install-snyk/">Install Snyk CLI</a></li>
-<li><a href="install-github/">Install GitHub CLI</a></li>
-<li><a href="install-openvpn/">Install OpenVPN</a></li>
-</ol>
+                <h1 id="create-a-new-service">Create a new service</h1>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../getting-started/platform/" class="btn btn-neutral float-left" title="Platform"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="install-azure-cli/" class="btn btn-neutral float-right" title="Install Azure CLI">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href=".." class="btn btn-neutral float-left" title="Farming and Countryside Programme (FCP) Development Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../getting-started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -341,10 +292,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../getting-started/platform/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="install-azure-cli/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../getting-started/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
