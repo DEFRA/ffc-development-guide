@@ -94,10 +94,6 @@ This chat is used for general support and collaboration across all services usin
 
 This chat is used to arrange and coordinate releases across the majority of FCP services.  As other services onboard to the FCP Platform, they can also use this chat.
 
-### `FCP Developer Forum`
-
-This chat is used for developer collaboration and support across all teams within the FCP Programme and those using the FCP Platform.
-
 Contact one of Defra's Principal Developers to arrange access.
 
 ## Slack
