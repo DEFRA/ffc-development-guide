@@ -18,7 +18,7 @@
     
     
       
-        <title>FFC CI Pipeline - FCP Development Guide</title>
+        <title>Ci pipeline - FCP Development Guide</title>
       
     
     
@@ -59,11 +59,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#ffc-ci-pipeline" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -96,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FFC CI Pipeline
+              Ci pipeline
             
           </span>
         </div>
@@ -1633,67 +1628,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-build-pipeline-for-a-microservice" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create build pipeline for a microservice
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Create build pipeline for a microservice">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configure-github-repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure GitHub repository
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-jenkins" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure Jenkins
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-snyk" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure Snyk
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure repository
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1711,45 +1645,9 @@
   
 
 
-<h1 id="ffc-ci-pipeline">FFC CI Pipeline</h1>
-<h2 id="create-build-pipeline-for-a-microservice">Create build pipeline for a microservice</h2>
-<p>All Jenkins pipelines are created within a workstream team's Jenkins folder, for example <code>ffc-grants</code>.</p>
-<p>All pipelines must use the <a href="../standards/ci-pipeline.md">FFC CI pipeline</a>.</p>
-<h3 id="configure-github-repository">Configure GitHub repository</h3>
-<ul>
-<li>navigate to <code>Settings -&gt; Webhooks -&gt; Add webhook</code></li>
-<li>set <code>Payload URL</code> to be <code>https://jenkins-ffc-api.azure.defra.cloud/github-webhook/</code></li>
-<li>set <code>Content type</code> to be <code>application/json</code></li>
-<li>set <code>Secret</code> to be the webhook secret value.  This can be retrieved from Azure Key Vault <code>github-webhook-secret</code> value</li>
-<li>set the following events to trigger the webhook</li>
-<li><code>Pull requests</code></li>
-<li><code>Pushes</code></li>
-<li>select <code>Add webhook</code></li>
-</ul>
-<h3 id="configure-jenkins">Configure Jenkins</h3>
-<ul>
-<li>navigate to your workstream folder in Jenkins</li>
-<li>select <code>New Item</code></li>
-<li>enter the <code>item name</code> in the format <code>&lt;repository name&gt;-build</code>, for example <code>ffc-demo-web-build</code></li>
-<li>select <code>Multibranch Pipeline</code></li>
-<li>select <code>Ok</code></li>
-<li>enter <code>GitHub</code> as a Branch Source</li>
-<li>for credentials select the <code>github-token</code> with the <code>ffcplatform</code> user</li>
-<li>enter your GitHub URL in the <code>HTTPS URL</code> field, for example <code>https://github.com/DEFRA/ffc-demo-web.git</code></li>
-<li>set <code>Discover branches</code> to <code>All branches</code></li>
-<li>delete <code>Discover pull requests from origin</code> and <code>Discover pull requests from forks</code></li>
-<li>set <code>Scan Multibranch Pipeline Triggers -&gt; Periodically if not otherwise run</code> to <code>true</code> with an interval of <code>1 hour</code></li>
-<li>set <code>Pipeline Action Triggers -&gt; Pipeline Delete Event</code> set <code>ffc-housekeeping/cleanup-on-branch-delete</code></li>
-<li>set <code>Pipeline Action Triggers -&gt; Include Filter</code> to be <code>*</code></li>
-<li>set <code>Pipeline Action Triggers -&gt; Additional Parameter -&gt; Parameter Name</code> to be <code>repoName</code> and <code>Parameter Value</code> to be the name of the repository, for example, <code>ffc-demo-web</code></li>
-</ul>
-<h3 id="configure-snyk">Configure Snyk</h3>
-<p>A <a href="https://app.snyk.io/">Snyk</a> scan is run as part of the CI pipeline. By default, a project will be set to private. In order to access unlimited <a href="https://snyk.io/plans/">free tests</a> the project needs to be marked as open source. To do so, follow the <a href="https://support.snyk.io/hc/en-us/articles/360000910597">instructions</a>.</p>
-<h3 id="configure-repository">Configure repository</h3>
-<ul>
-<li>add this <a href="../../../resources/Jenkinsfile">Jenkinsfile</a> to the repository removing either the Node.js or .NET Core line as appropriate.</li>
-</ul>
-<p>For more information about usage of this Jenkinsfile, see the <a href="https://github.com/DEFRA/ffc-jenkins-pipeline-library">FFC CI pipeline documentation</a>.</p>
+  <h1>Ci pipeline</h1>
+
+
 
 
 
