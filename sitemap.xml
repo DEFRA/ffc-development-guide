@@ -76,11 +76,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/waf-waiver/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/kubernetes/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
@@ -121,11 +116,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/ci-pipeline/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/managed-identity/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
@@ -152,11 +142,6 @@
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/api/</loc>
-         <lastmod>2024-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/backlog-management/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
