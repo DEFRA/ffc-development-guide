@@ -6,6 +6,8 @@ Scenarios where open source is not appropriate are rare and must be approved by 
 
 All source code is hosted in the [DEFRA GitHub Organisation](https://github.com/DEFRA)
 
+Repositories should contain a single microservice/application.  Monorepos are not supported by CI pipeline.
+
 ## Naming conventions
 
 Repositories should be named in a consistent manner to aid discoverability and to ensure that they are easily identifiable as part of FCP.

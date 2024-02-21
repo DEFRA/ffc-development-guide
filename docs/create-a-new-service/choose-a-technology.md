@@ -24,6 +24,12 @@ For scenarios where Node.js is not appropriate, .NET can be used with approval o
 
 The FCP Platform has been developed to support .NET, however there are not as many supporting tools and libraries given the low adoption of the technology within the programme.
 
+## Compute
+
+[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-gb/services/kubernetes-service/) is the preferred compute technology.
+
+Kubernetes deployments must be managed using [Helm](https://helm.sh/).
+
 ## Databases
 
 [PostgreSQL](https://www.postgresql.org/) is the approved database technology.  It is the only database that is fully supported by the FCP Platform.
