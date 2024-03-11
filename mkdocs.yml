@@ -41,6 +41,7 @@ nav:
       - Setup an Azure DevOps CD pipeline: create-a-new-service/ado.md
   - Development patterns:
     - Containers: development-patterns/containers.md
+    - Identity: development-patterns/identity.md
     - Configuration and secrets: development-patterns/configuration.md
     - Messaging: development-patterns/azure-service-bus.md
     - Storage: development-patterns/azure-storage.md

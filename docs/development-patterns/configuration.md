@@ -1,12 +1,14 @@
-# Configuration management
+# Configuration and secrets
 
-Non sensitive application configuration data is persisted in [Azure Application Configuration](https://azure.microsoft.com/en-gb/services/app-configuration/).
+Non sensitive application configuration data is persisted in the [Platform repository](https://dev.azure.com/defragovuk/DEFRA-FFC/_git/DEFRA-FFC-PLATFORM) for all environments other than Sandpit.
 
-Sensitive application data is persisted in [Azure Key Vault](https://azure.microsoft.com/en-gb/services/key-vault/) and referenced from Application Configuration.
+For Sandpit, [Azure Application Configuration](https://azure.microsoft.com/en-gb/services/app-configuration/) is used.
 
-One instance of Azure Key Vault and Azure Application Configuration will exist in every FFC Azure subscription.
+Sensitive application data is persisted in [Azure Key Vault](https://azure.microsoft.com/en-gb/services/key-vault/) and referenced from the main configuration store.
 
-The configuration keys used in Application Configuration must follow FFC naming convention below to ensure that CI and CD pipelines can retrieve values in a predictable and efficient way.
+Each environment has it's own instance of the config stores and Key Vault.
+
+The configuration keys used must follow the naming convention below to ensure that CI and CD pipelines can retrieve values in a predictable and efficient way.
 
 ## Helm values in deployment
 
@@ -14,7 +16,7 @@ During deployment, our CI or CD pipeline will read the `values.yaml` file in the
 
 For example, if a helm chart contains the below, then the key to be matched will be `container.port`.
 
-```
+```yaml
 container:
   port: 3000
 ```
@@ -99,9 +101,9 @@ The are some values that are exceptions to this rule because of dynamic infrastr
 
 #### Ingress values
 
-FFC Helm charts define their ingress resources like the below:
+Helm charts define their ingress resources like the below:
 
-```
+```yaml
 ingress:
   server:
   endpoint:
@@ -112,9 +114,9 @@ These values must use the hierarchy `environment/key` for example `dev/ingress.s
 
 #### Database values
 
-FFC Helm charts define their database names like the below:
+Helm charts define their database names like the below:
 
-```
+```yaml
 postgresService:
   postgresUser:
   postgresDb:
@@ -124,8 +126,10 @@ These values must use the hierarchy `environment/key` for example `dev/postgresS
 
 ## Updating values
 
-In Sandpit, values are added direct to Application Configuration via the Azure Portal or Azure CLI.
+In order for an application to pick up new configuration changes, the application must be redeployed by re-running the release pipeline.
 
-In higher environments values are added by an Azure DevOps pipeline that sources configuration from a [git repository](https://dev.azure.com/defragovuk/DEFRA-FFC/_git/DEFRA-FFC-INFRA?path=/arm-templates/app-config/parameters).
+In Sandpit, values are added direct to Application Configuration via the Azure Portal or Azure CLI.  For other environments, the Platform repository is updated via a pull request, prior to re-running the pipeline.
 
-Full details for maintaining application configuration can be found in [this wiki](https://dev.azure.com/defragovuk/DEFRA-FFC/_wiki/wikis/DEFRA-FFC.wiki/5183/App-Configuration-Changes).
+Full details for maintaining configuration in the Platform repository can be found in [this wiki](https://dev.azure.com/defragovuk/DEFRA-FFC/_wiki/wikis/DEFRA-FFC.wiki/5183/App-Configuration-Changes).
+
+> Note: Key vault values **MUST** be added to Key Vault before merging any changes to the pipeline repository.  Otherwise all builds will fail for that service.  Only CCoE can update PreProduction and Production Key Vault values.

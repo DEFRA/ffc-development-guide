@@ -2,357 +2,357 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://defra.github.io/ffc-development-guide/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/kubernetes/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/kubernetes/configure-nginx-ingress-controller/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/kubernetes/create-namespace/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/kubernetes/install-kubernetes-dashboard/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/kubernetes/interaction/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/kubernetes/pod-identity/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/kubernetes/probes/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/</loc>
-         <lastmod>2024-02-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/managed-identity/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/postgres-database/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/release-pipeline/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/servicebus-queues/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/api/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/code-review/</loc>
-         <lastmod>2024-02-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/configuration-management/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/documentation/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/events/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/jenkins/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/quick-reference/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/release-notes/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/route-to-live/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/secrets-management/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/source-code/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/testing/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/version-control/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/configuration/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/helm-charts/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/labels/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/priority/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/probes/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/rbac/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/resource-usage/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/secrets/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/ado/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/choose-a-technology/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/conventions/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/github/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/jenkins/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/analytics/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/cache/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/configuration/</loc>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/containers/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/git-secrets/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/identity/</loc>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/shared-assets/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/getting-started/arrange-access/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/getting-started/cicd/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/getting-started/platform/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-azure-cli/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-detect-secrets/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-docker-compose/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-docker-desktop/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-dotnet-sdk/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-github/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-helm/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-kubectl/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-node-version-manager/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-openvpn/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-snyk/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-sonarlint/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-standard-js/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-vs-code/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/install-wsl/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/mount-windows-drives-in-wsl/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/setup-macos-command-line-tools/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/setup-sudoers/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/local-development-setup/sign-commits/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/testing/contract/</loc>
-         <lastmod>2024-02-27</lastmod>
+         <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
