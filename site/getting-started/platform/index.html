@@ -326,6 +326,72 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="FCP Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sandpit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sandpit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Production
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1785,6 +1851,72 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="FCP Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sandpit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sandpit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Production
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1829,6 +1961,29 @@
 <p>These are collectively referred to as the <code>FCP Platform</code>.</p>
 <p>All FCP developed services are currently deployed to the FCP Platform.  </p>
 <p>Guidance for use of the FCP Platform is hosted within this repository.</p>
+<h3 id="environments">Environments</h3>
+<h4 id="sandpit">Sandpit</h4>
+<p>The <code>Sandpit</code> environment is the first deployment environment for new services following merge to the <code>main</code> branch.  It also hosts dynamic feature branch deployments.</p>
+<p>It can also used for testing and experimentation.  Developers have a high level of access to the Sandpit environment to create and destroy resources as required.</p>
+<p>Unlike all subsequent environments, provisioning of Azure resources such as Managed Identities, PostgreSQL is not automated.  Teams must create their own resources in this environment using the guides in this repository.</p>
+<p>Although the majority of patterns between Sandpit are the same, a key difference is the use of <a href="https://docs.microsoft.com/en-us/azure/azure-app-configuration/overview">Azure App Configuration</a> for configuration management.</p>
+<p>The reason for this is that originally all environments used Azure App Configuration, however automation of configuration from an <a href="https://dev.azure.com/defragovuk/DEFRA-FFC/_git/DEFRA-FFC-PLATFORM">Azure repo</a> has replaced this in all other environments.</p>
+<h4 id="development">Development</h4>
+<p>The <code>Development</code> environment is the first automation only deployment environment.  Different teams utilise it for many purposes such as demonstrations and testing.</p>
+<p>Developers have full access to this environment, but cannot directly create or destroy resources.  Instead, they must use the automation provided to deploy their services.</p>
+<h4 id="test">Test</h4>
+<p>The <code>Test</code> environment is used for more formal testing and assurance activities such as integration testing and user acceptance testing.</p>
+<blockquote>
+<p>Note: FCP principles are to apply a "shift left" approach to testing where as much testing as possible is done during development prior to merging to <code>main</code>, as well as a principle of deploying frequent small changes to <code>Production</code>.
+Therefore, it is not expected that changes build up in <code>Test</code> ahead of a large scale deployment to higher environments.  For incomplete features or those awaiting wider scale testing, feature toggles are used to disable new behaviour and not block deployment through to <code>Production</code>.</p>
+</blockquote>
+<p>Developers have full access to this environment, but cannot directly create or destroy resources.  Instead, they must use the automation provided to deploy their services.</p>
+<h4 id="pre-production">Pre-Production</h4>
+<p>The <code>Pre-Production</code> environment is used as a staging area prior to deployment to <code>Production</code>.  Whilst some testing activities can be performed here, it is recommended to use <code>Test</code> for most testing activities as access to this environment is more restricted and requires Security Clearance.</p>
+<p>Developers with Security Clearance can request read only access to this environment.</p>
+<h4 id="production">Production</h4>
+<p>The <code>Production</code> environment is the live environment for the service.  It is the only environment that is accessible to the public.</p>
+<p>Developers with Security Clearance can request read only access to this environment.</p>
 <h2 id="adp-platform">ADP Platform</h2>
 <p>Following the success of the FCP Platform, Defra has created a Defra wide iteration known as the <code>ADP Platform</code>.</p>
 <p>The ADP Platform is built on the same principles as the FCP Platform, but takes into account lessons learned throughout the lifetime of the FCP Platform to provide a better experience for teams utilising it.</p>
