@@ -51,11 +51,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/managed-identity/</loc>
-         <lastmod>2024-03-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/postgres-database/</loc>
          <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
@@ -82,11 +77,6 @@
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/code-review/</loc>
-         <lastmod>2024-03-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/configuration-management/</loc>
          <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -221,12 +211,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/configuration/</loc>
+         <lastmod>2024-03-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/containers/</loc>
          <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/git-secrets/</loc>
+         <lastmod>2024-03-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/identity/</loc>
          <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
