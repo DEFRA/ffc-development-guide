@@ -43,11 +43,11 @@ nav:
     - Containers: development-patterns/containers.md
     - Identity: development-patterns/identity.md
     - Configuration and secrets: development-patterns/configuration.md
-    - Messaging: development-patterns/azure-service-bus.md
-    - Storage: development-patterns/azure-storage.md
-    - Databases: development-patterns/azure-postgresql.md
-    - Caching: development-patterns/azure-redis.md
-    - Logging: development-patterns/azure-application-insights.md
+    - Messaging: development-patterns/messaging.md
+    - Storage: development-patterns/storage.md
+    - Databases: development-patterns/databases.md
+    - Caching: development-patterns/caching.md
+    - Logging: development-patterns/logging.md
     - Authentication:
       - External users: development-patterns/defra-identity.md
       - Internal users: development-patterns/azure-ad.md

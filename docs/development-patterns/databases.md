@@ -1,14 +1,13 @@
-# Postgres Database
+# Databases
 
-This guide describes how to configure access to an Azure PostgreSQL database from microservices running within Azure Kubernetes Service.
+PostgreSQL is the preferred database for microservices in the FFC Platform.  This guide describes the process for creating a database for a microservice and configuring the microservice to use it.
 
 ## Create Managed Identity for your microservice
 
-If not already configured add [Managed Identity](managed-identity.md) to your microservice
+If not already configured add [Managed Identity](identity.md) to your microservice
 
 ## Request creation of microservice database
-
-Request Cloud Services through your usual support channel to create a database within your Azure Database for PostgreSQL.  The name of the database should match the microservice repository name.  Microservices should not share a database.
+CCoE are the only team with access to create database within your Azure Database for PostgreSQL in the Sandpit environment.  The name of the database should match the microservice repository name.  Microservices should not share a database.
 
 For example, a microservice named `ffc-demo-claim-service` would have a database named `ffc_demo_claim_service`
 
@@ -34,7 +33,7 @@ Update `docker-compose.yaml`, `docker-compose.override.yaml`, and `docker-compos
 
 An example Postgres service:
 
-```
+```yaml
 services:
   # Microservice definition here
   ffc-<workstream>-<service>-postgres:
@@ -54,7 +53,7 @@ volumes:
 
 Add dependency on the Postgres service and environment variables the microservice `services` definition:
 
-```
+```yaml
 services:
   # Microservice definition here
     depends_on:
@@ -78,23 +77,9 @@ Replace `<workstream>` and `<service>` as per naming convention described above.
 
 ## Update microservice Helm chart
 
-### Create a Postgres Service
-
-Create a Kubernetes template for a Postgres Service in `helm/<REPO_NAME>/templates/postgres-service.yaml`:
-
-```
-{{- if .Values.postgresService.postgresExternalName }}
-{{- include "ffc-helm-library.postgres-service" (list . "<REPO_NAME>.postgres-service") -}}
-{{- end }}
-{{- define "<REPO_NAME>.postgres-service" -}}
-{{- end -}}
-```
-
-replacing `<REPO_NAME>` with the git repository name.
-
 Update the Helm chart values file (`helm/<REPO_NAME>/values.yaml`) with default values for the Postgres service:
 
-```
+```yaml
 postgresService:
   postgresDb: ffc_<workstream>_<service>
   postgresExternalName:
@@ -110,7 +95,7 @@ replacing `<workstream>` and `<service>` as per naming convention described abov
 
 Update the `ConfigMap` template of the Helm Chart (`helm/<REPO_NAME>/templates/config-map.yaml`) to include the environment variables for the Postgres database:
 
-```
+```yaml
 POSTGRES_DB: {{ quote .Values.postgresService.postgresDb }}
 POSTGRES_HOST: {{ quote .Values.postgresService.postgresHost }}
 POSTGRES_PORT: {{ quote .Values.postgresService.postgresPort }}
@@ -121,7 +106,7 @@ POSTGRES_SCHEMA_NAME: {{ quote .Values.postgresService.postgresSchema }}
 
 Create (or update) the Secret template in `helm/<REPO_NAME>/templates/container-secret.yaml`:
 
-```
+```yaml
 {{- include "ffc-helm-library.container-secret" (list . "<REPO_NAME>.container-secret") -}}
 {{- define "<REPO_NAME>.container-secret" -}}
 stringData:
@@ -178,7 +163,7 @@ Install the Azure Authentication SDK NPM package: `npm install @azure/ms-rest-no
 
 With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then access the database using the username `<managed-identity>@<azure-postgres-instance>` (e.g. `ffc-snd-demo-web-role@mypostgresserver`) and an access token as the password:
 
-```
+```javascript
 async function example() {
   const auth = require('@azure/ms-rest-nodeauth')
   const credentials = await auth.loginWithVmMSI({ resource: 'https://ossrdbms-aad.database.windows.net' })
