@@ -2037,45 +2037,25 @@
 <p>Helm charts allow multiple Kubernetes resource definitions to be deployed and un-deployed as a single unit.</p>
 <h2 id="source-control">Source control</h2>
 <ul>
-<li>
-<p>Helm charts are source controlled in the same repository as the microservice they relate to</p>
-</li>
-<li>
-<p>Helm charts are saved in a <code>helm</code> directory and named the same as the repository. For example, <code>./helm/ffc-demo-web</code> directory</p>
-</li>
-<li>
-<p>Helm chart versions are automatically updated by CI in line with the application version</p>
-</li>
+<li>Helm charts are source controlled in the same repository as the microservice they relate to</li>
+<li>Helm charts are saved in a <code>helm</code> directory and named the same as the repository. For example, <code>./helm/ffc-demo-web</code> directory</li>
+<li>Helm chart versions are automatically updated by CI in line with the application version</li>
 </ul>
 <h2 id="helm-chart-library">Helm chart library</h2>
 <ul>
-<li>
-<p>to keep Helm charts DRY, the <a href="https://github.com/DEFRA/ffc-helm-library">FCP Helm Chart Library</a> is used as a base for all resource definitions</p>
-</li>
-<li>
-<p>consuming Helm charts only need to define where there is variation from the base Helm chart</p>
-</li>
-<li>
-<p>the library helps teams abstract complexity of Kubernetes resource definitions as well as providing a consistent approach to Helm chart development and container security</p>
-</li>
+<li>to keep Helm charts DRY, the <a href="https://github.com/DEFRA/ffc-helm-library">FCP Helm Chart Library</a> is used as a base for all resource definitions</li>
+<li>consuming Helm charts only need to define where there is variation from the base Helm chart</li>
+<li>the library helps teams abstract complexity of Kubernetes resource definitions as well as providing a consistent approach to Helm chart development and container security</li>
 </ul>
 <blockquote>
-<p>Note: For services using ADP, ADPs has it's own Helm chart library for both <a href="https://github.com/DEFRA/adp-helm-library">application</a> and <a href="https://github.com/DEFRA/adp-aso-helm-library">infrastructure</a>.</p>
+<p>Note: For services using ADP, ADP has it's own Helm chart library for both <a href="https://github.com/DEFRA/adp-helm-library">application</a> and <a href="https://github.com/DEFRA/adp-aso-helm-library">infrastructure</a>.</p>
 </blockquote>
 <h2 id="helm-chart-repository">Helm chart repository</h2>
 <ul>
-<li>
-<p>Helm charts are published by CI to a Helm chart repository within <a href="https://azure.microsoft.com/en-us/products/container-registry/">Azure Container Registry</a></p>
-</li>
-<li>
-<p>Helm charts are only published on a main branch build</p>
-</li>
-<li>
-<p>Helm charts are automatically versioned by CI pipeline to be consistent with the application version</p>
-</li>
-<li>
-<p>Helm charts for in flight Pull Requests are not published</p>
-</li>
+<li>Helm charts are published by CI to a Helm chart repository within <a href="https://azure.microsoft.com/en-us/products/container-registry/">Azure Container Registry</a></li>
+<li>Helm charts are only published on a main branch build</li>
+<li>Helm charts are automatically versioned by CI pipeline to be consistent with the application version</li>
+<li>Helm charts for in flight Pull Requests are not published</li>
 </ul>
 
 
