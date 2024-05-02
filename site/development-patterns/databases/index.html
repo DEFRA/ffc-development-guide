@@ -8,21 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/release-pipeline/">
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/development-patterns/databases/">
       
       
+        <link rel="prev" href="../configuration/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+        <link rel="next" href="../analytics/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>Release pipelines - FCP Development Guide</title>
+        <title>Databases - FCP Development Guide</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -41,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#release-pipelines" class="md-skip">
+        <a href="#databases" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Release pipelines
+              Databases
             
           </span>
         </div>
@@ -183,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -213,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -268,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/platform/" class="md-nav__link">
+      <a href="../../getting-started/platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/cicd/" class="md-nav__link">
+      <a href="../../getting-started/cicd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/arrange-access/" class="md-nav__link">
+      <a href="../../getting-started/arrange-access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/" class="md-nav__link">
+      <a href="../../local-development-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -429,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/setup-sudoers/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-sudoers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-docker-desktop/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-desktop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-vs-code/" class="md-nav__link">
+      <a href="../../local-development-setup/install-vs-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-standard-js/" class="md-nav__link">
+      <a href="../../local-development-setup/install-standard-js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-sonarlint/" class="md-nav__link">
+      <a href="../../local-development-setup/install-sonarlint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
+      <a href="../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-docker-compose/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-detect-secrets/" class="md-nav__link">
+      <a href="../../local-development-setup/install-detect-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-node-version-manager/" class="md-nav__link">
+      <a href="../../local-development-setup/install-node-version-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-kubectl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-helm/" class="md-nav__link">
+      <a href="../../local-development-setup/install-helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-azure-cli/" class="md-nav__link">
+      <a href="../../local-development-setup/install-azure-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-snyk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-snyk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-github/" class="md-nav__link">
+      <a href="../../local-development-setup/install-github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../local-development-setup/install-openvpn/" class="md-nav__link">
+      <a href="../../local-development-setup/install-openvpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../create-a-new-service/choose-a-technology/" class="md-nav__link">
+      <a href="../../create-a-new-service/choose-a-technology/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../create-a-new-service/github/" class="md-nav__link">
+      <a href="../../create-a-new-service/github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../create-a-new-service/conventions/" class="md-nav__link">
+      <a href="../../create-a-new-service/conventions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../create-a-new-service/jenkins/" class="md-nav__link">
+      <a href="../../create-a-new-service/jenkins/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../create-a-new-service/ado/" class="md-nav__link">
+      <a href="../../create-a-new-service/ado/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,17 +1077,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1097,7 +1103,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Development patterns
@@ -1111,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/containers/" class="md-nav__link">
+      <a href="../containers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1132,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/identity/" class="md-nav__link">
+      <a href="../identity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1174,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/azure-service-bus.md" class="md-nav__link">
+      <a href="../messaging.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1195,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/azure-storage.md" class="md-nav__link">
+      <a href="../storage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1213,10 +1219,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../development-patterns/azure-postgresql.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Databases
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1225,6 +1251,155 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-managed-identity-for-your-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Managed Identity for your microservice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-creation-of-microservice-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request creation of microservice database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-creation-of-microservice-database-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request creation of microservice database role
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-liquibase-changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Liquibase changelog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-docker-compose-files-to-use-postgres-service-and-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Docker Compose files to use Postgres service and environment variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-docker-compose-files-to-run-liquibase-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Docker Compose files to run Liquibase migrations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-microservice-helm-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update microservice Helm chart
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update microservice Helm chart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-configmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update ConfigMap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createupdate-the-container-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create/Update the container Secret
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-liquibase-migration-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Liquibase migration scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-values-to-azure-key-vault-and-app-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add values to Azure Key Vault and App Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-database-code-to-the-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add database code to the microservice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add database code to the microservice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nodejs-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node.js example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1237,7 +1412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/azure-redis.md" class="md-nav__link">
+      <a href="../caching.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1258,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/azure-application-insights.md" class="md-nav__link">
+      <a href="../logging.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/defra-identity.md" class="md-nav__link">
+      <a href="../defra-identity.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1335,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/azure-ad.md" class="md-nav__link">
+      <a href="../azure-ad.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/analytics/" class="md-nav__link">
+      <a href="../analytics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1385,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/git-secrets/" class="md-nav__link">
+      <a href="../git-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1406,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development-patterns/shared-assets/" class="md-nav__link">
+      <a href="../shared-assets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1469,7 +1644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../testing/unit-testing.md" class="md-nav__link">
+      <a href="../../testing/unit-testing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1490,7 +1665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../testing/integration.md" class="md-nav__link">
+      <a href="../../testing/integration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1511,7 +1686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../testing/contract/" class="md-nav__link">
+      <a href="../../testing/contract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1532,7 +1707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../testing/performance.md" class="md-nav__link">
+      <a href="../../testing/performance.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1553,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../testing/security.md" class="md-nav__link">
+      <a href="../../testing/security.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1574,7 +1749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../testing/accessibility.md" class="md-nav__link">
+      <a href="../../testing/accessibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1595,7 +1770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../testing/compatibility.md" class="md-nav__link">
+      <a href="../../testing/compatibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1658,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../standards/" class="md-nav__link">
+      <a href="../../archive/standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1679,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../archive/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1727,19 +1902,82 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sandpit" class="md-nav__link">
+  <a href="#create-managed-identity-for-your-microservice" class="md-nav__link">
     <span class="md-ellipsis">
-      Sandpit
+      Create Managed Identity for your microservice
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sandpit">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-creation-of-microservice-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request creation of microservice database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-creation-of-microservice-database-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request creation of microservice database role
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-liquibase-changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Liquibase changelog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-docker-compose-files-to-use-postgres-service-and-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Docker Compose files to use Postgres service and environment variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-docker-compose-files-to-run-liquibase-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Docker Compose files to run Liquibase migrations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-microservice-helm-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update microservice Helm chart
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update microservice Helm chart">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configure-sandpit-release-pipeline" class="md-nav__link">
+  <a href="#update-configmap" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure sandpit release pipeline
+      Update ConfigMap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createupdate-the-container-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create/Update the container Secret
     </span>
   </a>
   
@@ -1751,19 +1989,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#development-test-preproduction-and-production-release-pipelines" class="md-nav__link">
+  <a href="#add-liquibase-migration-scripts" class="md-nav__link">
     <span class="md-ellipsis">
-      Development, Test, PreProduction and Production release pipelines
+      Add Liquibase migration scripts
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Development, Test, PreProduction and Production release pipelines">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-values-to-azure-key-vault-and-app-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add values to Azure Key Vault and App Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-database-code-to-the-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add database code to the microservice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add database code to the microservice">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#preparations-for-higher-environments" class="md-nav__link">
+  <a href="#nodejs-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Preparations for higher environments
+      Node.js example
     </span>
   </a>
   
@@ -1792,85 +2048,126 @@
   
 
 
-<h1 id="release-pipelines">Release pipelines</h1>
-<h2 id="sandpit">Sandpit</h2>
-<p>Sandpit release pipelines are run from Jenkins and a deployment to the sandpit environment is automatically triggered by the CI pipeline if building from a main branch.</p>
-<h3 id="configure-sandpit-release-pipeline">Configure sandpit release pipeline</h3>
+<h1 id="databases">Databases</h1>
+<p>PostgreSQL is the preferred database for microservices in the FFC Platform.  This guide describes the process for creating a database for a microservice and configuring the microservice to use it.</p>
+<h2 id="create-managed-identity-for-your-microservice">Create Managed Identity for your microservice</h2>
+<p>If not already configured add <a href="../identity/">Managed Identity</a> to your microservice</p>
+<h2 id="request-creation-of-microservice-database">Request creation of microservice database</h2>
+<p>CCoE are the only team with access to create database within your Azure Database for PostgreSQL in the Sandpit environment.  The name of the database should match the microservice repository name.  Microservices should not share a database.</p>
+<p>For example, a microservice named <code>ffc-demo-claim-service</code> would have a database named <code>ffc_demo_claim_service</code></p>
+<p><em>Note here the use of underscores instead of the normal hyphen convention. Postgres hyphens require escaping with double quote marks so underscores are preferred.</em></p>
+<h2 id="request-creation-of-microservice-database-role">Request creation of microservice database role</h2>
+<p>Request Cloud Services to create a database role that is bound to the Managed Identity created for the microservice (<a href="https://docs.microsoft.com/en-us/azure/postgresql/howto-connect-with-managed-identity#creating-a-postgresql-user-for-your-managed-identity">Azure guidence</a>), for example <code>ffc-snd-demo-claim-role</code>.</p>
+<p>This identity must also be assigned to the Jenkins VM to ensure that Liquibase migrations can run.</p>
+<h2 id="create-a-liquibase-changelog">Create a Liquibase changelog</h2>
+<p>The FFC Platfrom CI and deployment pipelines support database migrations using <a href="https://www.liquibase.org/">Liquibase</a>.</p>
+<p>Create a Liquibase changelog defining the structure of your database available from the root of your microservice repoository in <code>changelog/db.changelog.xml</code>.</p>
+<p>Guidence on creating a Liquibase changelog is outside of the scope of this guide, so please check current best practice with the FFC Platform Team.</p>
+<h2 id="update-docker-compose-files-to-use-postgres-service-and-environment-variables">Update Docker Compose files to use Postgres service and environment variables</h2>
+<p>Update <code>docker-compose.yaml</code>, <code>docker-compose.override.yaml</code>, and <code>docker-compose.test.yaml</code> to include a Postgres service and add Postgres environment variables to the microservice.</p>
+<p>An example Postgres service:</p>
+<pre><code class="language-yaml">services:
+  # Microservice definition here
+  ffc-&lt;workstream&gt;-&lt;service&gt;-postgres:
+    image: postgres:11.4-alpine
+    environment:
+      POSTGRES_DB: ffc_&lt;workstream&gt;_&lt;service&gt;
+      POSTGRES_PASSWORD: ppp
+      POSTGRES_USER: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - &quot;5432:5432&quot;
+
+volumes:
+  postgres_data: {}
+</code></pre>
+<p>Add dependency on the Postgres service and environment variables the microservice <code>services</code> definition:</p>
+<pre><code class="language-yaml">services:
+  # Microservice definition here
+    depends_on:
+      - ffc-&lt;workstream&gt;-&lt;service&gt;-postgres
+    environment:
+      POSTGRES_DB: ffc_&lt;workstream&gt;_&lt;service&gt;
+      POSTGRES_PASSWORD: ppp
+      POSTGRES_USER: postgres
+      POSTGRES_HOST: ffc-&lt;workstream&gt;-&lt;service&gt;-postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_SCHEMA_NAME: public
+</code></pre>
+<p>Replace <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> as per naming convention described above.</p>
+<h2 id="add-docker-compose-files-to-run-liquibase-migrations">Add Docker Compose files to run Liquibase migrations</h2>
+<p>Add a <code>docker-compose.migrate.yaml</code> to the root of the microservice based on <a href="../../resources/docker-compose.migrate.yaml">the template provided in resources</a>.</p>
+<p>Replace <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> as per naming convention described above.</p>
+<h2 id="update-microservice-helm-chart">Update microservice Helm chart</h2>
+<p>Update the Helm chart values file (<code>helm/&lt;REPO_NAME&gt;/values.yaml</code>) with default values for the Postgres service:</p>
+<pre><code class="language-yaml">postgresService:
+  postgresDb: ffc_&lt;workstream&gt;_&lt;service&gt;
+  postgresExternalName:
+  postgresHost: ffc-&lt;workstream&gt;-&lt;service&gt;-postgres
+  postgresPort: 5432
+  postgresSchema: public
+  postgresUser: postgres
+</code></pre>
+<p>replacing <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> as per naming convention described above.</p>
+<h3 id="update-configmap">Update ConfigMap</h3>
+<p>Update the <code>ConfigMap</code> template of the Helm Chart (<code>helm/&lt;REPO_NAME&gt;/templates/config-map.yaml</code>) to include the environment variables for the Postgres database:</p>
+<pre><code class="language-yaml">POSTGRES_DB: {{ quote .Values.postgresService.postgresDb }}
+POSTGRES_HOST: {{ quote .Values.postgresService.postgresHost }}
+POSTGRES_PORT: {{ quote .Values.postgresService.postgresPort }}
+POSTGRES_SCHEMA_NAME: {{ quote .Values.postgresService.postgresSchema }}
+</code></pre>
+<h3 id="createupdate-the-container-secret">Create/Update the container Secret</h3>
+<p>Create (or update) the Secret template in <code>helm/&lt;REPO_NAME&gt;/templates/container-secret.yaml</code>:</p>
+<pre><code class="language-yaml">{{- include &quot;ffc-helm-library.container-secret&quot; (list . &quot;&lt;REPO_NAME&gt;.container-secret&quot;) -}}
+{{- define &quot;&lt;REPO_NAME&gt;.container-secret&quot; -}}
+stringData:
+  POSTGRES_USER: {{ .Values.postgresService.postgresUser | quote }}
+{{- end -}}
+</code></pre>
+<p>replacing <code>&lt;REPO_NAME&gt;</code> with the git repository name.</p>
+<p>Update the Helm chart values file (<code>helm/&lt;REPO_NAME&gt;/values.yaml</code>) with a name for the Secret:</p>
+<pre><code>containerSecret:
+  name: ffc-&lt;workstream&gt;-&lt;service&gt;-container-secret
+  type: Opaque
+</code></pre>
+<p>replacing <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> as per naming convention described above.</p>
+<h2 id="add-liquibase-migration-scripts">Add Liquibase migration scripts</h2>
+<p>Copy the <a href="../../resources/scripts">scripts from resources</a> to create the following scripts at the root of your microservice:
+* <code>scripts/migration/database-down</code>
+* <code>scripts/migration/database-up</code>
+* <code>scripts/postgres-wait</code></p>
+<h2 id="add-values-to-azure-key-vault-and-app-configuration">Add values to Azure Key Vault and App Configuration</h2>
+<p>Azure Key Vault is used to store the Postgres username and Azure App Configuration is used to stores values required by the Jenkins CI pipelines.</p>
+<p>Create the following secret in Azure Key Vault via the Azure Portal:</p>
 <ul>
-<li>navigate to your workstream folder in Jenkins</li>
-<li>creating a new credential is optional and if not done, the value of <code>default-deploy-token</code> should be used</li>
-<li>select <code>Credentials -&gt; (global) -&gt; Add Credentials</code></li>
-<li>select <code>Secret text</code> type and set both <code>Description</code> and <code>Id</code> to <code>&lt;respository name&gt;-deploy-token</code>, for example <code>ffc-demo-web-deploy-token</code></li>
-<li>set the secret value to be a unique string, this value will be used to authenticate the CI pipeline when triggering a release</li>
-<li>navigate to your workspace folder and select <code>New Item</code></li>
-<li>enter the <code>item name</code> in the format <code>&lt;repository name&gt;-deploy</code>, for example <code>ffc-demo-web-deploy</code></li>
-<li>select <code>Pipeline</code></li>
-<li>select <code>Ok</code></li>
-<li>set <code>This project is parameterised</code> to <code>true</code> and add the following <code>string</code> parameters</li>
+<li><strong>Name</strong>: <code>snd-postgres&lt;workstream&gt;&lt;service&gt;User</code>; <strong>Value</strong>: <code>&lt;managed-identity&gt;@&lt;azure-postgres-instance&gt;</code> (e.g. <code>ffc-snd-demo-web-role@mypostgresserver</code>)</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>chartVersion</code></td>
-<td><code>1.0.0</code></td>
-<td><code>Version of service to deploy</code></td>
-</tr>
-<tr>
-<td><code>chartName</code></td>
-<td><code>&lt;repository name&gt;</code> for example, <code>ffc-demo-web</code></td>
-<td><code>Service to deploy</code></td>
-</tr>
-<tr>
-<td><code>namespace</code></td>
-<td><code>ffc-&lt;service name&gt;</code> for example, <code>ffc-grants</code></td>
-<td><code>Cluster namespace to deploy to</code></td>
-</tr>
-<tr>
-<td><code>environment</code></td>
-<td><code>dev</code></td>
-<td><code>Cluster environment to deploy to</code></td>
-</tr>
-<tr>
-<td><code>helmChartRepoType</code></td>
-<td><code>acr</code></td>
-<td><code>Location of Helm charts</code></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>set <code>Trigger builds remotely</code> to <code>true</code></li>
-<li>enter unique deploy token created above</li>
-<li>add inline pipeline script with the following content</li>
-</ul>
-<p>```
-  @Library('defra-library@v-9') _</p>
-<p>deployToCluster environment: params.environment,
-                namespace: params.namespace,
-                chartName: params.chartName,
-                chartVersion: params.chartVersion,
-                helmChartRepoType: params.helmChartRepoType
-  <code>``
-- select</code>Save`</p>
-<h2 id="development-test-preproduction-and-production-release-pipelines">Development, Test, PreProduction and Production release pipelines</h2>
-<p>Release pipelines to higher environments are run from Azure DevOps using a common microservice pipeline.</p>
-<p>A deployment to the development and test environments environment are automatically triggered following a build from a main branch.  These pipelines can also be run manually by delivery teams.</p>
-<p>Deployments to PreProd require a ticket raised with CCoE.</p>
-<p>Deployments to Production require an RFC raised in myIT to authorise CCoE to deploy.</p>
-<h3 id="preparations-for-higher-environments">Preparations for higher environments</h3>
-<p>Teams should ensure they have completed the following before deploying to higher environments.</p>
-<ul>
-<li>Update Azure Application Configuration is updated with all required Helm chart configurations</li>
-<li>Share any new databases created with the Platform team.  The release pipelines are currently dependent on knowing which services have databases in advance.  This is expected to change in the near future.</li>
-<li>Ensure all managed identities are created</li>
-<li>Ensure all Service Bus queues are created</li>
-</ul>
+<p>Create the following entries in Azure App Configuraiton via the Azure Portal:</p>
+<ol>
+<li>
+<p>A key-value entry where <strong>Key</strong>: <code>&lt;environment&gt;/postgresService.postgresDb</code> (e.g. <code>dev/postgresService.postgresDb</code>); <strong>Value</strong>: <code>ffc_&lt;workstream&gt;_&lt;service&gt;</code> (e.g. <code>ffc_demo_claim_service</code>); <strong>Label</strong>: <code>&lt;REPO_NAME&gt;</code> (e.g. <code>ffc-demo-claim-service</code>)</p>
+</li>
+<li>
+<p>A Key Vault reference entry where <strong>Key</strong>: <code>dev/postgresService.postgresUser</code>; <strong>Key Vault Secret Key</strong>: <code>dev-postgres&lt;workstream&gt;&lt;service&gt;User</code>; <strong>Label</strong>: <code>&lt;REPO_NAME&gt;</code> (e.g. <code>ffc-demo-claim-service</code>)</p>
+</li>
+</ol>
+<p>where <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> refer to those parts of the queue name described above.</p>
+<p><strong>Note</strong> in environments beyond Sandpit, Azure DevOps will provision databases suffixed with the target environment.  The values should be ammended accordingly. e.g. <code>ffc_demo_claim_service_dev</code></p>
+<h2 id="add-database-code-to-the-microservice">Add database code to the microservice</h2>
+<p>Update your microservice code using the relevant Azure authentication SDKs for your language.</p>
+<p>Patterns for using a Postgres database in microservice code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.</p>
+<h3 id="nodejs-example">Node.js example</h3>
+<p>Install the Azure Authentication SDK NPM package: <code>npm install @azure/ms-rest-nodeauth</code>.</p>
+<p>With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then access the database using the username <code>&lt;managed-identity&gt;@&lt;azure-postgres-instance&gt;</code> (e.g. <code>ffc-snd-demo-web-role@mypostgresserver</code>) and an access token as the password:</p>
+<pre><code class="language-javascript">async function example() {
+  const auth = require('@azure/ms-rest-nodeauth')
+  const credentials = await auth.loginWithVmMSI({ resource: 'https://ossrdbms-aad.database.windows.net' })
+  const databasePassword = await credentials.getToken()
+
+  // Use databasePassword along with Postgres role bound to Managed Identity to authenticate to your database
+}
+</code></pre>
 
 
 
@@ -1917,10 +2214,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>
