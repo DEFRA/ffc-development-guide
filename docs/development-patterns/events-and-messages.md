@@ -5,7 +5,7 @@ Where possible, service to service communication will be asynchronous using Azur
 Depending on the pattern being applied the term `event` or `message` may be more appropriate.  For simplicity, for the remainder of this page, the term `event` will be used to refer to both these definitions.
 
 ## Use Azure Service Bus
-Services should use Azure Service Bus as an event broker.  This is because the FFC CI pipeline is relatively mature in terms of dynamically provisioning Azure Service Bus infrastructure to support the development cycle and the team have strong experience with it's use.
+Services should use Azure Service Bus as an event broker.  This is because the FCP CI pipeline is relatively mature in terms of dynamically provisioning Azure Service Bus infrastructure to support the development cycle and the team have strong experience with it's use.
 
 ## Avoid tight coupling
 
@@ -17,11 +17,15 @@ Therefore, events should be published to `Topics` as opposed to `Queues` where p
 
 When sending an event to Azure Service Bus, it will be decorated by default broker properties.  For full details on the specification, see the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messages-payloads)
 
+### Specification
+
+[CloudEvents.io](https://cloudevents.io/) is a specification for describing event data in a common way and should be considered if it is appropriate for the use case.
+
 ### Mandatory custom properties
 
-All FFC events from any service must also declare the following custom properties when publishing an event.
+All FCP events from any service must also declare the following custom properties when publishing an event.
 
-- `type` - the type of event, this should be prefixed with reverse DNS and describe the object and event occuring on that object in the format:
+- `type` - the type of event, this should be prefixed with reverse DNS and describe the object and event occurring on that object in the format:
 `<reverse DNS>.ffc.<object>.<event>`. 
   For example, `uk.gov.ffc.demo.claim.validated`
 - `source` - the service the event originated from, eg `ffc-demo-web`
