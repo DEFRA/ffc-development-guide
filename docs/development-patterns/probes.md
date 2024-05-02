@@ -1,4 +1,5 @@
 # Probes
+
 To increase the stability and predictability of a Kubernetes cluster, services should make use of both readiness and liveness probes to help Kubernetes manage the stability of the service.
 
 Probe end points should follow the convention of `healthy` for readiness probes and `healthz` for liveness probes.
