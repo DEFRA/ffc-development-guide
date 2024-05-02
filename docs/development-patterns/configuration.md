@@ -10,6 +10,14 @@ Each environment has it's own instance of the config stores and Key Vault.
 
 The configuration keys used must follow the naming convention below to ensure that CI and CD pipelines can retrieve values in a predictable and efficient way.
 
+## Helm chart
+
+Configuration for an application running in a pod should be passed to the pod via a `ConfigMap` Kubernetes resource.
+
+Sensitive values should be passed to the pod via a `Secret` Kubernetes resource.
+
+Values for the `ConfigMap` and `Secret` should reference the `values.yaml` file within the Helm chart.
+
 ## Helm values in deployment
 
 During deployment, our CI or CD pipeline will read the `values.yaml` file in the Helm chart to identify all potential configuration values that may need to be sourced from Application Configuration and then matches each of them by key name.
@@ -24,8 +32,6 @@ container:
 If a key exists then the value, `3000` in the example, will be overwritten with the value in Application Configuration.
 
 ## Key naming standards
-
-As all FFC teams will be sharing a single instance of Application Configuration in each subscription and that subscription may host multiple environments, we need to ensure our key naming convention is scalable, performant and avoids duplication where possible.
 
 There are five accepted formats a key name can follow.  The examples all use the `container.port` key as a demonstration for simplicity.
 
