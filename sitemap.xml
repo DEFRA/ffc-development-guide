@@ -41,11 +41,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/route-to-live/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
@@ -102,6 +97,11 @@
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/conventions/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/deploy/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
