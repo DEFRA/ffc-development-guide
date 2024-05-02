@@ -2,6 +2,8 @@
 
 When working in the open it is important to ensure that no secrets are committed to a public repository. 
 
+## Client-side git secret detection
+
 All developers setup [`detect-secrets`](../local-development-setup//install-detect-secrets.md) to scan their code for secrets before committing.
 
 ## Dealing with false positives
@@ -17,3 +19,9 @@ commit the updated `.secrets.baseline` file:
 ```bash
 detect-secrets scan --update .secrets.baseline
 ```
+
+## Server-side git secret detection
+
+Jenkins will scan for potential secrets in all GitHub repositories in the `DEFRA` organisation prefixed with `ffc-`
+
+Any secrets detected will be reported to the `#secret-detection` Slack channel in the `ffc-notifications` workspace.

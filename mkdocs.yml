@@ -60,13 +60,15 @@ nav:
     - Events and messages: development-patterns/events-and-messages.md
     - Release notes: development-patterns/release-notes.md
   - Testing:
-    - Unit: testing/unit-testing.md
+    - Unit: testing/unit.md
     - Integration: testing/integration.md
     - Contract: testing/contract.md
     - Performance: testing/performance.md
     - Security: testing/security.md
     - Accessibility: testing/accessibility.md
     - Compatibility: testing/compatibility.md
+    - Code analysis: testing/code-analysis.md
+    - Acceptance: testing/acceptance.md
   - Archive content:
       - Standards: archive/standards/index.md
       - Guides: archive/guides/index.md

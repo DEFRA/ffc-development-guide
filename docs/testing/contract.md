@@ -4,6 +4,12 @@ Contract testing is a form of integration testing where a contract is establishe
 
 Contracts can be for synchronous or asynchronous communication, and can be used to verify the behaviour of both HTTP and message-based systems.
 
+Contract tests should cover all provider-consumer relationships with other services that are owned by FCP.  Where one side of the contract is not owned by FCP then more traditional provider-driven or even broad integration tests with test instances of those services may be preferred.  
+
+Contract tests should mock the immediate dependencies of the contract similar to unit tests. 
+
+Service architectures should be written in such a way that reduce the need for these higher risk contracts.  For example introducing an FCP managed API gateway between third party services and FCP, would allow all FCP services to contract test against the API gateway abstraction.  More complicated end to end testing is then restricted to only the API gateway.
+
 ## Pact Broker
  
 The [Pact Broker](https://github.com/pact-foundation/pact_broker) is an application for sharing of consumer driven contracts and verification results. It is optimised for use with "pacts" (contracts created by the Pact framework), but can be used for any type of contract that can be serialized to JSON. 
