@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/local-development-setup/install-standard-js/">
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/development-patterns/messaging/">
       
       
-        <link rel="prev" href="../install-vs-code/">
+        <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../install-sonarlint/">
+        <link rel="next" href="../databases/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Install StandardJs - FCP Development Guide</title>
+        <title>Messaging - FCP Development Guide</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-standardjs" class="md-skip">
+        <a href="#messaging" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Install StandardJs
+              Messaging
             
           </span>
         </div>
@@ -339,19 +339,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -365,7 +363,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Setup your local development environment
@@ -379,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../local-development-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -435,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mount-windows-drives-in-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup-sudoers/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-sudoers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -541,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup-macos-command-line-tools/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -567,19 +565,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
           <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
@@ -593,7 +589,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             Common
@@ -607,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-docker-desktop/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-desktop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -628,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-vs-code/" class="md-nav__link">
+      <a href="../../local-development-setup/install-vs-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -646,30 +642,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Install StandardJs
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../local-development-setup/install-standard-js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -678,35 +654,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -719,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-sonarlint/" class="md-nav__link">
+      <a href="../../local-development-setup/install-sonarlint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -740,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup-commit-signing.md" class="md-nav__link">
+      <a href="../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -761,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-docker-compose/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -782,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-detect-secrets/" class="md-nav__link">
+      <a href="../../local-development-setup/install-detect-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -803,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-node-version-manager/" class="md-nav__link">
+      <a href="../../local-development-setup/install-node-version-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -824,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-dotnet-sdk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -845,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-kubectl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -866,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-helm/" class="md-nav__link">
+      <a href="../../local-development-setup/install-helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -887,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-azure-cli/" class="md-nav__link">
+      <a href="../../local-development-setup/install-azure-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-snyk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-snyk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -929,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-github/" class="md-nav__link">
+      <a href="../../local-development-setup/install-github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -950,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-openvpn/" class="md-nav__link">
+      <a href="../../local-development-setup/install-openvpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1151,17 +1098,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1175,7 +1124,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Development patterns
@@ -1189,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/containers/" class="md-nav__link">
+      <a href="../containers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1210,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/helm-charts/" class="md-nav__link">
+      <a href="../helm-charts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1231,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/probes/" class="md-nav__link">
+      <a href="../probes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1252,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/identity/" class="md-nav__link">
+      <a href="../identity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1273,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1291,10 +1240,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../development-patterns/messaging/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Messaging
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1303,6 +1272,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#for-point-to-point-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      For point-to-point queues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-topics-and-subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      For topics and subscriptions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-managed-identity-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Managed Identity permissions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pr-queue-provisioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      PR queue provisioning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-local-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update local development environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-docker-compose-to-use-service-bus-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Docker Compose to use Service Bus environment variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-microservice-helm-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update microservice Helm chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-queue-topic-and-subscription-names-to-azure-app-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add queue, topic and subscription names to Azure App Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-messaging-code-to-the-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add messaging code to the microservice
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1315,7 +1385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/storage.md" class="md-nav__link">
+      <a href="../storage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1336,7 +1406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/databases/" class="md-nav__link">
+      <a href="../databases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1357,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/caching.md" class="md-nav__link">
+      <a href="../caching.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1378,7 +1448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/logging.md" class="md-nav__link">
+      <a href="../logging.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1434,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/defra-identity.md" class="md-nav__link">
+      <a href="../defra-identity.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1455,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/azure-ad.md" class="md-nav__link">
+      <a href="../azure-ad.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1484,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/analytics/" class="md-nav__link">
+      <a href="../analytics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1505,7 +1575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/git-secrets/" class="md-nav__link">
+      <a href="../git-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1526,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/shared-assets/" class="md-nav__link">
+      <a href="../shared-assets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1547,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/version-control/" class="md-nav__link">
+      <a href="../version-control/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1568,7 +1638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/documentation/" class="md-nav__link">
+      <a href="../documentation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1589,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/code-review/" class="md-nav__link">
+      <a href="../code-review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1610,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/events-and-messages/" class="md-nav__link">
+      <a href="../events-and-messages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1631,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development-patterns/release-notes/" class="md-nav__link">
+      <a href="../release-notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1994,9 +2064,81 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#for-point-to-point-queues" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation
+      For point-to-point queues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-topics-and-subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      For topics and subscriptions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-managed-identity-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Managed Identity permissions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pr-queue-provisioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      PR queue provisioning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-local-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update local development environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-docker-compose-to-use-service-bus-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Docker Compose to use Service Bus environment variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-microservice-helm-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update microservice Helm chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-queue-topic-and-subscription-names-to-azure-app-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add queue, topic and subscription names to Azure App Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-messaging-code-to-the-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add messaging code to the microservice
     </span>
   </a>
   
@@ -2020,12 +2162,89 @@
   
 
 
-<h1 id="install-standardjs">Install StandardJs</h1>
-<p>In line with Defra's digital standards for JavaScript, StandardJS coding standards should be used. </p>
-<h2 id="installation">Installation</h2>
-<p>Run the following command to install StandardJS globally:</p>
-<pre><code class="language-bash">npm install -g standard
+<h1 id="messaging">Messaging</h1>
+<p>Azure Service Bus is the messaging technology used by FCP to enable microservices to communicate with each other.</p>
+<p>A <a href="../identity/">Managed Identity</a> is used to authenticate microservices with Service Bus.</p>
+<h2 id="for-point-to-point-queues">For point-to-point queues</h2>
+<p>For each queue required by your microservices, you will need:
+* A Service Bus queue for each environment
+* A Service Bus queue for each of the developers on the workstream in the Sandpit environment to use for local development</p>
+<p>Queues should follow the following naming convention:</p>
+<pre><code>ffc-&lt;workstream&gt;-&lt;identifier&gt;-&lt;purpose&gt;
 </code></pre>
+<p>where <code>&lt;purpose&gt;</code> either denotes the environment e.g. <code>ffc-demo-payment-snd</code>, or the initials of a developer for the local development queues e.g. <code>ffc-demo-payment-jw</code>.</p>
+<p>Request the creation of the required queues through your usual Cloud Services support channel.</p>
+<h2 id="for-topics-and-subscriptions">For topics and subscriptions</h2>
+<p>For each topic, you will need:
+* A Service Bus topic for each environment
+* A Service Bus topic for each of the developers on the workstream in the Sandpit environment to use for local development</p>
+<p>Subscriptions are created on a topic. For every subscription, you will also need:
+* A Service Bus subscription to the topic for each environment
+* A Service Bus subscription to each developer topic in the Sandpit environment to use for local development</p>
+<p>Topics and subscriptions should follow the following naming convention:</p>
+<pre><code>ffc-&lt;workstream&gt;-&lt;identifier&gt;-&lt;purpose&gt;
+</code></pre>
+<p>where <code>&lt;purpose&gt;</code> either denotes the environment e.g. <code>ffc-demo-reporting-snd</code>, or the initials of a developer for the local development queues e.g. <code>ffc-demo-reporting-jw</code>.</p>
+<p>Request the creation of the required topics and subscriptions through your usual Cloud Services support channel.</p>
+<h2 id="update-managed-identity-permissions">Update Managed Identity permissions</h2>
+<p>For each environment queue, topic and subscription created, read and/or write permissions should be added to the Managed Idenitites of the microservices that will be using it.</p>
+<p>Request Cloud Services to add the relevant permissions to the Managed Identities.</p>
+<p>Permissions do not need to be added to Managed Identities for the local development queues.</p>
+<h2 id="pr-queue-provisioning">PR queue provisioning</h2>
+<p>Queues, topics and subscriptions can be automatically provisioned for each microservice PR by the Jenkins CI pipeline to ensure encapsulation of infrastructure.</p>
+<p>Create a <code>provision.azure.yaml</code> file in the root directory of your microservice, and populate with the Service Bus infrastructure that need provisioning:</p>
+<pre><code>resources:
+  queues:
+    - name: &lt;queue_identifier&gt;
+  topics:
+    - name: &lt;topic_identifier&gt;
+</code></pre>
+<p>where the <code>&lt;queue_identifier&gt;</code> and/or <code>&lt;topic_identifier&gt;</code> relates to the part of the queue or topic name described above. For example for the queue <code>ffc-demo-payment-dev</code>, <code>&lt;queue_identifier&gt;</code> would be replaced with <code>payment</code>.</p>
+<p>For every topic specified in <code>provision.azure.yaml</code>, the CI pipeline will also create a subscription, so subscriptions <strong>do not</strong> need to be explictly spcecified.</p>
+<p>Add a <code>name</code> entry in the <code>provision.azure.yaml</code> for each required queue and topic/subscription.</p>
+<h2 id="update-local-development-environment">Update local development environment</h2>
+<p>Configure your development environment so that the following environment variables are available for local development:</p>
+<pre><code>MESSAGE_QUEUE_HOST=&lt;INSERT_VALUE_FROM_AZURE_PORTAL&gt;
+MESSAGE_QUEUE_PASSWORD=&lt;INSERT_VALUE_FROM_AZURE_PORTAL&gt;
+MESSAGE_QUEUE_USER=RootManageSharedAccessKey
+</code></pre>
+<p>Values for <code>MESSAGE_QUEUE_HOST</code> and <code>MESSAGE_QUEUE_PASSWORD</code> will be found in the Azure Portal.</p>
+<p>Also create a variable for each of your developer queues, topics and subscriptions:</p>
+<pre><code>&lt;IDENTIFIER&gt;_&lt;QUEUE|TOPIC|SUBSCRIPTION&gt;_ADDRESS=ffc-&lt;workstream&gt;-&lt;identifier&gt;-&lt;purpose&gt;
+</code></pre>
+<p>where <code>&lt;IDENTIFIER&gt;</code> is the same as the <code>&lt;identifier&gt;</code> part of the queue/topic/subscription name.</p>
+<p>Options for storing these environment variables include:
+* A <code>.env</code> file in the root of the microservice that uses Service bus, making sure you <strong>Do not commit the <code>.env</code> file to the git repository (add it to the <code>.gitignore</code>)</strong>
+* Your shell <code>rc</code> file e.g. <code>.bashrc</code> or <code>.zshrc</code></p>
+<h2 id="update-docker-compose-to-use-service-bus-environment-variables">Update Docker Compose to use Service Bus environment variables</h2>
+<p>Add the following environment variables to the microserive <code>environment</code> section of the <code>docker-compose.yaml</code>:</p>
+<pre><code>MESSAGE_QUEUE_HOST: ${MESSAGE_QUEUE_HOST:-notset}
+MESSAGE_QUEUE_PASSWORD: ${MESSAGE_QUEUE_PASSWORD:-notset}
+MESSAGE_QUEUE_USER: ${MESSAGE_QUEUE_USER:-notset}
+</code></pre>
+<p>And for every queue, topic and subscription you have created also add:</p>
+<pre><code>&lt;IDENTIFIER&gt;_&lt;QUEUE|TOPIC|SUBSCRIPTION&gt;_ADDRESS: ${&lt;IDENTIFIER&gt;_&lt;QUEUE|TOPIC|SUBSCRIPTION&gt;_ADDRESS:-notset}
+</code></pre>
+<h2 id="update-microservice-helm-chart">Update microservice Helm chart</h2>
+<p>Update the <code>ConfigMap</code> template of the Helm Chart (<code>helm/&lt;REPO_NAME&gt;/templates/config-map.yaml</code>) to include the environment variables for the message queue host and every queue, topic and subscription you have created, for example:</p>
+<pre><code>MESSAGE_QUEUE_HOST: {{ quote .Values.container.messageQueueHost }}
+&lt;IDENTIFIER&gt;_&lt;QUEUE|TOPIC|SUBSCRIPTION&gt;_ADDRESS: {{ quote .Values.container.&lt;identifier&gt;&lt;Queue|Topic|Subscription&gt;Address }}
+</code></pre>
+<p>Then create default values for these in the <code>container</code> section of the Helm Chart values file (<code>helm/&lt;REPO_NAME&gt;/values.yaml</code>):</p>
+<pre><code>container:
+  messageQueueHost: dummy
+  &lt;identifier&gt;&lt;Queue|Topic|Subscription&gt;Address: &lt;identifier&gt;
+</code></pre>
+<h2 id="add-queue-topic-and-subscription-names-to-azure-app-configuration">Add queue, topic and subscription names to Azure App Configuration</h2>
+<p>Azure App Configuration stores values required by the Jenkins CI pipelines. For each queue, topic and subscription create a key-value entry for each environment via the Azure Portal:</p>
+<ul>
+<li><strong>Key</strong>: <code>dev/container.&lt;identifier&gt;&lt;Queue|Topic|Subscription&gt;Address</code>; <strong>Value</strong>: <code>ffc-&lt;workstream&gt;-&lt;identifier&gt;-&lt;environment&gt;</code></li>
+</ul>
+<p>where <code>&lt;workstream&gt;</code> and <code>&lt;identifier&gt;</code> refer to those parts of the queue name described above, and <code>&lt;environment&gt;</code> denotes the environment e.g. <code>ffc-demo-payment-dev</code></p>
+<p><strong>Do not</strong> add a label to these App Configuration entries.</p>
+<h2 id="add-messaging-code-to-the-microservice">Add messaging code to the microservice</h2>
+<p>Update your microservice code using the relevant Azure authentication and Service Bus SDKs for your language.</p>
+<p>The easiest way to do this is by using the <a href="https://github.com/DEFRA/ffc-messaging#readme"><code>ffc-messaging</code> module</a>.</p>
 
 
 
