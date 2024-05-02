@@ -6,16 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/guides/resource-provisioning/servicebus-queues/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/ado/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
