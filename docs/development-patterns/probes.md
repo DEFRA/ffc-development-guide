@@ -1,29 +1,61 @@
 # Probes
 
-To increase the stability and predictability of a Kubernetes cluster, services should make use of both readiness and liveness probes to help Kubernetes manage the stability of the service.
+Kubernetes has two types of probes, readiness and liveness.
 
-Probe end points should follow the convention of `healthy` for readiness probes and `healthz` for liveness probes.
+Kubernetes uses readiness probes to know when a container is ready to start accepting traffic.
 
-If no probe is defined, Kubernetes will still attempt to monitor the health of a service.  However, it will only be able to do so by monitoring the status of the container.  This is not a reliable way to determine the health of a service.
+Kubernetes uses liveness probes to know when to restart a container.
 
-## Readiness probes
+The [FCP Helm chart library](https://github.com/DEFRA/ffc-helm-library) includes templates for both readiness and liveness probes.
 
-Readiness probes help Kubernetes manage the availability of a service.  They are used to determine if a service is ready to receive traffic.  If a service is not ready, Kubernetes will not route traffic to it.
+## Configuring probes
 
-Helm using the readiness probe to determine if a service is successfully deployed.  If a service does not report ready in five minutes, the deployment will be considered a failure and will be automatically rolled back.
+Probes can be configured in the Helm chart on a `Deployment` resource, under the container node.
+
+The above is a simple example of an Http readiness and liveness probes.
+
+```yaml
+readinessProbe:
+  path: /healthy
+  port: 3000
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  failureThreshold: 3
+
+livenessProbe:
+  path: /healthz
+  port: 3000
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  failureThreshold: 3
+```
+
+In this example, the cluster will wait for `10` seconds after the pod is deployed.  It will then poll both the liveness and readiness endpoints on port `3000` every `10` seconds.  
+
+If it receives three successive status codes other than `200` for the readiness probe it will stop routing traffic to that pod.
 
 > Note: the readiness probe only prevents traffic routing through the internal cluster network, it does not for example stop a service from consuming messages via Azure Service Bus.
 
-## Liveness probes
+If it receives three successive status codes other than `200` for the liveness probe it will assume the pod is unresponsive and kill it.
 
-Liveness probes help Kubernetes manage the stability of a service.  They are used to determine if a service is still running.  If a service is not running, Kubernetes will restart it.
+> A liveness probe works in conjunction with the `restartPolicy` value. In order to restart the `restartPolicy` must be set to `Always` or `OnFailure`.  The FCP Helm chart default is `Always`.
 
-## Probe configuration
+## Values
 
-Probe configuration is subjective to a service and consideration should be given to the following:
+`path`: the URL route the liveness probe should sent a response to.
 
-- the initial delay before probes are started
-- the frequency of the probe
-- how many sequential failures are required before a service is considered unhealthy
-- the timeout the probe should wait for a response
-- what should the probe check for to determine the health of the service
+`port`: the port on which the service is exposing
+
+`initialDelaySeconds`: how long before the first probe should be sent. This should be safely longer than it takes the pod to start up, otherwise the pod could be stuck in a reboot loop
+
+`periodSeconds`: how often the liveness probe should check the pod is responsive. Recommendation is between 10 and 20 seconds
+
+`failureThreshold`: how many probe failures before the pod is automatically restarted
+
+`timeoutSeconds`: how long to wait for a response before considering the probe failed
+
+As well as Http probes, there are also command and TCP based probes, full details can be found in the [documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
+
+## Role in deployments
+
+During deployment from Helm, if a pod does not report healthy within `5` minutes, the deployment will be rolled back automatically and the deployment pipeline will fail.
