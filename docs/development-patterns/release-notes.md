@@ -33,4 +33,4 @@ For complex changes include code snippets in the relevant description heading.
 
 For all production deployments, an approved change request in myIT (ServiceNow) is required.  Each change request should include the microservice name and version being deployed.
 
-Teams typically maintain their own release calendar to track their daily releases.
+Teams typically maintain their own release calendar to track their daily deployments to Production.
