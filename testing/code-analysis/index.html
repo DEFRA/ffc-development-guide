@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/archive/standards/">
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/testing/code-analysis/">
       
       
-        <link rel="prev" href="../../testing/acceptance/">
+        <link rel="prev" href="../compatibility/">
       
       
-        <link rel="next" href="../guides/">
+        <link rel="next" href="../acceptance/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Standards - FCP Development Guide</title>
+        <title>Code analysis - FCP Development Guide</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#standards" class="md-skip">
+        <a href="#code-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Standards
+              Code analysis
             
           </span>
         </div>
@@ -1540,17 +1540,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1564,7 +1566,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Testing
@@ -1578,7 +1580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/unit/" class="md-nav__link">
+      <a href="../unit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1599,7 +1601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/integration/" class="md-nav__link">
+      <a href="../integration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1620,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/contract/" class="md-nav__link">
+      <a href="../contract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1641,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/performance/" class="md-nav__link">
+      <a href="../performance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1662,7 +1664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1683,7 +1685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/accessibility/" class="md-nav__link">
+      <a href="../accessibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1704,7 +1706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/compatibility/" class="md-nav__link">
+      <a href="../compatibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1722,10 +1724,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../testing/code-analysis/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Code analysis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1734,6 +1754,33 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code analysis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1746,7 +1793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/acceptance/" class="md-nav__link">
+      <a href="../acceptance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1771,19 +1818,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1797,7 +1842,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Archive content
@@ -1808,30 +1853,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Standards
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../archive/standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1840,35 +1865,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contents" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contents
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1881,7 +1877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/" class="md-nav__link">
+      <a href="../../archive/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1919,8 +1915,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1929,9 +1923,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contents" class="md-nav__link">
+  <a href="#code-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Contents
+      Code analysis
     </span>
   </a>
   
@@ -1955,36 +1949,13 @@
   
 
 
-<h1 id="standards">Standards</h1>
-<p>These standards must be adhered to by all FCP developers.</p>
-<h2 id="contents">Contents</h2>
-<ul>
-<li><a href="api.md">APIs</a></li>
-<li><a href="backlog-management.md">Backlog management</a></li>
-<li><a href="code-review.md">Code reviews</a></li>
-<li><a href="configuration-management.md">Configuration management</a></li>
-<li><a href="documentation.md">Documentation</a></li>
-<li><a href="events.md">Events and messages</a></li>
-<li><a href="ci-pipeline.md">FFC CI pipeline</a></li>
-<li><a href="jenkins.md">Jenkins</a></li>
-<li><a href="kubernetes/">Kubernetes</a></li>
-<li><a href="kubernetes/configuration/">Configuration</a></li>
-<li><a href="kubernetes/helm-charts/">Helm charts</a></li>
-<li><a href="kubernetes/labels/">Labels</a></li>
-<li><a href="kubernetes/priority/">Pod priority</a></li>
-<li><a href="kubernetes/probes/">Probes</a></li>
-<li><a href="kubernetes/rbac/">Role Based Access Control (RBAC)</a></li>
-<li><a href="kubernetes/resource-usage/">Resource management</a></li>
-<li><a href="kubernetes/secrets/">Secrets</a></li>
-<li><a href="quick-reference.md">Quick reference</a></li>
-<li><a href="release-notes.md">Release notes</a></li>
-<li><a href="route-to-live/">Route to live</a></li>
-<li><a href="secrets-management.md">Secrets management</a></li>
-<li><a href="source-code.md">Source code</a></li>
-<li><a href="technology-stack.md">Technology stack</a></li>
-<li><a href="testing.md">Testing</a></li>
-<li><a href="version-control.md">Version control</a></li>
-</ul>
+  <h1>Code analysis</h1>
+
+<h2 id="code-analysis">Code analysis</h2>
+<p>SonarCloud will provide static code analysis on all repositories regardless of technology choice.</p>
+<p>In addition to SonarCloud, any JavaScript code is also linted using <a href="https://standardjs.com/">StandardJs</a>.</p>
+<p>There is no linting used for C# in the programme at present.</p>
+<p>All repositories should be added to the Defra organisation as a project in <a href="https://sonarcloud.io/organizations/defra/projects">SonarCloud</a>.</p>
 
 
 
