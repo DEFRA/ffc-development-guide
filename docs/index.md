@@ -24,4 +24,5 @@ This guide assumes that Developers already understand and follow these [core sta
 
 The Government Digital Service (GDS) also have a set of standards that all government services must adhere to.  These are also assumed to be understood and followed by developers working within FCP.
 
-Read the full [GDS Service Manual](https://www.gov.uk/service-manual/service-standard) for more information and [Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice) for technical standards.
+- [Service Manual](https://www.gov.uk/service-manual/service-standard)
+- [Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice)
