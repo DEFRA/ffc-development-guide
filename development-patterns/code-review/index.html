@@ -8,21 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/archive/standards/version-control/">
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/development-patterns/code-review/">
       
       
+        <link rel="prev" href="../documentation/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+        <link rel="next" href="../../testing/contract/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>Version Control - FCP Development Guide</title>
+        <title>Code review - FCP Development Guide</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -41,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#version-control" class="md-skip">
+        <a href="#code-review" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Version Control
+              Code review
             
           </span>
         </div>
@@ -183,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -213,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -268,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/platform/" class="md-nav__link">
+      <a href="../../getting-started/platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/cicd/" class="md-nav__link">
+      <a href="../../getting-started/cicd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/arrange-access/" class="md-nav__link">
+      <a href="../../getting-started/arrange-access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/" class="md-nav__link">
+      <a href="../../local-development-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -429,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-sudoers/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-sudoers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-desktop/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-desktop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-vs-code/" class="md-nav__link">
+      <a href="../../local-development-setup/install-vs-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-standard-js/" class="md-nav__link">
+      <a href="../../local-development-setup/install-standard-js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-sonarlint/" class="md-nav__link">
+      <a href="../../local-development-setup/install-sonarlint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
+      <a href="../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-compose/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-detect-secrets/" class="md-nav__link">
+      <a href="../../local-development-setup/install-detect-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-node-version-manager/" class="md-nav__link">
+      <a href="../../local-development-setup/install-node-version-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-kubectl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-helm/" class="md-nav__link">
+      <a href="../../local-development-setup/install-helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-azure-cli/" class="md-nav__link">
+      <a href="../../local-development-setup/install-azure-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-snyk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-snyk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-github/" class="md-nav__link">
+      <a href="../../local-development-setup/install-github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-openvpn/" class="md-nav__link">
+      <a href="../../local-development-setup/install-openvpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/choose-a-technology/" class="md-nav__link">
+      <a href="../../create-a-new-service/choose-a-technology/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/github/" class="md-nav__link">
+      <a href="../../create-a-new-service/github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/conventions/" class="md-nav__link">
+      <a href="../../create-a-new-service/conventions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/jenkins/" class="md-nav__link">
+      <a href="../../create-a-new-service/jenkins/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/ado/" class="md-nav__link">
+      <a href="../../create-a-new-service/ado/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,17 +1077,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1097,7 +1103,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Development patterns
@@ -1111,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/containers/" class="md-nav__link">
+      <a href="../containers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1132,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/identity/" class="md-nav__link">
+      <a href="../identity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1174,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/messaging.md" class="md-nav__link">
+      <a href="../messaging.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1195,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/storage.md" class="md-nav__link">
+      <a href="../storage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1216,7 +1222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/databases/" class="md-nav__link">
+      <a href="../databases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1237,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/caching.md" class="md-nav__link">
+      <a href="../caching.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1258,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/logging.md" class="md-nav__link">
+      <a href="../logging.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/defra-identity.md" class="md-nav__link">
+      <a href="../defra-identity.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1335,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-ad.md" class="md-nav__link">
+      <a href="../azure-ad.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/analytics/" class="md-nav__link">
+      <a href="../analytics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1385,11 +1391,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/git-secrets/" class="md-nav__link">
+      <a href="../git-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Git Secrets
+    Git secrets
   </span>
   
 
@@ -1406,15 +1412,289 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/shared-assets/" class="md-nav__link">
+      <a href="../shared-assets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Shared Assets
+    Shared assets
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../version-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Code review
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Code review
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tone-of-code-review-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tone of code review comments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tone of code review comments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#be-constructive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Be constructive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#be-specific" class="md-nav__link">
+    <span class="md-ellipsis">
+      Be specific
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoid-strong-opinions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoid strong opinions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-of-a-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scope of a code review
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scope of a code review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-has-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      What has changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintainability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duplication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reusability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reusability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impact-on-other-parts-of-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact on other parts of the system
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-test-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit test coverage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggesting-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggesting improvements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Suggesting improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to comment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-approve" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to approve
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-request-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to request changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-not-to-request-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      When not to request changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1469,7 +1749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/unit-testing.md" class="md-nav__link">
+      <a href="../../testing/unit-testing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1490,7 +1770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/integration.md" class="md-nav__link">
+      <a href="../../testing/integration.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1511,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/contract/" class="md-nav__link">
+      <a href="../../testing/contract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1532,7 +1812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/performance.md" class="md-nav__link">
+      <a href="../../testing/performance.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1553,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/security.md" class="md-nav__link">
+      <a href="../../testing/security.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1574,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/accessibility.md" class="md-nav__link">
+      <a href="../../testing/accessibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1595,7 +1875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/compatibility.md" class="md-nav__link">
+      <a href="../../testing/compatibility.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1658,7 +1938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../archive/standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1679,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/" class="md-nav__link">
+      <a href="../../archive/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1727,56 +2007,173 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#semantic-versioning" class="md-nav__link">
+  <a href="#tone-of-code-review-comments" class="md-nav__link">
     <span class="md-ellipsis">
-      Semantic Versioning
+      Tone of code review comments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tone of code review comments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#be-constructive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Be constructive
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#application" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#be-specific" class="md-nav__link">
     <span class="md-ellipsis">
-      Application
+      Be specific
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#image" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#avoid-strong-opinions" class="md-nav__link">
     <span class="md-ellipsis">
-      Image
+      Avoid strong opinions
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#helm-chart" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm chart
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#releases" class="md-nav__link">
+  <a href="#scope-of-a-code-review" class="md-nav__link">
     <span class="md-ellipsis">
-      Releases
+      Scope of a code review
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scope of a code review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-has-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      What has changed
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#databases" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#maintainability" class="md-nav__link">
     <span class="md-ellipsis">
-      Databases
+      Maintainability
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duplication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reusability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reusability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impact-on-other-parts-of-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact on other parts of the system
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-test-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit test coverage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggesting-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggesting improvements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Suggesting improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to comment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-approve" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to approve
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-request-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to request changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-not-to-request-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      When not to request changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1798,63 +2195,80 @@
   
 
 
-<h1 id="version-control">Version Control</h1>
-<p>These standards are based on Defra Digital's <a href="https://github.com/DEFRA/software-development-standards/blob/master/standards/version_control_standards.md">version control standards</a>, but are extended to cover not only the application version, but version control of Docker images and Helm charts.</p>
-<h2 id="semantic-versioning">Semantic Versioning</h2>
-<p>We use semantic versioning to manage code, images and charts.</p>
-<p>Given a version number MAJOR.MINOR.PATCH, increment the:
-- <code>MAJOR</code> version when you make incompatible API changes,
-- <code>MINOR</code> version when you add functionality in a backwards compatible manner, and
-- <code>PATCH</code> version when you make backwards compatible bug fixes.</p>
-<p>Additional labels for pre-release and build metadata are available as extensions to the <code>MAJOR.MINOR.PATCH</code> format.</p>
-<p>Full details can be found at <a href="https://semver.org">semver.org</a>.</p>
-<h2 id="application">Application</h2>
-<ul>
-<li>
-<p>for a Node.js microservice, the version is updated in the <code>package.json</code> file's <code>version</code> property.  </p>
-</li>
-<li>
-<p>for a .NET microservice, the version is updated in the <code>.csproj</code> file in a <code>&lt;Version&gt;</code> tag.</p>
-</li>
-</ul>
-<h2 id="image">Image</h2>
-<ul>
-<li>
-<p>prior to pushing to a container registry, all Docker images must be tagged by CI. The tag must match the application version.</p>
-</li>
-<li>
-<p>if the image is created as part of a pull request workflow, then the PR number is instead used as the image tag.</p>
-</li>
-</ul>
-<h2 id="helm-chart">Helm chart</h2>
-<ul>
-<li>
-<p>Helm chart versions are updated in the <code>Chart.yaml</code> file's <code>version</code> property.</p>
-</li>
-<li>
-<p>as Helm charts are saved in the same repository as the application they manage, the version numbers are updated in sync with the application by CI.</p>
-</li>
-<li>
-<p>Helm charts for PR deployments are not be pushed to a Helm repository.</p>
-</li>
-</ul>
-<p><strong>Note</strong> when using the <a href="https://github.com/DEFRA/ffc-jenkins-pipeline-library">FFC Jenkins library</a>, Helm chart versioning is handled automatically, so no action is needed</p>
-<h2 id="releases">Releases</h2>
-<ul>
-<li>releases are packaged in the source code repository using the version number of the application by CI</li>
-</ul>
-<h2 id="databases">Databases</h2>
-<ul>
-<li>
-<p>databases use Liquibase changesets for deployment and rollback.  </p>
-</li>
-<li>
-<p>all changesets are versioned independently of the application.</p>
-</li>
-<li>
-<p>there must be an initial <code>0.0.0</code> version before any changeset, to enable full rollback of a database</p>
-</li>
-</ul>
+<h1 id="code-review">Code review</h1>
+<p>When code reviews are conducted to a high standard, they provide a valuable learning opportunity for the author, reviewer and any observers of the review process. FCP projects implement strict controls such that all changes must be made in feature branches and merged via pull request (PR). In order to merge a PR, it must first be approved by at least one reviewer.</p>
+<p>When reviewing a pull request on any FCP project, the following guidance should be followed.</p>
+<h2 id="tone-of-code-review-comments">Tone of code review comments</h2>
+<p>The tone of communications is extremely important in fostering an inclusive, collaborative atmosphere within teams.</p>
+<p>Remember that your colleagues put a lot of effort into their work and may feel offended by harsh criticism, particularly if you make assumptions or imply a lack of thought. Approach code reviews with kindness and empathy, assuming the best intentions and applauding good solutions as well as making suggestions for improvement.</p>
+<p>Comments should be used to give praise for good solutions and to point out potential improvements. They should be not be used to criticise your colleagues or make strongly opinionated statements. Always be mindful of your tone, considering how others might perceive your comments, and be explicit about when a comment is non-blocking or unimportant.</p>
+<h3 id="be-constructive">Be constructive</h3>
+<p>Don't use harsh language or criticise without making constructive suggestions.
+Do suggest alternative approaches and explain your reasoning.</p>
+<h3 id="be-specific">Be specific</h3>
+<p>Don't make vague statements about the changes as a whole.
+Do point out specific issues and offer specific ideas for how the changes can be improved.</p>
+<h3 id="avoid-strong-opinions">Avoid strong opinions</h3>
+<p>Don't make strong, opinionated statements or dictate specific changes.
+Do ask open-ended questions and keep an open mind about alternative solutions and reasoning that you may not have thought of.</p>
+<h2 id="scope-of-a-code-review">Scope of a code review</h2>
+<p>Code reviews should focus on what is being changed and whether the change is appropriate.  The scope will be stated in the acceptance criteria of the ticket.</p>
+<p>Expanding the scope of a pull request at the review stage is not acceptable. It is generally more valuable to swiftly conclude a piece of work that the team has prioritised than to opportunistically seek additional changes, such as refactoring related code. That said, it can be useful to comment on refactoring opportunities without blocking the pull request. It may be that the author has some spare time they can use to make those changes, or can incorporate them with their next piece of work.</p>
+<p>Examples of things to look for and comment on in a code review:</p>
+<h3 id="what-has-changed">What has changed</h3>
+<p>Are the changes focussed on a specific issue, referenced in the pull request description? If the changes go beyond the intended scope, should they be broken up to make the code review more manageable? If the code review is still a manageable size, consider making a non-blocking comment to remind the author that they could control the scope of future pull requests more carefully.</p>
+<h3 id="maintainability">Maintainability</h3>
+<p>Is all new code extensible and easy for other developers to understand? Does it follow common design patterns? Look for unnecessary complexity and remember that this is subjective so take care not to be overly critical or opinionated when commenting on maintainability. Try to make specific suggestions for improvement, rather than simply stating a problem, but use open-ended language to encourage discussion.</p>
+<h3 id="duplication">Duplication</h3>
+<p>Is there duplication within new code or between new and existing code? Could an existing abstraction be reused or should a new abstraction be created? When proposing an abstraction, consider using a non-blocking comment to open a dialogue about what the abstraction should be and whether it needs addressing now or as a separate piece of work.</p>
+<p>Identifying useful abstractions at the review stage may indicate that there wasn't enough collaboration before coding began. See this as a trigger to review the team's ways of working, rather than blocking a pull request unnecessarily.</p>
+<h3 id="reusability">Reusability</h3>
+<p>Have any new abstractions been introduced? Are they sufficiently reusable? If other parts of the system could be updated to use the new abstractions, consider suggesting this in a non-blocking comment so it can be discussed and either addressed in the same pull request or added to the product backlog as technical debt.</p>
+<h3 id="impact-on-other-parts-of-the-system">Impact on other parts of the system</h3>
+<p>Will the changes have knock-on effects or otherwise necessitate changes to other parts of the system?</p>
+<h3 id="unit-test-coverage">Unit test coverage</h3>
+<p>Is all new code covered by detailed unit tests? Have any edge cases been missed? Don't rely on metrics such as code coverage. Inspect the code thoroughly and ensure that the tests contain appropriate assertions to confirm that all the intended functionality works as expected.</p>
+<h3 id="integration-tests">Integration tests</h3>
+<p>Have integration tests been added to cover all changes to functionality?</p>
+<h2 id="suggesting-improvements">Suggesting improvements</h2>
+<p>When concluding a review, there are three options:</p>
+<ol>
+<li>Comment</li>
+<li>Approve the PR</li>
+<li>Block the PR by requesting changes</li>
+</ol>
+<h3 id="when-to-comment">When to comment</h3>
+<p>You should conclude with a comment when your review asks questions which need answering before you can determine whether the pull request is acceptable. If you haven't proposed a solution to a specific problem in the pull request, it's generally better to leave a neutral review than to block the PR with a request for change.</p>
+<p>If you have raised concerns or questions through inline comments, it may be helpful to give a concise summary in your concluding comment.</p>
+<h3 id="when-to-approve">When to approve</h3>
+<p>You should approve a pull request when you have confirmed that:</p>
+<ol>
+<li>it meets the objectives set out in its description</li>
+<li>it doesn't introduce new defects or code that is hard to maintain</li>
+<li>all new and modified code has thorough unit test coverage</li>
+<li>integration tests have been added where appropriate</li>
+<li>there are no unresolved questions or comments against the pull request</li>
+</ol>
+<p>Occasionally, it may be prudent to accept a pull request which does not meet all of the above requirements, such as to resolve an urgent issue with the live product. Such cases must always be agreed between the product owner, author(s) and reviewer(s).</p>
+<p>If comments or questions on a pull request have been addressed elsewhere (e.g. face-to-face or on Slack), ensure that the outcome is recorded in comment replies so that it is visible to anyone looking back at the pull request in future for information.</p>
+<p>Use the Resolve button to make it clear which of your concerns have been addressed and which still need attention. A pull request should only be approved after all reviewers have explicitly indicated that each of their comments have been resolved. If several reviewers have replied to a comment thread, it may appropriate for any of them to resolve that conversation on behalf of the group.</p>
+<p>Sometimes, a reviewer may become unavailable after commenting on a pull request. When that happens, a second reviewer may accept the pull request without resolving the first reviewer's comments, as long as the author and second reviewer agree that they believe all legitimate concerns have been addressed. Before accepting the pull request, the second reviewer should reply to each unresolved comment to indicate that they believe it has been addressed.</p>
+<h3 id="when-to-request-changes">When to request changes</h3>
+<p>You should request changes to a pull request if any of the following are true:</p>
+<ol>
+<li>it creates a defect in the product</li>
+<li>it exacerbates an existing defect</li>
+<li>it doesn't meet the objectives set out in its description</li>
+<li>it would make the product more difficult to maintain</li>
+<li>new or modified code lacks thorough unit tests</li>
+<li>required integration tests have not been included</li>
+</ol>
+<h3 id="when-not-to-request-changes">When <strong>not</strong> to request changes</h3>
+<blockquote>
+<p>Perfection is the enemy of good</p>
+</blockquote>
+<p>A pull request does not need to be perfect to be good enough. Often, there are many solutions to a problem and one which is not the best is still good enough to meet current needs. Perhaps an alternative approach would be more efficient or an abstraction could reduce duplication, but those things may be less important than the next item in the product backlog.</p>
+<p>Make suggestions for improvement as comments without explicitly approving or rejecting the pull request. This way, your suggestions can open dialogue with the author about how important your suggestions are compared to other work you could each move on to.</p>
 
 
 
@@ -1901,10 +2315,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>

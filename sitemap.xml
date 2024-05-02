@@ -41,21 +41,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/api/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/code-review/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/documentation/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/events/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
@@ -92,11 +77,6 @@
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/testing/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/version-control/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -181,6 +161,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/code-review/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/configuration/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
@@ -196,6 +181,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/documentation/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/git-secrets/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
@@ -207,6 +197,11 @@
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/development-patterns/shared-assets/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/version-control/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
