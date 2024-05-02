@@ -8,21 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/archive/standards/source-code/">
+        <link rel="canonical" href="https://defra.github.io/ffc-development-guide/testing/performance/">
       
       
+        <link rel="prev" href="../contract/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+        <link rel="next" href="../security/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>Source code - FCP Development Guide</title>
+        <title>Performance - FCP Development Guide</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -41,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +63,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#branch-naming-convention" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -76,7 +75,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Source code
+              Performance
             
           </span>
         </div>
@@ -183,7 +182,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
+    <a href="../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -213,7 +212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -268,7 +267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/platform/" class="md-nav__link">
+      <a href="../../getting-started/platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/cicd/" class="md-nav__link">
+      <a href="../../getting-started/cicd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/arrange-access/" class="md-nav__link">
+      <a href="../../getting-started/arrange-access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/" class="md-nav__link">
+      <a href="../../local-development-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -429,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
+      <a href="../../local-development-setup/mount-windows-drives-in-wsl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-sudoers/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-sudoers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
+      <a href="../../local-development-setup/setup-macos-command-line-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-desktop/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-desktop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-vs-code/" class="md-nav__link">
+      <a href="../../local-development-setup/install-vs-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-standard-js/" class="md-nav__link">
+      <a href="../../local-development-setup/install-standard-js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-sonarlint/" class="md-nav__link">
+      <a href="../../local-development-setup/install-sonarlint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
+      <a href="../../local-development-setup/setup-commit-signing.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-docker-compose/" class="md-nav__link">
+      <a href="../../local-development-setup/install-docker-compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-detect-secrets/" class="md-nav__link">
+      <a href="../../local-development-setup/install-detect-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-node-version-manager/" class="md-nav__link">
+      <a href="../../local-development-setup/install-node-version-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-dotnet-sdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-kubectl/" class="md-nav__link">
+      <a href="../../local-development-setup/install-kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-helm/" class="md-nav__link">
+      <a href="../../local-development-setup/install-helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-azure-cli/" class="md-nav__link">
+      <a href="../../local-development-setup/install-azure-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-snyk/" class="md-nav__link">
+      <a href="../../local-development-setup/install-snyk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-github/" class="md-nav__link">
+      <a href="../../local-development-setup/install-github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../local-development-setup/install-openvpn/" class="md-nav__link">
+      <a href="../../local-development-setup/install-openvpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/choose-a-technology/" class="md-nav__link">
+      <a href="../../create-a-new-service/choose-a-technology/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/github/" class="md-nav__link">
+      <a href="../../create-a-new-service/github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/conventions/" class="md-nav__link">
+      <a href="../../create-a-new-service/conventions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/jenkins/" class="md-nav__link">
+      <a href="../../create-a-new-service/jenkins/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,11 +1047,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../create-a-new-service/ado/" class="md-nav__link">
+      <a href="../../create-a-new-service/ado/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Setup an Azure DevOps CD pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-a-new-service/deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploy a service
   </span>
   
 
@@ -1111,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/containers/" class="md-nav__link">
+      <a href="../../development-patterns/containers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1132,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/identity/" class="md-nav__link">
+      <a href="../../development-patterns/identity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/configuration/" class="md-nav__link">
+      <a href="../../development-patterns/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1174,7 +1194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/messaging.md" class="md-nav__link">
+      <a href="../../development-patterns/messaging.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1195,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/storage.md" class="md-nav__link">
+      <a href="../../development-patterns/storage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1216,7 +1236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/databases/" class="md-nav__link">
+      <a href="../../development-patterns/databases/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1237,7 +1257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/caching.md" class="md-nav__link">
+      <a href="../../development-patterns/caching.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1258,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/logging.md" class="md-nav__link">
+      <a href="../../development-patterns/logging.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/defra-identity.md" class="md-nav__link">
+      <a href="../../development-patterns/defra-identity.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1335,7 +1355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/azure-ad.md" class="md-nav__link">
+      <a href="../../development-patterns/azure-ad.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/analytics/" class="md-nav__link">
+      <a href="../../development-patterns/analytics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1385,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/git-secrets/" class="md-nav__link">
+      <a href="../../development-patterns/git-secrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1406,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/shared-assets/" class="md-nav__link">
+      <a href="../../development-patterns/shared-assets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1427,7 +1447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/version-control/" class="md-nav__link">
+      <a href="../../development-patterns/version-control/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1448,7 +1468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/documentation/" class="md-nav__link">
+      <a href="../../development-patterns/documentation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1469,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/code-review/" class="md-nav__link">
+      <a href="../../development-patterns/code-review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1490,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/events-and-messages/" class="md-nav__link">
+      <a href="../../development-patterns/events-and-messages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1511,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../development-patterns/release-notes/" class="md-nav__link">
+      <a href="../../development-patterns/release-notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1536,17 +1556,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1560,7 +1582,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Testing
@@ -1574,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/unit-testing.md" class="md-nav__link">
+      <a href="../unit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1595,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/integration.md" class="md-nav__link">
+      <a href="../integration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1616,7 +1638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/contract/" class="md-nav__link">
+      <a href="../contract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1634,10 +1656,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../testing/performance.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1646,6 +1675,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1658,7 +1688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/security.md" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1679,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/accessibility.md" class="md-nav__link">
+      <a href="../accessibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1700,11 +1730,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/compatibility.md" class="md-nav__link">
+      <a href="../compatibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Compatibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acceptance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acceptance
   </span>
   
 
@@ -1763,7 +1835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../archive/standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1784,7 +1856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/" class="md-nav__link">
+      <a href="../../archive/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1823,47 +1895,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#branch-naming-convention" class="md-nav__link">
-    <span class="md-ellipsis">
-      Branch naming convention
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pull-requests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pull Requests
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pull Requests">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#completing-pull-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      Completing Pull Request
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1880,21 +1911,9 @@
   
 
 
-  <h1>Source code</h1>
+  <h1>Performance</h1>
 
-<h2 id="branch-naming-convention">Branch naming convention</h2>
-<p>Branches should be named in the format <code>&lt;ticket id&gt;-&lt;description of change&gt;</code> in lower case.</p>
-<p>For example, <code>1234567-add-dockerfile</code>.</p>
-<h2 id="pull-requests">Pull Requests</h2>
-<p>When following feature branch development, pull requests should be used to collaborate and ensure code quality.</p>
-<p>Pull requests should be created in line with <a href="https://github.com/DEFRA/software-development-standards/blob/master/processes/pull_requests.md">Defra's standards</a> and reviewed in the spirit of <a href="code-review.md">FFC's code review standards</a>.</p>
-<p>Pull requests should trigger a build and a PR deployment to support the review.</p>
-<h3 id="completing-pull-request">Completing Pull Request</h3>
-<p>In order to complete a pull request, all of the following conditions must be met:
-- at least one approver
-- PR build must complete successfully
-- dismiss stale reviews</p>
-<p>On completion of a pull request a squash merge is performed and the feature/bug branch deleted. The commit message should be amended to give a concise description of the changes, rather than the default list of individual commits.</p>
+
 
 
 
@@ -1941,10 +1960,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   </body>

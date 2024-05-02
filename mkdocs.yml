@@ -39,6 +39,7 @@ nav:
       - Repository conventions: create-a-new-service/conventions.md
       - Setup a Jenkins CI pipeline: create-a-new-service/jenkins.md
       - Setup an Azure DevOps CD pipeline: create-a-new-service/ado.md
+      - Deploy a service: create-a-new-service/deploy.md
   - Development patterns:
     - Containers: development-patterns/containers.md
     - Identity: development-patterns/identity.md

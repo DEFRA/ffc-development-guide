@@ -1066,6 +1066,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-a-new-service/deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploy a service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1437,9 +1458,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#client-side-git-secret-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client-side git secret detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dealing-with-false-positives" class="md-nav__link">
     <span class="md-ellipsis">
       Dealing with false positives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-side-git-secret-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-side git secret detection
     </span>
   </a>
   
@@ -1629,7 +1668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/unit-testing.md" class="md-nav__link">
+      <a href="../../testing/unit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1650,7 +1689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/integration.md" class="md-nav__link">
+      <a href="../../testing/integration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1692,7 +1731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/performance.md" class="md-nav__link">
+      <a href="../../testing/performance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1713,7 +1752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/security.md" class="md-nav__link">
+      <a href="../../testing/security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1734,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/accessibility.md" class="md-nav__link">
+      <a href="../../testing/accessibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1755,11 +1794,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/compatibility.md" class="md-nav__link">
+      <a href="../../testing/compatibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Compatibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/code-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/acceptance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acceptance
   </span>
   
 
@@ -1887,9 +1968,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#client-side-git-secret-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client-side git secret detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dealing-with-false-positives" class="md-nav__link">
     <span class="md-ellipsis">
       Dealing with false positives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-side-git-secret-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-side git secret detection
     </span>
   </a>
   
@@ -1915,6 +2014,7 @@
 
 <h1 id="git-secrets">Git secrets</h1>
 <p>When working in the open it is important to ensure that no secrets are committed to a public repository. </p>
+<h2 id="client-side-git-secret-detection">Client-side git secret detection</h2>
 <p>All developers setup <a href="../../local-development-setup/install-detect-secrets/"><code>detect-secrets</code></a> to scan their code for secrets before committing.</p>
 <h2 id="dealing-with-false-positives">Dealing with false positives</h2>
 <p><code>detect-secrets</code> often identifies false positives (something it thinks is a secret, but is not), which will stop
@@ -1931,6 +2031,9 @@ commit the updated <code>.secrets.baseline</code> file:</p>
 </ol>
 <pre><code class="language-bash">detect-secrets scan --update .secrets.baseline
 </code></pre>
+<h2 id="server-side-git-secret-detection">Server-side git secret detection</h2>
+<p>Jenkins will scan for potential secrets in all GitHub repositories in the <code>DEFRA</code> organisation prefixed with <code>ffc-</code></p>
+<p>Any secrets detected will be reported to the <code>#secret-detection</code> Slack channel in the <code>ffc-notifications</code> workspace.</p>
 
 
 

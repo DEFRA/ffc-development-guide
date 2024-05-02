@@ -50,16 +50,6 @@ For example, `ffc-demo`.
 
 ### Create definitions
 
-#### Kubernetes
+Definitions should be created sub-categorised by the type of resource they are deploying.
 
-#### Managed Identity
-
-#### Helm
-
-#### Database
-
-#### Service Bus
-
-#### Storage
-
-#### Azure App Gateway
+Guidance for this activity can be found in the [Platform services documentation](https://dev.azure.com/defragovuk/DEFRA-FFC/_wiki/wikis/DEFRA-FFC.wiki/5171/DEFRA-FFC-Project-Wiki-Homepage).

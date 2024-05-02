@@ -41,26 +41,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/route-to-live/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/secrets-management/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/source-code/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://defra.github.io/ffc-development-guide/archive/standards/testing/</loc>
-         <lastmod>2024-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://defra.github.io/ffc-development-guide/archive/standards/kubernetes/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
@@ -117,6 +97,11 @@
     </url>
     <url>
          <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/conventions/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/create-a-new-service/deploy/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -311,7 +296,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://defra.github.io/ffc-development-guide/testing/acceptance/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/testing/accessibility/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/testing/code-analysis/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/testing/compatibility/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://defra.github.io/ffc-development-guide/testing/contract/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/testing/integration/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/testing/performance/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/testing/security/</loc>
+         <lastmod>2024-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/testing/unit/</loc>
          <lastmod>2024-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>

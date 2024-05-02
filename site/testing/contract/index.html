@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://defra.github.io/ffc-development-guide/testing/contract/">
       
       
-        <link rel="prev" href="../../development-patterns/release-notes/">
+        <link rel="prev" href="../integration/">
       
       
-        <link rel="next" href="../../archive/standards/">
+        <link rel="next" href="../performance/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -1066,6 +1066,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-a-new-service/deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploy a service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1580,7 +1601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../unit-testing.md" class="md-nav__link">
+      <a href="../unit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1601,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../integration.md" class="md-nav__link">
+      <a href="../integration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1740,7 +1761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance.md" class="md-nav__link">
+      <a href="../performance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1761,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security.md" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1782,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../accessibility.md" class="md-nav__link">
+      <a href="../accessibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1803,11 +1824,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../compatibility.md" class="md-nav__link">
+      <a href="../compatibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Compatibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acceptance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acceptance
   </span>
   
 
@@ -2012,6 +2075,9 @@
 <h1 id="contract-testing">Contract testing</h1>
 <p>Contract testing is a form of integration testing where a contract is established between a consumer and a provider. The contract is a collection of requests and responses that the consumer expects to send and receive from the provider. The contract is used to verify that the provider can meet the consumer's expectations.</p>
 <p>Contracts can be for synchronous or asynchronous communication, and can be used to verify the behaviour of both HTTP and message-based systems.</p>
+<p>Contract tests should cover all provider-consumer relationships with other services that are owned by FCP.  Where one side of the contract is not owned by FCP then more traditional provider-driven or even broad integration tests with test instances of those services may be preferred.  </p>
+<p>Contract tests should mock the immediate dependencies of the contract similar to unit tests. </p>
+<p>Service architectures should be written in such a way that reduce the need for these higher risk contracts.  For example introducing an FCP managed API gateway between third party services and FCP, would allow all FCP services to contract test against the API gateway abstraction.  More complicated end to end testing is then restricted to only the API gateway.</p>
 <h2 id="pact-broker">Pact Broker</h2>
 <p>The <a href="https://github.com/pact-foundation/pact_broker">Pact Broker</a> is an application for sharing of consumer driven contracts and verification results. It is optimised for use with "pacts" (contracts created by the Pact framework), but can be used for any type of contract that can be serialized to JSON. </p>
 <h3 id="webhooks">Webhooks</h3>
