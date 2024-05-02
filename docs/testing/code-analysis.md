@@ -1,4 +1,4 @@
-## Code analysis
+# Code analysis
 
 SonarCloud will provide static code analysis on all repositories regardless of technology choice.
 

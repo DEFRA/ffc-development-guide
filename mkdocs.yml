@@ -42,6 +42,7 @@ nav:
       - Deploy a service: create-a-new-service/deploy.md
   - Development patterns:
     - Containers: development-patterns/containers.md
+    - Helm charts: development-patterns/helm-charts.md
     - Identity: development-patterns/identity.md
     - Configuration and secrets: development-patterns/configuration.md
     - Messaging: development-patterns/messaging.md

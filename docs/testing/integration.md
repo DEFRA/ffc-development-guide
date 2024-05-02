@@ -1,4 +1,4 @@
-## Integration
+# Integration
 
 Integration tests verify the interactions of several components, rather than a single unit. They are classified further into narrow and local integration tests. 
 

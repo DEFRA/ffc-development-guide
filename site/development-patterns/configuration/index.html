@@ -1159,6 +1159,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../helm-charts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helm charts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../identity/" class="md-nav__link">
         
   
@@ -1224,6 +1245,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#helm-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Helm chart
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#helm-values-in-deployment" class="md-nav__link">
@@ -1497,10 +1527,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" >
         
           
-          <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_10" id="__nav_5_10_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1511,8 +1541,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_10">
             <span class="md-nav__icon md-icon"></span>
             Authentication
           </label>
@@ -2085,6 +2115,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#helm-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Helm chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#helm-values-in-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       Helm values in deployment
@@ -2252,6 +2291,10 @@
 <p>Sensitive application data is persisted in <a href="https://azure.microsoft.com/en-gb/services/key-vault/">Azure Key Vault</a> and referenced from the main configuration store.</p>
 <p>Each environment has it's own instance of the config stores and Key Vault.</p>
 <p>The configuration keys used must follow the naming convention below to ensure that CI and CD pipelines can retrieve values in a predictable and efficient way.</p>
+<h2 id="helm-chart">Helm chart</h2>
+<p>Configuration for an application running in a pod should be passed to the pod via a <code>ConfigMap</code> Kubernetes resource.</p>
+<p>Sensitive values should be passed to the pod via a <code>Secret</code> Kubernetes resource.</p>
+<p>Values for the <code>ConfigMap</code> and <code>Secret</code> should reference the <code>values.yaml</code> file within the Helm chart.</p>
 <h2 id="helm-values-in-deployment">Helm values in deployment</h2>
 <p>During deployment, our CI or CD pipeline will read the <code>values.yaml</code> file in the Helm chart to identify all potential configuration values that may need to be sourced from Application Configuration and then matches each of them by key name.</p>
 <p>For example, if a helm chart contains the below, then the key to be matched will be <code>container.port</code>.</p>
@@ -2260,7 +2303,6 @@
 </code></pre>
 <p>If a key exists then the value, <code>3000</code> in the example, will be overwritten with the value in Application Configuration.</p>
 <h2 id="key-naming-standards">Key naming standards</h2>
-<p>As all FFC teams will be sharing a single instance of Application Configuration in each subscription and that subscription may host multiple environments, we need to ensure our key naming convention is scalable, performant and avoids duplication where possible.</p>
 <p>There are five accepted formats a key name can follow.  The examples all use the <code>container.port</code> key as a demonstration for simplicity.</p>
 <h3 id="commonkey"><code>common/key</code></h3>
 <p>These are values that are consistent, regardless of service or environment. </p>
