@@ -6,7 +6,7 @@ Teams are expected to use these shared assets.
 
 ## Development guide
 
-The development guide is a library of FFC standards and guides useful to support developers within the FFC programme.
+The development guide is a library of FCP standards and guides useful to support developers within the FCP programme.
 
 - [Development guide](https://defra.github.io/ffc-development-guide)
 
@@ -93,7 +93,7 @@ Simplify viewing and deleting Kafka consumer groups
 
 ## Messaging npm package
 
-npm package to simplify Azure Service Bus sending and consuming in line with FFC standards
+npm package to simplify Azure Service Bus sending and consuming in line with FCP standards
 
 ### GitHub
 
@@ -105,7 +105,7 @@ npm package to simplify Azure Service Bus sending and consuming in line with FFC
 
 ## Events npm package
 
-npm package to simplify Azure Event Hubs sending and consuming in line with FFC standards
+npm package to simplify Azure Event Hubs sending and consuming in line with FCP standards
 
 ### GitHub
 

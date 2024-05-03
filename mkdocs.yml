@@ -46,7 +46,7 @@ nav:
     - Health probes: development-patterns/probes.md
     - Identity: development-patterns/identity.md
     - Configuration and secrets: development-patterns/configuration.md
-    - Messaging: development-patterns/messaging.md
+    - Events and messages: development-patterns/events-and-messages.md
     - Storage: development-patterns/storage.md
     - Databases: development-patterns/databases.md
     - Caching: development-patterns/caching.md
@@ -60,7 +60,6 @@ nav:
     - Version control: development-patterns/version-control.md
     - Documentation: development-patterns/documentation.md
     - Code review: development-patterns/code-review.md
-    - Events and messages: development-patterns/events-and-messages.md
     - Release notes: development-patterns/release-notes.md
   - Testing:
     - Unit: testing/unit.md
