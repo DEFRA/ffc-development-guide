@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://defra.github.io/ffc-development-guide/development-patterns/events-and-messages/">
       
       
-        <link rel="prev" href="../code-review/">
+        <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../release-notes/">
+        <link rel="next" href="../databases/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -1240,18 +1240,154 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../messaging/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Events and messages
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Messaging
+    Events and messages
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#use-azure-service-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Azure Service Bus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avoid-tight-coupling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoid tight coupling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mandatory-custom-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mandatory custom properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local development
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming conventions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-requests-provisioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull Requests provisioning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standards
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1547,118 +1683,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Events and messages
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Events and messages
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#use-azure-service-bus" class="md-nav__link">
-    <span class="md-ellipsis">
-      Use Azure Service Bus
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#avoid-tight-coupling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Avoid tight coupling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#format" class="md-nav__link">
-    <span class="md-ellipsis">
-      Format
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#specification" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specification
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mandatory-custom-properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mandatory custom properties
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2084,6 +2108,51 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local development
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming conventions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-requests-provisioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull Requests provisioning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standards
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2124,6 +2193,40 @@
 <li><code>subject (optional)</code> - the subject which will give consumers context, for example when the body cannot be consistently read or contains blob data</li>
 </ul>
 <p>These additional properties are based on values included in the <a href="https://cloudevents.io/">CloudEvents</a> specification that are not included in the Azure Service Bus envelope.  Refer to the Cloud Events specification for further examples of their usage.</p>
+<h2 id="authentication">Authentication</h2>
+<p>A <a href="../identity/">Managed Identity</a> should used to authenticate microservices with Service Bus when it is deployed to Azure.  However, for local development outside of Kubernetes, a connection string can be used.</p>
+<p>An <a href="https://www.npmjs.com/package/ffc-messaging"><code>ffc-messaging</code></a> npm package has been created to simplify this setup for teams.</p>
+<h2 id="local-development">Local development</h2>
+<p>Azure Service Bus <a href="https://github.com/Azure/azure-service-bus/issues/223">does not yet have an emulator</a>, so local development will require a connection to the Azure Service Bus instance in the Sandpit environment.</p>
+<p>To avoid collisions between different developers, each developer should have their own set of queues, topics and subscriptions in the Sandpit environment suffixed with their initials.</p>
+<p><a href="https://github.com/DEFRA/ffc-azure-service-bus-scripts">A repository</a> has been created to support rapid creation and deletion of these resources.</p>
+<h2 id="naming-conventions">Naming conventions</h2>
+<p>The naming convention for queues, topics and subscriptions should be as follows:</p>
+<ul>
+<li>all entities should be prefixed with <code>ffc-&lt;service&gt;</code> where <code>&lt;service&gt;</code> is the name of the service, eg <code>ffc-demo</code></li>
+<li>topics and queues should be named to denote the entity they are related to, eg <code>ffc-demo-payment</code> or <code>ffc-demo-claim</code></li>
+<li>topics and queues should be suffixed with the environment they are deployed to, eg <code>ffc-demo-payment-dev</code> or <code>ffc-demo-payment-prd</code></li>
+<li>subscriptions should match the name of the consuming microservice, eg <code>ffc-demo-payment-web</code></li>
+</ul>
+<h2 id="pull-requests-provisioning">Pull Requests provisioning</h2>
+<p>Queues, topics and subscriptions can be automatically provisioned for each microservice PR by the Jenkins CI pipeline to ensure encapsulation of infrastructure.</p>
+<p>Create a <code>provision.azure.yaml</code> file in the root directory of your microservice, and populate with the Service Bus infrastructure that need provisioning:</p>
+<pre><code class="language-yaml">resources:
+  queues:
+    - name: &lt;queue_identifier&gt;
+  topics:
+    - name: &lt;topic_identifier&gt;
+</code></pre>
+<p>where the <code>&lt;queue_identifier&gt;</code> and/or <code>&lt;topic_identifier&gt;</code> relates to the part of the queue or topic name described above. For example for the queue <code>ffc-demo-payment-dev</code>, <code>&lt;queue_identifier&gt;</code> would be replaced with <code>payment</code>.</p>
+<p>For every topic specified in <code>provision.azure.yaml</code>, the CI pipeline will also create a subscription, so subscriptions <strong>do not</strong> need to be explictly spcecified.</p>
+<p>Add a <code>name</code> entry in the <code>provision.azure.yaml</code> for each required queue and topic/subscription.</p>
+<h2 id="standards">Standards</h2>
+<ul>
+<li>services should guarantee at least once delivery of messages, using the "outbox pattern" where appropriate</li>
+<li>consuming services should be idempotent and safely handle duplicate messages</li>
+<li>teams should ensure a suitable delivery count, retry mechanism, message lock and dead letter queue policy is in place for each entity</li>
+<li>teams should use session queues for request/response message patterns</li>
+</ul>
 
 
 

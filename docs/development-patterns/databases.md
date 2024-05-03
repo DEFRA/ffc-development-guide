@@ -1,6 +1,6 @@
 # Databases
 
-PostgreSQL is the preferred database for microservices in the FFC Platform.  This guide describes the process for creating a database for a microservice and configuring the microservice to use it.
+PostgreSQL is the preferred database for microservices in the FCP Platform.  This guide describes the process for creating a database for a microservice and configuring the microservice to use it.
 
 ## Create Managed Identity for your microservice
 
@@ -21,11 +21,11 @@ This identity must also be assigned to the Jenkins VM to ensure that Liquibase m
 
 ## Create a Liquibase changelog
 
-The FFC Platfrom CI and deployment pipelines support database migrations using [Liquibase](https://www.liquibase.org/).
+The FCP Platform CI and deployment pipelines support database migrations using [Liquibase](https://www.liquibase.org/).
 
-Create a Liquibase changelog defining the structure of your database available from the root of your microservice repoository in `changelog/db.changelog.xml`.
+Create a Liquibase changelog defining the structure of your database available from the root of your microservice repository in `changelog/db.changelog.xml`.
 
-Guidence on creating a Liquibase changelog is outside of the scope of this guide, so please check current best practice with the FFC Platform Team.
+Guidance on creating a Liquibase changelog is outside of the scope of this guide, so please check current best practice with the FCP Platform Team.
 
 ## Update Docker Compose files to use Postgres service and environment variables
 
@@ -128,10 +128,59 @@ replacing `<workstream>` and `<service>` as per naming convention described abov
 
 ## Add Liquibase migration scripts
 
-Copy the [scripts from resources](../../resources/scripts) to create the following scripts at the root of your microservice:
+Create the following resources from the root level of your repository
 * `scripts/migration/database-down`
+
+```bash
+#!/bin/bash
+echo "db update on $POSTGRES_HOST $SCHEMA_NAME as $SCHEMA_USERNAME"
+/scripts/postgres-wait && /liquibase/liquibase \
+--driver=org.postgresql.Driver \
+--changeLogFile=/changelog/db.changelog.xml \
+--url=jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB \
+--username="$SCHEMA_USERNAME" --password="$SCHEMA_PASSWORD" --defaultSchemaName="$SCHEMA_NAME" \
+rollback v0.0.0
+```
+
 * `scripts/migration/database-up`
+
+```bash
+#!/bin/bash
+echo "db update on $POSTGRES_HOST $SCHEMA_NAME as $SCHEMA_USERNAME"
+/scripts/postgres-wait && /liquibase/liquibase \
+--driver=org.postgresql.Driver \
+--changeLogFile=/changelog/db.changelog.xml \
+--url=jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB \
+--username="$SCHEMA_USERNAME" --password="$SCHEMA_PASSWORD" --defaultSchemaName="$SCHEMA_NAME" \
+update
+
+```
+
 * `scripts/postgres-wait`
+
+```bash
+#!/bin/bash
+echo "waiting for postgres $POSTGRES_HOST:$POSTGRES_PORT"
+response=''
+max_tries=15
+count=0
+while :
+do
+  ((count++))
+  if [ "$count" -ge "$max_tries" ]; then
+		echo "postgres did not respond in time"
+		exit 1
+	fi
+  response=$(wget -SO- -T 1 -t 1 http://$POSTGRES_HOST:$POSTGRES_PORT 2>&1 | grep 'No data received')
+  if [ "$response" ]; then
+    echo "postgres server available"
+    break
+  fi
+  printf '.'
+  sleep 2
+done
+echo postgres started
+```
 
 ## Add values to Azure Key Vault and App Configuration
 
@@ -155,20 +204,19 @@ where `<workstream>` and `<service>` refer to those parts of the queue name desc
 
 Update your microservice code using the relevant Azure authentication SDKs for your language.
 
-Patterns for using a Postgres database in microservice code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.
+Patterns for using a Postgres database in microservice code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FCP Platform Team.
 
 ### Node.js example
 
-Install the Azure Authentication SDK NPM package: `npm install @azure/ms-rest-nodeauth`.
+Install the Azure Authentication SDK NPM package: `npm install @azure/identity`.
 
 With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then access the database using the username `<managed-identity>@<azure-postgres-instance>` (e.g. `ffc-snd-demo-web-role@mypostgresserver`) and an access token as the password:
 
 ```javascript
 async function example() {
-  const auth = require('@azure/ms-rest-nodeauth')
-  const credentials = await auth.loginWithVmMSI({ resource: 'https://ossrdbms-aad.database.windows.net' })
-  const databasePassword = await credentials.getToken()
-
-  // Use databasePassword along with Postgres role bound to Managed Identity to authenticate to your database
+  const { DefaultAzureCredential } = require('@azure/identity')
+  const credential = new DefaultAzureCredential()
+  const accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net', { requestOptions: { timeout: 1000 } })
+  cfg.password = accessToken.token
 }
 ```
