@@ -17,7 +17,7 @@
         <link rel="next" href="../analytics/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
@@ -27,6 +27,9 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -55,7 +58,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -82,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="FCP Development Guide" class="md-header__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../img/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -107,8 +114,8 @@
       </div>
     </div>
     
+      
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -189,8 +196,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="FCP Development Guide" class="md-nav__button md-logo" aria-label="FCP Development Guide" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../img/favicon.png" alt="logo">
 
     </a>
     FCP Development Guide
@@ -2238,7 +2244,7 @@
 
 
 <h1 id="databases">Databases</h1>
-<p>PostgreSQL is the preferred database for microservices in the FFC Platform.  This guide describes the process for creating a database for a microservice and configuring the microservice to use it.</p>
+<p>PostgreSQL is the preferred database for microservices in the FCP Platform.  This guide describes the process for creating a database for a microservice and configuring the microservice to use it.</p>
 <h2 id="create-managed-identity-for-your-microservice">Create Managed Identity for your microservice</h2>
 <p>If not already configured add <a href="../identity/">Managed Identity</a> to your microservice</p>
 <h2 id="request-creation-of-microservice-database">Request creation of microservice database</h2>
@@ -2249,9 +2255,9 @@
 <p>Request Cloud Services to create a database role that is bound to the Managed Identity created for the microservice (<a href="https://docs.microsoft.com/en-us/azure/postgresql/howto-connect-with-managed-identity#creating-a-postgresql-user-for-your-managed-identity">Azure guidence</a>), for example <code>ffc-snd-demo-claim-role</code>.</p>
 <p>This identity must also be assigned to the Jenkins VM to ensure that Liquibase migrations can run.</p>
 <h2 id="create-a-liquibase-changelog">Create a Liquibase changelog</h2>
-<p>The FFC Platfrom CI and deployment pipelines support database migrations using <a href="https://www.liquibase.org/">Liquibase</a>.</p>
-<p>Create a Liquibase changelog defining the structure of your database available from the root of your microservice repoository in <code>changelog/db.changelog.xml</code>.</p>
-<p>Guidence on creating a Liquibase changelog is outside of the scope of this guide, so please check current best practice with the FFC Platform Team.</p>
+<p>The FCP Platform CI and deployment pipelines support database migrations using <a href="https://www.liquibase.org/">Liquibase</a>.</p>
+<p>Create a Liquibase changelog defining the structure of your database available from the root of your microservice repository in <code>changelog/db.changelog.xml</code>.</p>
+<p>Guidance on creating a Liquibase changelog is outside of the scope of this guide, so please check current best practice with the FCP Platform Team.</p>
 <h2 id="update-docker-compose-files-to-use-postgres-service-and-environment-variables">Update Docker Compose files to use Postgres service and environment variables</h2>
 <p>Update <code>docker-compose.yaml</code>, <code>docker-compose.override.yaml</code>, and <code>docker-compose.test.yaml</code> to include a Postgres service and add Postgres environment variables to the microservice.</p>
 <p>An example Postgres service:</p>
@@ -2322,10 +2328,55 @@ stringData:
 </code></pre>
 <p>replacing <code>&lt;workstream&gt;</code> and <code>&lt;service&gt;</code> as per naming convention described above.</p>
 <h2 id="add-liquibase-migration-scripts">Add Liquibase migration scripts</h2>
-<p>Copy the <a href="../../resources/scripts">scripts from resources</a> to create the following scripts at the root of your microservice:
-* <code>scripts/migration/database-down</code>
-* <code>scripts/migration/database-up</code>
-* <code>scripts/postgres-wait</code></p>
+<p>Create the following resources from the root level of your repository
+* <code>scripts/migration/database-down</code></p>
+<pre><code class="language-bash">#!/bin/bash
+echo &quot;db update on $POSTGRES_HOST $SCHEMA_NAME as $SCHEMA_USERNAME&quot;
+/scripts/postgres-wait &amp;&amp; /liquibase/liquibase \
+--driver=org.postgresql.Driver \
+--changeLogFile=/changelog/db.changelog.xml \
+--url=jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB \
+--username=&quot;$SCHEMA_USERNAME&quot; --password=&quot;$SCHEMA_PASSWORD&quot; --defaultSchemaName=&quot;$SCHEMA_NAME&quot; \
+rollback v0.0.0
+</code></pre>
+<ul>
+<li><code>scripts/migration/database-up</code></li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+echo &quot;db update on $POSTGRES_HOST $SCHEMA_NAME as $SCHEMA_USERNAME&quot;
+/scripts/postgres-wait &amp;&amp; /liquibase/liquibase \
+--driver=org.postgresql.Driver \
+--changeLogFile=/changelog/db.changelog.xml \
+--url=jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB \
+--username=&quot;$SCHEMA_USERNAME&quot; --password=&quot;$SCHEMA_PASSWORD&quot; --defaultSchemaName=&quot;$SCHEMA_NAME&quot; \
+update
+
+</code></pre>
+<ul>
+<li><code>scripts/postgres-wait</code></li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+echo &quot;waiting for postgres $POSTGRES_HOST:$POSTGRES_PORT&quot;
+response=''
+max_tries=15
+count=0
+while :
+do
+  ((count++))
+  if [ &quot;$count&quot; -ge &quot;$max_tries&quot; ]; then
+        echo &quot;postgres did not respond in time&quot;
+        exit 1
+    fi
+  response=$(wget -SO- -T 1 -t 1 http://$POSTGRES_HOST:$POSTGRES_PORT 2&gt;&amp;1 | grep 'No data received')
+  if [ &quot;$response&quot; ]; then
+    echo &quot;postgres server available&quot;
+    break
+  fi
+  printf '.'
+  sleep 2
+done
+echo postgres started
+</code></pre>
 <h2 id="add-values-to-azure-key-vault-and-app-configuration">Add values to Azure Key Vault and App Configuration</h2>
 <p>Azure Key Vault is used to store the Postgres username and Azure App Configuration is used to stores values required by the Jenkins CI pipelines.</p>
 <p>Create the following secret in Azure Key Vault via the Azure Portal:</p>
@@ -2345,16 +2396,15 @@ stringData:
 <p><strong>Note</strong> in environments beyond Sandpit, Azure DevOps will provision databases suffixed with the target environment.  The values should be ammended accordingly. e.g. <code>ffc_demo_claim_service_dev</code></p>
 <h2 id="add-database-code-to-the-microservice">Add database code to the microservice</h2>
 <p>Update your microservice code using the relevant Azure authentication SDKs for your language.</p>
-<p>Patterns for using a Postgres database in microservice code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FFC Platform Team.</p>
+<p>Patterns for using a Postgres database in microservice code are outside of the scope of this guide. An example is shown below for a Node.js microservice, but please check current best practice with the FCP Platform Team.</p>
 <h3 id="nodejs-example">Node.js example</h3>
-<p>Install the Azure Authentication SDK NPM package: <code>npm install @azure/ms-rest-nodeauth</code>.</p>
+<p>Install the Azure Authentication SDK NPM package: <code>npm install @azure/identity</code>.</p>
 <p>With the Managed Identity bound to your microservice in the Kubernetes cluster (following the guidence above), you can then access the database using the username <code>&lt;managed-identity&gt;@&lt;azure-postgres-instance&gt;</code> (e.g. <code>ffc-snd-demo-web-role@mypostgresserver</code>) and an access token as the password:</p>
 <pre><code class="language-javascript">async function example() {
-  const auth = require('@azure/ms-rest-nodeauth')
-  const credentials = await auth.loginWithVmMSI({ resource: 'https://ossrdbms-aad.database.windows.net' })
-  const databasePassword = await credentials.getToken()
-
-  // Use databasePassword along with Postgres role bound to Managed Identity to authenticate to your database
+  const { DefaultAzureCredential } = require('@azure/identity')
+  const credential = new DefaultAzureCredential()
+  const accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net', { requestOptions: { timeout: 1000 } })
+  cfg.password = accessToken.token
 }
 </code></pre>
 
