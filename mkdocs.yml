@@ -57,8 +57,8 @@ nav:
     - Caching: development-patterns/caching.md
     - Logging: development-patterns/logging.md
     - Authentication:
-      - External users: development-patterns/defra-identity.md
-      - Internal users: development-patterns/azure-ad.md
+      - Defra Identity: development-patterns/authentication/defra-identity.md
+      - Azure AD: development-patterns/authentication/azure-ad.md
     - Analytics: development-patterns/analytics.md
     - Git secrets: development-patterns/git-secrets.md
     - Shared assets: development-patterns/shared-assets.md
