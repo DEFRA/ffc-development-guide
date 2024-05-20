@@ -2858,6 +2858,7 @@ const FormData = require('form-data')
 <ol>
 <li>User logs in with their Rural Payments account</li>
 <li>User selects an organisation</li>
+<li>Service retrieves organisation Id from <code>currentRelationshipId</code> property in JWT token</li>
 <li>Service retrieves <code>personId</code> via APIM</li>
 <li>Service retrieves permissions from Siti Agri via APIM</li>
 <li>Service filters permissions based on <code>personId</code></li>
