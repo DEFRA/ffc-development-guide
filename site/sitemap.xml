@@ -111,6 +111,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/authentication/azure-ad/</loc>
+         <lastmod>2024-05-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://defra.github.io/ffc-development-guide/development-patterns/authentication/defra-identity/</loc>
+         <lastmod>2024-05-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://defra.github.io/ffc-development-guide/getting-started/arrange-access/</loc>
          <lastmod>2024-05-20</lastmod>
          <changefreq>daily</changefreq>
