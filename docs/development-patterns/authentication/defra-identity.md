@@ -451,10 +451,11 @@ Example flow:
 
 1. User logs in with their Rural Payments account
 2. User selects an organisation
-3. Service retrieves `personId` via APIM
-4. Service retrieves permissions from Siti Agri via APIM
-5. Service filters permissions based on `personId`
-6. Service persists permissions in session
+3. Service retrieves organisation Id from `currentRelationshipId` property in JWT token
+4. Service retrieves `personId` via APIM
+5. Service retrieves permissions from Siti Agri via APIM
+6. Service filters permissions based on `personId`
+7. Service persists permissions in session
 
 #### Updating credentials
 
