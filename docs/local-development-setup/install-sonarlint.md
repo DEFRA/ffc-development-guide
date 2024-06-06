@@ -22,7 +22,7 @@ sudo apt-get install openjdk-17-jre
 
 2. set location of JRE in VS Code settings.  The below example is the install location of the above command
    ```json
-   "sonarlint.ls.javaHome": "/usr/lib/jvm/java-11-openjdk-amd64"
+   "sonarlint.ls.javaHome": "/usr/lib/jvm/java-17-openjdk-amd64"
    ```
    **Note to WSL users** ensure that you update the **remote** `settings.json` file if you wish to use SonarLint in your linux environment.
 
