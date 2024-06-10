@@ -44,11 +44,11 @@ Jenkins is used for Continuous Integration pipelines in FCP.  Developers will ne
 
 A request should be raised in ServiceNow for CCoE to provide access to Jenkins.
 
-## Synk
+## Snyk
 
-Synk is used for security scanning of code dependencies.  
+Snyk is used for security scanning of code dependencies.  
 
-An [FCP organisation](https://app.snyk.io/org/defra-ffc) has been created in Synk and developers will need to be added to it.
+An [FCP organisation](https://app.snyk.io/org/defra-ffc) has been created in Snyk and developers will need to be added to it.
 
 Contact one of Defra's Principal Developers to arrange access.
 

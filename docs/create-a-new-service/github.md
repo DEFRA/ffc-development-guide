@@ -126,7 +126,7 @@ In order to support the CI/CD pipeline, the following webhooks should be added t
 1. select `Administration -> Analysis Method` and disable `SonarCloud Automatic Analysis`
 1. select `Administration -> Update key` and ensure key matches the name of the repository, removing the `DEFRA_` prefix, for example, `ffc-pay-enrichment`
 
-### Synk
+### Snyk
 
 A [Snyk](https://app.snyk.io/) scan is run as part of the CI pipeline. By default, a project will be set to private. In order to access unlimited [free tests](https://snyk.io/plans/) the project needs to be marked as open source. To do so, follow the [instructions](https://support.snyk.io/hc/en-us/articles/360000910597).
 
