@@ -32,6 +32,8 @@ The template includes everything needed to get a minimal Node.js application up 
 
 Due to the GitHub permission model, only certain users can create new repositories.  If you are unable to create a new repository, please contact a Principal Developer.
 
+> For services using ADP, the scaffolding from the ADP Developer Portal will automatically create a repository in the DEFRA GitHub organisation and setup SonarCloud, Synk, CI/CD etc
+
 ## Repository setup
 
 ### Update access

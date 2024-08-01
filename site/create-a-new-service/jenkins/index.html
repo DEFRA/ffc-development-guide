@@ -2059,6 +2059,9 @@
 
 <h1 id="setup-a-jenkins-ci-pipeline">Setup a Jenkins CI pipeline</h1>
 <p>Assuming the repository has been <a href="../github/">configured correctly</a>, including setup of <a href="https://sonarcloud.io/">SonarCloud</a> and <a href="https://app.snyk.io/">Snyk</a>, the following steps should be followed to setup a Jenkins CI pipeline.</p>
+<blockquote>
+<p>For services using ADP, Jenkins is not used and the CI/CD pipelines are created automatically in Azure DevOps.</p>
+</blockquote>
 <h2 id="create-bounded-context-folder">Create bounded context folder</h2>
 <p>Each service should group it's CI pipelines in a Jenkins folder matching the name of the bounded context.  This is to ensure that the Jenkins UI remains manageable as the number of services grows.</p>
 <p>For example, a repository named <code>ffc-pay-enrichment</code> would be placed in a folder named <code>ffc-pay</code>.</p>

@@ -2,6 +2,8 @@
 
 Assuming the repository has been [configured correctly](github.md), including setup of [SonarCloud](https://sonarcloud.io/) and [Snyk](https://app.snyk.io/), the following steps should be followed to setup a Jenkins CI pipeline.
 
+> For services using ADP, Jenkins is not used and the CI/CD pipelines are created automatically in Azure DevOps.
+
 ## Create bounded context folder
 
 Each service should group it's CI pipelines in a Jenkins folder matching the name of the bounded context.  This is to ensure that the Jenkins UI remains manageable as the number of services grows.
