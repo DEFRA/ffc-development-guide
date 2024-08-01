@@ -2682,12 +2682,13 @@
 <h2 id="docker">Docker</h2>
 <p>All microservices are built from supported Defra parent images for Node.js and .NET.  A <code>Dockerfile</code> will be included in each microservice repository containing a multi-stage build definition referencing these images.</p>
 <p>All microservice repositories created from the <a href="https://github.com/DEFRA/ffc-template-node">FFC Node template</a> will include this <code>Dockerfile</code> already configured.</p>
+<p>Teams should use the LTS version of Node.js as the base image for their microservices.  This is to ensure that the microservice is supported for the longest period of time and regular security updates are applied.</p>
 <h2 id="docker-compose">Docker Compose</h2>
 <p><a href="https://docs.docker.com/compose/">Docker Compose</a> is a tool for defining and running multi-container Docker applications using yaml configuration files.</p>
 <p>All microservice repositories created from the <a href="https://github.com/DEFRA/ffc-template-node">FCP Node template</a> include a pre-configured set of Docker Compose yaml files to support local development and testing as well as some being a prerequisite for CI capability.</p>
 <p>An example Node.js <code>Dockerfile</code> showing a multi-stage build for both development and production.  Note that the <code>development</code> image runs the application in <code>watch</code> mode to support local development and testing, whilst <code>production</code> simply runs the application.</p>
 <p><code>development</code> is dependent on the local <code>package.json</code> including a watch script.  More on this below.</p>
-<pre><code class="language-dockerfile">ARG PARENT_VERSION=1.2.9-node14.17.6
+<pre><code class="language-dockerfile">ARG PARENT_VERSION=2.3.0-node20.4.0
 ARG PORT=3000
 ARG PORT_DEBUG=9229
 
