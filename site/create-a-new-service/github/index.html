@@ -2319,9 +2319,11 @@ Surrey, TW9 4DU.
 <li>select <code>Analyze new project</code></li>
 <li>select repository to analyse</li>
 <li>select <code>Set Up</code></li>
-<li>select <code>Administration -&gt; Analysis Method</code> and disable <code>SonarCloud Automatic Analysis</code></li>
 <li>select <code>Administration -&gt; Update key</code> and ensure key matches the name of the repository, removing the <code>DEFRA_</code> prefix, for example, <code>ffc-pay-enrichment</code></li>
 </ol>
+<blockquote>
+<p>The default Defra Quality gates and language rules should not be changed.  Some existing projects may be using the default "Sonar Way" gates.  The expectation is that teams should be working towards changing these to the Defra Quality gates.</p>
+</blockquote>
 <h3 id="snyk">Snyk</h3>
 <p>A <a href="https://app.snyk.io/">Snyk</a> scan is run as part of the CI pipeline. By default, a project will be set to private. In order to access unlimited <a href="https://snyk.io/plans/">free tests</a> the project needs to be marked as open source. To do so, follow the <a href="https://support.snyk.io/hc/en-us/articles/360000910597">instructions</a>.</p>
 

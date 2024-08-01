@@ -123,8 +123,9 @@ In order to support the CI/CD pipeline, the following webhooks should be added t
 1. select `Analyze new project`
 1. select repository to analyse
 1. select `Set Up`
-1. select `Administration -> Analysis Method` and disable `SonarCloud Automatic Analysis`
 1. select `Administration -> Update key` and ensure key matches the name of the repository, removing the `DEFRA_` prefix, for example, `ffc-pay-enrichment`
+
+> The default Defra Quality gates and language rules should not be changed.  Some existing projects may be using the default "Sonar Way" gates.  The expectation is that teams should be working towards changing these to the Defra Quality gates.
 
 ### Snyk
 
