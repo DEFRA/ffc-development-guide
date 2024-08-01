@@ -61,6 +61,7 @@ nav:
       - Azure AD: development-patterns/authentication/azure-ad.md
     - Analytics: development-patterns/analytics.md
     - Git secrets: development-patterns/git-secrets.md
+    - Security: development-patterns/security.md
     - Shared assets: development-patterns/shared-assets.md
     - Version control: development-patterns/version-control.md
     - Documentation: development-patterns/documentation.md

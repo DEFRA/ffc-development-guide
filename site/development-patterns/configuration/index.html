@@ -1674,6 +1674,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../shared-assets/" class="md-nav__link">
         
   
@@ -2297,6 +2318,9 @@
 <p>Sensitive application data is persisted in <a href="https://azure.microsoft.com/en-gb/services/key-vault/">Azure Key Vault</a> and referenced from the main configuration store.</p>
 <p>Each environment has it's own instance of the config stores and Key Vault.</p>
 <p>The configuration keys used must follow the naming convention below to ensure that CI and CD pipelines can retrieve values in a predictable and efficient way.</p>
+<blockquote>
+<p>ADP has a different approach to configuration and secrets management.  See the <a href="https://defra.github.io/adp-documentation/">ADP documentation</a> for more information.</p>
+</blockquote>
 <h2 id="helm-chart">Helm chart</h2>
 <p>Configuration for an application running in a pod should be passed to the pod via a <code>ConfigMap</code> Kubernetes resource.</p>
 <p>Sensitive values should be passed to the pod via a <code>Secret</code> Kubernetes resource.</p>

@@ -10,6 +10,8 @@ Each environment has it's own instance of the config stores and Key Vault.
 
 The configuration keys used must follow the naming convention below to ensure that CI and CD pipelines can retrieve values in a predictable and efficient way.
 
+> ADP has a different approach to configuration and secrets management.  See the [ADP documentation](https://defra.github.io/adp-documentation/) for more information.
+
 ## Helm chart
 
 Configuration for an application running in a pod should be passed to the pod via a `ConfigMap` Kubernetes resource.
