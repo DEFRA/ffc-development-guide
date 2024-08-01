@@ -12,6 +12,8 @@ All microservices are built from supported Defra parent images for Node.js and .
 
 All microservice repositories created from the [FFC Node template](https://github.com/DEFRA/ffc-template-node) will include this `Dockerfile` already configured.
 
+Teams should use the LTS version of Node.js as the base image for their microservices.  This is to ensure that the microservice is supported for the longest period of time and regular security updates are applied.
+
 ## Docker Compose
 
 [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multi-container Docker applications using yaml configuration files.
@@ -23,7 +25,7 @@ An example Node.js `Dockerfile` showing a multi-stage build for both development
 `development` is dependent on the local `package.json` including a watch script.  More on this below.
 
 ```dockerfile
-ARG PARENT_VERSION=1.2.9-node14.17.6
+ARG PARENT_VERSION=2.3.0-node20.4.0
 ARG PORT=3000
 ARG PORT_DEBUG=9229
 
