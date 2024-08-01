@@ -1,9 +1,5 @@
 # Deploy a service
 
-## Pre-requisites
-
-
-
 ## Environment control
 
 ### Sandpit
