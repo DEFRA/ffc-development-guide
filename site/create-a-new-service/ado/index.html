@@ -2174,6 +2174,9 @@
 <h1 id="setup-an-azure-devops-cd-pipeline">Setup an Azure DevOps CD pipeline</h1>
 <p>Common Azure DevOps (ADO) pipeline definitions <a href="https://dev.azure.com/defragovuk/DEFRA-FFC/_build">have been created</a> and can be reused to deploy services to the various environments.</p>
 <p>These pipelines are responsible for not only deploying applications, but for provisioning and configuring the Azure environments the service run in.</p>
+<blockquote>
+<p>For services using ADP, the CI/CD pipelines are created automatically.  Infrastructure and configuration are managed differently in ADP.  See their <a href="https://defra.github.io/adp-documentation/">documentation</a> for more information.</p>
+</blockquote>
 <h2 id="pipeline-categories">Pipeline categories</h2>
 <p>Pipelines are split into different capabilities which must be run sequentially into an environment when changes are made.</p>
 <h3 id="platform-core"><a href="https://dev.azure.com/defragovuk/DEFRA-FFC/_build?definitionId=2751"><code>platform-core</code></a></h3>
