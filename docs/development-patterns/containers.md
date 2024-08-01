@@ -8,7 +8,7 @@ Crucially, they enable a workflow for your code that allows you to develop and t
 
 ## Docker
 
-All FFC microservices are built from supported Defra parent images for Node.js and .NET.  A `Dockerfile` will be included in each microservice repository containing a multi-stage build definition referencing these images.
+All microservices are built from supported Defra parent images for Node.js and .NET.  A `Dockerfile` will be included in each microservice repository containing a multi-stage build definition referencing these images.
 
 All microservice repositories created from the [FFC Node template](https://github.com/DEFRA/ffc-template-node) will include this `Dockerfile` already configured.
 
