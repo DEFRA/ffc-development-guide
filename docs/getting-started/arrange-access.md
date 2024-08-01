@@ -68,9 +68,12 @@ Contact one of Defra's Principal Developers to arrange access.
 
 SonarCloud is used for static code analysis during Continuous Integration pipelines in FCP.
 
-A [Defra organisation](https://sonarcloud.io/organizations/defra) has been created and developers will need to be added to it using their GitHub account.
+FCP projects are hosted in the SonarCloud [Defra organisation](https://sonarcloud.io/organizations/defra). Within the Defra organisation an FCP group has been created to manage access to all FCP projects.
 
-Contact one of Defra's Principal Developers to arrange access.
+In order to be added to the FCP group:
+
+1. Sign up to SonarCloud with your GitHub account
+1. Contact one of Defra's Principal Developers to be added to the FCP group
 
 ## Azure DevOps (ADO)
 
