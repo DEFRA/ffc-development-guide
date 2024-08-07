@@ -49,7 +49,7 @@ Teams can extend branch policies to fit their needs, however, the following are 
 - protected by a branch policy
 - requires at least one pull request review before merging
 - stale reviews are automatically dismissed
-- repositories only allow Squash merging
+- requires all build steps to complete
 - must require signed commits
 
 > For prototype and spike repositories, the branch policy can be relaxed to allow direct commits to the `main` branch.
