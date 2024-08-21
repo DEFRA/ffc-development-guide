@@ -1,4 +1,5 @@
 # Farming and Countryside Programme Development Guide
+
 This is a repository of standards and supporting guidance for all developers working within the Farming and Countryside Programme (FCP).
 
 The purpose of the standards are to ensure that delivery supports the Architecture Vision set out by the programme and better enable developer agility and mobility through consistent patterns and practices.
@@ -8,7 +9,7 @@ The guidance provides developers with quick access to resources and processes to
 ## Defra standards
 The standards and guidance contained here is intended to be an FCP context specific layer over Defra DDTS' wider development standards.
 
-This guide assumes that Developers already understand and follow these [core standards](https://github.com/DEFRA/software-development-standards/).
+This guide assumes that Developers already understand and follow these [core standards](https://defra.github.io/software-development-standards/).
 
 ## Viewing the guide
 
@@ -23,22 +24,18 @@ Please follow the below installation instructions prior to working with this rep
 - [mkdocs.org](https://www.mkdocs.org)
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
-## Commands
+Running `mkdocs serve` will build the site locally and run it on an available localhost port.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-* `mkdocs gh-deploy` - Deploy the documentation to GitHub pages.
+There is no need to manually publish page updates to GitHub pages.  This is automated following a merge into the main branch.
 
-## Project layout
+### Project layout
 
+```yaml
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-
+        ...       # Other markdown pages, images and other files.  New pages must be referenced here
+```
 
 ## Licence
 
