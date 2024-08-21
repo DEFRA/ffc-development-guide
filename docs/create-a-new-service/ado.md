@@ -4,7 +4,6 @@ Common Azure DevOps (ADO) pipeline definitions [have been created](https://dev.a
 
 These pipelines are responsible for not only deploying applications, but for provisioning and configuring the Azure environments the service run in.
 
-> For services using ADP, the CI/CD pipelines are created automatically.  Infrastructure and configuration are managed differently in ADP.  See their [documentation](https://defra.github.io/adp-documentation/) for more information.
 
 ## Pipeline categories
 

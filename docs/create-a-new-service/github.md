@@ -22,6 +22,8 @@ For example, `ffc-pay-enrichment` would belong to FCP, be part of the Payment ec
 
 Following this naming convention helps understand ownership of repositories, avoid collisions and is essential for some CI/CD pipelines to function correctly.
 
+> The Farming and Countryside programme (FCP) was previously known as the Future Farming and Countryside programme (FFC), hence the `ffc` convention.
+
 ## Creating a new repository
 
 When creating a new repository intended for a Node.js application, the repository can be based on the [ffc-template-node](https://github.com/DEFRA/ffc-template-node) template repository.  
@@ -30,9 +32,7 @@ The template includes everything needed to get a minimal Node.js application up 
 
 > For .NET there is no template repository, however, this [demo repository](https://github.com/DEFRA/ffc-demo-payment-service-core) can be used for guidance.
 
-Due to the GitHub permission model, only certain users can create new repositories.  If you are unable to create a new repository, please contact a Principal Developer.
-
-> For services using ADP, the scaffolding from the ADP Developer Portal will automatically create a repository in the DEFRA GitHub organisation and setup SonarCloud, Synk, CI/CD etc
+Due to the GitHub permission model, only certain users can create new repositories.  If you are unable to create a new repository, please contact a Principal Developer or ask in Slack channel `#github-support`.
 
 ## Repository setup
 
@@ -49,7 +49,7 @@ Teams can extend branch policies to fit their needs, however, the following are 
 - protected by a branch policy
 - requires at least one pull request review before merging
 - stale reviews are automatically dismissed
-- requires all build steps to complete
+- requires all build steps to complete (requires Jenkins setup before this can be enabled)
 - must require signed commits
 
 > For prototype and spike repositories, the branch policy can be relaxed to allow direct commits to the `main` branch.
@@ -100,7 +100,7 @@ Surrey, TW9 4DU.
 
 ### `Jenkinsfile`
 
-In order to use the FFC CI pipeline, a `Jenkinsfile` should be added to the repository.  This file references the version of the shared pipeline to use and sets the parameters for the build.
+In order to use the CI pipeline, a `Jenkinsfile` should be added to the repository.  This file references the version of the shared pipeline to use and sets the parameters for the build.
 
 Details on the content of the `Jenkinsfile` can be found in the [FCP CI pipeline documentation](https://github.com/DEFRA/ffc-jenkins-pipeline-library)
 
@@ -126,11 +126,16 @@ In order to support the CI/CD pipeline, the following webhooks should be added t
 1. select repository to analyse
 1. select `Set Up`
 1. select `Administration -> Update key` and ensure key matches the name of the repository, removing the `DEFRA_` prefix, for example, `ffc-pay-enrichment`
+1. select `Administration -> Analyse Method` and disable Automatic Analysis
 
 > The default Defra Quality gates and language rules should not be changed.  Some existing projects may be using the default "Sonar Way" gates.  The expectation is that teams should be working towards changing these to the Defra Quality gates.
 
-### Snyk
+## Snyk
 
-A [Snyk](https://app.snyk.io/) scan is run as part of the CI pipeline. By default, a project will be set to private. In order to access unlimited [free tests](https://snyk.io/plans/) the project needs to be marked as open source. To do so, follow the [instructions](https://support.snyk.io/hc/en-us/articles/360000910597).
+A [Snyk](https://app.snyk.io/) scan is run as part of the CI pipeline. By default, a project will be set to private even if it is open source.
+
+1. Navigate to [Snyk](https://app.snyk.io/org/defra-ffc)
+1. select `Add project`
+1. select the repository to scan
 
 
