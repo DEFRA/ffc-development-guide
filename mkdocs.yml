@@ -78,6 +78,3 @@ nav:
     - Compatibility: testing/compatibility.md
     - Code analysis: testing/code-analysis.md
     - Acceptance: testing/acceptance.md
-  - Archive content:
-      - Standards: archive/standards/index.md
-      - Guides: archive/guides/index.md
