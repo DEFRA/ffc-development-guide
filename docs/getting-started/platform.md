@@ -2,13 +2,17 @@
 
 ## FCP Platform
 
-To support rapid, highly assured delivery, the programme has delivered common Azure environments, PaaS components, delivery pipelines and supporting tools.
+To support rapid, highly assured delivery, the FCP Platform engineering team has delivered common Azure environments, PaaS components, delivery pipelines and supporting tools.
 
 These are collectively referred to as the `FCP Platform`.
 
-All FCP developed services are currently deployed to the FCP Platform.  
+All FCP developed services are deployed to the FCP Platform.  
 
 Guidance for use of the FCP Platform is hosted within this repository.
+
+### Reference architecture
+
+![Reference architecture](../img/fcp-platform-reference-architecture.png)
 
 ### Environments
 
@@ -51,18 +55,26 @@ The `Production` environment is the live environment for the service.  It is the
 
 Developers with Security Clearance can request read only access to this environment.
 
-## Azure Development Platform (ADP)
+## Other Defra Platforms
 
-Following the success of the FCP Platform, Defra has created a Defra wide iteration known as the Azure Development Platform or ADP.
+Since launch of the FCP Platform, Defra has subsequently created two Defra wide platform initiatives.
 
-The ADP is built on the same principles as the FCP Platform, but takes into account lessons learned throughout the lifetime of the FCP Platform to provide a better experience for teams utilising it.
+### Azure Development Platform (ADP)
 
-It is the long term intention of the programme to migrate all FCP Platform hosted services to the ADP once it becomes mature enough to provide feature parity.
+ADP is essentially an iteration of the FCP Platform, but takes into account lessons learned throughout the lifetime of the FCP Platform to provide a better experience for teams utilising it.
 
-Guidance for use of ADP is hosted within the [ADP Documentation](https://defra.github.io/adp-documentation/).
+Guidance for use of ADP is hosted within the [ADP Documentation](https://defra.github.io/adp-documentation/) and not within these pages.
 
-## Choosing a Platform
+### Core Development Platform (CDP)
 
-When starting a new project, the choice of platform should be made in consultation with the FCP Architecture team.  However, it is expected that all new projects will be hosted on the ADP unless there is a compelling reason not to.
+CDP hosts Node.js and .NET services on [AWS Fargate](https://aws.amazon.com/fargate/) with support for MongoDb databases.
 
-Early engagement with the ADP team is encouraged to ensure that the platform is suitable for the project's needs.
+Guidance for use of CDP is hosted with the [CDP Documentation](https://github.com/DEFRA/cdp-documentation) and not within these pages.
+
+### Choosing a Platform
+
+> **Note** this position is currently under review pending confirmation of wider Defra platform strategy.
+
+When starting a new project, the choice of platform should be made in consultation with the FCP Architecture team.
+
+The default position is to use the existing FCP Platform.
