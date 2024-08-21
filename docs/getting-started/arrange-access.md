@@ -26,6 +26,12 @@ If a developer has Security Clearance, they can request access to the PreProduct
 
 > Evidence of Security Clearance will be requested by CCoE prior to completing the request
 
+### OpenVPN
+
+Access to cloud resources from devices is restricted to VPN access only and requires the installation of the OpenVPN client.
+
+A request should be raised in ServiceNow for CCoE to provide access to OpenVPN and all FCP networks.
+
 ### Access to Azure Kubernetes Service (AKS)
 
 As AKS is the primary compute hosting platform for FCP, developers will need to be added to the appropriate Kubernetes Cluster role.  This will allow access to Kubernetes using client tools such as `kubectl` or `Lens`.

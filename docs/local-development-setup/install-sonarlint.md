@@ -52,13 +52,13 @@ This will give you Sonar code analysis using default quality gates for languages
 
 Rules, quality gates, exclusions etc set in the SonarCloud project will now be applied to local workspace.
 
-## Configure Sonar for C#
+## Configure Sonar for C\#
 
 The SonarLint extension for VS Code does not currently support C#, but we can still get Sonar linting rules set up in VS Code by adding the Sonar analyser to Omnisharp.
 
 1. Add the Sonar Analyzer NuGet package if not already present in the `csproj` file:
 
-```
+```bash
 dotnet add <PROJECT_NAME> package SonarAnalyzer.CSharp
 ```
 

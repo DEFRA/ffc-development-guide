@@ -1,4 +1,4 @@
-# Install IDE
+# Install Visual Studio Code
 
 Developers are free to use their own IDE/text editor of choice.  However, this guide will assume [Visual Studio Code](https://code.visualstudio.com/) will be used as that is the most commonly used tool in FCP and Defra.
 

@@ -18,7 +18,7 @@ nav:
     - Overview: local-development-setup/index.md
     - Windows:
       - Install Windows Subsystem for Linux (WSL): local-development-setup/install-wsl.md
-      - Mount windows drives in WSL: local-development-setup/mount-windows-drives-in-wsl.md
+      - Update WSL configuration: local-development-setup/wsl.md
       - Add user to sudoers file: local-development-setup/setup-sudoers.md
     - macOs:
       - Setup command line tools: local-development-setup/setup-macos-command-line-tools.md
@@ -32,6 +32,7 @@ nav:
       - Install SonarLint: local-development-setup/install-sonarlint.md
       - Install Detect Secrets: local-development-setup/install-detect-secrets.md
       - Install kubectl: local-development-setup/install-kubectl.md
+      - Install kubelogin: local-development-setup/install-kubelogin.md
       - Install Helm: local-development-setup/install-helm.md
       - Install Azure CLI: local-development-setup/install-azure-cli.md
       - Install Snyk CLI: local-development-setup/install-snyk.md

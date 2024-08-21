@@ -10,6 +10,8 @@ If not already installed as part of the Windows Subsystem for Linux (WSL) setup,
 1. Run the installer and follow the prompts to install Docker Desktop.
 
 ### WSL
+
 1. Ensure that Docker Desktop is set to use the WSL2 backend.  This can be done by right clicking the Docker Desktop icon in the system tray and selecting `Settings`.  From there, select `General` and ensure `Use the WSL 2 based engine` is checked.
 1. Ensure that Docker Desktop is available to your WSL distro.  This can be done by right clicking the Docker Desktop icon in the system tray and selecting `Settings`.  From there, select `Resources`, `WSL Integration` and ensure that the distro you are using is checked.
+1. If using a device that has a proxy server, such as a Defra device, you will need to configure Docker Desktop to work around the proxy to avoid network conflicts.  This can be done by right clicking the Docker Desktop icon in the system tray and selecting `Settings`.  From there, select `Resources`, `Proxies` and ensure that `Manual proxy configuration` is checked.
 

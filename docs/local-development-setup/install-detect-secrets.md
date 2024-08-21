@@ -61,7 +61,7 @@ Set up the `pre-commit` git hook to run `detect-secrets` by running the followin
 pre-commit install
 ```
 
-### All future cloned FFC git repositories
+### All future cloned git repositories
 
 To automatically set up the `pre-commit` git hook to run `detect-secrets` for newly cloned repositories, set up a global template:
 
