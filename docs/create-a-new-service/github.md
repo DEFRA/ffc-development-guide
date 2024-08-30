@@ -14,7 +14,7 @@ Repositories should be named in a consistent manner to aid discoverability and t
 
 Below is the agreed naming convention for repositories.
 
-`ffc-<bounded context>-<service>`
+`ffc-<bounded context>-<service>` or `fcp-<bounded context>-<service>`
 
 Where bounded context is an identifier to a set of related microservices and services is an identifier for the specific service.
 
@@ -22,7 +22,7 @@ For example, `ffc-pay-enrichment` would belong to FCP, be part of the Payment ec
 
 Following this naming convention helps understand ownership of repositories, avoid collisions and is essential for some CI/CD pipelines to function correctly.
 
-> The Farming and Countryside programme (FCP) was previously known as the Future Farming and Countryside programme (FFC), hence the `ffc` convention.
+> The Farming and Countryside programme (FCP) was previously known as the Future Farming and Countryside programme (FFC), hence the original `ffc` convention.
 
 ## Creating a new repository
 
