@@ -55,7 +55,7 @@ nav:
     - Events and messages: development-patterns/events-and-messages.md
     - Storage: development-patterns/storage.md
     - Databases: development-patterns/databases.md
-    - Caching: development-patterns/caching.md
+    - Caching: development-patterns/cache.md
     - Logging: development-patterns/logging.md
     - Authentication:
       - Defra Identity: development-patterns/authentication/defra-identity.md
