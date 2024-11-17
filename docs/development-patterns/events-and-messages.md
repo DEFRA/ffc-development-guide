@@ -46,14 +46,6 @@ Azure Service Bus [does not yet have an official emulator](https://github.com/Az
 
 In the absence of an official emulator, teams have two options.
 
-### Use the Azure Service Bus instance in the Sandpit environment
-
-Local development will require a connection to the Azure Service Bus instance in the Sandpit environment.
-
-To avoid collisions between different developers, each developer should have their own set of queues, topics and subscriptions in the Sandpit environment suffixed with their initials.
-
-[A repository](https://github.com/DEFRA/ffc-azure-service-bus-scripts) has been created to support rapid creation and deletion of these resources.
-
 ### Use LocalSandbox emulator
 
 An unofficial emulator called [LocalSandbox](https://github.com/mxsdev/LocalSandbox) is available.  This can be used to run a local instance of Azure Service Bus with the majority of the features available in the cloud.
@@ -196,6 +188,33 @@ if [ -n "$(docker container ls --filter label=com.docker.compose.service.role=ff
 fi
 
 docker compose up $@ # $@ passes any arguments to the script
+```
+
+An example repository using LocalSandbox can be found [here](https://github.com/johnwatson484/message-broker-client)
+
+### Use the Azure Service Bus instance in the Sandpit environment
+
+Local development will require a connection to the Azure Service Bus instance in the Sandpit environment.
+
+To avoid collisions between different developers, each developer should have their own set of queues, topics and subscriptions in the Sandpit environment suffixed with their initials.
+
+[A repository](https://github.com/DEFRA/ffc-azure-service-bus-scripts) has been created to support rapid creation and deletion of these resources.
+
+Once created, developers can set a local environment variable with their initials.
+
+```bash
+export MESSAGE_SUFFIX==jw
+```
+
+Then reference this in the Docker Compose file.
+
+```yaml
+services:
+  ffc-service:
+    environment:
+      MESSAGE_TEST_QUEUE: test-queue${MESSAGE_SUFFIX}
+      MESSAGE_TEST_TOPIC: test-topic${MESSAGE_SUFFIX}
+      MESSAGE_TEST_SUBSCRIPTION: test-subscription${MESSAGE_SUFFIX}
 ```
 
 ## Naming conventions
