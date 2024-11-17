@@ -112,6 +112,23 @@ services:
         azl servicebus topic subscription create --name test-subscription --namespace-name default --resource-group default
 ```
 
+#### Connecting to LocalSandbox
+
+LocalSandbox creates a Service Bus namespace named `default.default.default.localhost`.
+
+Using the `@azure/service-bus` SDK, the following example shows how to connect.
+
+```javascript
+import { ServiceBusClient } from '@azure/service-bus'
+
+const connectionString = 'Endpoint=sb://default.default.default.localhost;SharedAccessKeyName=anything;SharedAccessKey=anything;UseDevelopmentEmulator=true'
+const client = new ServiceBusClient(connectionString)
+```
+
+> Note: The `UseDevelopmentEmulator=true` flag is required to connect to LocalSandbox.  `SharedAccessKeyName` and `SharedAccessKey` can be any value, but must be present.
+
+Once connected, the SDK can be used as normal as if connected to Azure Service Bus.
+
 #### Using across different services
 
 As FCP follows a multi-repository approach, it is likely that services created with different Compose files will need to communicate with each other through a single LocalSandbox instance.  Equally, these services may need to run in isolation.
