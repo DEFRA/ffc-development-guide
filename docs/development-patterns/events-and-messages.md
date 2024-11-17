@@ -42,11 +42,144 @@ An [`ffc-messaging`](https://www.npmjs.com/package/ffc-messaging) npm package ha
 
 ## Local development
 
-Azure Service Bus [does not yet have an emulator](https://github.com/Azure/azure-service-bus/issues/223), so local development will require a connection to the Azure Service Bus instance in the Sandpit environment.
+Azure Service Bus [does not yet have an official emulator](https://github.com/Azure/azure-service-bus/issues/223), however one is expected to be released by the end of 2024.
+
+In the absence of an official emulator, teams have two options.
+
+### Use the Azure Service Bus instance in the Sandpit environment
+
+Local development will require a connection to the Azure Service Bus instance in the Sandpit environment.
 
 To avoid collisions between different developers, each developer should have their own set of queues, topics and subscriptions in the Sandpit environment suffixed with their initials.
 
 [A repository](https://github.com/DEFRA/ffc-azure-service-bus-scripts) has been created to support rapid creation and deletion of these resources.
+
+### Use LocalSandbox emulator
+
+An unofficial emulator called [LocalSandbox](https://github.com/mxsdev/LocalSandbox) is available.  This can be used to run a local instance of Azure Service Bus with the majority of the features available in the cloud.
+
+#### Setup
+
+Add a definition for `local-sandbox` to your `docker-compose.yaml` file.
+
+```yaml
+services:
+  local-sandbox:
+    image: localsandbox/localsandbox
+    container_name: local-sandbox
+```
+
+#### Creating queues, topics and subscriptions
+
+By default, LocalSandBox will create a queue called `default`.  
+
+To create additional topics and subscriptions, you can use `docker-exec` to run the `az` CLI command within the LocalSandbox container.
+
+> Note: LocalSandbox alias the `az` command to `azl`
+
+```bash
+docker exec local-sandbox \
+  azl servicebus queue create \
+  --name test-queue \
+  --namespace-name default \
+  --resource-group default
+
+docker exec local-sandbox \
+  azl servicebus topic create \
+  --name test-topic \
+  --namespace-name default \
+  --resource-group default
+
+docker exec local-sandbox \
+  azl servicebus topic subscription create \
+  --name test-subscription \
+  --namespace-name default \
+  --resource-group default \
+  --topic-name test-topic
+```
+
+If using Docker Compose version 1.30.0 or later, you can use the [`post_start`](https://docs.docker.com/compose/how-tos/lifecycle/#post-start-hooks) lifecycle event to run these commands automatically when the container starts.
+
+```yaml
+services:
+  local-sandbox:
+    image: localsandbox/localsandbox
+    container_name: local-sandbox
+    post_start:
+      command: >
+        azl servicebus queue create --name test-queue --namespace-name default --resource-group default
+        azl servicebus topic create --name test-topic --namespace-name default --resource-group default
+        azl servicebus topic subscription create --name test-subscription --namespace-name default --resource-group default
+```
+
+#### Using across different services
+
+As FCP follows a multi-repository approach, it is likely that services created with different Compose files will need to communicate with each other through a single LocalSandbox instance.  Equally, these services may need to run in isolation.
+
+One way to achieve this is by declaring the LocalSandbox instance in both Compose files and using the `label` property to identify if an instance is already running.
+
+The Compose files must also declare a common network to allow the services to communicate.
+
+##### Service A
+
+```yaml
+services:
+  ffc-service-a:
+    image: ffc-service-a
+    networks:
+      - ffc-service
+    depends_on:
+      - local-sandbox
+
+  local-sandbox:
+    image: localsandbox/localsandbox
+    container_name: local-sandbox
+    labels:
+      com.docker.compose.service.role: ffc-service-local-sandbox
+    networks:
+      - ffc-service
+
+networks:
+  ffc-service:
+    driver: bridge
+    name: ffc-service
+```
+
+##### Service B
+
+```yaml
+services:
+  ffc-service-b:
+    image: ffc-service-b
+    networks:
+      - ffc-service
+    depends_on:
+      - local-sandbox
+
+  local-sandbox:
+    image: localsandbox/localsandbox
+    container_name: local-sandbox
+    labels:
+      com.docker.compose.service.role: ffc-service-local-sandbox
+    networks:
+      - ffc-service
+
+networks:
+  ffc-service:
+    driver: bridge
+    name: ffc-service
+```
+
+Each repository can include a `start` script to run `docker compose up` programmatically deciding whether to start the LocalSandbox container based on the presence of the `com.docker.compose.service.role` label.
+
+```bash
+if [ -n "$(docker container ls --filter label=com.docker.compose.service.role=ffc-service-local-sandbox --format={{.ID}})" ]; then
+  echo "LocalSandbox container already exists, skipping creation"
+  args="--scale local-sandbox=0"
+fi
+
+docker compose up $@ # $@ passes any arguments to the script
+```
 
 ## Naming conventions
 
