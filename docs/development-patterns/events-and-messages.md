@@ -203,7 +203,7 @@ To avoid collisions between different developers, each developer should have the
 Once created, developers can set a local environment variable with their initials.
 
 ```bash
-export MESSAGE_SUFFIX==jw
+export MESSAGE_SUFFIX=-jw
 ```
 
 Then reference this in the Docker Compose file.
