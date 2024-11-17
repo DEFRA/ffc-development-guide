@@ -194,11 +194,11 @@ An example repository using LocalSandbox can be found [here](https://github.com/
 
 ### Use the Azure Service Bus instance in the Sandpit environment
 
-Local development will require a connection to the Azure Service Bus instance in the Sandpit environment.
+Local development may use a connection to the Azure Service Bus instance in the Sandpit environment.
 
 To avoid collisions between different developers, each developer should have their own set of queues, topics and subscriptions in the Sandpit environment suffixed with their initials.
 
-[A repository](https://github.com/DEFRA/ffc-azure-service-bus-scripts) has been created to support rapid creation and deletion of these resources.
+[A repository](https://github.com/DEFRA/ffc-azure-service-bus-scripts) has been created to support faster creation and deletion of these resources at scale.
 
 Once created, developers can set a local environment variable with their initials.
 
@@ -206,7 +206,7 @@ Once created, developers can set a local environment variable with their initial
 export MESSAGE_SUFFIX=-jw
 ```
 
-Then reference this in the Docker Compose file.
+Then reference this in the Docker Compose file of the relevant service.
 
 ```yaml
 services:
@@ -242,7 +242,7 @@ resources:
 
 where the `<queue_identifier>` and/or `<topic_identifier>` relates to the part of the queue or topic name described above. For example for the queue `ffc-demo-payment-dev`, `<queue_identifier>` would be replaced with `payment`.
 
-For every topic specified in `provision.azure.yaml`, the CI pipeline will also create a subscription, so subscriptions **do not** need to be explictly spcecified.
+For every topic specified in `provision.azure.yaml`, the CI pipeline will also create a subscription, so subscriptions **do not** need to be explicitly specified.
 
 Add a `name` entry in the `provision.azure.yaml` for each required queue and topic/subscription.
 
