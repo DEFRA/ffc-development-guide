@@ -42,9 +42,220 @@ An [`ffc-messaging`](https://www.npmjs.com/package/ffc-messaging) npm package ha
 
 ## Local development
 
-Azure Service Bus [does not yet have an official emulator](https://github.com/Azure/azure-service-bus/issues/223), however one is expected to be released by the end of 2024.
+Until recently, Azure Service Bus [did not have an official emulator](https://github.com/Azure/azure-service-bus/issues/223), however [one has now been released](https://mcr.microsoft.com/en-us/artifact/mar/azure-messaging/servicebus-emulator/about)
 
-In the absence of an official emulator, teams have two options.
+Teams now have several options for local development.
+
+### Use the Microsoft Azure Service Bus Emulator
+
+The [official emulator](https://github.com/Azure/azure-service-bus-emulator-installer) can be used to run a local instance of Azure Service Bus.
+
+#### Setup
+
+Add a definition for both the emulator and SQL Server to your `docker-compose.yaml` file.
+
+```yaml
+services:
+  servicebus-emulator:
+    container_name: servicebus-emulator
+    image: mcr.microsoft.com/azure-messaging/servicebus-emulator
+    volumes:
+      - "./config.json:/ServiceBus_Emulator/ConfigFiles/Config.json"
+    ports:
+      - "5672:5672"
+    environment:
+      SQL_SERVER: sqledge
+      MSSQL_SA_PASSWORD: Some-really-strong-password!123
+      ACCEPT_EULA: "Y"
+    depends_on:
+      - sqledge
+
+  sqledge:
+    container_name: sqledge
+    image: "mcr.microsoft.com/azure-sql-edge"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: Some-really-strong-password!123
+```
+
+#### Creating queues, topics and subscriptions
+
+A `config.json` file can be used to pre-configure the emulator with queues, topics and subscriptions during startup.
+
+```json
+{
+  "UserConfig": {
+    "Namespaces": [
+      {
+        "Name": "sbemulatorns",
+        "Queues": [
+          {
+            "Name": "test-queue",
+            "Properties": {
+              "DeadLetteringOnMessageExpiration": false,
+              "DefaultMessageTimeToLive": "PT1H",
+              "DuplicateDetectionHistoryTimeWindow": "PT20S",
+              "ForwardDeadLetteredMessagesTo": "",
+              "ForwardTo": "",
+              "LockDuration": "PT1M",
+              "MaxDeliveryCount": 10,
+              "RequiresDuplicateDetection": false,
+              "RequiresSession": false
+            }
+          }
+        ],
+        "Topics": [
+          {
+            "Name": "test-topic",
+            "Properties": {
+              "DefaultMessageTimeToLive": "PT1H",
+              "DuplicateDetectionHistoryTimeWindow": "PT20S",
+              "RequiresDuplicateDetection": false
+            },
+            "Subscriptions": [
+              {
+                "Name": "test-subscription",
+                "Properties": {
+                  "DeadLetteringOnMessageExpiration": false,
+                  "DefaultMessageTimeToLive": "PT1H",
+                  "LockDuration": "PT1M",
+                  "MaxDeliveryCount": 10,
+                  "ForwardDeadLetteredMessagesTo": "",
+                  "ForwardTo": "",
+                  "RequiresSession": false
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "Logging": {
+      "Type": "File"
+    }
+  }
+}
+```
+
+#### Connecting to the emulator
+
+Using the `@azure/service-bus` SDK, the following example shows how to connect.
+
+```javascript
+import { ServiceBusClient } from '@azure/service-bus'
+
+const connectionString = 'Endpoint=sb://localhost;SharedAccessKeyName=anything;SharedAccessKey=anything;UseDevelopmentEmulator=true'
+const client = new ServiceBusClient(connectionString)
+```
+
+> Note: The `UseDevelopmentEmulator=true` flag is required to connect to LocalSandbox.  `SharedAccessKeyName` and `SharedAccessKey` can be any value, but must be present.
+
+Once connected, the SDK can be used as normal as if connected to Azure Service Bus.
+
+#### Using across different services
+
+As FCP follows a multi-repository approach, it is likely that services created with different Compose files will need to communicate with each other through a single emulator instance.  Equally, these services may need to run in isolation.
+
+One way to achieve this is by declaring the emulator instance in both Compose files and using the `label` property to identify if an instance is already running.
+
+The Compose files must also declare a common network to allow the services to communicate.
+
+##### Service A
+
+```yaml
+services:
+  ffc-service-a:
+    image: ffc-service-a
+    networks:
+      - ffc-service
+    depends_on:
+      - servicebus-emulator
+
+  servicebus-emulator:
+    container_name: servicebus-emulator
+    image: mcr.microsoft.com/azure-messaging/servicebus-emulator
+    environment:
+      SQL_SERVER: sqledge
+      MSSQL_SA_PASSWORD: Some-really-strong-password!123
+      ACCEPT_EULA: "Y"
+    depends_on:
+      - sqledge
+    labels:
+      com.docker.compose.service.role: ffc-service-servicebus-emulator
+    networks:
+      - ffc-service
+
+  sqledge:
+    container_name: sqledge
+    image: "mcr.microsoft.com/azure-sql-edge"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: Some-really-strong-password!123
+    labels:
+      com.docker.compose.service.role: ffc-service-servicebus-emulator-sqledge
+    networks:
+      - ffc-service
+
+networks:
+  ffc-service:
+    driver: bridge
+    name: ffc-service
+```
+
+##### Service B
+
+```yaml
+services:
+  ffc-service-b:
+    image: ffc-service-b
+    networks:
+      - ffc-service
+    depends_on:
+      - servicebus-emulator
+
+  servicebus-emulator:
+    container_name: servicebus-emulator
+    image: mcr.microsoft.com/azure-messaging/servicebus-emulator
+    environment:
+      SQL_SERVER: sqledge
+      MSSQL_SA_PASSWORD: Some-really-strong-password!123
+      ACCEPT_EULA: "Y"
+    depends_on:
+      - sqledge
+    labels:
+      com.docker.compose.service.role: ffc-service-servicebus-emulator
+    networks:
+      - ffc-service
+
+  sqledge:
+    container_name: sqledge
+    image: "mcr.microsoft.com/azure-sql-edge"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: Some-really-strong-password!123
+    labels:
+      com.docker.compose.service.role: ffc-service-servicebus-emulator-sqledge
+    networks:
+      - ffc-service
+
+networks:
+  ffc-service:
+    driver: bridge
+    name: ffc-service
+```
+
+Each repository can include a `start` script to run `docker compose up` programmatically deciding whether to start the emulator container based on the presence of the `com.docker.compose.service.role` label.
+
+```bash
+if [ -n "$(docker container ls --filter label=com.docker.compose.service.role=ffc-service-servicebus-emulator --format={{.ID}})" ]; then
+  echo "Service Bus container already exists, skipping creation"
+  args="--scale servicebus-emulator=0 --scale sqledge=0"
+fi
+
+docker compose up $@ # $@ passes any arguments to the script
+```
+
+An example repository using the emulator can be found [here](https://github.com/johnwatson484/service-bus-emulator-poc)
 
 ### Use LocalSandbox emulator
 
@@ -123,11 +334,7 @@ Once connected, the SDK can be used as normal as if connected to Azure Service B
 
 #### Using across different services
 
-As FCP follows a multi-repository approach, it is likely that services created with different Compose files will need to communicate with each other through a single LocalSandbox instance.  Equally, these services may need to run in isolation.
-
-One way to achieve this is by declaring the LocalSandbox instance in both Compose files and using the `label` property to identify if an instance is already running.
-
-The Compose files must also declare a common network to allow the services to communicate.
+Similar to the Microsoft Azure Service Bus Emulator, a single emulator can be used across different services.
 
 ##### Service A
 
