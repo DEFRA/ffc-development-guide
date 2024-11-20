@@ -4,6 +4,48 @@ Developers will need access to several resources and communication channels in o
 
 Access to some resources can take time to arrange, so it's important to start this process as soon as possible.
 
+## Slack
+
+### `defra-digital.slack.com`
+
+The wider Defra Digital Slack workspace is used for collaboration and support across all of Defra's digital services.
+
+Whilst not essential to be part of this workspace, it may be beneficial for cross Defra collaboration.
+
+Anyone with a `defra.gov.uk` or an ALB email address can join the Defra Digital Slack workspace automatically.
+
+For those with other email addresses, a request should be raised in the `#slack-support` channel by someone with access.
+
+Developers are recommended to join the following channels:
+
+#### `#development`
+
+This channel is used for general development discussion and support across all of Defra's digital services.
+
+> For FCP Platform or service specific support, the above Teams chats should be used instead.
+
+#### `#github-support`
+
+For support with GitHub including managing permissions.
+
+#### `#sonar-support`
+
+For support with SonarCloud including managing permissions.
+
+### `defra-digital-team.slack.com`
+
+This secondary Defra Digital Slack workspace is used for collaboration and support across all of Defra's digital services.
+
+Developers are recommended to join the following channels:
+
+#### `#fcp-platform-support`
+
+This channel is used for support and collaboration across all services using the FCP Platform.  It is also where the FCP Platform team will post updates and announcements.
+
+#### `#cdp-support`
+
+This channel is used for support and collaboration across all services using the Core Data Platform.  It is also where the CDP team will post updates and announcements.
+
 ## Azure AD administrative account
 
 FCP environments are hosted on Azure.  Access to the Azure Portal is restricted to those with an Azure AD administrative account.
@@ -20,9 +62,9 @@ Once the account has been created, the user will be able to access the Azure Por
 
 A request should be raised in ServiceNow for CCoE to provide access to the FCP Azure subscriptions.
 
-FCP environments are split across three Azure tenants, Development, PreProduction and Production.
+FCP environments are split across three Azure tenants, `DefraCloudDev`, `DefraCloudPreProd` and `DefraCloudProd`.
 
-If a developer has Security Clearance, they can request access to the PreProduction and Production tenants.  Otherwise they will only be able to access the Development tenant.  The request should make clear which environments the developer requires access to.  
+If a developer has Security Clearance, they can request access to the `DefraCloudPreProd` and `DefraCloudProd` tenants.  Otherwise they will only be able to access the Development tenant.  The request should make clear which environments the developer requires access to.  
 
 > Evidence of Security Clearance will be requested by CCoE prior to completing the request
 
@@ -56,7 +98,7 @@ Snyk is used for security scanning of code dependencies.
 
 An [FCP organisation](https://app.snyk.io/org/defra-ffc) has been created in Snyk and developers will need to be added to it.
 
-Contact one of Defra's Principal Developers to arrange access.
+Contact the Platform team via the `#fcp-platform-support` channel to arrange access.
 
 ## GitHub
 
@@ -68,7 +110,7 @@ Developers will need to be added to the `FFC` GitHub team.
 
 Two Factor Authentication (2FA) and commit signing are mandatory for all GitHub accounts.
 
-Contact one of Defra's Principal Developers to arrange access.
+Contact one of Defra's GitHub admins via the `#github-support` Slack channel to arrange access.
 
 ## SonarCloud
 
@@ -78,8 +120,10 @@ FCP projects are hosted in the SonarCloud [Defra organisation](https://sonarclou
 
 In order to be added to the FCP group:
 
-1. Sign up to SonarCloud with your GitHub account
-1. Contact one of Defra's Principal Developers to be added to the FCP group
+1. Sign up to SonarCloud
+1. Contact one of the Sonar admins via the `#sonar-support` Slack channel and request to be added to the `Farming and Countryside Programme` group, providing your email address used to sign in.
+
+> Note: you must have signed into SonarCloud at least once before you can be added to a group.
 
 ## Azure DevOps (ADO)
 
@@ -88,62 +132,6 @@ Azure DevOps is used for Continuous Delivery pipelines in FCP.  ADO is also used
 Developers will need to be added to the [DEFRA-FFC](https://dev.azure.com/defragovuk/DEFRA-FFC) project.
 
 A request should be raised in ServiceNow for CCoE to provide access to ADO.
-
-## Microsoft Teams
-
-[Microsoft Teams](https://teams.microsoft.com/) is the primary communication tool used across Defra.  
-
-Teams supports access from third party teams tenants to allow collaboration across corporate boundaries.
-
-Developers should be added to the following Teams chat channels:
-
-### `DEFRA FCP - Platform Support - Teams Chat`
-
-This chat is used for general support and collaboration across all services using the FCP Platform.
-
-### `FCP Payments, Documents, Demo and Progressive Reductions releases`
-
-This chat is used to arrange and coordinate releases across the majority of FCP services.  As other services onboard to the FCP Platform, they can also use this chat.
-
-Contact one of Defra's Principal Developers to arrange access.
-
-## Slack
-
-### `ffc-notifications.slack.com`
-
-Jenkins will publish alerts to Slack in the `ffc-notifications.slack.com` workspace.  Developers will need to be added to the following channels:
-
-#### `#masterbuildfailures`
-
-Notifications of failures relating to main branches.
-
-#### `#generalbuildfailures`
-
-Notifications of failures relating to feature branches.  
-
-#### `#secretdetection`
-
-Notifications of detected secrets found in public GitHub repositories for review.
-
-Contact one of Defra's Principal Developers to arrange access.
-
-### `defra-digital.slack.com`
-
-The wider Defra Digital Slack workspace is used for collaboration and support across all of Defra's digital services.
-
-Whilst not essential to be part of this workspace, it may be beneficial for cross Defra collaboration.
-
-Developers are recommended to join the following channel:
-
-#### `#development`
-
-This channel is used for general development discussion and support across all of Defra's digital services.
-
-> For FCP Platform or service specific support, the above Teams chats should be used instead.
-
-Anyone with a `defra.gov.uk` or an ALB email address can join the Defra Digital Slack workspace automatically.
-
-For those with other email addresses, a request should be raised in the `#slack-support` channel by someone with access.
 
 ## SharePoint
 
