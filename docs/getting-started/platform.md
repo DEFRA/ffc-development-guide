@@ -77,7 +77,7 @@ Since launch of the FCP Platform, Defra has subsequently created two Defra wide 
 
 ### Core Development Platform (CDP)
 
-CDP hosts Node.js and .NET services on [AWS Fargate](https://aws.amazon.com/fargate/) with support for MongoDb databases.
+CDP hosts Node.js and .NET services on [AWS Fargate](https://aws.amazon.com/fargate/) with support for MongoDB databases.
 
 Guidance for use of CDP is hosted with the [CDP Documentation](https://github.com/DEFRA/cdp-documentation) and not within these pages.
 
