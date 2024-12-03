@@ -52,7 +52,7 @@ Some steps are optional depending on the content of the repository.
 1. Deploy image to dynamic AKS namespace (feature branch build only)
 1. AXE accessibility tests (optional)
 1. BrowserStack containerised UI and compatibility tests (optional)
-1. OWASP Zap security tests (optional)
+1. Zap security tests (optional)
 1. JMeter performance tests (optional)
 1. Publish Helm chart to AZure Container Registry (main branch build only)
 1. `CUSTOM INJECTION`
