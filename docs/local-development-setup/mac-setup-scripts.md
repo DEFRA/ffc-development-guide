@@ -15,7 +15,7 @@ A set of scripts: ([dffc-mac-scripts](https://github.com/rtasalem/dffc-mac-scrip
 - detect-secrets
 - .NET SDK
 - Docker
-- Visual Studio Code. 
+- Visual Studio Code
 
 The scripts *do not* cover StandardJS or NVM (Node Version Manager). Please refer to the FFC Development Guide for instructions on installing StandardJS and NVM.
 
