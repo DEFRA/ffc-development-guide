@@ -1,2 +1,4 @@
 # Mac Setup Scripts
 Mac users may want to consider the use of [Homebrew](brew.sh) as a package manager which simplifies the installation of many packages, desktop applications, command line tools etc. by using a single command for the majority of installations.
+
+A set of scripts: [dffc-mac-scripts](https://github.com/rtasalem/dffc-mac-scripts), have been created and are free to use by anyone to aid setting up a Mac for the first time. These scripts cover mandatory installations that are listed within the FFC Development Guide as well as optional installs that are useful for day-to-day development and productivity.
