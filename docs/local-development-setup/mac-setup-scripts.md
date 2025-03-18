@@ -1,0 +1,2 @@
+# Mac Setup Scripts
+Mac users may want to consider the use of [Homebrew](brew.sh) as a package manager which simplifies the installation of many packages, desktop applications, command line tools etc. by using a single command for the majority of installations.
