@@ -64,6 +64,14 @@ FCP services should be setup to support SSO.
 
 ## Implementing Defra Identity in an FCP service
 
+### Example repository
+
+An example repository has been created to demonstrate how to implement Defra Identity in an FCP service.  The repository can be found [in GitHub](https://github.com/DEFRA/fcp-defra-id-example).
+
+The example repository uses a combination of `@hapi/bell` and `@hapi/cookie` to manage the session and authenticate the user.
+
+`@hapi/bell` offers a simple way to authenticate users with Defra Identity and is the recommended approach.  However, this guide will include a more verbose setup to demonstrate the underlying principles.
+
 ### Onboard with Defra Identity
 
 Contact the Defra Identity team to onboard your service.
