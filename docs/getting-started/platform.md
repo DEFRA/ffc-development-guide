@@ -1,12 +1,39 @@
 # Platform
 
+## Platform engineering
+
+To support rapid, highly assured delivery, FCP follows the principles of [Platform Engineering](https://platformengineering.org/blog/what-is-platform-engineering) to deliver common capabilities.
+
 ## FCP Platform
 
-To support rapid, highly assured delivery, the FCP Platform engineering team has delivered common Azure environments, PaaS components, delivery pipelines and supporting tools.
+FCP was the first Defra programme to adopt this approach and the FCP Platform engineering team has delivered common Azure environments, PaaS components, delivery pipelines and supporting tools.
 
 These are collectively referred to as the `FCP Platform`.
 
-Guidance for use of the FCP Platform is hosted within this repository.
+## Core Delivery Platform (CDP)
+
+In recent years, the [Core Delivery Platform (CDP)](https://github.com/DEFRA/cdp-documentation) has emerged as Defra's strategic platform engineering product.
+
+It is the expectation that all new services will be delivered using CDP.
+
+The majority of existing services will be migrated to CDP and the FCP Platform will be scaled down.
+
+## Azure Development Platform (ADP)
+
+The [Azure Development Platform (ADP)](https://defra.github.io/adp-documentation/) was developed as an alternative to CDP and is essentially an iteration of the FCP Platform.
+
+ADP is to be decommissioned and all projects will be migrated to CDP.
+
+## Choosing a platform
+
+All teams should develop new services and components on CDP.
+
+Teams currently utilising FCP Platform should assess how to migrate existing capabilities to CDP.
+
+No new capabilities should be added to FCP Platform or ADP.
+
+
+## FCP Platform
 
 ### Reference architecture
 
@@ -20,23 +47,34 @@ Subscriptions are split across three tenants, `DefraCloudDev`, `DefraCloudPrePro
 
 ### Environments
 
-#### Sandpit
+#### Sandpit 1
 
-The `Sandpit` environment is the first deployment environment for new services following merge to the `main` branch.  It also hosts dynamic feature branch deployments.
+The `Sandpit 1` environment is used for experimentation and supporting local development.
 
-It can also used for testing and experimentation.  Developers have a high level of access to the Sandpit environment to create and destroy resources as required.
+Developers have a high level of access to the Sandpit environment to create and destroy resources as required.
 
 Unlike all subsequent environments, provisioning of Azure resources such as Managed Identities, PostgreSQL is not automated.  Teams must create their own resources in this environment using the guides in this repository.
 
-Although the majority of patterns between Sandpit are the same, a key difference is the use of [Azure App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/overview) for configuration management.
+Although the majority of patterns between `Sandpit 1` and higher environments are the same, a key difference is the use of [Azure App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/overview) for configuration management and the use of Jenkins for any deployments.
 
 The reason for this is that originally all environments used Azure App Configuration, however automation of configuration from an [Azure repo](https://dev.azure.com/defragovuk/DEFRA-FFC/_git/DEFRA-FFC-PLATFORM) has replaced this in all other environments.
 
-The Sandpit environment is in the `DefraCloudDev` tenant.
+The `Sandpit 1` environment is in the `DefraCloudDev` tenant.
+
+#### Sandpit 2
+
+The `Sandpit 2` environment is the first automation only deployment environment for new services following merge to the `main` branch.  It also hosts dynamic feature branch deployments.
+Different teams utilise it for many purposes such as demonstrations and testing.
+
+It is intended as a replacement for the `Sandpit 1` environment.
+
+Developers have full access to this environment, but cannot directly create or destroy resources.  Instead, they must use the automation provided to deploy their services.
+
+The Development environment is in the `DefraCloudDev` tenant.
 
 #### Development
 
-The `Development` environment is the first automation only deployment environment.  Different teams utilise it for many purposes such as demonstrations and testing.
+Like `Sandpit 2`, the `Development` is utilised in a flexible way by teams.
 
 Developers have full access to this environment, but cannot directly create or destroy resources.  Instead, they must use the automation provided to deploy their services.
 
@@ -70,31 +108,3 @@ The `Production` environment is the live environment for the service.  It is the
 Developers with Security Clearance can request read only access to this environment.
 
 The Production environment is in the `DefraCloudProd` tenant.
-
-## Other Defra Platforms
-
-Since launch of the FCP Platform, Defra has subsequently created two Defra wide platform initiatives.
-
-### Core Development Platform (CDP)
-
-CDP hosts Node.js and .NET services on [AWS Fargate](https://aws.amazon.com/fargate/) with support for MongoDB databases.
-
-Guidance for use of CDP is hosted with the [CDP Documentation](https://github.com/DEFRA/cdp-documentation) and not within these pages.
-
-### Azure Development Platform (ADP)
-
-ADP is essentially an iteration of the FCP Platform, but takes into account lessons learned throughout the lifetime of the FCP Platform to provide a better experience for teams utilising it.
-
-Guidance for use of ADP is hosted within the [ADP Documentation](https://defra.github.io/adp-documentation/) and not within these pages.
-
-> Note: ADP is to be decommissioned in the future, so new projects should not be started on this platform.
-
-### Choosing a Platform
-
-When starting a new project, the choice of platform should be made in consultation with the FCP Architecture team.
-
-The default position is to use the Core Delivery Platform (CDP).  
-
-For use cases where CDP is not appropriate, the FCP Platform should be used.
-
-ADP should not be used for new projects.
