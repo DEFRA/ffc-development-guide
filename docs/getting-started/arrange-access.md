@@ -4,11 +4,19 @@ Developers will need access to several resources and communication channels in o
 
 Access to some resources can take time to arrange, so it's important to start this process as soon as possible.
 
+## Microsoft Teams
+
+Microsoft Teams is Defra's primary collaboration tool.  All meetings should be arranged in Teams.
+
+External suppliers can join Defra Teams meetings with their own email address if they do not have a Defra account.
+
 ## Slack
+
+Slack is used for collaboration and support across all of Defra's digital services.
 
 ### `defra-digital.slack.com`
 
-The wider Defra Digital Slack workspace is used for collaboration and support across all of Defra's digital services.
+This is Defra's primary Slack workspace for digital delivery.
 
 Whilst not essential to be part of this workspace, it may be beneficial for cross Defra collaboration.
 
@@ -20,9 +28,11 @@ Developers are recommended to join the following channels:
 
 #### `#development`
 
-This channel is used for general development discussion and support across all of Defra's digital services.
+General development discussion and support across all of Defra's digital services.
 
-> For FCP Platform or service specific support, the above Teams chats should be used instead.
+#### `#ask-principal-developers`
+
+Ask for advice from Defra's [Principal Developers](https://ddat-capability-framework.service.gov.uk/role/software-developer#principal-developer).
 
 #### `#github-support`
 
@@ -36,31 +46,47 @@ For support with SonarCloud including managing permissions.
 
 This secondary Defra Digital Slack workspace is used for collaboration and support across all of Defra's digital services.
 
+This is a paid instance so has additional collaboration features.
+
 Developers are recommended to join the following channels:
 
 #### `#fcp-platform-support`
 
-This channel is used for support and collaboration across all services using the FCP Platform.  It is also where the FCP Platform team will post updates and announcements.
+Support and collaboration across all services using the FCP Platform.  It is also where the FCP Platform team will post updates and announcements.
 
 #### `#cdp-support`
 
-This channel is used for support and collaboration across all services using the Core Data Platform.  It is also where the CDP team will post updates and announcements.
+Support and collaboration across all services using the Core Data Platform.  It is also where the CDP team will post updates and announcements.
+
+#### `#software-development`
+
+General development discussion and support across all of Defra's digital services.
 
 ## Azure AD administrative account
 
-FCP environments are hosted on Azure.  Access to the Azure Portal is restricted to those with an Azure AD administrative account.
+Access to Azure and AWS cloud environments are only accessible with an administrative account setup in Microsoft Entra by CCoE.
 
-These accounts follow the naming convention `a-<initials>.<surname>@defra.onmicrosoft.com` or `<initials>.<surname>@defra.onmicrosoft.com`.
+These accounts follow the naming convention `a-<initials>.<surname>@defra.onmicrosoft.com` or `<initials>.<surname>@defra.onmicrosoft.com` and are a requirement for both FCP Platform and CDP.
 
-The must be requested from ServiceNow under the catalogue item `O365/AzureAD Platform Admin`.
+The must be requested from ServiceNow under the catalogue item `Cloud Accounts` (subheading `M365/AzureAD Platform Admin - Cloud Account service request`)
 
 The comments should make clear that the request is for a `a-` Microsoft administrative account for Azure Portal.
 
-### Access to the Azure Portal
+> Accounts without the `a-` prefix can be created but cannot be used for access to Production resources. 
+
+## OpenVPN
+
+Access to cloud resources from non-Defra supplied devices is restricted to VPN access only and requires the installation of the OpenVPN client.
+
+If using FCP Platform, a request should be raised in ServiceNow for CCoE to provide access to OpenVPN and all FCP networks.
+
+If using CDP, then the request should be made in the `#cdp-support` channel.
+
+## Access to the Azure Portal
 
 Once the account has been created, the user will be able to access the Azure Portal.
 
-A request should be raised in ServiceNow for CCoE to provide access to the FCP Azure subscriptions.
+If using the FCP Platform, a request should be raised in ServiceNow for CCoE to provide access to the FCP Azure subscriptions.
 
 FCP environments are split across three Azure tenants, `DefraCloudDev`, `DefraCloudPreProd` and `DefraCloudProd`.
 
@@ -68,15 +94,11 @@ If a developer has Security Clearance, they can request access to the `DefraClou
 
 > Evidence of Security Clearance will be requested by CCoE prior to completing the request
 
-### OpenVPN
+If using CDP, then no direct access to the AWS portal is required.  Instead, the CDP portal should be used to manage resources.
 
-Access to cloud resources from devices is restricted to VPN access only and requires the installation of the OpenVPN client.
+## Access to Azure Kubernetes Service (AKS)
 
-A request should be raised in ServiceNow for CCoE to provide access to OpenVPN and all FCP networks.
-
-### Access to Azure Kubernetes Service (AKS)
-
-As AKS is the primary compute hosting platform for FCP, developers will need to be added to the appropriate Kubernetes Cluster role.  This will allow access to Kubernetes using client tools such as `kubectl` or `Lens`.
+As AKS is the primary compute hosting service for the FCP Platform, developers using it will need to be added to the appropriate Kubernetes Cluster role.  This will allow access to Kubernetes using client tools such as `kubectl`.
 
 As with the Azure Portal, developers can only be added to the PreProduction and Production clusters if they have Security Clearance.
 
@@ -86,7 +108,7 @@ A request should be raised in ServiceNow for CCoE to provide access to the FCP A
 
 ## Jenkins
 
-Jenkins is used for Continuous Integration pipelines in FCP.  Developers will need a `@dtz.local` account to access Jenkins.
+Jenkins is used for Continuous Integration pipelines on the FCP Platform.  Developers will need a `@dtz.local` account to access Jenkins.
 
 [Jenkins](https://jenkins-ffc.azure.defra.cloud/) is hosted on an Azure Virtual Machine and can be accessed on the Defra network or via OpenVPN.
 
@@ -100,9 +122,11 @@ An [FCP organisation](https://app.snyk.io/org/defra-ffc) has been created in Sny
 
 Contact the Platform team via the `#fcp-platform-support` channel to arrange access.
 
+> CDP CI pipeline does not include Snyk integration by default, but teams can extend their GitHub actions to integrate with the FCP Snyk organisation.
+
 ## GitHub
 
-FCP uses GitHub for source control within the [Defra](https://github.com/DEFRA) organisation.
+GitHub is Defra's strategic source control tool and **all** code should be hosted in the [Defra](https://github.com/DEFRA) organisation.
 
 As per GDS standards, code is open source by default.
 
@@ -145,6 +169,10 @@ Should access be required, it should be request to an FCP Programme Delivery Man
 
 ## Confluence
 
-Whilst ADO Wiki's are preferred, much historic content exists in [Defra Confluence](https://eaflood.atlassian.net/).
+Whilst ADO Wiki's are preferred, significant content exists in [Defra Confluence](https://eaflood.atlassian.net/).
 
 New licenses are often challenging to obtain, but should be requested through the `defra-digital.slack.com` Slack workspace in the `#jira-support` channel.
+
+## CDP Portal
+
+CDP has it's own [onboarding process](https://portal.cdp-int.defra.cloud/documentation/onboarding/onboarding-process.md) that teams should follow.
