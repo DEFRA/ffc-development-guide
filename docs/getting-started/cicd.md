@@ -18,7 +18,7 @@ Full guidance is included in the [CDP documentation](https://portal.cdp-int.defr
 
 For the FCP Platform, [Jenkins](https://jenkins-ffc.azure.defra.cloud/) is used for CI pipelines, whilst [Azure DevOps](https://dev.azure.com/defragovuk/DEFRA-FFC) is used for CD.
 
-Originally the FCP Platform was primarily hosted on [AWS](https://aws.amazon.com/) where Jenkins was prescribed as the CI/CD tool.  However, as the platform has migrated to [Azure](https://azure.microsoft.com/), Azure DevOps was prescribed as the CD tool.  Jenkins is still used for CI pipelines as it is a well established tool within the programme and redevelopment of the pipelines in Azure DevOps would be a significant undertaking.
+Originally the FCP Platform was primarily hosted on [AWS](https://aws.amazon.com/) where Jenkins was prescribed as the CI/CD tool.  However, as the platform has migrated to [Azure](https://azure.microsoft.com/), Azure DevOps was prescribed as the CD tool.  Jenkins is still used for CI pipelines as it is a well established tool within the programme and redevelopment of the pipelines in Azure DevOps would be a significant undertaking, however this remains an ambition of the FCP Platform team.
 
 ### Continuous Integration (CI)
 
