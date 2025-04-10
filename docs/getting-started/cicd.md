@@ -1,14 +1,30 @@
 # Continuous Integration and Continuous Delivery (CI/CD)
 
+The expectation is that teams will regularly deploy, small, low risk, zero downtime changes to production.  
+
+Many teams in FCP are deploying to production multiple times a day.
+
+## CDP
+
+When using CDP, the platform will scaffold CI/CD capability for new services.
+
+For CI, a [GitHub actions](https://github.com/features/actions) workflow will be created to build and test the service.  Teams can extend these pipelines as required.
+
+Deployments are managed through the [CDP portal](https://portal.cdp-int.defra.cloud/).
+
+Full guidance is included in the [CDP documentation](https://portal.cdp-int.defra.cloud/) as opposed to these pages.
+
+## FCP Platform
+
 For the FCP Platform, [Jenkins](https://jenkins-ffc.azure.defra.cloud/) is used for CI pipelines, whilst [Azure DevOps](https://dev.azure.com/defragovuk/DEFRA-FFC) is used for CD.
 
 Originally the FCP Platform was primarily hosted on [AWS](https://aws.amazon.com/) where Jenkins was prescribed as the CI/CD tool.  However, as the platform has migrated to [Azure](https://azure.microsoft.com/), Azure DevOps was prescribed as the CD tool.  Jenkins is still used for CI pipelines as it is a well established tool within the programme and redevelopment of the pipelines in Azure DevOps would be a significant undertaking.
 
-## Continuous Integration (CI)
+### Continuous Integration (CI)
 
 FCP adopt a "shift left" approach to security and quality, meaning that security and quality checks are performed as early as possible in the development lifecycle.  The CI pipeline is designed around this principle and looks to provide fast feedback to developers and testers prior to merging code to the main branch.
 
-Feature branch development allows for small changes to be made and tested in isolation.  This is supported by the CI pipeline which will run a subset of tests and checks on a feature branch build.  The pipeline will also provision a dedicated environment for the feature branch build to be deployed to, allowing for a more comprehensive set of tests to be run.
+Feature branch development allows for small changes to be made and tested in isolation.  This is supported by the CI pipeline which will run a subset of tests and checks on a feature branch build.  The pipeline will also provision a dedicated environment for the feature branch build to be deployed to in `Sandpit 2`, allowing for a more comprehensive set of tests to be run.
 
 In order to avoid duplication across all microservices, a [common Jenkins pipeline](https://github.com/DEFRA/ffc-jenkins-pipeline-library) has been created.
 
@@ -27,7 +43,7 @@ The CI pipeline supports the following technologies:
 
 ### Pipeline stages
 
-## Build steps
+#### Build steps
 
 The steps for a feature or main branch build are more or less the same.  The most significant difference is there is no feature branch deployment for a main build.  Instead additional build assets are created ready to be promoted to higher environments.
 
@@ -60,16 +76,19 @@ Some steps are optional depending on the content of the repository.
 1. Clean up build specific dynamic infrastructure
 1. `CUSTOM INJECTION`
 
-## Clean up steps
+#### Clean up steps
 
 Once a feature branch is deleted, the clean up process will automatically run to remove any dynamic infrastructure.
 
-## Continuous Delivery (CD)
+> Teams should delete merged and defunct feature branches as soon as possible to avoid unnecessary resource usage and costs.
 
-Once a feature branch has been merged into the main branch, the CI pipeline will automatically run to package the assets and deploy the application to the Sandpit environment.  Assuming the Sandpit deployment was successful, Jenkins will then trigger Azure DevOps to deploy the application to the higher environments.
+### Continuous Delivery (CD)
+
+Once a feature branch has been merged into the main branch, the CI pipeline will automatically run to package the assets and then trigger Azure DevOps to deploy the application sequentially through the environments.
 
 ADO will deploy the application to the following environments once the previous environment has been successfully deployed to:
 
+- Sandpit 2 (automatic)
 - Development (automatic)
 - Test (requires approval from anyone in the team)
 - PreProduction (requires approval from anyone in the team)
