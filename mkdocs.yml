@@ -25,7 +25,6 @@ nav:
       - Mac setup Scripts: local-development-setup/mac-setup-scripts.md
     - Common:
       - Install Docker Desktop: local-development-setup/install-docker-desktop.md
-      - Install Docker Compose: local-development-setup/install-docker-compose.md
       - Install Visual Studio Code: local-development-setup/install-vs-code.md
       - Install Node Version Manager (NVM): local-development-setup/install-node-version-manager.md
       - Install .NET SDK: local-development-setup/install-dotnet-sdk.md
