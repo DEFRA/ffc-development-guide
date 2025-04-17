@@ -4,6 +4,7 @@ Mac users may want to consider the use of [Homebrew](https://brew.sh/) as their 
 [A set of scripts](https://github.com/rtasalem/dffc-mac-scripts) have been created and are free to use by anyone to aid setting up a Mac for the first time. Please refer to the repository for full instructions. 
 
 These scripts cover typical installations required to develop on the FCP Platform and CDP:
+
 - Command Line Tools for Xcode
 - Homebrew
 - kubectl 
