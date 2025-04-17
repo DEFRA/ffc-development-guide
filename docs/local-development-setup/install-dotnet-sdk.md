@@ -30,3 +30,7 @@ As per [Microsoft's setup guide](https://docs.microsoft.com/en-us/ef/core/cli/do
 ```bash
 dotnet tool install --global dotnet-ef
 ```
+
+## VS Code
+
+The [C# extension for VS Code](https://marketplace.visualstudio.com/items/?itemName=ms-dotnettools.csharp) is required to enable debugging and IntelliSense for .NET projects and should be installed.
