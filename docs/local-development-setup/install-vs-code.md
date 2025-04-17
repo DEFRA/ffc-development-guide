@@ -4,7 +4,7 @@ Developers are free to use their own IDE/text editor of choice.  However, this g
 
 If not using VS Code, this guide should still be read to ensure that the equivalent installation steps are applied.
 
-Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control and GitHub, syntax highlighting, intelligent code completion, snippets, and code refactoring.
+Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and Mac. It includes support for debugging, embedded Git control and GitHub, syntax highlighting, intelligent code completion, snippets, and code refactoring.
 
 ## Installation VS Code
 

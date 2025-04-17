@@ -6,7 +6,7 @@ The .NET SDK is a set of libraries and tools that allow developers to create .NE
 
 Select the version required then either a package manager or binary for your OS from [Microsoft](https://dotnet.microsoft.com/download/dotnet)
 
-**Note** On macOS, creation of symbolic links is missing from the installer after installation.
+**Note** On Mac, creation of symbolic links is missing from the installer after installation.
 To create them manually run
 
 ```bash

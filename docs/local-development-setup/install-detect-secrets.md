@@ -18,7 +18,7 @@ Install `python` version 3, download the latest version for your operating syste
 - [Windows](https://www.python.org/downloads/windows/)
 - [Mac OS](https://www.python.org/downloads/mac-osx/)
 
- Once downloaded, run the .exe (windows) or .pkg (macOS) file. Follow the on screen prompts, after successful installation run the following commands to confirm Python was successfully installed.
+ Once downloaded, run the .exe (windows) or .pkg (Mac) file. Follow the on screen prompts, after successful installation run the following commands to confirm Python was successfully installed.
   - Windows - Open Powershell/Command Prompt and type `python --verison`, it should report the version
   - Mac Os - Open a Terminal and type `python –version`, it should report the version
 
