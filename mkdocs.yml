@@ -29,7 +29,7 @@ nav:
       - Install neostandard: local-development-setup/install-neostandard.md
       - Install Node Version Manager (NVM): local-development-setup/install-node-version-manager.md
       - Install .NET SDK: local-development-setup/install-dotnet-sdk.md
-      - Install SonarLint: local-development-setup/install-sonarlint.md
+      - Install SonarQube: local-development-setup/install-sonarqube.md
       - Install Detect Secrets: local-development-setup/install-detect-secrets.md
       - Install kubectl: local-development-setup/install-kubectl.md
       - Install kubelogin: local-development-setup/install-kubelogin.md
