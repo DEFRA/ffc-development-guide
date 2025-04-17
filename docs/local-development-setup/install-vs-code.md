@@ -10,19 +10,6 @@ Visual Studio Code is a source code editor developed by Microsoft for Windows, L
 
 Install for your operating system following [Microsoft's guidance](https://code.visualstudio.com/download)
 
-
-### VS Code Integration
-
-Visual Studio has an extension to validate syntax for StandardJS, Defra's linting standard.
-
-1. Install StandardJS extension
-1. Disable VS Code JavaScript Validation by adding `"javascript.validate.enable": false` to settings.json
-1. Set auto fix on save by adding `"standard.autoFixOnSave": true` to settings.json
-
-### Install C# Extension
-
-Add C# extension to enable .Net development from the [Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-
 ### Configure autosave
 
 If you prefer your code to autosave, add the following to settings.json.
@@ -39,13 +26,13 @@ VS Code supports multiple indentation settings for each language by updating the
 The below example sets a default indentation to two spaces, but uses four spaces for C# files as per Microsoft standards.
 
 ```json
-"editor.tabSize": 2,
-"[csharp]":{
+{
+  "editor.tabSize": 2,
+  "[csharp]": {
     "editor.tabSize": 4,
-  },
+  }
+}
 ```
-
-**Note** JS standard will automatically correct JavaScript files to two space indentation.
 
 ## WSL Configuration
 ### Install Remote WSL extension
@@ -55,8 +42,6 @@ The [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode
 This means when code is source controlled in WSL, VS Code can read, debug and interact with it without workarounds.
 
 In WSL2 it is recommended to always use the remote WSL approach.  A current directory can be opened in VS Code with `code .`.
-
-With WSL1, as source code will be in Windows, depending on the development activity it may be easier to use VS Code in Windows.
 
 ## Turn on signed commits
 
