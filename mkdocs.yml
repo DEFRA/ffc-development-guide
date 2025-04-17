@@ -22,7 +22,7 @@ nav:
       - Add user to sudoers file: local-development-setup/setup-sudoers.md
     - Mac:
       - Setup command line tools: local-development-setup/setup-macos-command-line-tools.md
-      - Mac Setup Scripts: local-development-setup/mac-setup-scripts.md
+      - Mac setup Scripts: local-development-setup/mac-setup-scripts.md
     - Common:
       - Install Docker Desktop: local-development-setup/install-docker-desktop.md
       - Install Docker Compose: local-development-setup/install-docker-compose.md
