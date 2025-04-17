@@ -4,7 +4,7 @@ Prevent committing passwords and other sensitive information to git repositories
 
 The [detect-secrets tool](https://github.com/Yelp/detect-secrets) provides out-of-the-box
 support for scanning git commits for different types of credentials including keywords
-(e.g. 'password' or 'secret'), private SSH keys, and base64 high entropy string.
+(e.g. 'password' or 'secret'), private SSH keys, and base64 high entropy strings.
 
 ## Installation
 ### Install prerequisites
@@ -19,8 +19,8 @@ Install `python` version 3, download the latest version for your operating syste
 - [Mac OS](https://www.python.org/downloads/mac-osx/)
 
  Once downloaded, run the .exe (windows) or .pkg (Mac) file. Follow the on screen prompts, after successful installation run the following commands to confirm Python was successfully installed.
-  - Windows - Open Powershell/Command Prompt and type `python --verison`, it should report the version
-  - Mac Os - Open a Terminal and type `python –version`, it should report the version
+  - Windows - Open Powershell/Command Prompt and type `python --version`, it should report the version
+  - Mac - Open a Terminal and type `python –version`, it should report the version
 
 #### WSL
 
@@ -86,8 +86,3 @@ this document. However, husky provides
 [options](https://www.npmjs.com/package/husky#multiple-commands) and
 [this](https://stackoverflow.com/a/26624598) Stack Overflow post discusses
 another.
-
-## Usage
-
-Refer to the [secrets management guide](../secrets-management.md) for details on dealing
-with `detect-secrets` false positives and excludes.
