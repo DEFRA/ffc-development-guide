@@ -169,7 +169,7 @@ Should access be required, it should be request to an FCP Programme Delivery Man
 
 ## Confluence
 
-Whilst ADO Wiki's are preferred, significant content exists in [Defra Confluence](https://eaflood.atlassian.net/).
+Significant content exists in [Defra Confluence](https://eaflood.atlassian.net/).
 
 New licenses are often challenging to obtain, but should be requested through the `defra-digital.slack.com` Slack workspace in the `#jira-support` channel.
 
