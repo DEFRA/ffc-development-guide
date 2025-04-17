@@ -26,9 +26,9 @@ nav:
     - Common:
       - Install Docker Desktop: local-development-setup/install-docker-desktop.md
       - Install Visual Studio Code: local-development-setup/install-vs-code.md
+      - Install neostandard: local-development-setup/install-neostandard.md
       - Install Node Version Manager (NVM): local-development-setup/install-node-version-manager.md
       - Install .NET SDK: local-development-setup/install-dotnet-sdk.md
-      - Install StandardJs: local-development-setup/install-standard-js.md
       - Install SonarLint: local-development-setup/install-sonarlint.md
       - Install Detect Secrets: local-development-setup/install-detect-secrets.md
       - Install kubectl: local-development-setup/install-kubectl.md
