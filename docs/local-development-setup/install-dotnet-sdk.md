@@ -1,5 +1,7 @@
 # Install .NET SDK
 
+Whilst Node.js is Defra's primary framework, there are use cases where .NET is required.
+
 The .NET SDK is a set of libraries and tools that allow developers to create .NET applications and libraries.
 
 ## Choose version (or use LTS)
