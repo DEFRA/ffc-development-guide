@@ -1,6 +1,9 @@
 # WSL configuration
 
-WSL will automatically mount all Windows drives under the `/mnt/` directory followed by the drive letter.
+When using WSL, repositories should be cloned to the Linux filesystem rather than the Windows filesystem.
+This will result in better performance and compatibility with Linux tools.
+
+Should you need to interact with the Windows filesystem from WSL, all Windows drives will automatically be mounted under the `/mnt/` directory.
 
 For example, the `C:` drive will be accessible on `/mnt/c/`.
 
