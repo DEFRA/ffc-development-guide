@@ -1,12 +1,14 @@
 # Install Windows Subsystem for Linux (WSL)
 
-The Windows Subsystem for Linux (WSL) allows developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
+Windows Subsystem for Linux (WSL) is a feature of Windows that allows you to run a Linux environment on your Windows machine, without the need for a separate virtual machine or dual booting.
+
+WSL is designed to provide a seamless and productive experience for developers who want to use both Windows and Linux at the same time.
 
 [Official Documentation](https://docs.microsoft.com/en-us/windows/wsl/about)
 
 ## WSL1 or WSL2
 
-WSL2 is built using a full Linux kernal and is optimised for size and performance.  It also solves many of the networking and Docker integration challenges that were present in WSL1.
+WSL2 is the default and built using a full Linux kernal and is optimised for size and performance.  It also solves many of the networking and Docker integration challenges that were present in WSL1.
 
 WSL1 requires significantly more manual setup.  The remainder of this guide will assume WSL2 is being used.
 
