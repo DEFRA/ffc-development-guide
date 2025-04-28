@@ -75,3 +75,7 @@ For services deployed to the FCP Platform, instead of creating the new App Regis
 - `DefraCloud` for the `Production` FCP Platform environment
 
 Due to the increased number of tenants utilised by the FCP Platform, there is no need to create multiple App Registrations in a single tenant as Production is already isolated.
+
+## Implementation
+
+An overview of how to implement an App Registration in a Node.js application is included in [Confluence](https://eaflood.atlassian.net/wiki/spaces/SFI/pages/3611951476/Configuring+Node.js+App+with+Azure+Identity+Platform).
