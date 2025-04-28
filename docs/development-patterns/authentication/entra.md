@@ -65,3 +65,13 @@ Once the App Registration has been created, the permissions can be added to the 
 Users can be added to the roles through [a further standard change](https://defragroup.service-now.com/change_request.do?sys_id=-1&sysparm_query=chg_model%3de55d0bfec343101035ae3f52c1d3ae49%5estd_change_producer_version%3dd58d0d9c83771a947b3f5a80ceaad34c&sysparm_link_parent=d401364f1b7861101fd8337f034bcbf9&sysparm_catalog=e0d08b13c3330100c8b837659bba8fb4&sysparm_catalog_view=catalog_Service_Catalog&sysparm_view=catalog_Service_Catalog)
 
 > Project teams typically support the management of their own permissions initially, but longer term, access requests will be managed through the business through ServiceNow.
+
+## FCP Platform
+
+For services deployed to the FCP Platform, instead of creating the new App Registration in the `Defra` tenant, the App Registration should be created in the following tenants for each environment:
+
+- `DefraCloudDev` for the `Development` and `Test` FCP Platform environments
+- `DefraCloudPreProd` for the `Pre-Production` FCP Platform environment
+- `DefraCloud` for the `Production` FCP Platform environment
+
+Due to the increased number of tenants utilised by the FCP Platform, there is no need to create multiple App Registrations in a single tenant as Production is already isolated.
