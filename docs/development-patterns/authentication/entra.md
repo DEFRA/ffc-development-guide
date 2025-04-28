@@ -79,3 +79,9 @@ Due to the increased number of tenants utilised by the FCP Platform, there is no
 ## Implementation
 
 An overview of how to implement an App Registration in a Node.js application is included in [Confluence](https://eaflood.atlassian.net/wiki/spaces/SFI/pages/3611951476/Configuring+Node.js+App+with+Azure+Identity+Platform).
+
+## Configuration rotation
+
+App Registration credentials expire after a set period of time.  This is typically 1 or 2 years.
+
+These credentials should be rotated before they expire and the application reconfigured to use the new credentials.
