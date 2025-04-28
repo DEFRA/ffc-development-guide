@@ -13,6 +13,7 @@ An Azure App Registration is created to represent the application in Microsoft E
 App Registrations should follow a naming convention that is consistent and descriptive and should include the environment.
 
 For example:
+
 - `FCP-Payments-Dev`
 - `FCP-Payments-Prod`
 
@@ -27,6 +28,7 @@ Permissions should follow the principle of least privilege, meaning that users s
 Permissions should follow a naming convention that is consistent and descriptive and follow a dot notation format.
 
 For example:
+
 - `FCP.Payments.View`
 - `FCP.Payments.Create`
 
