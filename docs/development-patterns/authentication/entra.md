@@ -66,6 +66,16 @@ Users can be added to the roles through [a further standard change](https://defr
 
 > Project teams typically support the management of their own permissions initially, but longer term, access requests will be managed through the business through ServiceNow.
 
+#### App registration approval
+
+Once the App Registration has been created, it must be approved by CCoE before it can be used in Production.
+
+Until it is services will receive the following message when attempting to use the App Registration.
+
+![image](./approval-required.png)
+
+> There does not seem to be a standard change for this approval process, so teams should engage with CCoE to discuss how to request this approval.
+
 ## FCP Platform
 
 For services deployed to the FCP Platform, instead of creating the new App Registration in the `Defra` tenant, the App Registration should be created in the following tenants for each environment:
