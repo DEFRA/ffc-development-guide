@@ -2,8 +2,8 @@ site_name: FCP Development Guide
 site_url: https://defra.github.io/ffc-development-guide/
 theme: 
   name: material
-  logo: img/favicon.png
-  favicon: img/favicon.ico
+  logo: img/code-white.png
+  favicon: img/code-black.png
   palette:
     primary: black
 repo_url: https://github.com/DEFRA/ffc-development-guide
