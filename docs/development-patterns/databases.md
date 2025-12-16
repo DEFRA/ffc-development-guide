@@ -2,10 +2,6 @@
 
 PostgreSQL is the preferred database for microservices in the FCP Platform.  This guide describes the process for creating a database for a microservice and configuring the microservice to use it.
 
-## Create Managed Identity for your microservice
-
-If not already configured add [Managed Identity](identity.md) to your microservice
-
 ## Request creation of microservice database
 CCoE are the only team with access to create database within your Azure Database for PostgreSQL in the Sandpit environment.  The name of the database should match the microservice repository name.  Microservices should not share a database.
 
@@ -71,9 +67,7 @@ Replace `<workstream>` and `<service>` as per naming convention described above.
 
 ## Add Docker Compose files to run Liquibase migrations
 
-Add a `docker-compose.migrate.yaml` to the root of the microservice based on [the template provided in resources](../../resources/docker-compose.migrate.yaml).
-
-Replace `<workstream>` and `<service>` as per naming convention described above.
+Add a `docker-compose.migrate.yaml` to the root of the microservice based on [this example](https://github.com/DEFRA/ffc-demo-claim-service/blob/master/docker-compose.migrate.yaml).
 
 ## Update microservice Helm chart
 

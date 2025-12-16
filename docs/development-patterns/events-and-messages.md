@@ -4,10 +4,6 @@ Where possible, service to service communication will be asynchronous using Azur
 
 Depending on the pattern being applied the term `event` or `message` may be more appropriate.  For simplicity, for the remainder of this page, the term `event` will be used to refer to both these definitions.
 
-## Use Azure Service Bus
-
-Services should use Azure Service Bus as an event broker.  This is because the FCP CI pipeline is relatively mature in terms of dynamically provisioning Azure Service Bus infrastructure to support the development cycle and the team have strong experience with it's use.
-
 ## Avoid tight coupling
 
 Services should be as loosely coupled as possible.  This reduces the dependency a change in one service could have on related services.
@@ -22,25 +18,7 @@ When sending an event to Azure Service Bus, it will be decorated by default brok
 
 [CloudEvents.io](https://cloudevents.io/) is a specification for describing event data in a common way and should be considered if it is appropriate for the use case.
 
-### Mandatory custom properties
-
-All FCP events from any service must also declare the following custom properties when publishing an event.
-
-- `type` - the type of event, this should be prefixed with reverse DNS and describe the object and event occurring on that object in the format:
-`<reverse DNS>.ffc.<object>.<event>`. 
-  For example, `uk.gov.ffc.demo.claim.validated`
-- `source` - the service the event originated from, eg `ffc-demo-web`
-- `subject (optional)` - the subject which will give consumers context, for example when the body cannot be consistently read or contains blob data
-
-These additional properties are based on values included in the [CloudEvents](https://cloudevents.io/) specification that are not included in the Azure Service Bus envelope.  Refer to the Cloud Events specification for further examples of their usage.
-
-## Authentication
-
-A [Managed Identity](identity.md) should used to authenticate microservices with Service Bus when it is deployed to Azure.  However, for local development outside of Kubernetes, a connection string can be used.
-
-An [`ffc-messaging`](https://www.npmjs.com/package/ffc-messaging) npm package has been created to simplify this setup for teams.
-
-## Local development
+## Local development with Azure Service Bus
 
 Until recently, Azure Service Bus [did not have an official emulator](https://github.com/Azure/azure-service-bus/issues/223), however [one has now been released](https://mcr.microsoft.com/en-us/artifact/mar/azure-messaging/servicebus-emulator/about)
 

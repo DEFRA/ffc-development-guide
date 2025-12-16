@@ -13,8 +13,6 @@ Typically a cache is needed to work with a web server such as [Hapi.js](https://
 
 Hapi server-side caching uses the [catbox](https://hapi.dev/module/catbox/) interface to abstract away the underlying caching technology being used (e.g. memory, Redis, Memcached).
 
-![redis-hapi](redis-hapi.png "redis-hapi")
-
 There are three main concepts to Hapi server-side caching:
 * The cache **strategy** (or provider): is the underlying caching technology being employed. Here [catbox-redis](https://github.com/hapijs/catbox-redis), the Redis adapter for catbox, is the strategy.
 * The cache **client**: is the low-level cache abstraction, and is initialised using a cache stragegy (e.g. memory or Redis). **Hapi initialises an in-memory cache client by default**, and you can create additional cache clients using the same or different strategies (e.g. you can have one in-memory cache, and one Redis cache).

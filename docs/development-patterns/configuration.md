@@ -1,5 +1,7 @@
 # Configuration and secrets
 
+> The following guidance is only applicable for teams using the FCP Platform.  CDP has its own approach to [configuration](https://portal.cdp-int.defra.cloud/documentation/how-to/config.md) and [secrets](https://portal.cdp-int.defra.cloud/documentation/how-to/secrets.md).
+
 Non sensitive application configuration data is persisted in the [Platform repository](https://dev.azure.com/defragovuk/DEFRA-FFC/_git/DEFRA-FFC-PLATFORM) for all environments other than Sandpit.
 
 For Sandpit, [Azure Application Configuration](https://azure.microsoft.com/en-gb/services/app-configuration/) is used.

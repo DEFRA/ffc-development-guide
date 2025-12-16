@@ -49,7 +49,6 @@ nav:
     - Containers: development-patterns/containers.md
     - Helm charts: development-patterns/helm-charts.md
     - Health probes: development-patterns/probes.md
-    - Identity: development-patterns/identity.md
     - Configuration and secrets: development-patterns/configuration.md
     - Events and messages: development-patterns/events-and-messages.md
     - Databases: development-patterns/databases.md
