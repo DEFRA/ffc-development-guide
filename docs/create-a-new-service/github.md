@@ -6,7 +6,7 @@ Scenarios where open source is not appropriate are rare and must be approved by 
 
 All source code is hosted in the [DEFRA GitHub Organisation](https://github.com/DEFRA)
 
-Repositories should contain a single microservice/application.  Monorepos are not supported by CI pipeline.
+Repositories should contain a single microservice/application.  Monorepos are not supported by either CDP or the FCP Platform.
 
 ## Naming conventions
 
@@ -26,21 +26,23 @@ Following this naming convention helps understand ownership of repositories, avo
 
 ## Creating a new repository
 
+Teams using CDP should follow the [CDP documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/microservices.md) to create a new repository.
+
+For teams using the FCP Platform, a new repository can be created directly within the DEFRA GitHub organisation.
+
 When creating a new repository intended for a Node.js application, the repository can be based on the [ffc-template-node](https://github.com/DEFRA/ffc-template-node) template repository.  
 
 The template includes everything needed to get a minimal Node.js application up and running with CI/CD pipelines and follows all FCP structure and naming conventions.  Once created follow the instructions in the `README.md` file to rename the assets contained within.
 
 > For .NET there is no template repository, however, this [demo repository](https://github.com/DEFRA/ffc-demo-payment-service-core) can be used for guidance.
 
-Due to the GitHub permission model, only certain users can create new repositories.  If you are unable to create a new repository, please contact a Principal Developer or ask in Slack channel `#github-support`.
+Due to the GitHub permission model, only certain users can create new repositories.  If you are unable to create a new repository, please ask in Slack channel `#github-support`.
 
 ## Repository setup
 
 ### Update access
 
-All repositories should be setup to allow access to the FCP team.  This is done by adding the [`ffc`](https://github.com/orgs/DEFRA/teams/ffc) team with `Write` access to the repository.
-
-> For scenarios where it may not be appropriate to add the FCP team, note that the [`ffcplatform`](https://github.com/orgs/DEFRA/people/ffcplatform) user account should be added with `Write` access to allow the CI pipeline to function correctly.
+All repositories using the FCP Platform need the [`ffcplatform`](https://github.com/orgs/DEFRA/people/ffcplatform) user account to be added with `Write` access to allow the FCP Platform CI pipeline to function correctly.
 
 ### Branch policies
 
@@ -54,35 +56,6 @@ Teams can extend branch policies to fit their needs, however, the following are 
 
 > For prototype and spike repositories, the branch policy can be relaxed to allow direct commits to the `main` branch.
 
-### Secret scanning
-
-All developers are required to [install Detect Secrets](../local-development-setup/install-detect-secrets.md).
-
-When setting up a new repository, it needs to be configured to work with the client-side `detect-secrets` tool:
-
-> Note that if the repository was created from the [ffc-template-node](https://github.com/DEFRA/ffc-template-node) template repository, this configuration will already be in place.
-
-1. Add the configuration file called `.pre-commit-config.yaml` to the repository root directory with the following contents:
-
-```yaml
-repos:
-- repo: https://github.com/Yelp/detect-secrets
-  rev: v0.14.3
-  hooks:
-  - id: detect-secrets
-    args: ['--baseline', '.secrets.baseline']
-```
-
-2. Create and add the baseline file. To exclude files from the `detect-secrets` scan, run with `--exclude-files <regex>`. Examples:
-
-```bash
-detect-secrets scan > .secrets.baseline
-```
-
-```bash
-detect-secrets scan --exclude-files package-lock.json > .secrets.baseline
-```
-
 ### Licence
 
 The Open Government Licence (OGL) Version 3 should be added to the repository.  Example content is below.
@@ -90,7 +63,7 @@ The Open Government Licence (OGL) Version 3 should be added to the repository.  
 ```
 The Open Government Licence (OGL) Version 3
 
-Copyright (c) 2024 Defra
+Copyright (c) 2026 Defra
 
 This source code is licensed under the Open Government Licence v3.0. To view this
 licence, visit www.nationalarchives.gov.uk/doc/open-government-licence/version/3
@@ -100,13 +73,13 @@ Surrey, TW9 4DU.
 
 ### `Jenkinsfile`
 
-In order to use the CI pipeline, a `Jenkinsfile` should be added to the repository.  This file references the version of the shared pipeline to use and sets the parameters for the build.
+In order to use the FCP Platform CI pipeline, a `Jenkinsfile` should be added to the repository.  This file references the version of the shared pipeline to use and sets the parameters for the build.
 
 Details on the content of the `Jenkinsfile` can be found in the [FCP CI pipeline documentation](https://github.com/DEFRA/ffc-jenkins-pipeline-library)
 
 ### Webhooks
 
-In order to support the CI/CD pipeline, the following webhooks should be added to the repository.
+In order to support the FCP Platform CI/CD pipeline, the following webhooks should be added to the repository.
 
 1. navigate to `Settings -> Webhooks -> Add webhook`
 1. set `Payload URL` to be `https://jenkins-ffc-api.azure.defra.cloud/github-webhook/`
@@ -115,17 +88,17 @@ In order to support the CI/CD pipeline, the following webhooks should be added t
 1. set the `Pull requests` and `Pushes` events to trigger the webhook
 1. select `Add webhook`
 
-## SonarCloud
+## SonarQube Cloud
 
-### Configure SonarCloud
+### Configure SonarQube Cloud
 
 > This step should be performed before running a build or you may end up with duplicate projects.
 
-1. navigate to the Defra organisation within [SonarCloud](https://sonarcloud.io/organizations/defra/projects?sort=analysis_date)
+1. navigate to the Defra organisation within [SonarQube Cloud](https://sonarcloud.io/organizations/defra/projects?sort=analysis_date)
 1. select `Analyze new project`
 1. select repository to analyse
 1. select `Set Up`
-1. select `Administration -> Update key` and ensure key matches the name of the repository, removing the `DEFRA_` prefix, for example, `ffc-pay-enrichment`
+1. (FCP Platform only) select `Administration -> Update key` and ensure key matches the name of the repository, removing the `DEFRA_` prefix, for example, `ffc-pay-enrichment`
 1. select `Administration -> Analyse Method` and disable Automatic Analysis
 
 > The default Defra Quality gates and language rules should not be changed.  Some existing projects may be using the default "Sonar Way" gates.  The expectation is that teams should be working towards changing these to the Defra Quality gates.
@@ -138,4 +111,4 @@ A [Snyk](https://app.snyk.io/) scan is run as part of the CI pipeline. By defaul
 1. select `Add project`
 1. select the repository to scan
 
-
+> Note: Due to Defra's SSO setup, new projects cannot be added to the Snyk organisation.

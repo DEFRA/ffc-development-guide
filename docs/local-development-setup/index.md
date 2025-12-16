@@ -14,7 +14,7 @@ Regardless of the device origin, all developers are expected to adhere to Defra'
 
 ## Operating systems
 
-The most common operating systems is Windows with [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about) Ubuntu distro or a Mac.
+The most common operating systems is Windows with [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about) Ubuntu distro or macOS.
 
 [Visual Studio Code](https://code.visualstudio.com/) is the most popular code editor used within Defra.  However, developers are free to use any compatible equivalent if it aides in their productivity.
 

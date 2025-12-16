@@ -1,6 +1,6 @@
 # Repository conventions
 
-Repositories should be setup with the following conventions to ensure consistency and to ensure the CI pipeline functions correctly.
+For teams using the FCP Platform, repositories should be setup with the following conventions to ensure consistency and to ensure the CI pipeline functions correctly.
 
 ## Structure
 
@@ -17,9 +17,7 @@ The following structure should be adhered to for all repositories.  Note that no
     - Scripts to support local development and testing
   - `.dockerignore`
   - `.gitignore`
-  - `.pre-commit-config.yaml`
   - `.snyk`
-  - `secrets.baseline`
   - `Dockerfile`
   - `Jenkinsfile`
   - `LICENCE`

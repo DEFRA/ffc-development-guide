@@ -1,5 +1,7 @@
 # Setup an Azure DevOps CD pipeline
 
+> The following steps are only applicable for teams using the FCP Platform.  CD capability is automatically scaffolded for teams using CDP.
+
 Common Azure DevOps (ADO) pipeline definitions [have been created](https://dev.azure.com/defragovuk/DEFRA-FFC/_build) and can be reused to deploy services to the various environments.
 
 These pipelines are responsible for not only deploying applications, but for provisioning and configuring the Azure environments the service run in.

@@ -1,10 +1,10 @@
-# Install SonarQube
+# Install SonarQube for IDE
 
 SonarQube Cloud is a cloud-based code quality and security analysis platform that helps developers identify and fix issues in their code. It provides a comprehensive set of tools for analyzing code quality, including static code analysis, code coverage, and security vulnerability detection.
 
 All Defra projects are required to setup their repositories within the SonarQube Cloud [Defra organisation](https://sonarcloud.io/organizations/defra/projects)
 
-[SonarQube IDE](https://www.sonarsource.com/products/sonarlint/) is an IDE extension that identifies code quality issues as you code.
+[SonarQube for IDE](https://www.sonarsource.com/products/sonarlint/) is an IDE extension that identifies code quality issues as you code.
 
 ## Dependencies
 

@@ -1,5 +1,7 @@
 # Setup a Jenkins CI pipeline
 
+> The following steps are only applicable for teams using the FCP Platform.  CI capability is automatically scaffolded for teams using CDP.
+
 Assuming the repository has been [configured correctly](github.md), including setup of [SonarCloud](https://sonarcloud.io/) and [Snyk](https://app.snyk.io/), the following steps should be followed to setup a Jenkins CI pipeline.
 
 ## Create bounded context folder
