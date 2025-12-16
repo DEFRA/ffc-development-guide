@@ -10,6 +10,10 @@ FCP services should use Defra Identity with a Rural Payments account.  This is b
 
 > Defra Identity only supports external user authentication and cannot be used for internal users.
 
+## Example
+
+An example repository has been created to demonstrate how to implement Defra Identity in an FCP service.  The repository can be found [in GitHub](https://github.com/DEFRA/fcp-defra-id-example)
+
 ## Credentials
 
 When users sign in with a Rural Payments account, they input their Customer Reference Number (CRN) and password.  
