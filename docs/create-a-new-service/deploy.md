@@ -39,7 +39,7 @@ Teams across the FCP typically follow the below process.
 
 Individual delivery teams are free to add their own processes on top of these core values to best fit their context.
 
-## Process for change
+## Route to live
 
 > This applies equally to a new feature or bug fix.
 
@@ -58,3 +58,5 @@ Individual delivery teams are free to add their own processes on top of these co
 1. Release Management notified of deployment time and resource need
 1. developer deploys to Production environment
 1. change request is closed once deployment is verified
+
+![Route to live](../img/fcp-route-to-live.png)
