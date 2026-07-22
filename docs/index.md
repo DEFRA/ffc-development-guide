@@ -1,5 +1,12 @@
 # Farming and Countryside Programme (FCP) Development Guide
 
+> **⚠️ This guide is archived**
+>
+> The FCP Development Guide is no longer actively maintained.
+>
+> - For Defra's software development standards and guides, see the [Software Development Standards](https://defra.github.io/software-development-standards/).
+> - New services should be delivered on the [Core Delivery Platform (CDP)](https://portal.cdp-int.defra.cloud/documentation/README.md).
+
 This is a repository of standards and supporting guidance for all software developers working within the Farming and Countryside Programme (FCP).
 
 The purpose of the standards are to ensure that delivery supports the Architecture Vision set out by the programme and better enable developer agility and mobility through consistent patterns and practices.
